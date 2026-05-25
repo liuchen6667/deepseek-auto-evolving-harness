@@ -8,7 +8,7 @@
 
 ### 分数进步曲线
 
-![Evolution Scores](evolution_scores.png)
+![Evolution Scores](auto_evolving_scores.png)
 
 ### 关键数据对比
 

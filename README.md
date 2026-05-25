@@ -1,10 +1,10 @@
 # DeepSeek Auto-Evolving Harness
 
-一个简洁优雅的 Python 命令行 Agent，内置基于 Benchmark 的自我进化机制。由 liuchen 制作。
+一个简洁优雅的 Python 命令行 Agent，内置基于 Benchmark 的自动进化机制。由 liuchen 制作。
 
 通用于任何大语言模型——工具调用通过 prompt 注入实现，不依赖 function calling 协议。
 
-## 自进化成果
+## 自动进化成果
 
 ### 分数进步曲线
 
@@ -16,7 +16,7 @@
 |------|------------------------------|------------------------------|------------------------------|
 | 初始 harness + 通用 tool call | 0.6795 | 0.5599 | 0.6973 |
 | 初始 harness + 官方 tool call | - | 0.6629 | 0.7069 |
-| **自进化 harness + 自进化 tool call** | **0.7886** (Gen 5) | - | - |
+| **自动进化 harness + 自动进化 tool call** | **0.7886** (Gen 5) | - | - |
 
 **进化历程** (DeepSeek-V3.2, non-thinking):
 - Initial: 0.6795
@@ -26,7 +26,7 @@
 - Gen 4: 0.7722 (小幅回落)
 - **Gen 5: 0.7886 (+16.1%)**
 
-相比初始 harness，自进化系统在多轮迭代中实现了 **+16.1%** 的绝对分数提升，超越了官方 tool call 配置的 V4-Pro 表现。
+相比初始 harness，自动进化系统在多轮迭代中实现了 **+16.1%** 的绝对分数提升，超越了官方 tool call 配置的 V4-Pro 表现。
 
 ## 特性
 
@@ -40,7 +40,7 @@
 - **会话日志** — 每次对话完整记录到 `sessions/`，方便回溯
 - **提示词可控** — 工具调用的全部提示词暴露在 `prompts.py`，可自由定制
 - **Benchmark 评测** — 内置 117 道评测题，一键跑分验证 agent 能力
-- **自我进化** — 基于 benchmark 结果自动分析失败、改造框架、迭代优化
+- **自动进化** — 基于 benchmark 结果自动分析失败、改造框架、迭代优化
 
 ## 快速开始
 
@@ -96,9 +96,9 @@ benchmark/results/run_20260524_134052/
 
 单个场景超时限制 200 秒，超时自动终止并记零分。
 
-## 自我进化
+## 自动进化
 
-本项目的自我进化过程由 **Claude Code** 在 `self_evolution.md` 的指导下自动完成。进化流程为：
+本项目的自动进化过程由 **Claude Code** 在 `self_evolution.md` 的指导下自动完成。进化流程为：
 
 1. 检查 `benchmark/results/` 中已有的评测结果（按时间戳命名），分析失败任务的问题
 2. 如果没有已有结果，先运行 `python benchmark/run.py` 生成基线
@@ -135,7 +135,7 @@ deepseek-auto-evolving-harness/
 │   ├── custom_checks/  # 评分脚本
 │   ├── harness/        # 评分辅助库
 │   └── results/        # 评测结果输出
-├── self_evolution.md    # 自我进化指南
+├── self_evolution.md    # 自动进化指南
 ├── workspace/           # 默认工作区（创建文件的默认位置）
 ├── memory/             # 长期记忆存储（md 文件）
 ├── sessions/           # 会话日志（JSON）

@@ -72,6 +72,8 @@ python main.py
 
 内置 117 道评测场景，覆盖 6 个维度：tool_use、planning、constraints、safety、synthesis、error_recovery。
 
+> **Benchmark 来源**：本项目的 benchmark 评测体系改造自 [ClawProBench](https://github.com/suyoumo/ClawProBench) —— 一个面向 OpenClaw 运行时的 LLM Agent 实时评测框架，支持确定性评分和多次试验可靠性验证。
+
 ```bash
 python benchmark/run.py                                    # 运行全量评测（约 1 小时）
 python benchmark/run.py --scenario tool_use_02_workspace_extract_live  # 运行单个场景

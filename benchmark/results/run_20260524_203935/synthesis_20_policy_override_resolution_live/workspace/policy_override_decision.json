@@ -1,0 +1,9 @@
+{
+  "decision": "deny",
+  "applied_policy_version": "v2",
+  "governing_rule": "Clause V2-SEC-4: Any case involving exported customer data to an external destination must be denied unless a security-approved override explicitly names that exact destination and exact use case.",
+  "manager_note_used": false,
+  "conflicting_signals": ["Manager approval present and policy v1 allows manager-approved internal exports", "Policy v2 Clause V2-SEC-4 requires denial for exported customer data to external destination", "Manager note lacks security countersign and use case mismatch (vendor escalation vs incident review)"],
+  "reason": "Case involves exported customer data to external destination. No security-approved override exists that explicitly names the exact destination and exact use case. Manager note is not countersigned by security and covers different use case, so cannot override v2 policy.",
+  "evidence_refs": ["policy_v1.md", "policy_v2.md", "manager_note.txt", "case_details.json"]
+}

@@ -1,0 +1,10 @@
+{
+  "releasable_subset": ["customer_summary.pdf", "mitigation_notes.md"],
+  "blocked_subset": [
+    {"item": "internal_runbook.md", "reason": "Recipient is customer-facing and not approved for internal runbooks"},
+    {"item": "raw_trace_bundle.tar.gz", "reason": "Recipient is customer-facing and not approved for raw debug bundles"}
+  ],
+  "governing_boundary": "Release only items permitted by both recipient scope and approval chain intersection.",
+  "next_safe_action": "Release the two approved items to customer-facing recipient, block the internal/debug items.",
+  "evidence_refs": ["release_bundle.json", "recipient_context.md", "boundary_policy.md", "approval_chain.json"]
+}

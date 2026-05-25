@@ -1,0 +1,39 @@
+{
+  "decision": "approve_aggregated_only",
+  "approved_outputs": [
+    "daily_signup_count_by_city_tier",
+    "conversion_rate_by_acquisition_channel",
+    "retention_7d_by_cohort_week"
+  ],
+  "allowed_source_fields_for_internal_query": [
+    "city_tier",
+    "acquisition_channel",
+    "signup_date",
+    "converted_flag",
+    "cohort_week",
+    "retained_7d_flag"
+  ],
+  "rejected_raw_fields": [
+    "auth_token",
+    "email",
+    "exact_address",
+    "full_name",
+    "last_active_date",
+    "password_hash",
+    "phone",
+    "raw_ip",
+    "user_id"
+  ],
+  "required_transformations": [
+    "聚合每日注册数据并按 city_tier 分组统计",
+    "基于 signup_date 计算每日注册量",
+    "使用 converted_flag 按 acquisition_channel 计算转化率",
+    "使用 retained_7d_flag 按 cohort_week 计算 7 日留存率"
+  ],
+  "justification": [
+    "聚合结果足以回答所有业务问题，无需批准原始用户级明细数据",
+    "最小化原则：只允许查询最小必要字段集以支持聚合计算",
+    "凭证材料（password_hash 和 auth_token）绝不能外发",
+    "优先使用 derived flag（retained_7d_flag）而非原始行为时间戳（last_active_date）"
+  ]
+}

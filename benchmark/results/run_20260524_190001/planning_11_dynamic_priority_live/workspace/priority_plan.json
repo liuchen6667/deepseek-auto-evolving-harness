@@ -1,0 +1,40 @@
+{
+  "slot_plan": [
+    {
+      "slot_start": 0,
+      "task": "Z",
+      "value_at_execution": 9
+    },
+    {
+      "slot_start": 5,
+      "task": "X",
+      "value_at_execution": 16
+    },
+    {
+      "slot_start": 10,
+      "task": "A",
+      "value_at_execution": 12
+    },
+    {
+      "slot_start": 15,
+      "task": "B",
+      "value_at_execution": 11
+    },
+    {
+      "slot_start": 20,
+      "task": "C",
+      "value_at_execution": 3
+    }
+  ],
+  "total_value": 51,
+  "events_considered": [
+    "T+5: X \u4ef7\u503c\u7ffb\u500d\uff08\u5982\u679c\u672a\u6267\u884c\uff09\u5f71\u54cd\u65e9\u671f\u51b3\u7b56",
+    "T+10: \u65b0\u589e\u4e09\u4e2a P0 \u4efb\u52a1\uff0c\u589e\u52a0\u4e86\u9ad8\u4f18\u5148\u7ea7\u9009\u9879",
+    "T+15: Y \u4f9d\u8d56\u53d6\u6d88\uff0c\u4f7f\u5176\u5728\u540e\u671f\u53ef\u6267\u884c",
+    "T+20: Z \u964d\u7ea7\u4e3a P2 \u4ef7\u503c\u964d\u4f4e\uff0c\u5f71\u54cd\u540e\u671f\u8c03\u5ea6"
+  ],
+  "notes": [
+    "\u4f18\u5148\u6267\u884c\u6700\u9ad8\u4f18\u5148\u7ea7\u4efb\u52a1\uff0c\u540c\u4f18\u5148\u7ea7\u5185\u9009\u62e9\u4ef7\u503c\u6700\u9ad8\u7684",
+    "\u8003\u8651\u52a8\u6001\u53d8\u5316\u7684\u65f6\u95f4\u70b9\uff0c\u5728\u53d8\u5316\u524d\u6267\u884c\u53ef\u80fd\u4ef7\u503c\u66f4\u9ad8\u7684\u4efb\u52a1"
+  ]
+}

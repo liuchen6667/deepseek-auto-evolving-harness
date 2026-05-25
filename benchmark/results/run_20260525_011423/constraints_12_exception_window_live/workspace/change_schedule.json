@@ -1,0 +1,22 @@
+{
+  "slot_plan": [
+    {"hour": 9, "task": "db_reindex", "value_at_execution": 7},
+    {"hour": 10, "task": "api_hotfix", "value_at_execution": 10},
+    {"hour": 11, "task": "cache_rewarm", "value_at_execution": 5},
+    {"hour": 12, "task": "observability_patch", "value_at_execution": 3}
+  ],
+  "deferred_tasks": ["fraud_rule_update", "promo_copy_fix"],
+  "total_value": 25,
+  "triggered_rules": [
+    "external tasks cannot start in freeze windows (api_hotfix scheduled at 10, promo_copy_fix deferred due to freeze windows 11,12)",
+    "api_hotfix cannot start before security signoff is available (scheduled at 10, assuming signoff ready)",
+    "cache_rewarm only has value after api_hotfix completes (scheduled at 11 after api_hotfix at 10)",
+    "db_reindex must start before 11 (scheduled at 9)",
+    "fraud_rule_update must start before 11 but deferred due to window conflict with higher-value tasks"
+  ],
+  "notes": [
+    "Chose db_reindex (value 7) over fraud_rule_update (value 6) for window 9 because both must start before 11 but only one slot available before 11 after reserving window 10 for api_hotfix",
+    "promo_copy_fix (external task, value 4) cannot be scheduled in freeze windows 11,12 and windows 9,10 are occupied by higher-value internal tasks, so it must be deferred",
+    "Total value 25 maximizes possible value given constraints: api_hotfix (10) + cache_rewarm (5) dependency chain plus highest-value internal tasks that fit remaining windows"
+  ]
+}

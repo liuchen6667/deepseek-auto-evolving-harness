@@ -1,0 +1,7 @@
+{
+  "incident_id": "INC-4821",
+  "affected_customers": ["C104", "C203", "C341"],
+  "highest_severity": "critical",
+  "source_files": ["./logs/billing/alerts.log", "./logs/checkout/app-2026-03-20.log"],
+  "evidence_count": 4
+}

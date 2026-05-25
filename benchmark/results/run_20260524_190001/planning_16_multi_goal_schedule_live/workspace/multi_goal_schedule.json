@@ -1,0 +1,25 @@
+{
+  "selected_plan": ["plan_beta", "plan_gamma", "plan_alpha"],
+  "rejected_plans": [
+    {"plan": "plan_delta", "reason": "Does not optimally address customer commitment protection compared to selected plans"},
+    {"plan": "plan_epsilon", "reason": "Resource allocation would compromise higher-priority objectives"}
+  ],
+  "resource_allocation": [
+    {"window": "w1", "task": "plan_beta"},
+    {"window": "w1", "task": "plan_beta"},
+    {"window": "w1", "task": "plan_beta"},
+    {"window": "w1", "task": "plan_beta"},
+    {"window": "w2", "task": "plan_gamma"},
+    {"window": "w2", "task": "plan_gamma"},
+    {"window": "w2", "task": "plan_gamma"},
+    {"window": "w3", "task": "plan_alpha"},
+    {"window": "w3", "task": "plan_alpha"}
+  ],
+  "governing_objective": "protect customer commitment",
+  "rationale": [
+    "Objective priority: plan_beta directly addresses the highest-priority goal of protecting customer commitment, followed by plan_gamma for revenue recovery and plan_alpha for ops cleanup",
+    "Resource fit: The allocation utilizes all available CPU windows (w1:4, w2:3, w3:2) without exceeding limits, ensuring efficient resource utilization",
+    "Tradeoff: This sequence sacrifices plan_delta and plan_epsilon to focus resources on the most critical objectives, accepting some opportunity cost for optimal alignment with business priorities"
+  ],
+  "evidence_refs": ["business_objectives.md", "resource_limits.json", "work_items.json", "planning_contract.json"]
+}

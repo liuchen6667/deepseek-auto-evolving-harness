@@ -1,0 +1,72 @@
+{
+  "id": "oib5_t25_etl_pipeline",
+  "score": 0.6039603960396039,
+  "passed": true,
+  "checkpoints": {
+    "etl_exists": {
+      "score": 0.01,
+      "max": 0.01,
+      "detail": "etl.py exists"
+    },
+    "rerun_success": {
+      "score": 0.02,
+      "max": 0.02,
+      "detail": "rerun created output/ artifacts"
+    },
+    "repeatable_with_existing_output": {
+      "score": 0.0,
+      "max": 0.03,
+      "detail": "rerun with existing output changed artifacts"
+    },
+    "clean_rows_exact": {
+      "score": 0.0,
+      "max": 0.06,
+      "detail": "0/11 clean rows match expected values"
+    },
+    "joins_and_normalization": {
+      "score": 0.06,
+      "max": 0.06,
+      "detail": "joined names and normalized dates"
+    },
+    "no_duplicates": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "unique sale_ids only"
+    },
+    "quality_report": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "5/5 quality fields exact"
+    },
+    "variant_generalization": {
+      "score": 0.048,
+      "max": 0.12,
+      "detail": "2/5 hidden-variant rows exact (rerun created output/ artifacts; 5/5 quality fields exact)"
+    },
+    "variant_quality_report": {
+      "score": 0.08,
+      "max": 0.08,
+      "detail": "5/5 hidden-variant quality fields exact"
+    },
+    "edge_variant_generalization": {
+      "score": 0.024,
+      "max": 0.12,
+      "detail": "1/5 hidden edge-variant rows exact (rerun created output/ artifacts; 4/5 quality fields exact)"
+    },
+    "edge_variant_quality_report": {
+      "score": 0.128,
+      "max": 0.16,
+      "detail": "4/5 hidden edge-variant quality fields exact"
+    },
+    "stress_variant_generalization": {
+      "score": 0.02,
+      "max": 0.1,
+      "detail": "1/5 hidden stress-variant rows exact (rerun created output/ artifacts; 4/5 quality fields exact)"
+    },
+    "stress_variant_quality_report": {
+      "score": 0.12,
+      "max": 0.15,
+      "detail": "4/5 hidden stress-variant quality fields exact"
+    }
+  }
+}

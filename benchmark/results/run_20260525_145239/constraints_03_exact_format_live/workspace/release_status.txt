@@ -1,0 +1,3 @@
+STATUS: HOLD
+RISK: medium
+REASON: Release day Sat not in Mon-Fri; open bugs 2 > 0 allowed

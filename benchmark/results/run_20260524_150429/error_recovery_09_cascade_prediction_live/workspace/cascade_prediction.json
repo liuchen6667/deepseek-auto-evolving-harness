@@ -1,0 +1,19 @@
+{
+  "direct_impacts": ["B", "C", "F", "G", "H"],
+  "indirect_impacts": ["A"],
+  "risk_levels": {
+    "A": "high",
+    "B": "high",
+    "C": "medium",
+    "D": "low",
+    "E": "low",
+    "F": "high",
+    "G": "medium",
+    "H": "medium"
+  },
+  "recovery_priority": ["D", "E", "B", "F", "C", "G", "H", "A"],
+  "notes": [
+    "关键传播链路：D停机直接影响B和F，进而通过B影响A；E降级直接影响C、G、H，进而通过C影响A",
+    "缓解思路：优先恢复D以解除对B和F的停机影响，然后恢复E以改善C、G、H的性能降级问题"
+  ]
+}

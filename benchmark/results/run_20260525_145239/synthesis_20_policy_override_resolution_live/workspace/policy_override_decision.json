@@ -1,0 +1,9 @@
+{
+  "decision": "deny",
+  "applied_policy_version": "v2",
+  "governing_rule": "Clause V2-SEC-4: Any case involving exported customer data to an external destination must be denied unless a security-approved override explicitly names that exact destination and exact use case.",
+  "manager_note_used": false,
+  "conflicting_signals": ["Manager note provides approval for export to 'analytics sandbox mirror' for 'incident review tied to fraud-model drift'", "Case destination 'analytics sandbox mirror eu' is external and contains exported customer data, triggering V2-SEC-4 denial", "Manager note lacks security countersign, so V2-SEC-5 ensures v2 policy takes precedence"],
+  "reason": "The case involves exported customer data to an external destination. V2-SEC-4 mandates denial unless a security-approved override names the exact destination and use case. The manager note is not countersigned by security, so V2-SEC-5 ensures v2 policy prevails. The note's approved destination ('analytics sandbox mirror') and use case ('incident review tied to fraud-model drift') do not exactly match the case's 'analytics sandbox mirror eu' and 'vendor escalation', failing the override condition.",
+  "evidence_refs": ["policy_v1.md", "policy_v2.md", "manager_note.txt", "case_details.json"]
+}

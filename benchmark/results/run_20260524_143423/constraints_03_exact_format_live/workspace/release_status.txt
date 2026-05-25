@@ -1,0 +1,3 @@
+STATUS: HOLD
+RISK: medium
+REASON: Release day Sat not allowed (allowed: Mon-Fri), bug count 2 exceeds max 0, risk score 4 (major impact x2)

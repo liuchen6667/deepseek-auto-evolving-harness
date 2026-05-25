@@ -1,0 +1,9 @@
+{
+  "launch_decision": "hold",
+  "primary_blocker": "checkout_e2e gate failing due to null pointer in checkout after hotfix",
+  "blocker_class": "code_regression",
+  "supporting_evidence": ["checkout_e2e gate status: fail with detail: null pointer in checkout after hotfix", "open P0 bug: Null pointer after hotfix when address2 is empty in checkout component", "Launch plan rule: all required release gates are passing"],
+  "recommended_next_action": "Fix the null pointer regression and rerun checkout_e2e gate",
+  "confidence": "high",
+  "evidence_refs": ["ci_summary.json", "bug_tracker.json", "launch_plan.md", "ops_incidents.json"]
+}

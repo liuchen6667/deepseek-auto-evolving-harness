@@ -1,0 +1,18 @@
+{
+  "winning_hypothesis": "hyp_a",
+  "rejected_hypotheses": [
+    {"hypothesis": "hyp_b", "reason": "vendor outage notice posted after internal errors started (E3, E4), violating rule 1: trigger cannot happen after incident onset"},
+    {"hypothesis": "hyp_c", "reason": "error growth stopped immediately after rollback (E2), violating rule 2: rollback-correlated recovery cannot be treated as irrelevant"}
+  ],
+  "conflict_chain": [
+    "Three hypotheses compete to explain the incident: hyp_a (internal parser regression), hyp_b (vendor outage), hyp_c (unrelated self-resolution)",
+    "Counterfactual rules exclude hyp_b (vendor notice too late) and hyp_c (rollback timing relevant)",
+    "Only hyp_a remains, satisfying temporal order and direct evidence"
+  ],
+  "negative_evidence": [
+    "no_vendor_degraded_notice_before_10_05",
+    "rollback_started_and_error_growth_stopped"
+  ],
+  "governing_rule": "Reject any hypothesis that treats a rollback-correlated recovery as irrelevant if the error growth stops immediately after rollback",
+  "evidence_refs": ["E1", "E2", "E3", "E4"]
+}

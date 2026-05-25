@@ -1,0 +1,18 @@
+{
+  "accepted_schedule": [
+    {"window": "w1", "request": "req_a"},
+    {"window": "w2", "request": "req_c"}
+  ],
+  "rejected_requests": [
+    {"request": "req_b", "reason": "w1 has no exception slot"},
+    {"request": "req_d", "reason": "exception slot consumption prevents standard slot usage due to shared overflow budget"},
+    {"request": "req_e", "reason": "fails base eligibility check"}
+  ],
+  "constraint_chain": ["capacity_check", "exception_enablement", "priority_ordering"],
+  "governing_exception": "w2_priority_exception_only",
+  "unused_capacity": [
+    {"window": "w1", "remaining": 0},
+    {"window": "w2", "remaining": 1}
+  ],
+  "evidence_refs": ["requests.json", "resource_windows.md", "exception_rules.json", "selection_contract.txt"]
+}

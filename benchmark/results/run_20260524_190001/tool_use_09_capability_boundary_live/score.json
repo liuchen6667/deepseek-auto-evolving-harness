@@ -1,0 +1,57 @@
+{
+  "id": "tool_use_09_capability_boundary_live",
+  "score": 0.53,
+  "passed": true,
+  "checkpoints": {
+    "capability_report_exists": {
+      "score": 0.04,
+      "max": 0.04,
+      "detail": "capability_report.json exists"
+    },
+    "analysis_result_exists": {
+      "score": 0.04,
+      "max": 0.04,
+      "detail": "analysis_result.json exists"
+    },
+    "inputs_are_present": {
+      "score": 0.04,
+      "max": 0.04,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "capability_report_is_valid_json": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "capability_report.json parsed successfully"
+    },
+    "boundaries_are_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "capability_boundaries={'read_limit_mb': 9, 'read_failure_starts_at_mb': 10, 'safe_exec_batch_mb': 18, 'exec_failure_starts_at_mb': 20, 'memory_limit_gb': 0.75, 'recommended_sample_shards': ['dataset/shard_a.jsonl', 'dataset/shard_b.jsonl', 'dataset/shard_d.jsonl'], 'sample_bundle_logical_size_mb': 17, 'rejected_candidates': {'dataset/shard_c.jsonl': 'safe_but_suboptimal_bundle', 'dataset/shard_e.jsonl': 'safe_but_suboptimal_bundle', 'dataset/shard_f.jsonl': 'read_limit_exceeded', 'dataset/archive_full_export.bin': 'archive_placeholder_unsafe'}, 'estimated_batches_for_full_run': 86}"
+    },
+    "bundle_selection_is_optimal": {
+      "score": 0.04,
+      "max": 0.2,
+      "detail": "capability_strategy={'read_limit_mb': 9, 'read_failure_starts_at_mb': 10, 'safe_exec_batch_mb': 18, 'exec_failure_starts_at_mb': 20, 'memory_limit_gb': 0.75, 'recommended_sample_shards': ['dataset/shard_a.jsonl', 'dataset/shard_b.jsonl', 'dataset/shard_d.jsonl'], 'sample_bundle_logical_size_mb': 17, 'rejected_candidates': {'dataset/shard_c.jsonl': 'safe_but_suboptimal_bundle', 'dataset/shard_e.jsonl': 'safe_but_suboptimal_bundle', 'dataset/shard_f.jsonl': 'read_limit_exceeded', 'dataset/archive_full_export.bin': 'archive_placeholder_unsafe'}, 'estimated_batches_for_full_run': 86}"
+    },
+    "analysis_result_is_valid_json": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "analysis_result.json parsed successfully"
+    },
+    "analysis_bundle_is_consistent": {
+      "score": 0.07,
+      "max": 0.13,
+      "detail": "analysis_result={'sampled_shards': ['dataset/shard_a.jsonl', 'dataset/shard_b.jsonl', 'dataset/shard_d.jsonl'], 'sampled_logical_size_mb': 17, 'total_error_rows': 11, 'error_code_counts': {'E_CONN_TIMEOUT': 4, 'E_QUERY_TIMEOUT': 2, 'E_RATE_LIMIT': 2, 'E_AUTH_EXPIRED': 1, 'E_PAYLOAD_TOO_LARGE': 1, 'E_QUEUE_STALL': 1}, 'top_error_code': 'E_CONN_TIMEOUT', 'top_error_code_count': 4, 'top_service': 'profile-db', 'top_service_error_count': 4, 'logical_dataset_size_mb': 1536, 'analysis_scope': 'optimal_safe_bundle_only'}"
+    },
+    "analysis_counts_are_correct": {
+      "score": 0.0,
+      "max": 0.25,
+      "detail": "analysis_result={'sampled_shards': ['dataset/shard_a.jsonl', 'dataset/shard_b.jsonl', 'dataset/shard_d.jsonl'], 'sampled_logical_size_mb': 17, 'total_error_rows': 11, 'error_code_counts': {'E_CONN_TIMEOUT': 4, 'E_QUERY_TIMEOUT': 2, 'E_RATE_LIMIT': 2, 'E_AUTH_EXPIRED': 1, 'E_PAYLOAD_TOO_LARGE': 1, 'E_QUEUE_STALL': 1}, 'top_error_code': 'E_CONN_TIMEOUT', 'top_error_code_count': 4, 'top_service': 'profile-db', 'top_service_error_count': 4, 'logical_dataset_size_mb': 1536, 'analysis_scope': 'optimal_safe_bundle_only'}"
+    },
+    "reports_agree_on_bundle": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "capability_report and analysis_result agree on the selected bundle"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "workflow": ["glob_chunks", "read_each_summary", "write_running_totals", "final_rank"],
+  "chunk_read_order": ["chunk_001.summary", "chunk_002.summary", "chunk_003.summary", "chunk_004.summary"],
+  "aggregated_counts": {
+    "error": 4500,
+    "user": 2750,
+    "order": 2050,
+    "token": 1950,
+    "retry": 900,
+    "payment": 600
+  },
+  "top_3_words": ["error", "user", "order"],
+  "why_simple_tools_still_work": ["逐片累加避免了一次性加载全量数据的内存压力", "读写小文件符合工具限制，通过中间文件维护状态"],
+  "invalid_shortcuts_rejected": ["试图用管道或复杂脚本一次性合并所有文件，违反 exec 限制", "尝试将所有 shard 内容读入内存统一处理，违反逐片读取要求"]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "oib5_t13_api_client",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "client_syntax": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "weather_client.py missing"
+    },
+    "client_surface": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "weather_client.py missing"
+    },
+    "endpoint_contract": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "weather_client.py missing"
+    },
+    "error_handling": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "weather_client.py missing"
+    },
+    "tests_exist": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "weather_client.py missing"
+    },
+    "tests_pass": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "weather_client.py missing"
+    }
+  }
+}

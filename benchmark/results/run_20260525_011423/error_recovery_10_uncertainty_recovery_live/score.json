@@ -1,0 +1,47 @@
+{
+  "id": "error_recovery_10_uncertainty_recovery_live",
+  "score": 0.9500000000000001,
+  "passed": true,
+  "checkpoints": {
+    "recovery_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "uncertainty_recovery.json exists"
+    },
+    "pattern_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "pattern='periodic_burst'"
+    },
+    "severity_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "severity='high'"
+    },
+    "hypotheses_are_complete": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "hypotheses=['application_regression', 'db_connection_pool_exhaustion', 'intermittent_network_fault']"
+    },
+    "primary_hypothesis_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "primary_hypothesis='db_connection_pool_exhaustion'"
+    },
+    "validation_plan_is_complete": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "validation_hits=3"
+    },
+    "recovery_mode_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "recovery_mode='mixed'"
+    },
+    "actions_are_nontrivial": {
+      "score": 0.05,
+      "max": 0.1,
+      "detail": "immediate_count=3 preventive_count=3"
+    }
+  }
+}

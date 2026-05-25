@@ -1,0 +1,37 @@
+{
+  "id": "constraints_03_exact_format_live",
+  "score": 0.75,
+  "passed": true,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "release_status.txt exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "format_is_exact": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "['STATUS: HOLD', 'RISK: medium', 'REASON: 发布日期周六不在允许的周一至周五，开放bug数2超过最大值0']"
+    },
+    "status_is_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "status='HOLD' expected='HOLD'"
+    },
+    "risk_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "risk='medium' expected='medium' risk_score=4"
+    },
+    "reason_is_grounded": {
+      "score": 0.0,
+      "max": 0.25,
+      "detail": "reason='发布日期周六不在允许的周一至周五，开放bug数2超过最大值0' len_ok=True time=False bug=False coverage=False risk=False concrete_facts=0"
+    }
+  }
+}

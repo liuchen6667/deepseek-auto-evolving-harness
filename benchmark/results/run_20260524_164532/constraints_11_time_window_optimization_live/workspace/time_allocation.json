@@ -1,0 +1,21 @@
+{
+  "assigned_slots": [
+    {"task": "F", "start": 9, "end": 10},
+    {"task": "A", "start": 11, "end": 12},
+    {"task": "E", "start": 13, "end": 14},
+    {"task": "D", "start": 14, "end": 16},
+    {"task": "G", "start": 16, "end": 17}
+  ],
+  "resolved_conflicts": [
+    "A和B在窗口[11,12]冲突，只能选一个。按字母序tie-break选择A，放弃B。",
+    "C因依赖A和B无法安排：需要A和B都完成，但只能完成其中一个。",
+    "D和E共享db资源但时间窗口允许顺延：E在13-14，D在14-16，避免资源冲突。"
+  ],
+  "unresolved_tasks": ["B", "C"],
+  "completion_count": 5,
+  "notes": [
+    "在时间点11只能安排A或B，选择A（字母序更小）以最大化P0任务完成数。",
+    "C因缺少依赖无法安排，尽管窗口[12,13]空闲。",
+    "D的2小时窗口[13,16]允许在E之后安排，G的依赖因此满足。"
+  ]
+}

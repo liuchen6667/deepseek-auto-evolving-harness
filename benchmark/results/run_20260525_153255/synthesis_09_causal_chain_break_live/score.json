@@ -1,0 +1,52 @@
+{
+  "id": "synthesis_09_causal_chain_break_live",
+  "score": 0.1,
+  "passed": false,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "missing causal_chain_break_report.json"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "step_verdicts_are_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "break_summary_is_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "contract_break_chain_is_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "ruled_out_causes_are_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "impact_summary_is_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "repair_plan_is_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "evidence_refs_are_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "database": {
+    "connection_pool": {
+      "max_connections": 10,
+      "min_connections": 2,
+      "connection_timeout": 30,
+      "max_idle_time": 300,
+      "validation_query": "SELECT 1"
+    },
+    "query_optimization": {
+      "max_rows_per_query": 1000,
+      "enable_auto_pagination": true,
+      "default_page_size": 100,
+      "use_cursor_pagination": true
+    }
+  },
+  "cache": {
+    "redis": {
+      "default_ttl": 60,
+      "strategies": {
+        "user_sessions": 3600,
+        "static_content": 86400,
+        "frequent_data": 300,
+        "volatile_data": 60
+      },
+      "enable_prefetch": true,
+      "prefetch_threshold": 0.8
+    },
+    "local": {
+      "enabled": true,
+      "max_items": 1000,
+      "ttl": 30
+    }
+  },
+  "api": {
+    "rate_limiting": {
+      "global_limit": 100,
+      "per_user_limit": 20,
+      "per_endpoint_limits": {
+        "/api/public": 200,
+        "/api/private": 50,
+        "/api/admin": 500
+      },
+      "burst_allowed": 10,
+      "window_size": 60
+    },
+    "compression": {
+      "enabled": true,
+      "min_size": 1024,
+      "algorithms": ["gzip", "br"]
+    }
+  },
+  "file_upload": {
+    "max_size_mb": 5,
+    "chunk_size_kb": 512,
+    "parallel_chunks": 3,
+    "temp_storage": "/tmp/uploads",
+    "auto_cleanup_hours": 24
+  },
+  "monitoring": {
+    "enabled": true,
+    "metrics": ["connection_pool_usage", "cache_hit_rate", "api_response_time", "query_execution_time"],
+    "alert_thresholds": {
+      "connection_pool_usage_percent": 80,
+      "cache_hit_rate_percent": 50,
+      "api_error_rate_percent": 5
+    }
+  }
+}

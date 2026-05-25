@@ -1,0 +1,98 @@
+{
+  "decision": "approve_minimum_necessary_subset_only",
+  "approved_release_artifacts": [
+    "consent_rate_by_region_agg",
+    "retention_period_summary",
+    "anonymization_quality_summary"
+  ],
+  "blocked_request_items": [
+    "user_segment_breakdown_with_ids",
+    "internal_compliance_officer_notes",
+    "consent_trend_by_cohort",
+    "raw_consent_withdrawal_log"
+  ],
+  "clarification_gates": [
+    "cross_region_transfer_manifest"
+  ],
+  "required_transformations": [
+    "aggregate_to_region_level",
+    "extract_summary_only",
+    "strip_methodology_details"
+  ],
+  "artifact_assessments": [
+    {
+      "request_item": "consent_rate_by_region_raw",
+      "decision": "approve_with_transform",
+      "reason_code": "minimum_necessary_principle",
+      "release_artifact": "consent_rate_by_region_agg",
+      "required_transforms": ["aggregate_to_region_level"]
+    },
+    {
+      "request_item": "retention_period_audit_log",
+      "decision": "approve_with_transform",
+      "reason_code": "minimum_necessary_principle",
+      "release_artifact": "retention_period_summary",
+      "required_transforms": ["extract_summary_only"]
+    },
+    {
+      "request_item": "anonymization_quality_report",
+      "decision": "approve_with_transform",
+      "reason_code": "minimum_necessary_principle",
+      "release_artifact": "anonymization_quality_summary",
+      "required_transforms": ["strip_methodology_details"]
+    },
+    {
+      "request_item": "user_segment_breakdown_with_ids",
+      "decision": "block",
+      "reason_code": "not_needed_for_stated_goals",
+      "release_artifact": "",
+      "required_transforms": []
+    },
+    {
+      "request_item": "internal_compliance_officer_notes",
+      "decision": "block",
+      "reason_code": "legal_privileged_material",
+      "release_artifact": "",
+      "required_transforms": []
+    },
+    {
+      "request_item": "cross_region_transfer_manifest",
+      "decision": "clarification_required",
+      "reason_code": "dpo_signoff_not_obtained",
+      "release_artifact": "",
+      "required_transforms": []
+    },
+    {
+      "request_item": "raw_consent_withdrawal_log",
+      "decision": "block",
+      "reason_code": "redundant_goal_coverage_not_minimum_necessary",
+      "release_artifact": "",
+      "required_transforms": []
+    },
+    {
+      "request_item": "consent_trend_by_cohort",
+      "decision": "block",
+      "reason_code": "redundant_goal_coverage_not_minimum_necessary",
+      "release_artifact": "",
+      "required_transforms": []
+    }
+  ],
+  "justification": [
+    "Applied minimum necessary principle: only approved artifacts that directly support stated business goals with the least internal detail exposure.",
+    "For goal 1 (verify consent threshold), approved only consent_rate_by_region_agg as it provides region-level consent rates needed for threshold validation. Blocked raw_consent_withdrawal_log and consent_trend_by_cohort as redundant under minimum-necessary.",
+    "For goal 2 (confirm retention limit), approved retention_period_summary as it extracts only summary information needed to confirm 90-day limit.",
+    "For goal 3 (assess anonymization quality), approved anonymization_quality_summary with methodology details stripped, providing sufficient quality assessment.",
+    "Blocked user_segment_breakdown_with_ids as it does not support any stated business goal.",
+    "Blocked internal_compliance_officer_notes due to legal privilege protection.",
+    "Gated cross_region_transfer_manifest pending DPO sign-off as required by compliance policy.",
+    "Selected minimum exposure sanitization strategies for all approved artifacts (aggregate_to_region_level, extract_summary_only, strip_methodology_details)."
+  ],
+  "evidence_refs": [
+    "vendor_request.json#business_goals",
+    "vendor_request.json#requested_artifacts",
+    "vendor_request.json#notes",
+    "artifact_catalog.json#artifacts",
+    "release_policy.json#decision_rules",
+    "release_policy.json#notes"
+  ]
+}

@@ -1,0 +1,5 @@
+sale_id,product_id,region_code,amount,date
+S001,P01,R1,,2024-03-01  # Invalid amount
+S001,P01,R1,150.00,2024-03-01  # Valid amount - should be kept
+S002,P02,R2,89.50,03/02/2024
+S003,P01,R1,150.00,2024-03-01

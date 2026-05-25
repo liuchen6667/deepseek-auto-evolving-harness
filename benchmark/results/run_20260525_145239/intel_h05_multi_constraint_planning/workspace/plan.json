@@ -1,0 +1,22 @@
+{
+  "selected_tasks": [
+    {"id": "p01", "start_day": 1, "reason": "security priority, no dependencies"},
+    {"id": "p06", "start_day": 1, "reason": "security priority, no dependencies"},
+    {"id": "p04", "start_day": 2, "reason": "security priority, depends on p01"},
+    {"id": "p02", "start_day": 2, "reason": "compliance priority, depends on p01"},
+    {"id": "p10", "start_day": 3, "reason": "security priority, depends on p04"}
+  ],
+  "deferred_tasks": [
+    {"id": "p03", "reason": "assignee charlie is blocked"},
+    {"id": "p05", "reason": "non-priority, exceeds budget"},
+    {"id": "p07", "reason": "non-priority, exceeds budget"},
+    {"id": "p08", "reason": "assignee charlie is blocked"},
+    {"id": "p09", "reason": "non-priority, exceeds budget"},
+    {"id": "p11", "reason": "non-priority, exceeds budget"},
+    {"id": "p12", "reason": "assignee charlie is blocked"}
+  ],
+  "total_effort_hours": 36,
+  "within_budget": true,
+  "priority_tasks_scheduled": 5,
+  "constraint_violations": []
+}

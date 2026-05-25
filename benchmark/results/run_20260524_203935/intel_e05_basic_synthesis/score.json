@@ -1,0 +1,32 @@
+{
+  "id": "intel_e05_basic_synthesis",
+  "score": 0.8,
+  "passed": true,
+  "checkpoints": {
+    "read_both_files": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "read_a=False read_b=False"
+    },
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "loaded merged_status.json"
+    },
+    "services_merged": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "got 5 unique services, expected 5"
+    },
+    "counts_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "total_count=6 healthy_count=4"
+    },
+    "source_attribution": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "all services have source a/b"
+    }
+  }
+}

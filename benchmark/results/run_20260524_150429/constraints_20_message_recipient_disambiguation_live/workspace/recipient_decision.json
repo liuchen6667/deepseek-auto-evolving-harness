@@ -1,0 +1,7 @@
+{
+  "thread_id": "t-100",
+  "selected_handle": "@alex-release",
+  "selected_channel": "telegram",
+  "rejected_candidates": ["@alex-design"],
+  "reason": "根据confirmation_policy要求，必须使用last_confirmed_target (@alex-release) 作为最终目标。虽然两个候选人都叫Alex Chen，但@alex-design属于design团队，而required_context是'release approval packet'，@alex-release属于release团队，更适合处理发布审批相关事宜。"
+}

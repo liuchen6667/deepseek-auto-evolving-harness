@@ -1,0 +1,13 @@
+{
+  "selected_actions": ["read_error_budget", "read_recent_alerts"],
+  "skipped_actions": [
+    {"action": "query_full_audit_archive", "reason": "cost 6, covers non-required signal audit_trail_only"},
+    {"action": "read_release_note", "reason": "cost 4, higher-cost alternative for recent_regression_signal"},
+    {"action": "run_expensive_trace_join", "reason": "cost 7, covers non-required signal optional_correlation_only"},
+    {"action": "scan_all_service_logs", "reason": "cost 5, higher-cost alternative for recent_regression_signal"}
+  ],
+  "expected_signal_coverage": ["budget_breach_risk", "recent_regression_signal"],
+  "budget_used": 5,
+  "governing_tradeoff": "Choose lowest-cost actions sufficient to cover all required signals within fixed budget",
+  "evidence_refs": ["action_costs.json", "budget_rules.md", "investigation_goal.md", "signal_map.json"]
+}

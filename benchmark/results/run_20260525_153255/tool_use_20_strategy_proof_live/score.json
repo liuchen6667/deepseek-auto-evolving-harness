@@ -1,0 +1,42 @@
+{
+  "id": "tool_use_20_strategy_proof_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "chosen": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "strategy_a"
+    },
+    "dom": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "[{'strategy': 'strategy_b', 'reason': 'feasible but higher cost without extra coverage, dominated by strategy_a on cost'}, {'strategy': 'strategy_c', 'reason': 'infeasible due to requiring a forbidden remote step'}]"
+    },
+    "proof": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "['strategy_a is feasible under local constraints (no forbidden remote steps)', 'strategy_a is sufficient to solve the local task', 'strategy_a has minimal cost among feasible strategies (strategy_b costs more without extra coverage)']"
+    },
+    "constraint": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "minimal_feasible_strategy_under_local_tool_constraints"
+    },
+    "pre": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "['strategy_a is feasible and sufficient', 'strategy_c requires a forbidden remote step']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['goal.md', 'strategy_candidates.json', 'tool_constraints.md', 'proof_rules.json']"
+    }
+  }
+}

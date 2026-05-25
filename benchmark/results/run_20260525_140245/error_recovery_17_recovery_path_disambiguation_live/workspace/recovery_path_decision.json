@@ -1,0 +1,11 @@
+{
+  "chosen_path": "path_a",
+  "ruled_out_paths": [
+    {"path": "path_b", "reason": "skips integrity guard, violating risk rule"},
+    {"path": "path_c", "reason": "misses recovery window, violating goal"},
+    {"path": "path_d", "reason": "needs unavailable precondition, infeasible"}
+  ],
+  "verification_order": ["verify integrity guard enabled", "verify API functionality restored", "verify order consistency preserved"],
+  "governing_risk_rule": "preserve_integrity_before_speed_only_paths",
+  "evidence_refs": ["incident_paths.json", "system_signals.md", "risk_rules.json", "recovery_goal.txt"]
+}

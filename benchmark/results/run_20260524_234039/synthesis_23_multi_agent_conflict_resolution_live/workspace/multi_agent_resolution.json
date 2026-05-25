@@ -1,0 +1,11 @@
+{
+  "winning_proposal_id": "beta-plan",
+  "selected_agent": "agent_beta",
+  "final_owner": "release-manager",
+  "rollback_required": true,
+  "invalidated_proposals": [
+    {"proposal_id": "alpha-plan", "reason": "error_budget_below_threshold_requires_rollback"}
+  ],
+  "decision_reason": "source_of_truth_shows_error_budget_0.8_percent_below_2.0_percent_threshold_requiring_rollback_and_release_manager_escalation",
+  "evidence_refs": ["agent_summaries.json", "source_of_truth.md", "output_spec.json"]
+}

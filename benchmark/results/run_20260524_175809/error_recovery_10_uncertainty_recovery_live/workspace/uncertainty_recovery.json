@@ -1,0 +1,20 @@
+{
+  "pattern": "periodic_burst",
+  "severity": "high",
+  "hypotheses": ["db_connection_pool_exhaustion", "intermittent_network_fault", "application_regression"],
+  "primary_hypothesis": "db_connection_pool_exhaustion",
+  "validation_plan": {
+    "db_connection_pool_exhaustion": "检查profile-db连接池监控，确认连接池使用率是否在错误前30秒升至98-99%，同时验证是否有连接泄漏或长时间运行的查询",
+    "intermittent_network_fault": "分析网络包丢失模式，检查profile-db网络延迟和重传率，确认是否与0.1%的稳定丢包率相关",
+    "application_regression": "审查最近部署的代码变更，特别是与模块A、B、C相关的数据库操作逻辑，检查是否有新的连接获取/释放模式"
+  },
+  "recovery_mode": "mixed",
+  "immediate_actions": [
+    "临时增加db_pool_size配置值，从20增加到30，缓解连接池压力",
+    "重启应用实例以释放可能被占用的数据库连接，恢复服务可用性"
+  ],
+  "preventive_actions": [
+    "实现连接池监控告警，当使用率超过80%时提前预警",
+    "优化数据库查询性能，添加查询超时机制，防止长时间运行查询占用连接"
+  ]
+}

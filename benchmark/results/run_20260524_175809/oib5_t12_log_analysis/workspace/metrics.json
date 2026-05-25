@@ -1,0 +1,24 @@
+{
+  "total_lines": 17,
+  "by_level": {
+    "INFO": 7,
+    "WARN": 4,
+    "ERROR": 6
+  },
+  "error_services": {
+    "PaymentService": 3,
+    "UserService": 2,
+    "OrderService": 1
+  },
+  "warnings": [
+    "PaymentService: High latency detected (500ms)",
+    "UserService: Cache miss rate above threshold (15%)",
+    "OrderService: Order #1001 processing delayed",
+    "PaymentService: Unusual transaction pattern detected"
+  ],
+  "critical_issues": [
+    "PaymentService: Critical: Fraud detection triggered for transaction TX456",
+    "PaymentService: Payment gateway unreachable - HTTP 503",
+    "UserService: Database connection timeout - retrying"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "tool_use_11_tool_limitation_innovation_live",
+  "score": 0.8571428571428571,
+  "passed": true,
+  "checkpoints": {
+    "innovation_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "tool_innovation.json exists"
+    },
+    "read_seeded_shards": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "read_count=0/4"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "workflow_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "workflow=['glob_chunks', 'read_each_summary', 'write_running_totals', 'final_rank']"
+    },
+    "chunk_order_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "chunk_read_order=['chunk_001.summary', 'chunk_002.summary', 'chunk_003.summary', 'chunk_004.summary']"
+    },
+    "aggregated_counts_are_correct": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "count_hits=6"
+    },
+    "top_words_are_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "top_3_words=['error', 'user', 'order']"
+    },
+    "why_it_works_is_nontrivial": {
+      "score": 0.025,
+      "max": 0.05,
+      "detail": "why_count=2 hits=1"
+    },
+    "invalid_shortcuts_are_rejected": {
+      "score": 0.025,
+      "max": 0.05,
+      "detail": "invalid_count=2 hits=0"
+    }
+  }
+}

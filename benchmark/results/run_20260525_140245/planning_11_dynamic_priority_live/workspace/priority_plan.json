@@ -1,0 +1,21 @@
+{
+  "slot_plan": [
+    {"slot_start": 0, "task": "Z", "value_at_execution": 9},
+    {"slot_start": 5, "task": "X", "value_at_execution": 16},
+    {"slot_start": 10, "task": "A", "value_at_execution": 12},
+    {"slot_start": 15, "task": "B", "value_at_execution": 11},
+    {"slot_start": 20, "task": "C", "value_at_execution": 3}
+  ],
+  "total_value": 51,
+  "events_considered": [
+    "T+5: X价值翻倍为16，但前提是X还没执行。我选择在[5,10)执行X以获得最大价值",
+    "T+10: 新增A(P0,12), B(P0,11), C(P0,3)。这些新任务都是P0优先级，必须在P1之前执行",
+    "T+15: Y的依赖被取消，但此时仍有P0任务B和C未执行，所以Y不能优先执行",
+    "T+20: Z降级变化不生效，因为Z已在第一个时间槽执行"
+  ],
+  "notes": [
+    "在[0,5)执行Z而不是X，这样可以让X在T+5时价值翻倍到16，最大化总价值",
+    "严格按照优先级规则：总是先执行当前可执行的最高优先级任务。P0任务全部执行完后才能执行P1任务",
+    "同优先级内按价值从高到低选择，最大化总价值。所有P0任务都执行了，包括新增的A、B、C"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "constraints_20_message_recipient_disambiguation_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "decision_exists": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "recipient_decision.json exists"
+    },
+    "selected_target_is_correct": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "thread_id='t-100' selected_handle='@alex-release' selected_channel='telegram'"
+    },
+    "rejected_candidates_are_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "rejected_candidates=['@alex-design']"
+    },
+    "reason_is_grounded": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "reason=\"Policy requires using last_confirmed_target (@alex-release). Both candidates have the same name but different teams: @alex-release is from release team (matching required context 'release approval packet'), while @alex-design is from design team.\""
+    },
+    "single_recipient_only": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "payload={'thread_id': 't-100', 'selected_handle': '@alex-release', 'selected_channel': 'telegram', 'rejected_candidates': ['@alex-design'], 'reason': \"Policy requires using last_confirmed_target (@alex-release). Both candidates have the same name but different teams: @alex-release is from release team (matching required context 'release approval packet'), while @alex-design is from design team.\"}"
+    }
+  }
+}

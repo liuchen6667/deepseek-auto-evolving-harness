@@ -1,0 +1,25 @@
+{
+  "order_mode": "reject_new_orders",
+  "chosen_strategies": ["reject_checkout_with_explicit_message"],
+  "rejected_strategies": [
+    {"strategy": "async_payment_with_order_creation", "reason": "payment_service_down_and_accepting_new_charges_false"},
+    {"strategy": "create_order_without_inventory_reservation", "reason": "inventory_service_readonly_and_can_write_reservations_false"},
+    {"strategy": "create_order_without_payment_capture", "reason": "payment_capture_required_true_and_payment_service_down"}
+  ],
+  "degraded_flow": ["validate_request", "check_dependency_status", "determine_unfulfillable_constraints", "prepare_rejection_response", "log_audit_event"],
+  "consistency_guards": ["no_order_created_without_payment", "no_inventory_reservation_in_readonly_mode", "no_manual_reconciliation_allowed", "sync_response_within_5s"],
+  "recovery_plan": ["monitor_payment_service_health", "wait_for_inventory_write_enabled", "resume_normal_checkout_when_dependencies_healthy", "notify_ops_on_recovery"],
+  "user_response": {
+    "http_status": 503,
+    "status_code": "SERVICE_UNAVAILABLE",
+    "must_return_within_seconds": 5
+  },
+  "evidence_refs": [
+    "service_status.json",
+    "checkout_request.json",
+    "degradation_policy.yaml",
+    "logs/checkout.log",
+    "logs/notification.log",
+    "runbook.md"
+  ]
+}

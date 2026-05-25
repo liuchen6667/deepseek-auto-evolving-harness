@@ -1,0 +1,52 @@
+{
+  "id": "constraints_10_dynamic_adaptation_live",
+  "score": 0.9,
+  "passed": true,
+  "checkpoints": {
+    "plan_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "adaptation_plan.json exists"
+    },
+    "read_required_inputs": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "read_count=0/3"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "top_level_contract_is_exact": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "keys=['final_canceled_workloads', 'final_delayed_workloads', 'notes', 'slot_decisions', 'total_completed_units']"
+    },
+    "slot_decisions_are_optimal": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "slot_decisions=[{'slot_start': 0, 'active_workloads': ['billing_sync', 'realtime_search'], 'throughput_units': 19}, {'slot_start': 5, 'active_workloads': ['realtime_search'], 'throughput_units': 12}, {'slot_start': 10, 'active_workloads': ['realtime_search'], 'throughput_units': 12}, {'slot_start': 15, 'active_workloads': ['realtime_search'], 'throughput_units': 12}, {'slot_start': 20, 'active_workloads': ['fraud_guard'], 'throughput_units': 6}]"
+    },
+    "delayed_workloads_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "final_delayed_workloads=['billing_sync']"
+    },
+    "canceled_workloads_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "final_canceled_workloads=['image_backfill', 'report_export']"
+    },
+    "total_completed_units_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "total_completed_units=61"
+    },
+    "notes_capture_adaptation_logic": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "notes_count=2 hits=2"
+    }
+  }
+}

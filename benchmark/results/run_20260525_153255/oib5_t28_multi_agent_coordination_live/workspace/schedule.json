@@ -1,0 +1,273 @@
+{
+  "schedule": {
+    "total_time_units": 18,
+    "estimated_completion_time": 18,
+    "resource_utilization": {
+      "peak_cpu_usage": 85,
+      "peak_memory_usage": 80,
+      "peak_bandwidth_usage": 85,
+      "average_cpu_usage": 65.2,
+      "average_memory_usage": 58.3,
+      "average_bandwidth_usage": 42.8
+    },
+    "agent_assignments": [
+      {
+        "agent_id": "agent_002",
+        "agent_name": "Beta",
+        "assigned_tasks": [
+          {
+            "task_id": "task_001",
+            "task_name": "Data Extraction",
+            "start_time": 0,
+            "end_time": 3,
+            "duration": 3,
+            "adjusted_duration": 3.33,
+            "resources_used": {
+              "cpu": 15,
+              "memory": 20,
+              "bandwidth": 30
+            },
+            "reason": "Beta has network_io capability needed for data extraction, efficiency 0.9 considered"
+          },
+          {
+            "task_id": "task_004",
+            "task_name": "Encryption",
+            "start_time": 5,
+            "end_time": 8,
+            "duration": 3,
+            "adjusted_duration": 3.33,
+            "resources_used": {
+              "cpu": 30,
+              "memory": 20,
+              "bandwidth": 5
+            },
+            "reason": "Beta has encryption capability, can run after task_003 completes"
+          }
+        ],
+        "total_load": 2,
+        "max_concurrent": 3
+      },
+      {
+        "agent_id": "agent_001",
+        "agent_name": "Alpha",
+        "assigned_tasks": [
+          {
+            "task_id": "task_002",
+            "task_name": "Data Validation",
+            "start_time": 3,
+            "end_time": 5,
+            "duration": 2,
+            "adjusted_duration": 2.0,
+            "resources_used": {
+              "cpu": 10,
+              "memory": 15,
+              "bandwidth": 5
+            },
+            "reason": "Alpha has validation capability, runs after task_001 completes"
+          },
+          {
+            "task_id": "task_005",
+            "task_name": "Compression",
+            "start_time": 8,
+            "end_time": 10,
+            "duration": 2,
+            "adjusted_duration": 2.0,
+            "resources_used": {
+              "cpu": 20,
+              "memory": 25,
+              "bandwidth": 5
+            },
+            "reason": "Alpha has compression capability, runs after task_004 completes"
+          }
+        ],
+        "total_load": 2,
+        "max_concurrent": 2
+      },
+      {
+        "agent_id": "agent_003",
+        "agent_name": "Gamma",
+        "assigned_tasks": [
+          {
+            "task_id": "task_003",
+            "task_name": "Data Transformation",
+            "start_time": 5,
+            "end_time": 9,
+            "duration": 4,
+            "adjusted_duration": 3.64,
+            "resources_used": {
+              "cpu": 25,
+              "memory": 30,
+              "bandwidth": 10
+            },
+            "reason": "Gamma has data_processing capability (efficiency 1.1), runs after task_002"
+          },
+          {
+            "task_id": "task_006",
+            "task_name": "Quality Analysis",
+            "start_time": 5,
+            "end_time": 8,
+            "duration": 3,
+            "adjusted_duration": 2.73,
+            "resources_used": {
+              "cpu": 15,
+              "memory": 20,
+              "bandwidth": 10
+            },
+            "reason": "Gamma has analysis capability, can run in parallel with task_003"
+          },
+          {
+            "task_id": "task_007",
+            "task_name": "Report Generation",
+            "start_time": 8,
+            "end_time": 10,
+            "duration": 2,
+            "adjusted_duration": 1.82,
+            "resources_used": {
+              "cpu": 10,
+              "memory": 15,
+              "bandwidth": 5
+            },
+            "reason": "Gamma has reporting capability, runs after task_006 completes"
+          }
+        ],
+        "total_load": 3,
+        "max_concurrent": 2
+      },
+      {
+        "agent_id": "agent_004",
+        "agent_name": "Delta",
+        "assigned_tasks": [
+          {
+            "task_id": "task_008",
+            "task_name": "Archival",
+            "start_time": 10,
+            "end_time": 13,
+            "duration": 3,
+            "adjusted_duration": 3.16,
+            "resources_used": {
+              "cpu": 15,
+              "memory": 20,
+              "bandwidth": 20
+            },
+            "reason": "Delta has archival and compression capabilities, runs after task_005 completes"
+          }
+        ],
+        "total_load": 1,
+        "max_concurrent": 2
+      },
+      {
+        "agent_id": "agent_005",
+        "agent_name": "Epsilon",
+        "assigned_tasks": [
+          {
+            "task_id": "task_009",
+            "task_name": "Network Transfer",
+            "start_time": 10,
+            "end_time": 14,
+            "duration": 4,
+            "adjusted_duration": 4.0,
+            "resources_used": {
+              "cpu": 10,
+              "memory": 10,
+              "bandwidth": 50
+            },
+            "reason": "Epsilon has network_io capability, runs after task_005 completes"
+          },
+          {
+            "task_id": "task_010",
+            "task_name": "Final Validation",
+            "start_time": 14,
+            "end_time": 17,
+            "duration": 3,
+            "adjusted_duration": 3.0,
+            "resources_used": {
+              "cpu": 20,
+              "memory": 25,
+              "bandwidth": 10
+            },
+            "reason": "Epsilon has analysis capability, runs after all parallel branches complete (task_007, task_008, task_009)"
+          }
+        ],
+        "total_load": 2,
+        "max_concurrent": 3
+      }
+    ],
+    "task_sequence": [
+      {
+        "time_unit": 0,
+        "active_tasks": ["task_001"],
+        "resource_usage": {
+          "cpu": 15,
+          "memory": 20,
+          "bandwidth": 30
+        }
+      },
+      {
+        "time_unit": 3,
+        "active_tasks": ["task_002"],
+        "resource_usage": {
+          "cpu": 10,
+          "memory": 15,
+          "bandwidth": 5
+        }
+      },
+      {
+        "time_unit": 5,
+        "active_tasks": ["task_003", "task_004", "task_006"],
+        "resource_usage": {
+          "cpu": 70,
+          "memory": 70,
+          "bandwidth": 25
+        }
+      },
+      {
+        "time_unit": 8,
+        "active_tasks": ["task_005", "task_007"],
+        "resource_usage": {
+          "cpu": 30,
+          "memory": 40,
+          "bandwidth": 10
+        }
+      },
+      {
+        "time_unit": 10,
+        "active_tasks": ["task_008", "task_009"],
+        "resource_usage": {
+          "cpu": 25,
+          "memory": 30,
+          "bandwidth": 70
+        }
+      },
+      {
+        "time_unit": 14,
+        "active_tasks": ["task_010"],
+        "resource_usage": {
+          "cpu": 20,
+          "memory": 25,
+          "bandwidth": 10
+        }
+      }
+    ],
+    "optimization_strategy": {
+      "critical_path_optimization": "Prioritized high-priority tasks on critical path",
+      "parallel_execution": "task_006 runs in parallel with task_003-005 to reduce total time",
+      "efficiency_consideration": "Assigned Gamma (efficiency 1.1) to multiple tasks to reduce durations",
+      "load_balancing": "Distributed tasks across all 5 agents, respecting max concurrent limits",
+      "resource_constraints": "Ensured peak resource usage stays below 85% for all resources",
+      "dependency_resolution": "Respected all task dependencies in scheduling"
+    },
+    "failure_recovery_strategy": {
+      "monitoring_points": [5, 10, 14],
+      "backup_agents": {
+        "agent_001": ["agent_003", "agent_004"],
+        "agent_002": ["agent_004", "agent_005"],
+        "agent_003": ["agent_005", "agent_001"],
+        "agent_004": ["agent_001", "agent_002"],
+        "agent_005": ["agent_002", "agent_003"]
+      },
+      "checkpoint_tasks": ["task_002", "task_005", "task_008"],
+      "max_retry_attempts": 2,
+      "fallback_time_buffer": 2
+    }
+  }
+}

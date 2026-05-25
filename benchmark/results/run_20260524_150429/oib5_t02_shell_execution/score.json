@@ -1,0 +1,27 @@
+{
+  "id": "oib5_t02_shell_execution",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "file not found"
+    },
+    "total_lines": {
+      "score": 0.0,
+      "max": 0.3,
+      "detail": "skipped"
+    },
+    "largest_file": {
+      "score": 0.0,
+      "max": 0.3,
+      "detail": "skipped"
+    },
+    "import_count": {
+      "score": 0.0,
+      "max": 0.3,
+      "detail": "skipped"
+    }
+  }
+}

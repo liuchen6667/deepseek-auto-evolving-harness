@@ -1,0 +1,17 @@
+{
+  "direct_impacts": ["B", "C", "F", "G", "H"],
+  "indirect_impacts": ["A"],
+  "risk_levels": {
+    "A": "high",
+    "B": "high",
+    "C": "medium",
+    "F": "high",
+    "G": "medium",
+    "H": "medium"
+  },
+  "recovery_priority": ["E", "D", "B", "C", "F", "G", "H", "A"],
+  "notes": [
+    "关键传播链路：D停机直接影响B和F；E降级直接影响C、G、H；A因同时依赖B和C而间接受影响，风险等级为high",
+    "缓解思路：优先恢复E（影响3个服务）再恢复D（影响2个服务）；A的恢复应放在最后，因为其影响是间接的"
+  ]
+}

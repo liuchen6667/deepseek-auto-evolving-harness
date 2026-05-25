@@ -1,0 +1,37 @@
+{
+  "id": "oib5_t18_dep_missing",
+  "score": 0.7,
+  "passed": true,
+  "checkpoints": {
+    "result_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "result.json exists"
+    },
+    "correct_values": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "3/3 category sums correct"
+    },
+    "analyze_rewritten": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "analyze.py still depends on pandas or is missing"
+    },
+    "rerun_success": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "rerun produced correct result"
+    },
+    "no_pandas_install": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "no pandas install attempt"
+    },
+    "error_detected": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "no dependency failure observed"
+    }
+  }
+}

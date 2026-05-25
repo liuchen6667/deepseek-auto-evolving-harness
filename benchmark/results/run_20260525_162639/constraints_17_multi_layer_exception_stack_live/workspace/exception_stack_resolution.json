@@ -1,0 +1,10 @@
+{
+  "surviving_path": "path_a",
+  "denied_paths": [
+    {"path": "path_b", "reason": "misses a mid-layer precondition"},
+    {"path": "path_c", "reason": "never reaches top-layer override"}
+  ],
+  "rule_stack": ["base rule", "mid-layer exception", "top-layer override"],
+  "governing_result": "Only fully satisfied exception chains survive",
+  "evidence_refs": ["base_rules.json", "exception_stack.md", "request_case.json", "resolution_rules.txt"]
+}

@@ -1,0 +1,6 @@
+{
+  "price": {"value": 279, "source": "source_reviews.txt", "reason": "most_recent_and_matches_promotional_price"},
+  "stock": {"value": "有货", "source": "source_reviews.txt", "reason": "most_recent_and_shows_availability"},
+  "rating": {"value": 4.2, "source": "source_reviews.txt", "reason": "based_on_actual_user_reviews"},
+  "conflicts_found": ["price_different_between_sources", "stock_status_conflict", "rating_variation"]
+}

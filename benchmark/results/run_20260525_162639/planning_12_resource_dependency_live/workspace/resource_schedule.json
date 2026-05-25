@@ -1,0 +1,76 @@
+{
+  "schedule": [
+    {
+      "task": "A",
+      "start": 0,
+      "end": 2
+    },
+    {
+      "task": "B",
+      "start": 0,
+      "end": 2
+    },
+    {
+      "task": "C",
+      "start": 2,
+      "end": 5
+    },
+    {
+      "task": "D",
+      "start": 2,
+      "end": 4
+    },
+    {
+      "task": "F",
+      "start": 4,
+      "end": 7
+    },
+    {
+      "task": "E",
+      "start": 5,
+      "end": 9
+    },
+    {
+      "task": "G",
+      "start": 9,
+      "end": 14
+    },
+    {
+      "task": "H",
+      "start": 9,
+      "end": 10
+    },
+    {
+      "task": "I",
+      "start": 14,
+      "end": 16
+    }
+  ],
+  "parallel_groups": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "C",
+      "D"
+    ],
+    [
+      "G",
+      "H"
+    ]
+  ],
+  "makespan": 16,
+  "critical_path": [
+    "A",
+    "C",
+    "E",
+    "G",
+    "I"
+  ],
+  "notes": [
+    "\u5173\u952e\u8d44\u6e90\u7ea6\u675f\u662fMemory\uff08\u4e0a\u965016\uff09\uff0c\u7279\u522b\u662f\u4efb\u52a1G\u9700\u89818\u5185\u5b58\uff0cE\u9700\u89816\u5185\u5b58\uff0c\u9650\u5236\u4e86\u5b83\u4eec\u7684\u5e76\u884c\u6267\u884c",
+    "\u4f9d\u8d56\u94feA->C->E->G\u548cA->D->F->G\u5728\u5173\u952e\u8def\u5f84\u4e0a\uff0c\u9700\u8981\u4ed4\u7ec6\u5b89\u6392\u4ee5\u907f\u514d\u8d44\u6e90\u51b2\u7a81",
+    "\u4efb\u52a1B\u53ef\u4ee5\u8f83\u65e9\u5f00\u59cb\uff0c\u56e0\u4e3a\u5b83\u8d44\u6e90\u9700\u6c42\u8f83\u4f4e\uff081 CPU, 2\u5185\u5b58\uff09\uff0c\u53ef\u4ee5\u4e0eA\u5e76\u884c"
+  ]
+}

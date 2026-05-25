@@ -1,0 +1,37 @@
+{
+  "id": "constraints_15_priority_exception_resolution_live",
+  "score": 0.4444444444444445,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "winner": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "req_a"
+    },
+    "denied": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'request': 'req_b', 'reason': 'exception_missing_required_security_approval'}, {'request': 'req_c', 'reason': 'exception_strength_lower_than_base_winner'}]"
+    },
+    "chain": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['base_priority_determines_initial_winner', 'exception_security_approval_check', 'exception_strength_sufficiency_check']"
+    },
+    "exception": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "none"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['request_queue.json', 'exception_policy.md', 'priority_matrix.json', 'resolution_contract.json']"
+    }
+  }
+}

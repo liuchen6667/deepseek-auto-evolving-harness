@@ -1,0 +1,22 @@
+{
+  "inspection_plan": [
+    "读取 audit_brief.md 了解审计规则",
+    "读取 suspects.txt 获取可疑文件列表",
+    "使用 grep 扫描关键词（key/secret/token/bearer/auth）以识别潜在问题",
+    "基于扫描结果，优先读取最可能包含真实问题的文件：src/config/local.py、src/auth/session.py、src/reports/exporter.py"
+  ],
+  "confirmed_findings": [
+    {"path": "src/config/local.py", "issue": "硬编码 live key: API_KEY = \"sk-live-prod-001\""},
+    {"path": "src/auth/session.py", "issue": "将 bearer token 写入日志: logger.info(\"persisting bearer=%s\", token)"},
+    {"path": "src/reports/exporter.py", "issue": "将 auth token 写入日志: return f\"audit auth={auth}\""}
+  ],
+  "rejected_suspects": [
+    "src/payments/stripe.py",
+    "src/tests/fixtures.py"
+  ],
+  "read_budget_used": 5,
+  "notes": [
+    "src/payments/stripe.py 从环境变量读取 secret，符合安全实践",
+    "src/tests/fixtures.py 包含测试夹具用的假 token，不是真实问题"
+  ]
+}

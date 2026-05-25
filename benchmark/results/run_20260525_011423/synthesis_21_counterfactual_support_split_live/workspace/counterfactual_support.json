@@ -1,0 +1,18 @@
+{
+  "winning_hypothesis": "hyp_a",
+  "rejected_hypotheses": [
+    {"hypothesis": "hyp_b", "reason": "vendor notice posted after internal errors started, violating temporal order"},
+    {"hypothesis": "hyp_c", "reason": "error growth stopped immediately after rollback, cannot be treated as coincidence"}
+  ],
+  "conflict_chain": [
+    "Three hypotheses compete to explain the incident",
+    "hyp_b excluded due to vendor notice timing after internal errors, hyp_c excluded due to strong correlation between rollback and recovery",
+    "Only hyp_a satisfies temporal order, direct evidence, and counterfactual rules"
+  ],
+  "negative_evidence": [
+    "no_vendor_degraded_notice_before_10_05",
+    "rollback_started_and_error_growth_stopped"
+  ],
+  "governing_rule": "Reject any hypothesis that treats a rollback-correlated recovery as irrelevant if the error growth stops immediately after rollback",
+  "evidence_refs": ["evidence_set.json", "candidate_explanations.md", "counterfactual_rules.md", "decision_contract.json"]
+}

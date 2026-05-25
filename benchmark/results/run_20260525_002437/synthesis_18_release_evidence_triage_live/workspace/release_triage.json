@@ -1,0 +1,13 @@
+{
+  "launch_decision": "hold",
+  "primary_blocker": "checkout_e2e gate failing with null pointer in checkout after hotfix",
+  "blocker_class": "test_gate",
+  "supporting_evidence": [
+    "ci_summary.json shows checkout_e2e gate failed with detail: 'null pointer in checkout after hotfix'",
+    "bug_tracker.json has open P0 bug P0_checkout_null_pointer_open with summary: 'Null pointer after hotfix when address2 is empty'",
+    "launch_plan.md states 'all required release gates are passing' as a requirement for release"
+  ],
+  "recommended_next_action": "Fix P0_checkout_null_pointer_open bug and rerun checkout_e2e gate",
+  "confidence": "high",
+  "evidence_refs": ["bug_tracker.json", "ci_summary.json", "ops_incidents.json", "launch_plan.md"]
+}

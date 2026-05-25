@@ -1,0 +1,75 @@
+{
+  "baseline_service": {
+    "service_id": "api_guardrail",
+    "resource_reservation": {
+      "cpu": 2,
+      "ram_gb": 4
+    }
+  },
+  "window_allocations": [
+    {
+      "window_id": "window_1",
+      "minutes": [0, 5],
+      "tasks": ["stream_restore", "ingestion_repair", "feature_backfill_a"],
+      "resource_totals": {
+        "cpu": 11,
+        "ram_gb": 22
+      }
+    },
+    {
+      "window_id": "window_2",
+      "minutes": [5, 10],
+      "tasks": ["analytics_rollup", "feature_backfill_b"],
+      "resource_totals": {
+        "cpu": 10,
+        "ram_gb": 20
+      }
+    },
+    {
+      "window_id": "window_3",
+      "minutes": [10, 15],
+      "tasks": ["analytics_rollup", "cache_rebuild"],
+      "resource_totals": {
+        "cpu": 9,
+        "ram_gb": 18
+      }
+    },
+    {
+      "window_id": "window_4",
+      "minutes": [15, 20],
+      "tasks": [],
+      "resource_totals": {
+        "cpu": 2,
+        "ram_gb": 4
+      }
+    }
+  ],
+  "reallocation_events": [
+    {
+      "at_minute": 5,
+      "action_code": "launch_analytics_rollup_at_5_after_ingestion_repair"
+    },
+    {
+      "at_minute": 10,
+      "action_code": "launch_cache_rebuild_at_15_after_analytics_rollup"
+    }
+  ],
+  "deferred_tasks": [
+    {
+      "task_id": "model_refresh",
+      "reason_code": "lower_completed_task_count_than_analytics_path"
+    }
+  ],
+  "completion_summary": {
+    "deadline_met_task_ids": ["stream_restore", "feature_backfill_a", "feature_backfill_b", "ingestion_repair", "analytics_rollup", "cache_rebuild"],
+    "completed_task_count": 6,
+    "total_business_value": 275
+  },
+  "evidence_refs": [
+    "resource_windows.json",
+    "task_catalog.json",
+    "baseline_service.json",
+    "scheduler_objectives.json",
+    "allocation_rules.yaml"
+  ]
+}

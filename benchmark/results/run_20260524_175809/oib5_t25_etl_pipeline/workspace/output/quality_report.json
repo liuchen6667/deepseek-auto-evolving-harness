@@ -1,0 +1,10 @@
+{
+  "etl_run_timestamp": "2026-05-24T18:52:48.267764",
+  "quality_metrics": {
+    "total_raw_rows": 15,
+    "duplicates_removed": 2,
+    "nulls_removed": 2,
+    "date_format_fixed": 3,
+    "total_clean_rows": 11
+  }
+}

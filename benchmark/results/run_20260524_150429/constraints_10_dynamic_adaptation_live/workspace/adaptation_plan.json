@@ -1,0 +1,37 @@
+{
+  "slot_decisions": [
+    {
+      "slot_start": 0,
+      "active_workloads": ["billing_sync", "realtime_search"],
+      "throughput_units": 19
+    },
+    {
+      "slot_start": 5,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 10,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 15,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 20,
+      "active_workloads": ["fraud_guard"],
+      "throughput_units": 6
+    }
+  ],
+  "final_delayed_workloads": ["billing_sync"],
+  "final_canceled_workloads": ["image_backfill", "report_export"],
+  "total_completed_units": 61,
+  "notes": [
+    "billing_sync在槽0后无法继续运行，因为槽5开始内存限制从2.0GB收紧到1.0GB，而billing_sync需要0.9GB内存，无法与其他工作负载组合运行",
+    "image_backfill和report_export因延迟或错误率限制从未被调度：image_backfill延迟6.0s超过所有槽的延迟限制（最高5s），report_export错误率1.5%超过大多数槽的错误率限制（最高1.0%），仅在槽20允许0.1%时fraud_guard是唯一满足的工作负载",
+    "fraud_guard在槽20被选中，因为该槽错误率限制极严（0.1%），只有fraud_guard的错误率0.08%满足要求，虽然其吞吐量较低但这是唯一可行的选择"
+  ]
+}

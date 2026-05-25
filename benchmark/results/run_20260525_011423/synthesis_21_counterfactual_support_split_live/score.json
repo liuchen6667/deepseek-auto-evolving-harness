@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_21_counterfactual_support_split_live",
+  "score": 0.38888888888888884,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "win": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "hyp_a"
+    },
+    "rej": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "[{'hypothesis': 'hyp_b', 'reason': 'vendor notice posted after internal errors started, violating temporal order'}, {'hypothesis': 'hyp_c', 'reason': 'error growth stopped immediately after rollback, cannot be treated as coincidence'}]"
+    },
+    "chain": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['Three hypotheses compete to explain the incident', 'hyp_b excluded due to vendor notice timing after internal errors, hyp_c excluded due to strong correlation between rollback and recovery', 'Only hyp_a satisfies temporal order, direct evidence, and counterfactual rules']"
+    },
+    "neg": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['no_vendor_degraded_notice_before_10_05', 'rollback_started_and_error_growth_stopped']"
+    },
+    "rule": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "Reject any hypothesis that treats a rollback-correlated recovery as irrelevant if the error growth stops immediately after rollback"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['evidence_set.json', 'candidate_explanations.md', 'counterfactual_rules.md', 'decision_contract.json']"
+    }
+  }
+}

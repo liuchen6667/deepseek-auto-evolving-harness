@@ -1,0 +1,52 @@
+{
+  "id": "constraints_11_time_window_optimization_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "allocation_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "time_allocation.json exists"
+    },
+    "read_required_inputs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "read_count=3/3"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "top_level_contract_is_exact": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "keys=['assigned_slots', 'completion_count', 'notes', 'resolved_conflicts', 'unresolved_tasks']"
+    },
+    "assigned_slots_are_optimal": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "assigned_slots=[{'task': 'F', 'start': 9, 'end': 10}, {'task': 'A', 'start': 11, 'end': 12}, {'task': 'E', 'start': 13, 'end': 14}, {'task': 'D', 'start': 14, 'end': 16}, {'task': 'G', 'start': 16, 'end': 17}]"
+    },
+    "resolved_conflicts_cover_key_tradeoffs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "resolved_count=3 hits=2"
+    },
+    "unresolved_tasks_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "unresolved_tasks=['B', 'C']"
+    },
+    "completion_count_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "completion_count=5"
+    },
+    "notes_capture_constraint_logic": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "notes_count=3 hits=2"
+    }
+  }
+}

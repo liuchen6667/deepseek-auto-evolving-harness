@@ -1,0 +1,11 @@
+{
+  "winning_proposal_id": "beta-plan",
+  "selected_agent": "agent_beta",
+  "final_owner": "release-manager",
+  "rollback_required": true,
+  "invalidated_proposals": [
+    {"proposal_id": "alpha-plan", "reason": "Violates rollout policy: current error budget remaining (0.8%) is below required threshold (2.0%), rollout must stop and rollback is required"}
+  ],
+  "decision_reason": "Based on source-of-truth: current error budget remaining is 0.8%, which is below the required 2.0% threshold for rollout continuation. According to policy, rollout must stop and rollback is required. Agent_beta correctly identifies the error budget breach and need for rollback, while agent_alpha incorrectly claims no rollback is needed. Default escalation owner for blocked rollout is release-manager, matching agent_beta's recommendation.",
+  "evidence_refs": ["agent_summaries.json", "source_of_truth.md", "output_spec.json"]
+}

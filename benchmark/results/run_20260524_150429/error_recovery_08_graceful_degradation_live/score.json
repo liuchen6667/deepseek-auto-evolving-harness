@@ -1,0 +1,52 @@
+{
+  "id": "error_recovery_08_graceful_degradation_live",
+  "score": 0.845,
+  "passed": true,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "degradation_decision.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "order_mode_and_chosen_strategies_are_correct": {
+      "score": 0.13,
+      "max": 0.15,
+      "detail": "order_mode='reject' chosen_strategies=['reject_new_orders'] reject=True async_notification=False"
+    },
+    "rejected_strategies_are_exact": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "categories=['async_payment', 'cached_inventory', 'manual_reconciliation_queue'] rejected_strategies=[{'strategy': 'async_payment', 'reason': 'payment-service down and not accepting new charges, policy disallows async payment'}, {'strategy': 'accept_without_inventory_reservation', 'reason': 'inventory-service readonly and cannot write reservations, policy requires writable inventory before order acceptance'}, {'strategy': 'manual_reconciliation_queue', 'reason': 'policy disallows manual reconciliation queue for new orders'}]"
+    },
+    "degraded_flow_is_exact": {
+      "score": 0.09,
+      "max": 0.15,
+      "detail": "semantic_hits=3/5 degraded_flow=['validate_request', 'check_dependencies', 'reject_due_to_payment_outage', 'reject_due_to_inventory_readonly', 'return_sync_response']"
+    },
+    "consistency_guards_are_exact": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "semantic_hits=4/4 consistency_guards=['no_order_created', 'no_payment_attempted', 'no_inventory_reserved', 'no_manual_reconciliation_required']"
+    },
+    "recovery_plan_is_exact": {
+      "score": 0.025,
+      "max": 0.1,
+      "detail": "semantic_hits=1/4 recovery_plan=['monitor_payment_service_recovery', 'when_payment_healthy_resume_normal_checkout', 'when_inventory_writable_resume_normal_checkout', 'no_reconciliation_needed']"
+    },
+    "user_response_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "user_response={'http_status': 503, 'status_code': 'SERVICE_UNAVAILABLE', 'must_return_within_seconds': 5}"
+    },
+    "evidence_refs_are_complete": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['service_status.json', 'checkout_request.json', 'degradation_policy.yaml', 'logs/checkout.log', 'logs/notification.log', 'runbook.md']"
+    }
+  }
+}

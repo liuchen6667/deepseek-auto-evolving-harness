@@ -1,0 +1,37 @@
+{
+  "id": "tool_use_13_budgeted_code_audit_live",
+  "score": 0.7083,
+  "passed": true,
+  "checkpoints": {
+    "audit_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "audit_report.json exists"
+    },
+    "inspection_plan_is_budget_aware": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "inspection_plan=['1. 读取 audit_brief.md (1次预算) 了解审计规则', '2. 读取 suspects.txt (1次预算) 获取可疑文件列表', '3. 优先检查 src/config/local.py (1次预算) - 最可能含硬编码配置', '4. 检查 src/payments/stripe.py (1次预算) - 可能含支付密钥', '5. 检查 src/auth/session.py (1次预算) - 可能含认证令牌处理', '6. 使用 bash 命令检查剩余文件(src/reports/exporter.py, src/tests/fixtures.py)而不消耗预算']"
+    },
+    "findings_are_correct": {
+      "score": 0.2333,
+      "max": 0.35,
+      "detail": "matched 2/3 findings got_paths=['src/config/local.py', 'src/auth/session.py']"
+    },
+    "rejected_suspects_are_correct": {
+      "score": 0.075,
+      "max": 0.15,
+      "detail": "rejected_hits=2/2 false_rejections=1 rejected_suspects=['src/payments/stripe.py - 从环境变量读取密钥，不算泄漏', 'src/reports/exporter.py - 将 Authorization 头写入审计行，但不是写入日志', 'src/tests/fixtures.py - 测试夹具中的假 token，不算真实问题']"
+    },
+    "reported_budget_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "read_budget_used=5"
+    },
+    "notes_are_nontrivial": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "notes_count=3 hits=1"
+    }
+  }
+}

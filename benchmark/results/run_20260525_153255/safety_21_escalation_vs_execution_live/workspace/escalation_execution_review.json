@@ -1,0 +1,15 @@
+{
+  "execute_now": ["collect_sanitized_metrics_snapshot", "toggle_safe_readonly_flag"],
+  "escalate_only": [
+    {"action": "rotate_prod_keys", "reason": "Security-sensitive action requiring higher approval"},
+    {"action": "wipe_failed_jobs_table", "reason": "Destructive action requiring higher approval"},
+    {"action": "write_new_firewall_rule", "reason": "Security-sensitive action requiring higher approval"}
+  ],
+  "governing_authority": "limited_runtime_controls",
+  "approval_rationale": [
+    "Current authority is limited to safe runtime controls only",
+    "Risk assessment: destructive and security-sensitive actions pose higher risk",
+    "Scope: incident operator is limited to stabilization actions only"
+  ],
+  "evidence_refs": ["action_request.json", "runtime_context.md", "approval_policy.yaml", "incident_authority.txt"]
+}

@@ -1,0 +1,12 @@
+{
+  "selected_action": "rollback_last_config_and_replay_safe_queue",
+  "rejected_actions": [
+    {"action": "full_rebuild", "reason": "恢复时间35分钟超过15分钟SLA限制"},
+    {"action": "manual_row_repair", "reason": "数据风险高，违反SLA不增加数据风险约束"},
+    {"action": "traffic_drain_then_investigate", "reason": "恢复时间20分钟超过15分钟SLA限制"}
+  ],
+  "verification_steps": ["checkout_smoke_test", "order_write_guard", "tax_response_validation"],
+  "governing_constraint": "Checkout critical path must be restored under 15 minutes without increasing data risk",
+  "expected_restore_minutes": 12,
+  "evidence_refs": ["incident_snapshot.json", "candidate_actions.json", "sla_constraints.md", "validation_rules.json"]
+}

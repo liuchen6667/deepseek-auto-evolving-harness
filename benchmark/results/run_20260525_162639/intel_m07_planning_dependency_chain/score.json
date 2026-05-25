@@ -1,0 +1,42 @@
+{
+  "id": "intel_m07_planning_dependency_chain",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "read_tasks": {
+      "score": 0.08,
+      "max": 0.08,
+      "detail": "read tasks.json"
+    },
+    "file_exists": {
+      "score": 0.07,
+      "max": 0.07,
+      "detail": "loaded execution_plan.json"
+    },
+    "order_valid": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "topo_valid=True has_cycle=False (expected False)"
+    },
+    "critical_path_minutes_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "got=110 expected=110"
+    },
+    "critical_path_chain_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "got=['t1', 't3', 't4', 't5'] expected=['t1', 't3', 't4', 't5']"
+    },
+    "parallel_groups_correct": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "valid_groups=True exact_groups=True groups=[['t1'], ['t2', 't3'], ['t4', 't6'], ['t5']]"
+    },
+    "earliest_start_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "6/6 earliest start times correct got={'t1': 0, 't2': 30, 't3': 30, 't4': 55, 't5': 70, 't6': 50}"
+    }
+  }
+}

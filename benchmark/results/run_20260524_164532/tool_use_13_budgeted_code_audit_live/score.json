@@ -1,0 +1,37 @@
+{
+  "id": "tool_use_13_budgeted_code_audit_live",
+  "score": 0.6083000000000001,
+  "passed": true,
+  "checkpoints": {
+    "audit_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "audit_report.json exists"
+    },
+    "inspection_plan_is_budget_aware": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "inspection_plan=['读取audit_brief.md了解审计规则', '读取suspects.txt获取可疑文件列表', '检查src/payments/stripe.py - 支付相关可能包含硬编码key', '检查src/auth/session.py - 认证相关可能包含token日志', '检查src/config/local.py - 配置文件可能包含硬编码key']"
+    },
+    "findings_are_correct": {
+      "score": 0.2333,
+      "max": 0.35,
+      "detail": "matched 2/3 findings got_paths=['src/auth/session.py', 'src/config/local.py']"
+    },
+    "rejected_suspects_are_correct": {
+      "score": 0.075,
+      "max": 0.15,
+      "detail": "rejected_hits=2/2 false_rejections=1 rejected_suspects=['src/payments/stripe.py', 'src/reports/exporter.py', 'src/tests/fixtures.py']"
+    },
+    "reported_budget_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "read_budget_used=5"
+    },
+    "notes_are_nontrivial": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "notes_count=4 hits=2"
+    }
+  }
+}

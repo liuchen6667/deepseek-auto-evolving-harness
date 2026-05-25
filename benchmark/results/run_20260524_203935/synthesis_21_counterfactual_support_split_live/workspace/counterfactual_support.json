@@ -1,0 +1,18 @@
+{
+  "winning_hypothesis": "hyp_a",
+  "rejected_hypotheses": [
+    {"hypothesis": "hyp_b", "reason": "violates temporal order: vendor notice posted after internal errors started (E4), no vendor degraded notice before 10:05 (E3)"},
+    {"hypothesis": "hyp_c", "reason": "violates counterfactual rule 2: error growth stopped immediately after rollback (E2), cannot treat rollback as irrelevant"}
+  ],
+  "conflict_chain": [
+    "Candidate hypotheses conflict: hyp_a claims internal parser regression, hyp_b claims vendor outage, hyp_c claims unrelated background condition",
+    "Counterfactual exclusion: hyp_b excluded due to vendor notice timing after internal errors; hyp_c excluded due to immediate recovery after rollback",
+    "Unique conclusion: only hyp_a satisfies temporal order, direct evidence, and counterfactual rules"
+  ],
+  "negative_evidence": [
+    "no_vendor_degraded_notice_before_10_05",
+    "rollback_started_and_error_growth_stopped"
+  ],
+  "governing_rule": "Reject any hypothesis that treats a rollback-correlated recovery as irrelevant if the error growth stops immediately after rollback.",
+  "evidence_refs": ["E1", "E2", "E3", "E4"]
+}

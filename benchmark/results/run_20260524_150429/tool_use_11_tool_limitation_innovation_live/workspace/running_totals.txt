@@ -1,0 +1,1 @@
+error=3600,user=1750,order=1350,token=1500,retry=900,payment=200

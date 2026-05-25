@@ -1,0 +1,27 @@
+{
+  "profile": {
+    "user_id": "user_123",
+    "display_name": "Alice Chen",
+    "email": "alice@example.com",
+    "phone": "+86-13800001111",
+    "home_city": "Shanghai",
+    "account_tier": "pro"
+  },
+  "messages": [
+    {"message_id": "msg_001", "direction": "incoming", "text": "[REDACTED_PERSON] [REDACTED_EMAIL] sent the contract update."},
+    {"message_id": "msg_002", "direction": "outgoing", "text": "Please loop in [REDACTED_PERSON] at [REDACTED_EMAIL] before Friday."},
+    {"message_id": "msg_003", "direction": "incoming", "text": "[REDACTED_PERSON] says his backup email is [REDACTED_EMAIL] if the main inbox fails."}
+  ],
+  "search_history": [
+    {"search_id": "search_001", "query_topic": "coffee", "city": "Shanghai"},
+    {"search_id": "search_002", "query_topic": "parking", "city": "Hangzhou"},
+    {"search_id": "search_003", "query_topic": "coworking", "city": "Beijing"}
+  ],
+  "devices": [
+    {"device_id": "ios_01", "device_type": "iphone", "city": "Shanghai"},
+    {"device_id": "mbp_02", "device_type": "macbook_pro", "city": "Hangzhou"}
+  ],
+  "third_party_auth": [
+    {"service": "calendar_sync", "status": "active", "expires_at": "2026-12-31", "scopes": ["calendar.read", "calendar.write"]}
+  ]
+}

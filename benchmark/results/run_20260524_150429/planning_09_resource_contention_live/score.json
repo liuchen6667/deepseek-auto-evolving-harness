@@ -1,0 +1,47 @@
+{
+  "id": "planning_09_resource_contention_live",
+  "score": 0.2,
+  "passed": false,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "resource_contention_plan.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "deadlock_cycles_are_exact": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "invalid JSON: Expecting ',' delimiter: line 42 column 31 (char 1497)"
+    },
+    "allocation_policy_is_exact": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "invalid JSON: Expecting ',' delimiter: line 42 column 31 (char 1497)"
+    },
+    "execution_waves_are_exact": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "invalid JSON: Expecting ',' delimiter: line 42 column 31 (char 1497)"
+    },
+    "deferred_tasks_are_exact": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "invalid JSON: Expecting ',' delimiter: line 42 column 31 (char 1497)"
+    },
+    "completion_summary_is_exact": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "invalid JSON: Expecting ',' delimiter: line 42 column 31 (char 1497)"
+    },
+    "evidence_refs_are_complete": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "invalid JSON: Expecting ',' delimiter: line 42 column 31 (char 1497)"
+    }
+  }
+}

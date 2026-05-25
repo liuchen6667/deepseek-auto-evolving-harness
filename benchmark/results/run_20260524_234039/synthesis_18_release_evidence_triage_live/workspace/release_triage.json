@@ -1,0 +1,9 @@
+{
+  "launch_decision": "hold",
+  "primary_blocker": "checkout_e2e gate failing due to null pointer regression",
+  "blocker_class": "code_regression",
+  "supporting_evidence": ["open P0 bug in checkout component", "checkout_e2e gate failing with null pointer detail", "launch plan requires no open P0 bugs and all gates passing"],
+  "recommended_next_action": "fix the regression and rerun the failed release gate before reassessing launch readiness",
+  "confidence": "high",
+  "evidence_refs": ["bug_tracker.json", "ci_summary.json", "ops_incidents.json", "launch_plan.md"]
+}

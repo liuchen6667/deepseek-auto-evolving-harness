@@ -1,0 +1,18 @@
+{
+  "sampled_shards": ["dataset/shard_a.jsonl", "dataset/shard_b.jsonl", "dataset/shard_e.jsonl"],
+  "sampled_logical_size_mb": 18,
+  "total_error_rows": 15,
+  "error_code_counts": {
+    "E_AUTH_EXPIRED": 1,
+    "E_CONN_TIMEOUT": 5,
+    "E_PAYLOAD_TOO_LARGE": 2,
+    "E_QUEUE_STALL": 4,
+    "E_RATE_LIMIT": 3
+  },
+  "top_error_code": "E_CONN_TIMEOUT",
+  "top_error_code_count": 5,
+  "top_service": "export-worker",
+  "top_service_error_count": 6,
+  "logical_dataset_size_mb": 1536,
+  "analysis_scope": "optimal_safe_bundle_only"
+}

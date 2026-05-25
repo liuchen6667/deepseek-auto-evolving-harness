@@ -1,0 +1,12 @@
+{
+  "primary_route": ["file_read", "file_write"],
+  "blocked_routes": [
+    {"route": "bash", "reason": "workspace_only constraint prohibits shell-first route"},
+    {"route": "glob", "reason": "not needed for exact field collection from known files"},
+    {"route": "WebSearch", "reason": "no web access is needed per task_request and routing_rules"}
+  ],
+  "first_tool": "file_read",
+  "governing_rule": "Use minimal structured workspace tools when local files are sufficient.",
+  "rationale": ["Capability: task requires only reading local structured files and writing one output file, no processing or search needed.", "Workspace constraint: workspace_only true and structured_files_present true confirm all data is in local files.", "Safety boundary: routing_rules prohibits shell-first and web routes for closed workspace tasks; bash and WebSearch are blocked."],
+  "evidence_refs": ["task_request.md", "tool_catalog.json", "workspace_state.json", "routing_rules.md"]
+}

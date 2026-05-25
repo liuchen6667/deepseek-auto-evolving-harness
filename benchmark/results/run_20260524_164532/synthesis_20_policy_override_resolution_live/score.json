@@ -1,0 +1,47 @@
+{
+  "id": "synthesis_20_policy_override_resolution_live",
+  "score": 0.65,
+  "passed": false,
+  "checkpoints": {
+    "decision_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "policy_override_decision.json exists"
+    },
+    "decision_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "decision='deny'"
+    },
+    "policy_version_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "applied_policy_version='v2'"
+    },
+    "governing_rule_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "governing_rule='V2-SEC-4: Any case involving exported customer data to an external destination must be denied unless a security-approved override explicitly names that exact destination and exact use case.'"
+    },
+    "manager_note_usage_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "manager_note_used=False"
+    },
+    "conflicting_signals_are_exact": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "support_signal=True v2_external_block=False security_chain_limit=True conflicting_signals=['Manager approval present and manager note approves specific export', 'V2-SEC-4 requires security-approved override naming exact destination and use case', 'V2-SEC-5 gives precedence to formal v2 clause when manager note conflicts without security countersign']"
+    },
+    "reason_is_exact": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "semantic_hits=5/7 reason='The case involves export of customer data to an external destination (analytics sandbox mirror eu). The manager note lacks security countersign, does not match the exact use case (vendor escalation vs fraud-model drift incident review), and does not cover the exact data type (customer support bundle vs sanitized billing samples). V2-SEC-4 requires denial as no security-approved override exists for this exact destination and use case.'"
+    },
+    "evidence_refs_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['policy_v1.md', 'policy_v2.md', 'manager_note.txt', 'case_details.json']"
+    }
+  }
+}

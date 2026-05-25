@@ -1,0 +1,47 @@
+{
+  "id": "oib5_t24_legacy_modernize",
+  "score": 0.47330000000000005,
+  "passed": false,
+  "checkpoints": {
+    "syntax_valid": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "valid Python 3"
+    },
+    "no_py2_syntax": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "no py2 syntax"
+    },
+    "no_print_stmt": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "print usage still present"
+    },
+    "tests_exist": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "no test file"
+    },
+    "tests_pass": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "tests_method_coverage": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "skipped"
+    },
+    "tests_regression_resistance": {
+      "score": 0.0,
+      "max": 0.25,
+      "detail": "skipped"
+    },
+    "hidden_behavior": {
+      "score": 0.3733,
+      "max": 0.4,
+      "detail": "14/15 hidden behavior checks"
+    }
+  }
+}

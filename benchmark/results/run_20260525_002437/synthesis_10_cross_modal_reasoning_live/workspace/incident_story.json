@@ -1,0 +1,33 @@
+{
+  "timeline": [
+    {"time": "2026-03-18T09:13:58Z", "event": "u431_opened_profile_preferences"},
+    {"time": "2026-03-18T09:14:07Z", "event": "u431_submitted_locale_zh-Hans-CN"},
+    {"time": "2026-03-18T09:14:08Z", "event": "profile_api_failed_in_normalize_locale"},
+    {"time": "2026-03-18T09:14:09Z", "event": "ui_banner_profile_save_failed_rendered"},
+    {"time": "2026-03-18T09:14:00Z", "event": "profile_save_error_rate_spike_confirmed"}
+  ],
+  "affected_user": "u-431",
+  "trigger_action": "save_profile_with_locale_zh-Hans-CN",
+  "ui_symptom": "PROFILE_SAVE_FAILED",
+  "root_cause": "normalize_locale_unpacked_three_part_locale_into_two_variables",
+  "causal_chain": [
+    "user_selected_three_part_locale",
+    "backend_replaced_hyphen_with_underscore",
+    "normalize_locale_raised_value_error",
+    "profile_save_returned_500",
+    "client_rendered_PROFILE_SAVE_FAILED_banner"
+  ],
+  "fix_recommendations": [
+    "support_three_part_locales_in_normalize_locale",
+    "add_regression_test_for_zh_Hans_CN",
+    "return_validation_error_instead_of_500_for_bad_locale_shapes"
+  ],
+  "confidence": "high",
+  "evidence_refs": [
+    "application.log",
+    "metrics.json",
+    "users.csv",
+    "screenshot.txt",
+    "buggy_code.py"
+  ]
+}

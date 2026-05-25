@@ -1,0 +1,21 @@
+{
+  "assigned_slots": [
+    {"task": "F", "start": 9, "end": 10},
+    {"task": "A", "start": 11, "end": 12},
+    {"task": "E", "start": 13, "end": 14},
+    {"task": "D", "start": 14, "end": 16},
+    {"task": "G", "start": 16, "end": 17}
+  ],
+  "resolved_conflicts": [
+    "A and B both require the same time slot [11,12] with duration 1; only one can be scheduled. We chose A over B due to lexicographic tie‑break (A < B) after equal priority P0.",
+    "C depends on both A and B; since B cannot be scheduled, C is blocked and cannot be placed even though its window [12,13] is free.",
+    "D (duration 2, db) and E (duration 1, db) share the db resource and cannot overlap. We scheduled E at [13,14] and D immediately after at [14,16], allowing G (depends on D) to start at 16 within its window [16,18]."
+  ],
+  "unresolved_tasks": ["B", "C"],
+  "completion_count": 5,
+  "notes": [
+    "The primary objective is to maximize completion count. With only one worker, A and B cannot both occupy the identical window [11,12]; selecting A (alphabetically smaller) yields the same count and priority score as selecting B, but satisfies the tertiary tie‑breaker.",
+    "C is left unresolved because it requires both A and B to finish before its start at 12. Even though the time slot [12,13] is available, the missing dependency on B makes C infeasible.",
+    "D and E compete for the db resource and cannot run concurrently. Placing E first at 13‑14 and D at 14‑16 respects the resource constraint, fits both windows, and leaves room for G to start right after D finishes at 16."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "chosen_path": "path_a",
+  "ruled_out_paths": [
+    {"path": "path_b", "reason": "Skips integrity guard, violating governing risk rule that prioritizes integrity over speed"},
+    {"path": "path_c", "reason": "Misses recovery window, failing to meet the goal of restoring within current window"},
+    {"path": "path_d", "reason": "Requires unavailable precondition, making it infeasible"}
+  ],
+  "verification_order": ["Check API functionality restored", "Verify replay completed safely", "Confirm order consistency maintained"],
+  "governing_risk_rule": "preserve_integrity_before_speed_only_paths",
+  "evidence_refs": ["incident_paths.json", "system_signals.md", "risk_rules.json", "recovery_goal.txt"]
+}

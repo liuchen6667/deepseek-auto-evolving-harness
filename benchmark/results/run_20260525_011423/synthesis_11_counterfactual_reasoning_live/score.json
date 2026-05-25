@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_11_counterfactual_reasoning_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "analysis_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "counterfactual_analysis.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "individual_rank_is_correct": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "individual_rank=[{'decision_id': 'stack', 'alternative': 'monolith_first', 'projected_score': -35.0, 'score_improvement': 30.0}, {'decision_id': 'testing', 'alternative': 'tdd', 'projected_score': -42.0, 'score_improvement': 23.0}, {'decision_id': 'delivery', 'alternative': 'sequential_integration', 'projected_score': -48.0, 'score_improvement': 17.0}]"
+    },
+    "individual_scores_are_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "individual_rank_score_hits=0.15"
+    },
+    "best_plan_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "best_three_change_plan=['delivery', 'stack', 'testing']"
+    },
+    "combined_projection_is_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "combined_hits=5/5"
+    },
+    "recommendations_are_exact": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "recommendations=['adopt_tdd_before_sequential_integration_rollout', 'prioritize_monolith_first_before_parallel_scaling']"
+    }
+  }
+}

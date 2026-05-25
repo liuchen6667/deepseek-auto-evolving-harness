@@ -1,0 +1,12 @@
+{
+  "decision": "no_go",
+  "requested_window": "2026-04-17 19:30-20:30 UTC",
+  "recommended_window": "2026-04-20T09:00:00Z-2026-04-20T11:00:00Z",
+  "blocking_constraints": [
+    "Missing security approval",
+    "Requested window falls within blackout window (Friday production freeze: 2026-04-17T18:00:00Z-2026-04-17T23:59:00Z)",
+    "Schema migration requires DBA on call, but DBA availability for requested window is unknown/unspecified"
+  ],
+  "missing_approvals": ["security"],
+  "justification": "The release request REL-204 is high-risk and requires product, oncall, and security approvals. Currently only product and oncall approvals are granted. The requested window (2026-04-17 19:30-20:30 UTC) falls entirely within the blackout window (Friday production freeze). Additionally, as a schema migration, it requires DBA on call during execution. The next valid window with DBA on call is 2026-04-20T09:00:00Z-2026-04-20T11:00:00Z, but security approval must still be obtained."
+}

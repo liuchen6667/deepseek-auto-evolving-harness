@@ -1,0 +1,15 @@
+{
+  "claim_assessments": [
+    {"claim_id": "C1", "status": "contradicted", "evidence": ["E1"]},
+    {"claim_id": "C2", "status": "contradicted", "evidence": ["E2"]},
+    {"claim_id": "C3", "status": "supported", "evidence": ["E3"]},
+    {"claim_id": "C4", "status": "contradicted", "evidence": ["E4"]},
+    {"claim_id": "C5", "status": "supported", "evidence": ["E1", "E4"]}
+  ],
+  "primary_incident_driver": "发布变更",
+  "recommended_action": "加强发布前供应商健康检查，建立供应商状态实时监控和告警机制",
+  "notes": [
+    "发布开始时间（10:00）与首次支付超时（10:07）的时间关联表明发布是事故起点，而非发布前已有问题",
+    "供应商 degraded 状态（10:09）晚于首次错误（10:07），说明供应商问题是后果而非原因，但可能放大了事故影响"
+  ]
+}

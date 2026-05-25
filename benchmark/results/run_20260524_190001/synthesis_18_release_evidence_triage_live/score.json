@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_18_release_evidence_triage_live",
+  "score": 0.8500000000000001,
+  "passed": true,
+  "checkpoints": {
+    "triage_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "release_triage.json exists"
+    },
+    "launch_decision_is_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "launch_decision='hold'"
+    },
+    "primary_blocker_is_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "primary_blocker='Open P0 bug in checkout component causing null pointer regression and checkout_e2e gate failure'"
+    },
+    "blocker_class_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "blocker_class='code_regression'"
+    },
+    "supporting_evidence_is_exact": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "supporting_evidence=['P0 bug P0_checkout_null_pointer_open is open in bug tracker with severity P0, component checkout, summary: Null pointer after hotfix when address2 is empty', 'checkout_e2e gate failed in CI with detail: null pointer in checkout after hotfix, matching the P0 bug description', 'Launch plan states release cannot proceed with open P0 bugs or failed required gates, and code regressions must be fixed before reassessing launch readiness']"
+    },
+    "next_action_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "recommended_next_action='Fix the null pointer regression in checkout component, then rerun the checkout_e2e gate before reassessing launch readiness'"
+    },
+    "confidence_and_refs_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "confidence='high' evidence_refs=['bug_tracker.json', 'ci_summary.json', 'ops_incidents.json', 'launch_plan.md']"
+    }
+  }
+}

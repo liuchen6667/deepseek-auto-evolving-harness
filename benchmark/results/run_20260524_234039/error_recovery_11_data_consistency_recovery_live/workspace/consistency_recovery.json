@@ -1,0 +1,20 @@
+{
+  "canonical_sources": {
+    "orders": "A",
+    "inventory": ["A", "B"]
+  },
+  "orders_missing_in_B": [705, 706],
+  "orders_extra_in_C": [799],
+  "inventory_fix": {
+    "replica": "C",
+    "expected_value": 100
+  },
+  "root_causes": {
+    "B_orders": "replication_lag",
+    "C_orders": "missed_rollback",
+    "C_inventory": "duplicate_replay"
+  },
+  "repair_sequence": ["sync_orders_to_B", "remove_799_from_C", "correct_inventory_on_C"],
+  "verification_steps": ["verify_all_replicas_have_orders_701_to_706", "confirm_order_799_not_present_in_any_replica", "check_inventory_sku_77_equals_100_on_all_replicas"],
+  "notes": ["primary_A_should_remain_authoritative_during_recovery", "replication_lag_on_B_requires_catch_up_before_promotion", "isolation_events_can_cause_missed_rollbacks"]
+}

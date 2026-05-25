@@ -1,0 +1,163 @@
+{
+  "schedule": [
+    {
+      "task_id": "task_001",
+      "agent_id": "agent_002",
+      "agent_name": "Beta",
+      "start_time": 0,
+      "end_time": 3,
+      "resources_used": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 30
+      },
+      "reason": "best_fit_network_io_capability"
+    },
+    {
+      "task_id": "task_002",
+      "agent_id": "agent_003",
+      "agent_name": "Gamma",
+      "start_time": 3,
+      "end_time": 5,
+      "resources_used": {
+        "cpu": 10,
+        "memory": 15,
+        "bandwidth": 5
+      },
+      "reason": "validation_capability_and_high_efficiency"
+    },
+    {
+      "task_id": "task_003",
+      "agent_id": "agent_001",
+      "agent_name": "Alpha",
+      "start_time": 5,
+      "end_time": 9,
+      "resources_used": {
+        "cpu": 25,
+        "memory": 30,
+        "bandwidth": 10
+      },
+      "reason": "data_processing_capability_and_optimal_load"
+    },
+    {
+      "task_id": "task_004",
+      "agent_id": "agent_004",
+      "agent_name": "Delta",
+      "start_time": 9,
+      "end_time": 12,
+      "resources_used": {
+        "cpu": 30,
+        "memory": 20,
+        "bandwidth": 5
+      },
+      "reason": "encryption_capability_and_available_slot"
+    },
+    {
+      "task_id": "task_005",
+      "agent_id": "agent_001",
+      "agent_name": "Alpha",
+      "start_time": 12,
+      "end_time": 14,
+      "resources_used": {
+        "cpu": 20,
+        "memory": 25,
+        "bandwidth": 5
+      },
+      "reason": "compression_capability_and_continuity"
+    },
+    {
+      "task_id": "task_006",
+      "agent_id": "agent_005",
+      "agent_name": "Epsilon",
+      "start_time": 5,
+      "end_time": 8,
+      "resources_used": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 10
+      },
+      "reason": "analysis_capability_and_parallel_execution"
+    },
+    {
+      "task_id": "task_007",
+      "agent_id": "agent_003",
+      "agent_name": "Gamma",
+      "start_time": 8,
+      "end_time": 10,
+      "resources_used": {
+        "cpu": 10,
+        "memory": 15,
+        "bandwidth": 5
+      },
+      "reason": "reporting_capability_and_dependency_chain"
+    },
+    {
+      "task_id": "task_008",
+      "agent_id": "agent_004",
+      "agent_name": "Delta",
+      "start_time": 14,
+      "end_time": 17,
+      "resources_used": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 20
+      },
+      "reason": "archival_compression_capability_and_dependency"
+    },
+    {
+      "task_id": "task_009",
+      "agent_id": "agent_002",
+      "agent_name": "Beta",
+      "start_time": 14,
+      "end_time": 18,
+      "resources_used": {
+        "cpu": 10,
+        "memory": 10,
+        "bandwidth": 50
+      },
+      "reason": "network_io_capability_and_parallel_transfer"
+    },
+    {
+      "task_id": "task_010",
+      "agent_id": "agent_003",
+      "agent_name": "Gamma",
+      "start_time": 18,
+      "end_time": 21,
+      "resources_used": {
+        "cpu": 20,
+        "memory": 25,
+        "bandwidth": 10
+      },
+      "reason": "validation_analysis_capability_and_final_check"
+    }
+  ],
+  "summary": {
+    "total_completion_time": 21,
+    "within_time_limit": false,
+    "critical_path": ["task_001", "task_002", "task_003", "task_004", "task_005", "task_009", "task_010"],
+    "agent_load_distribution": {
+      "agent_001": 2,
+      "agent_002": 2,
+      "agent_003": 3,
+      "agent_004": 2,
+      "agent_005": 1
+    },
+    "peak_resource_usage": {
+      "cpu": 55,
+      "memory": 55,
+      "bandwidth": 80
+    },
+    "optimization_notes": [
+      "Parallel execution enabled: task_006 runs concurrently with task_003-005",
+      "Resource constraints respected: peak usage within limits (CPU 55/100, Memory 55/100, Bandwidth 80/100)",
+      "Agent capabilities matched: each task assigned to agent with required capabilities",
+      "Load balanced: all agents utilized with reasonable task counts",
+      "Dependencies satisfied: all task sequences follow dependency graph",
+      "Priority considered: high priority tasks scheduled early in critical path"
+    ],
+    "alternative_suggestions": [
+      "To meet 20-time limit: assign task_009 to agent_005 (network_io) to reduce critical path by 1 time unit",
+      "Consider task_009 duration reduction as it's bandwidth-intensive but CPU-light"
+    ]
+  }
+}

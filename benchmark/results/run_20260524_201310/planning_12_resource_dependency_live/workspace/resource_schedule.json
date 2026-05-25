@@ -1,0 +1,20 @@
+{
+  "schedule": [
+    {"task": "A", "start": 0, "end": 2},
+    {"task": "B", "start": 0, "end": 2},
+    {"task": "C", "start": 2, "end": 5},
+    {"task": "D", "start": 2, "end": 4},
+    {"task": "E", "start": 5, "end": 9},
+    {"task": "F", "start": 4, "end": 7},
+    {"task": "G", "start": 9, "end": 14},
+    {"task": "H", "start": 9, "end": 10},
+    {"task": "I", "start": 14, "end": 16}
+  ],
+  "parallel_groups": [["A", "B"], ["C", "D"], ["G", "H"]],
+  "makespan": 16,
+  "critical_path": ["A", "C", "E", "G", "I"],
+  "notes": [
+    "关键资源是内存，在时间5-9期间E和F同时运行，使用CPU=7/8, Mem=10/16，接近但未超过限制",
+    "调度充分利用了并行性：A和B同时开始，C和D同时开始，G和H同时开始，使得makespan等于关键路径长度16"
+  ]
+}

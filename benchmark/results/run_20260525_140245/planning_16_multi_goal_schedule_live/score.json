@@ -1,0 +1,42 @@
+{
+  "id": "planning_16_multi_goal_schedule_live",
+  "score": 0.4,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "selected": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "['plan_beta', 'plan_gamma', 'plan_alpha']"
+    },
+    "rejected": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'plan': 'plan_delta', 'reason': 'Does not align with highest priority objective of protecting customer commitment'}, {'plan': 'plan_epsilon', 'reason': 'Insufficient contribution to primary business objectives compared to selected plans'}]"
+    },
+    "alloc": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "[{'window': 'w1', 'task': 'plan_beta'}, {'window': 'w2', 'task': 'plan_gamma'}, {'window': 'w3', 'task': 'plan_alpha'}]"
+    },
+    "objective": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "protect customer commitment"
+    },
+    "rationale": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['Objective priority: plan_beta directly addresses the highest priority objective of protecting customer commitment, as indicated by its first position in the planning contract', 'Resource fit: allocating plan_beta to w1 (4 CPU cores) ensures maximum resources for the most critical objective, with descending allocation for lower priority plans', 'Tradeoff: rejecting plan_delta and plan_epsilon balances resource constraints while fully addressing all three business objectives with the three selected plans']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['work_items.json', 'resource_limits.json', 'business_objectives.md', 'planning_contract.json']"
+    }
+  }
+}

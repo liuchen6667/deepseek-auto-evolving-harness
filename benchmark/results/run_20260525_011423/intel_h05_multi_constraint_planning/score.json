@@ -1,0 +1,62 @@
+{
+  "id": "intel_h05_multi_constraint_planning",
+  "score": 0.87,
+  "passed": true,
+  "checkpoints": {
+    "read_both": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "project=False constraints=False"
+    },
+    "file_exists": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "loaded plan.json"
+    },
+    "no_blocked_assignees": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "blocked_assignee_in_plan=False"
+    },
+    "dependencies_respected": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "deps_respected=True"
+    },
+    "within_budget": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "total=39/40 within=True reported=True"
+    },
+    "total_effort_accurate": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "reported_total=39 actual_total=39"
+    },
+    "priority_first": {
+      "score": 0.02,
+      "max": 0.05,
+      "detail": "priority_selected=2/5 reported=2"
+    },
+    "max_parallel_respected": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "max_concurrent=3 violations=0"
+    },
+    "dependency_order_respected": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "dep_order_ok=True violations=[]"
+    },
+    "deferred_tasks_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "deferred_ids=['p02', 'p03', 'p04', 'p05', 'p08', 'p10', 'p11', 'p12'] must_defer=['p03', 'p05', 'p08', 'p12'] hits=4/4"
+    },
+    "transitive_block_detected": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "p05_deferred=True p05_reason_ok=True"
+    }
+  }
+}

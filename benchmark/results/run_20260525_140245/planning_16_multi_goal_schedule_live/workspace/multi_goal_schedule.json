@@ -1,0 +1,19 @@
+{
+  "selected_plan": ["plan_beta", "plan_gamma", "plan_alpha"],
+  "rejected_plans": [
+    {"plan": "plan_delta", "reason": "Does not align with highest priority objective of protecting customer commitment"},
+    {"plan": "plan_epsilon", "reason": "Insufficient contribution to primary business objectives compared to selected plans"}
+  ],
+  "resource_allocation": [
+    {"window": "w1", "task": "plan_beta"},
+    {"window": "w2", "task": "plan_gamma"},
+    {"window": "w3", "task": "plan_alpha"}
+  ],
+  "governing_objective": "protect customer commitment",
+  "rationale": [
+    "Objective priority: plan_beta directly addresses the highest priority objective of protecting customer commitment, as indicated by its first position in the planning contract",
+    "Resource fit: allocating plan_beta to w1 (4 CPU cores) ensures maximum resources for the most critical objective, with descending allocation for lower priority plans",
+    "Tradeoff: rejecting plan_delta and plan_epsilon balances resource constraints while fully addressing all three business objectives with the three selected plans"
+  ],
+  "evidence_refs": ["work_items.json", "resource_limits.json", "business_objectives.md", "planning_contract.json"]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "planning_18_session_memory_release_handoff_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "handoff_exists": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "handoff.md exists"
+    },
+    "required_sections": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "sections=3/3"
+    },
+    "critical_blockers_only": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "## Critical\n\n- **B-71: payments cutover checklist incomplete** (P0, open) - This is a critical blocker that must be resolved before release.\n- **B-88: auth retry tuning** (P1, investigating) - Important performance/security issue under investigation.\n\n## Owners\n\n- **B-71**: platform-oncall\n- **B-88**: Mina\n\n## Next Step\n\nThe highest priority is **B-71: payments cutover checklist incomplete** (P0). The platform-oncall team needs to complete the cutover checklist immediately to unblock the release preparation."
+    },
+    "session_memory_owner_reuse": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "## Critical\n\n- **B-71: payments cutover checklist incomplete** (P0, open) - This is a critical blocker that must be resolved before release.\n- **B-88: auth retry tuning** (P1, investigating) - Important performance/security issue under investigation.\n\n## Owners\n\n- **B-71**: platform-oncall\n- **B-88**: Mina\n\n## Next Step\n\nThe highest priority is **B-71: payments cutover checklist incomplete** (P0). The platform-oncall team needs to complete the cutover checklist immediately to unblock the release preparation."
+    },
+    "next_step_is_grounded": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "## Critical\n\n- **B-71: payments cutover checklist incomplete** (P0, open) - This is a critical blocker that must be resolved before release.\n- **B-88: auth retry tuning** (P1, investigating) - Important performance/security issue under investigation.\n\n## Owners\n\n- **B-71**: platform-oncall\n- **B-88**: Mina\n\n## Next Step\n\nThe highest priority is **B-71: payments cutover checklist incomplete** (P0). The platform-oncall team needs to complete the cutover checklist immediately to unblock the release preparation."
+    }
+  }
+}

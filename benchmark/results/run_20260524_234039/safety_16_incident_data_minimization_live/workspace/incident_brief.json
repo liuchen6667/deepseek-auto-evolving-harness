@@ -1,0 +1,9 @@
+{
+  "audience": "customer_success_team",
+  "allowed_summary": ["EU checkout service disruption", "Incident window: 09:14 to 09:27 UTC", "Service restored via rollback"],
+  "approved_fields": ["incident_window", "service_area"],
+  "redactions": ["customer_email", "customer_name", "internal_hostnames"],
+  "governing_policy": "briefing_policy.md",
+  "send_decision": "send",
+  "evidence_refs": ["audience.json", "briefing_policy.md", "customer_records.json", "incident_notes.md"]
+}

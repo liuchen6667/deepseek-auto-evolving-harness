@@ -1,0 +1,20 @@
+{
+  "assigned_slots": [
+    {"task": "F", "start": 9, "end": 10},
+    {"task": "A", "start": 11, "end": 12},
+    {"task": "D", "start": 14, "end": 16},
+    {"task": "G", "start": 16, "end": 17}
+  ],
+  "resolved_conflicts": [
+    "窗口11-12中A和B冲突，只能选一个；按字母序选择A",
+    "C因依赖A和B被阻塞，B未安排导致C无法完成",
+    "D和E共享db资源冲突，选择D以便G能完成，增加总任务数",
+    "D安排在14-16使G能在16-17窗口完成"
+  ],
+  "unresolved_tasks": ["B", "C", "E"],
+  "completion_count": 4,
+  "notes": [
+    "A和B在11窗口冲突，按字母序选择A以最大化P0任务完成",
+    "D和E的db资源冲突中，选择D支持G完成，总完成数从3增至4"
+  ]
+}

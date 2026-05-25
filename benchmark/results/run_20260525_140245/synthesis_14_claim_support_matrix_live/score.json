@@ -1,0 +1,32 @@
+{
+  "id": "synthesis_14_claim_support_matrix_live",
+  "score": 0.6000000000000001,
+  "passed": true,
+  "checkpoints": {
+    "matrix_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "claim_matrix.json exists"
+    },
+    "claim_assessments_are_correct": {
+      "score": 0.4,
+      "max": 0.4,
+      "detail": "claim_assessments=[{'claim_id': 'C1', 'status': 'contradicted', 'evidence': ['E1']}, {'claim_id': 'C2', 'status': 'contradicted', 'evidence': ['E2']}, {'claim_id': 'C3', 'status': 'supported', 'evidence': ['E3']}, {'claim_id': 'C4', 'status': 'contradicted', 'evidence': ['E4']}, {'claim_id': 'C5', 'status': 'supported', 'evidence': ['E1', 'E4']}]"
+    },
+    "primary_driver_is_correct": {
+      "score": 0.0,
+      "max": 0.25,
+      "detail": "primary_incident_driver='发布变更（10:00开始）导致支付超时（10:07首次出现），回滚后恢复'"
+    },
+    "recommended_action_is_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "recommended_action='1. 加强发布前的集成测试和灰度发布策略\\n2. 优化回滚流程，缩短故障恢复时间'"
+    },
+    "notes_are_nontrivial": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "notes_count=2 hits=2"
+    }
+  }
+}

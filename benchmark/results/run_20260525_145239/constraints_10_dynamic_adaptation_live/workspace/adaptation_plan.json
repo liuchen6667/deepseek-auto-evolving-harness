@@ -1,0 +1,36 @@
+{
+  "slot_decisions": [
+    {
+      "slot_start": 0,
+      "active_workloads": ["billing_sync", "realtime_search"],
+      "throughput_units": 19
+    },
+    {
+      "slot_start": 5,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 10,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 15,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 20,
+      "active_workloads": ["fraud_guard"],
+      "throughput_units": 6
+    }
+  ],
+  "final_delayed_workloads": [],
+  "final_canceled_workloads": ["image_backfill", "report_export"],
+  "total_completed_units": 61,
+  "notes": [
+    "Slot 5内存限制1.0GB导致只能运行单个工作负载，选择高吞吐量的realtime_search，billing_sync因内存不足被排除。",
+    "Slot 20错误率限制0.1%仅允许fraud_guard运行，其他工作负载错误率超标。"
+  ]
+}

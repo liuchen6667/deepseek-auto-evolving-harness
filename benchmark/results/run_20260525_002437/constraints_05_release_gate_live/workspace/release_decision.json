@@ -1,0 +1,12 @@
+{
+  "decision": "no_go",
+  "requested_window": "2026-04-17 19:30-20:30 UTC",
+  "recommended_window": "2026-04-20T09:00:00Z,2026-04-20T11:00:00Z",
+  "blocking_constraints": [
+    "requested_window_falls_in_blackout",
+    "dba_oncall_required_for_schema_migration",
+    "missing_security_approval"
+  ],
+  "missing_approvals": ["security"],
+  "justification": "The requested window (2026-04-17 19:30-20:30 UTC) falls within the blackout period (Friday production freeze from 2026-04-17T18:00:00Z to 2026-04-17T23:59:00Z). Additionally, schema migrations require DBA on-call availability, which is not present during the blackout window. Security approval is also missing for this high-risk release. The next valid window with DBA on-call availability is 2026-04-20T09:00:00Z to 2026-04-20T11:00:00Z."
+}

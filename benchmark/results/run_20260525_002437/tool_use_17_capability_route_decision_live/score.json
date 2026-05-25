@@ -1,0 +1,42 @@
+{
+  "id": "tool_use_17_capability_route_decision_live",
+  "score": 0.30000000000000004,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "route": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['file_read', 'file_write']"
+    },
+    "blocked": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'route': 'bash', 'reason': 'workspace_only constraint prohibits shell-first route'}, {'route': 'glob', 'reason': 'not needed for exact field collection from known files'}, {'route': 'WebSearch', 'reason': 'no web access is needed per task_request and routing_rules'}]"
+    },
+    "first": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "file_read"
+    },
+    "rule": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "Use minimal structured workspace tools when local files are sufficient."
+    },
+    "rationale": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['Capability: task requires only reading local structured files and writing one output file, no processing or search needed.', 'Workspace constraint: workspace_only true and structured_files_present true confirm all data is in local files.', 'Safety boundary: routing_rules prohibits shell-first and web routes for closed workspace tasks; bash and WebSearch are blocked.']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['task_request.md', 'tool_catalog.json', 'workspace_state.json', 'routing_rules.md']"
+    }
+  }
+}

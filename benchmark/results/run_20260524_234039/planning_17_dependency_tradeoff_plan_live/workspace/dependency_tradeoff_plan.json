@@ -1,0 +1,12 @@
+{
+  "execute_now": ["schema-prepare", "service-cutover", "smoke-verify"],
+  "defer": [
+    {"task": "analytics-rebuild", "reason": "excluded_from_current_window"},
+    {"task": "cache-warm", "reason": "capacity_constraint"},
+    {"task": "report-migration", "reason": "dependency_on_excluded_task"}
+  ],
+  "dependency_order": ["schema-prepare", "service-cutover", "smoke-verify"],
+  "governing_rule": "Prefer the highest-priority dependency-closed chain that fits in the current window.",
+  "justification": ["dependency_closure_chain_fits_capacity", "capacity_limits_to_three_slots", "analytics_rebuild_excluded_from_today_window"],
+  "evidence_refs": ["task_graph.json", "capacity.json", "priority_rules.md", "delivery_window.json"]
+}

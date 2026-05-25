@@ -1,0 +1,42 @@
+{
+  "id": "constraints_18_temporal_resource_exception_live",
+  "score": 0.6666666666666666,
+  "passed": true,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "accept": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "[{'window': 'w1', 'request': 'req_a'}, {'window': 'w2', 'request': 'req_c'}]"
+    },
+    "rej": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "[{'request': 'req_b', 'reason': 'no exception slot available in w1'}, {'request': 'req_d', 'reason': 'overflow budget consumed by exception slot usage'}, {'request': 'req_e', 'reason': 'fails base eligibility check'}]"
+    },
+    "chain": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['capacity_check', 'exception_enablement', 'priority_ordering_with_overflow_constraint']"
+    },
+    "exc": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "w2_priority_exception_only"
+    },
+    "unused": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "[{'window': 'w1', 'remaining': 0}, {'window': 'w2', 'remaining': 0}]"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['requests.json', 'resource_windows.md', 'exception_rules.json', 'selection_contract.txt']"
+    }
+  }
+}

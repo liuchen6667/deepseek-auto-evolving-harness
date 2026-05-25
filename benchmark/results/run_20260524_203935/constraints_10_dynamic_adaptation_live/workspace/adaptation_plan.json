@@ -1,0 +1,36 @@
+{
+  "slot_decisions": [
+    {
+      "slot_start": 0,
+      "active_workloads": ["fraud_guard", "realtime_search"],
+      "throughput_units": 18
+    },
+    {
+      "slot_start": 5,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 10,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 15,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 20,
+      "active_workloads": ["fraud_guard"],
+      "throughput_units": 6
+    }
+  ],
+  "final_delayed_workloads": ["billing_sync"],
+  "final_canceled_workloads": ["image_backfill", "report_export"],
+  "total_completed_units": 60,
+  "notes": [
+    "billing_sync 在槽5（内存限制1.0GB）中被延迟，因为其内存需求0.9GB与realtime_search的0.7GB冲突，而realtime_search提供更高的吞吐量（12 vs 7），且fraud_guard的error rate 0.08%更适合槽20的严格error限制。",
+    "image_backfill 和 report_export 被取消：image_backfill的延迟6.0s超过所有槽的最大延迟限制（最高5s），而report_export的错误率1.5%超过所有槽的最大错误率限制（最高1.0%）。fraud_guard在槽20被选中，因为它是唯一满足严格error rate≤0.1%要求的工作负载。"
+  ]
+}

@@ -1,0 +1,6 @@
+[
+  {"id": "B-17", "title": "payment callback regression", "severity": "P0", "status": "open", "owner": null},
+  {"id": "B-21", "title": "docs typo on billing page", "severity": "P3", "status": "open", "owner": "Nia"},
+  {"id": "B-33", "title": "auth refresh flaky in staging", "severity": "P1", "status": "investigating", "owner": "Mina"},
+  {"id": "B-40", "title": "legacy test cleanup", "severity": "P1", "status": "done", "owner": "Leo"}
+]

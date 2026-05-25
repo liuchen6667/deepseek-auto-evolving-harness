@@ -1,0 +1,7 @@
+{
+  "thread_id": "t-100",
+  "selected_handle": "@alex-release",
+  "selected_channel": "telegram",
+  "rejected_candidates": ["@alex-design"],
+  "reason": "Both candidates have the same name 'Alex Chen' but different handles. According to the policy's confirmation_policy (require_last_confirmed_target: true), the last_confirmed_target '@alex-release' must be selected. The rejected candidate '@alex-design' is associated with the design team while the required context is 'release approval packet', making '@alex-release' (release team) the appropriate recipient."
+}

@@ -1,0 +1,23 @@
+{
+  "selected_checkpoint": "C2",
+  "total_recovery_cost": 51,
+  "rejected_checkpoints": [
+    {"id": "C1", "reason": "total_recovery_cost 80 is higher than C2's 51"},
+    {"id": "C3", "reason": "suspect_duplicate_write status incurs risk_penalty 25, total_recovery_cost 60 is higher than C2's 51"},
+    {"id": "C4", "reason": "status invalid_missing_index_on_orders starts with 'invalid_', checkpoint cannot be selected"}
+  ],
+  "recovery_sequence": [
+    "validate C2 checkpoint integrity and consistency",
+    "restore database from C2 checkpoint (7 minutes)",
+    "apply transaction logs from 09:35 to 10:00 to catch up (19 minutes)",
+    "verify data consistency and business continuity"
+  ],
+  "verification_focus": [
+    "verify no data corruption in restored checkpoint",
+    "confirm all transactions from 09:35 to 10:00 are correctly replayed"
+  ],
+  "notes": [
+    "C2 provides optimal balance between data loss (25min) and recovery time",
+    "risk_penalty for suspect checkpoints significantly impacts total cost"
+  ]
+}

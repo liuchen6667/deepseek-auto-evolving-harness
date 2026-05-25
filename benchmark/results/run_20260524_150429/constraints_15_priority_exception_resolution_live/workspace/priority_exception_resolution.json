@@ -1,0 +1,19 @@
+{
+  "winning_request": "req_a",
+  "denied_exceptions": [
+    {"request": "req_b", "reason": "security approval false"},
+    {"request": "req_c", "reason": "strength lower than base winner"}
+  ],
+  "rule_chain": [
+    "base priority matrix determines winner",
+    "exception policy validates exception legality",
+    "resolution contract confirms final resolution"
+  ],
+  "governing_exception": "none",
+  "evidence_refs": [
+    "request_queue.json",
+    "exception_policy.md",
+    "priority_matrix.json",
+    "resolution_contract.json"
+  ]
+}

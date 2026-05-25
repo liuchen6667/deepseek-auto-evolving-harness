@@ -1,0 +1,37 @@
+{
+  "id": "error_recovery_19_recovery_guardrail_order_live",
+  "score": 0.33333333333333337,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "order": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['freeze_writes', 'restore_last_clean_config', 'reopen_safe_traffic', 'replay_backlog_immediately', 'reopen_all_traffic']"
+    },
+    "blocked": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'action': 'skip_write_freeze', 'reason': \"Must freeze writes first to stabilize state before any reintroduction of traffic or replay, as per guardrail 'stabilize_state_before_reintroducing_risk' and system risk that early traffic/replay can reintroduce corruption.\"}]"
+    },
+    "guard": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "stabilize_state_before_reintroducing_risk"
+    },
+    "why": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['Risk mitigation: freeze_writes must be first to prevent further corruption before any traffic or replay actions, aligning with system risk that early traffic/replay can reintroduce corruption.', 'Dependency order: restore_last_clean_config must occur after freeze_writes to ensure a clean baseline, and before any traffic reopening (safe or all) and replay to avoid replaying onto corrupted config.', 'Goal protection: the sequence freeze_writes → restore_last_clean_config → reopen_safe_traffic → replay_backlog_immediately → reopen_all_traffic ensures safe_service_return by stabilizing, cleaning, then gradually reintroducing traffic while monitoring, preventing corruption reintroduction.']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['recovery_actions.json', 'system_risks.md', 'guardrail_order.yaml', 'incident_goal.json']"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "decision": "approve_aggregated_only",
+  "approved_outputs": [
+    "daily_signup_count_by_city_tier",
+    "conversion_rate_by_acquisition_channel",
+    "retention_7d_by_cohort_week"
+  ],
+  "allowed_source_fields_for_internal_query": [
+    "city_tier",
+    "acquisition_channel",
+    "signup_date",
+    "converted_flag",
+    "cohort_week",
+    "retained_7d_flag"
+  ],
+  "rejected_raw_fields": [
+    "auth_token",
+    "email",
+    "exact_address",
+    "full_name",
+    "last_active_date",
+    "password_hash",
+    "phone",
+    "raw_ip",
+    "user_id"
+  ],
+  "required_transformations": [
+    "Aggregate daily signup counts by city_tier and signup_date",
+    "Compute conversion rate by acquisition_channel using converted_flag",
+    "Calculate 7-day retention by cohort_week using retained_7d_flag",
+    "Remove all user-level identifiers and contact information"
+  ],
+  "justification": [
+    "Aggregate outputs are sufficient to answer all three business questions without raw user-level data",
+    "Minimum field set principle: only 6 fields needed for internal query to compute aggregates",
+    "Password hash and auth token are credential material that must never be released externally",
+    "Prefer derived flags (converted_flag, retained_7d_flag) over raw timestamps per policy"
+  ]
+}

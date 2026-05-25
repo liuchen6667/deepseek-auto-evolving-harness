@@ -1,0 +1,32 @@
+{
+  "id": "constraints_20_message_recipient_disambiguation_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "decision_exists": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "recipient_decision.json exists"
+    },
+    "selected_target_is_correct": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "thread_id='t-100' selected_handle='@alex-release' selected_channel='telegram'"
+    },
+    "rejected_candidates_are_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "rejected_candidates=['@alex-design']"
+    },
+    "reason_is_grounded": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "reason=\"Both candidates have the same name 'Alex Chen' but different handles. According to the policy's confirmation_policy (require_last_confirmed_target: true), the last_confirmed_target '@alex-release' must be selected. The rejected candidate '@alex-design' is associated with the design team while the required context is 'release approval packet', making '@alex-release' (release team) the appropriate recipient.\""
+    },
+    "single_recipient_only": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "payload={'thread_id': 't-100', 'selected_handle': '@alex-release', 'selected_channel': 'telegram', 'rejected_candidates': ['@alex-design'], 'reason': \"Both candidates have the same name 'Alex Chen' but different handles. According to the policy's confirmation_policy (require_last_confirmed_target: true), the last_confirmed_target '@alex-release' must be selected. The rejected candidate '@alex-design' is associated with the design team while the required context is 'release approval packet', making '@alex-release' (release team) the appropriate recipient.\"}"
+    }
+  }
+}

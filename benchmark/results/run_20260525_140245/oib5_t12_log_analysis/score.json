@@ -1,0 +1,37 @@
+{
+  "id": "oib5_t12_log_analysis",
+  "score": 0.43,
+  "passed": false,
+  "checkpoints": {
+    "report_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "error_report.md exists"
+    },
+    "report_grouped": {
+      "score": 0.09,
+      "max": 0.15,
+      "detail": "3/5 services in report"
+    },
+    "total_lines": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "total=16 (expected 20)"
+    },
+    "by_level": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "INFO=5 WARN=4 ERROR=7"
+    },
+    "error_services": {
+      "score": 0.04,
+      "max": 0.2,
+      "detail": "1/5 services correct"
+    },
+    "has_warnings": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "4 warnings listed"
+    }
+  }
+}

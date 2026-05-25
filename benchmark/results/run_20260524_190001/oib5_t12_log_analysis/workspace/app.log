@@ -1,0 +1,17 @@
+2024-05-24 10:00:00 INFO [PaymentService] Processing payment for order 12345
+2024-05-24 10:01:15 ERROR [PaymentService] Payment gateway timeout for order 12345
+2024-05-24 10:02:30 WARN [UserService] Failed to update user profile cache for user 789
+2024-05-24 10:03:45 INFO [OrderService] Order 12345 created successfully
+2024-05-24 10:05:00 ERROR [OrderService] Database connection failed: Connection refused
+2024-05-24 10:06:15 INFO [PaymentService] Retrying payment for order 12345
+2024-05-24 10:07:30 ERROR [PaymentService] Insufficient funds for user 789
+2024-05-24 10:08:45 WARN [InventoryService] Low stock for product ABC-123
+2024-05-24 10:10:00 INFO [UserService] User login successful for user 789
+2024-05-24 10:11:15 ERROR [UserService] Authentication service unavailable
+2024-05-24 10:12:30 ERROR [PaymentService] Credit card validation failed for order 12345
+2024-05-24 10:13:45 INFO [OrderService] Order 12345 shipped
+2024-05-24 10:15:00 WARN [ShippingService] Delivery delay expected for zone Z-5
+2024-05-24 10:16:15 ERROR [OrderService] Cannot fulfill order 12345: out of stock
+2024-05-24 10:17:30 INFO [PaymentService] Refund processed for order 12345
+2024-05-24 10:18:45 ERROR [DatabaseService] Replication lag exceeds threshold (15s)
+2024-05-24 10:20:00 CRITICAL [System] Memory usage at 95% - immediate action required

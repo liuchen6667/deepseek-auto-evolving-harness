@@ -1,0 +1,47 @@
+{
+  "id": "tool_use_07_tool_chain_inference_live",
+  "score": 0.1,
+  "passed": false,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "missing category_chain_report.json"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "ranking_basis_is_correct": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "skipped"
+    },
+    "top_categories_are_exact": {
+      "score": 0.0,
+      "max": 0.35,
+      "detail": "skipped"
+    },
+    "dropped_orders_are_exact": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "adjustment_summary_is_exact": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "summary_is_exact": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "evidence_refs_are_complete": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "skipped"
+    }
+  }
+}

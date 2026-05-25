@@ -1,0 +1,25 @@
+{
+  "total_lines": 17,
+  "by_level": {
+    "INFO": 6,
+    "WARN": 4,
+    "ERROR": 7
+  },
+  "error_services": {
+    "PaymentService": 4,
+    "UserService": 2,
+    "OrderService": 1
+  },
+  "warnings": [
+    "UserService - Failed to update user profile cache, user_id=user_456",
+    "PaymentService - High latency detected in payment processing: 2500ms",
+    "OrderService - Order fulfillment delayed beyond SLA, order_id=order_789",
+    "PaymentService - Unusual payment pattern detected: high frequency small transactions"
+  ],
+  "critical_issues": [
+    "PaymentService - Critical: Payment reconciliation mismatch detected, difference=500.00",
+    "PaymentService - Payment gateway unreachable, retry_count=3",
+    "PaymentService - Security alert: Multiple failed payment attempts, user_id=user_999",
+    "UserService - Database connection timeout when fetching user details, user_id=user_123"
+  ]
+}

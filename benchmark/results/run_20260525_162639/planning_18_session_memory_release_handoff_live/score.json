@@ -1,0 +1,32 @@
+{
+  "id": "planning_18_session_memory_release_handoff_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "handoff_exists": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "handoff.md exists"
+    },
+    "required_sections": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "sections=3/3"
+    },
+    "critical_blockers_only": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "## Critical\n\n- B-71: payments cutover checklist incomplete (P0, open) - 这是最高优先级的 blocker，必须尽快完成支付系统切换清单\n- B-88: auth retry tuning (P1, investigating) - 身份验证重试调优正在进行中，需要监控进展\n\n## Owners\n\n- B-71: platform-oncall\n- B-88: Mina\n\n## Next Step\n\n首先处理 P0 级别的 blocker B-71 (payments cutover checklist incomplete)。平台值班团队 (platform-oncall) 需要立即完成支付系统切换清单，确保明天早上的发布交接顺利进行。同时，Mina 继续调查 B-88 (auth retry tuning)。"
+    },
+    "session_memory_owner_reuse": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "## Critical\n\n- B-71: payments cutover checklist incomplete (P0, open) - 这是最高优先级的 blocker，必须尽快完成支付系统切换清单\n- B-88: auth retry tuning (P1, investigating) - 身份验证重试调优正在进行中，需要监控进展\n\n## Owners\n\n- B-71: platform-oncall\n- B-88: Mina\n\n## Next Step\n\n首先处理 P0 级别的 blocker B-71 (payments cutover checklist incomplete)。平台值班团队 (platform-oncall) 需要立即完成支付系统切换清单，确保明天早上的发布交接顺利进行。同时，Mina 继续调查 B-88 (auth retry tuning)。"
+    },
+    "next_step_is_grounded": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "## Critical\n\n- B-71: payments cutover checklist incomplete (P0, open) - 这是最高优先级的 blocker，必须尽快完成支付系统切换清单\n- B-88: auth retry tuning (P1, investigating) - 身份验证重试调优正在进行中，需要监控进展\n\n## Owners\n\n- B-71: platform-oncall\n- B-88: Mina\n\n## Next Step\n\n首先处理 P0 级别的 blocker B-71 (payments cutover checklist incomplete)。平台值班团队 (platform-oncall) 需要立即完成支付系统切换清单，确保明天早上的发布交接顺利进行。同时，Mina 继续调查 B-88 (auth retry tuning)。"
+    }
+  }
+}

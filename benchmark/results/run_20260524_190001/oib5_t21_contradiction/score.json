@@ -1,0 +1,32 @@
+{
+  "id": "oib5_t21_contradiction",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "analysis.json exists"
+    },
+    "has_structure": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "4/4 fields present"
+    },
+    "price_reasonable": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "price=279 (reasonable)"
+    },
+    "conflicts_identified": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "3/3 conflicts identified (price=True stock=True rating=True)"
+    },
+    "has_reasoning": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "3/3 fields have reasoning"
+    }
+  }
+}

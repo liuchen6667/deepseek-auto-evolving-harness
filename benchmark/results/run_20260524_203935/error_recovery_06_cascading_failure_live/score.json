@@ -1,0 +1,57 @@
+{
+  "id": "error_recovery_06_cascading_failure_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "failure_recovery.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "timeline_is_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "timeline=[{'time': '2026-03-21T14:20:01Z', 'event': 'payment_gateway_reloaded_with_user_service_port_9091'}, {'time': '2026-03-21T14:20:03Z', 'event': 'payment_gateway_connection_refused_to_user_service'}, {'time': '2026-03-21T14:20:09Z', 'event': 'order_service_full_workflow_retries_started'}, {'time': '2026-03-21T14:20:18Z', 'event': 'inventory_service_queue_depth_240_triggered_503'}, {'time': '2026-03-21T14:20:24Z', 'event': 'order_service_checkout_timeout'}]"
+    },
+    "root_cause_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "root_cause_service='payment-gateway' root_cause='user_service_port_misconfigured_to_9091_after_reload'"
+    },
+    "propagation_chain_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "propagation_chain=['payment-gateway_cannot_reach_user-service', 'order-service_retries_full_checkout_workflow', 'inventory-service_duplicate_reservation_queue_overflows', 'order-service_times_out']"
+    },
+    "config_fixes_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "port=ok retries=2(ok) fail_fast=ok"
+    },
+    "degrade_actions_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "degrade_actions=['temporarily_disable_full_checkout_retries', 'fail_fast_when_payment_gateway_is_unhealthy', 'pause_inventory_duplicate_reservation_replay_until_backlog_is_drained']"
+    },
+    "recovery_order_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "recovery_order=['fix_payment_gateway_upstream_port', 'tighten_order_service_retry_policy', 'drain_inventory_backlog', 'restore_normal_checkout_flow']"
+    },
+    "services_to_keep_running_is_correct": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "services_to_keep_running=['user-service']"
+    },
+    "evidence_refs_are_complete": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "evidence_refs=['service_status.json', 'logs/order-service.log', 'logs/inventory-service.log', 'logs/payment-gateway.log', 'logs/user-service.log', 'configs/order-service.yaml', 'configs/payment-gateway.yaml']"
+    }
+  }
+}

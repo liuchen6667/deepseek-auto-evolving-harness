@@ -1,0 +1,37 @@
+{
+  "id": "tool_use_06_workspace_forensics_live",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "summary_exists": {
+      "score": 0.0,
+      "max": 0.08,
+      "detail": "missing incident_summary.json"
+    },
+    "evidence_exists": {
+      "score": 0.0,
+      "max": 0.08,
+      "detail": "missing evidence.txt"
+    },
+    "summary_content": {
+      "score": 0.0,
+      "max": 0.21,
+      "detail": "skipped"
+    },
+    "source_files_are_correct": {
+      "score": 0.0,
+      "max": 0.21,
+      "detail": "skipped"
+    },
+    "evidence_lines_match": {
+      "score": 0.0,
+      "max": 0.21,
+      "detail": "skipped"
+    },
+    "counts_and_severity_are_correct": {
+      "score": 0.0,
+      "max": 0.21,
+      "detail": "skipped"
+    }
+  }
+}

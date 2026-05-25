@@ -1,0 +1,52 @@
+{
+  "id": "tool_use_11_tool_limitation_innovation_live",
+  "score": 0.19047619047619047,
+  "passed": false,
+  "checkpoints": {
+    "innovation_file_exists": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "missing tool_innovation.json"
+    },
+    "read_seeded_shards": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "read_count=4/4"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "workflow_is_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "chunk_order_is_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "aggregated_counts_are_correct": {
+      "score": 0.0,
+      "max": 0.25,
+      "detail": "skipped"
+    },
+    "top_words_are_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "why_it_works_is_nontrivial": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "skipped"
+    },
+    "invalid_shortcuts_are_rejected": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "skipped"
+    }
+  }
+}

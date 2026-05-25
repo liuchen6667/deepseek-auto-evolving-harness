@@ -1,0 +1,14 @@
+{
+  "pattern": "periodic_burst",
+  "severity": "high",
+  "hypotheses": ["db_connection_pool_exhaustion", "intermittent_network_fault", "application_regression"],
+  "primary_hypothesis": "db_connection_pool_exhaustion",
+  "validation_plan": {
+    "db_connection_pool_exhaustion": "检查数据库连接池监控，确认连接泄漏或长时间持有连接",
+    "intermittent_network_fault": "检查网络层日志和数据库网络连通性",
+    "application_regression": "检查最近的应用部署和模块变更"
+  },
+  "recovery_mode": "mixed",
+  "immediate_actions": ["临时增加数据库连接池大小", "重启受影响的模块以释放可能泄漏的连接"],
+  "preventive_actions": ["实施连接池监控和自动告警", "优化应用代码中的数据库连接使用模式"]
+}

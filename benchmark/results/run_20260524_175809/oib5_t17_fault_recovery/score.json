@@ -1,0 +1,27 @@
+{
+  "id": "oib5_t17_fault_recovery",
+  "score": 0.9,
+  "passed": true,
+  "checkpoints": {
+    "error_detected": {
+      "score": 0.1,
+      "max": 0.2,
+      "detail": "implicit via alternative path"
+    },
+    "alternative_found": {
+      "score": 0.4,
+      "max": 0.4,
+      "detail": "result at result.json"
+    },
+    "result_correct": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "data correct"
+    },
+    "no_crash": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "completed"
+    }
+  }
+}

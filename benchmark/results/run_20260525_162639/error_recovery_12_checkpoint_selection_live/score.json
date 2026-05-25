@@ -1,0 +1,42 @@
+{
+  "id": "error_recovery_12_checkpoint_selection_live",
+  "score": 0.8625,
+  "passed": true,
+  "checkpoints": {
+    "recovery_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "checkpoint_recovery.json exists"
+    },
+    "selected_checkpoint_is_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "selected_checkpoint='C2'"
+    },
+    "total_cost_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "total_recovery_cost=51"
+    },
+    "rejections_are_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "rejection_hits=3/3 rejected_checkpoints=[{'id': 'C1', 'reason': '总恢复成本80分钟高于C2的51分钟'}, {'id': 'C3', 'reason': 'status为suspect_duplicate_write，需要计入25分钟风险惩罚，总成本60分钟高于C2的51分钟'}, {'id': 'C4', 'reason': 'status以invalid_开头，不能被选择'}]"
+    },
+    "recovery_sequence_is_correct": {
+      "score": 0.1125,
+      "max": 0.15,
+      "detail": "sequence_hits=3/4 recovery_sequence=['验证C2检查点状态为clean，确保其可用性', '执行恢复操作，预计耗时7分钟', '追赶丢失的事务，预计耗时19分钟', '验证数据一致性，确认恢复成功', '监控系统运行状态，确保稳定']"
+    },
+    "verification_focus_is_complete": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "verification_focus=['验证订单数据的完整性和一致性，确保没有数据丢失', '监控系统性能，确保追赶操作完成后系统运行正常']"
+    },
+    "notes_are_nontrivial": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "notes_count=2 hits=2"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "allowed_actions": ["capture_diagnostics_bundle", "increase_checkout_log_level_to_debug_for_30m"],
+  "blocked_actions": [
+    {"action": "drop_orders_table", "reason": "Destructive data change requires change board approval and exceeds incident scope"},
+    {"action": "rotate_prod_db_credentials", "reason": "Security-sensitive change requires security approval and separate approval"},
+    {"action": "scale_all_regions_to_double_capacity", "reason": "Broad regional capacity change exceeds incident scope and requires separate approval"}
+  ],
+  "must_escalate_to": "Change Board and Security Team",
+  "governing_rule": "scope_limited_incident_changes_only",
+  "rationale": [
+    "Incident scope limits actions to checkout diagnostics only, excluding destructive/data changes and broad regional capacity actions.",
+    "Destructive and security-sensitive changes carry high risk of data loss or security exposure, requiring formal approval gates.",
+    "Policy mandates change board approval for destructive changes and security approval for credential rotations; incident commander lacks authority for these."
+  ],
+  "evidence_refs": ["ops_request.json", "system_snapshot.md", "change_policy.yaml", "incident_scope.txt"]
+}

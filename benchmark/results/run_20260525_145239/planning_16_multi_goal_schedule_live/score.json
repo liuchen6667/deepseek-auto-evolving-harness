@@ -1,0 +1,42 @@
+{
+  "id": "planning_16_multi_goal_schedule_live",
+  "score": 0.4,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "selected": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "['plan_beta', 'plan_gamma', 'plan_alpha']"
+    },
+    "rejected": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'plan': 'plan_delta', 'reason': 'Not in planning_contract.json selected_plan'}, {'plan': 'plan_epsilon', 'reason': 'Not in planning_contract.json selected_plan'}]"
+    },
+    "alloc": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "[{'window': 'w1', 'task': 'plan_beta'}, {'window': 'w2', 'task': 'plan_gamma'}, {'window': 'w3', 'task': 'plan_alpha'}]"
+    },
+    "objective": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "protect customer commitment"
+    },
+    "rationale": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['Highest priority objective (protect customer commitment) must be satisfied first, which is enforced by planning_contract.json', 'Resource windows (w1-w3) exactly match the three selected plans, ensuring no resource violation', 'Tradeoff accepted: revenue backlog recovery and ops cleanup are secondary, satisfied only after primary commitment']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['work_items.json', 'resource_limits.json', 'business_objectives.md', 'planning_contract.json']"
+    }
+  }
+}

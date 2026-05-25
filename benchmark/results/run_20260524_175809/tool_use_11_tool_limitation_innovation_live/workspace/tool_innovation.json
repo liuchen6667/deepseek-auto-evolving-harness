@@ -1,0 +1,21 @@
+{
+  "workflow": ["glob_chunks", "read_each_summary", "write_running_totals", "final_rank"],
+  "chunk_read_order": ["chunk_001.summary", "chunk_002.summary", "chunk_003.summary", "chunk_004.summary"],
+  "aggregated_counts": {
+    "error": 4500,
+    "user": 2750,
+    "order": 2050,
+    "token": 1950,
+    "retry": 900,
+    "payment": 600
+  },
+  "top_3_words": ["error", "user", "order"],
+  "why_simple_tools_still_work": [
+    "逐分片读取和累加可以在内存有限的情况下处理大规模数据，只需保持一个运行总计文件",
+    "简单的读写操作可以确保数据处理的可靠性和可恢复性，即使中间失败也能从检查点继续"
+  ],
+  "invalid_shortcuts_rejected": [
+    "不能一次性读取所有分片文件，因为 read 每次只能读一个小于 1MB 的文件，且不能假设内存足够",
+    "不能使用外部排序工具或管道，因为 exec 只能执行简单命令，不能用管道或复杂脚本"
+  ]
+}

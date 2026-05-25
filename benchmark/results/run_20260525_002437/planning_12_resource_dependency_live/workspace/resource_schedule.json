@@ -1,0 +1,20 @@
+{
+  "schedule": [
+    {"task": "A", "start": 0, "end": 2},
+    {"task": "B", "start": 0, "end": 2},
+    {"task": "C", "start": 2, "end": 5},
+    {"task": "D", "start": 2, "end": 4},
+    {"task": "F", "start": 4, "end": 7},
+    {"task": "E", "start": 5, "end": 9},
+    {"task": "G", "start": 9, "end": 14},
+    {"task": "H", "start": 9, "end": 10},
+    {"task": "I", "start": 14, "end": 16}
+  ],
+  "parallel_groups": [["A", "B"], ["C", "D"], ["G", "H"]],
+  "makespan": 16,
+  "critical_path": ["A", "C", "E", "G", "I"],
+  "notes": [
+    "关键资源内存从未超过10/16，CPU从未超过7/8，资源充足允许最大并行度",
+    "关键路径A→C→E→G→I决定了最小工期16，G的5天持续时间是关键瓶颈"
+  ]
+}

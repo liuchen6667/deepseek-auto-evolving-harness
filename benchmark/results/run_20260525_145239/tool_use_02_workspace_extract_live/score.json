@@ -1,0 +1,22 @@
+{
+  "id": "tool_use_02_workspace_extract_live",
+  "score": 0.8,
+  "passed": true,
+  "checkpoints": {
+    "output_exists": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "vip_orders.csv exists"
+    },
+    "csv_content": {
+      "score": 0.5,
+      "max": 0.5,
+      "detail": "rows=[['order_id', 'total'], ['A103', '180'], ['A100', '120']]"
+    },
+    "assistant_reports_rows": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "</tool_call>\n</tool_call>\n已创建 vip_orders.csv，写了2行数据（不含表头）。"
+    }
+  }
+}

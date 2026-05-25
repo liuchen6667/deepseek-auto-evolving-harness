@@ -1,0 +1,37 @@
+{
+  "id": "error_recovery_17_recovery_path_disambiguation_live",
+  "score": 0.5555555555555556,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "chosen": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "path_a"
+    },
+    "ruled": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'path': 'path_b', 'reason': 'skips integrity guard, violating preserve_integrity_before_speed_only_paths rule'}, {'path': 'path_c', 'reason': 'safe but misses the recovery window, failing to meet the goal of restoring within current window'}, {'path': 'path_d', 'reason': 'requires an unavailable precondition, making it infeasible'}]"
+    },
+    "verify": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['integrity_guard_active', 'api_health_check', 'replay_log_consistency']"
+    },
+    "risk": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "preserve_integrity_before_speed_only_paths"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['incident_paths.json', 'system_signals.md', 'risk_rules.json', 'recovery_goal.txt']"
+    }
+  }
+}

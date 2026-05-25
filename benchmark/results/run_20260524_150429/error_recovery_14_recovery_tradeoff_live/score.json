@@ -1,0 +1,42 @@
+{
+  "id": "error_recovery_14_recovery_tradeoff_live",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "missing"
+    },
+    "selected": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "rejected": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "skipped"
+    },
+    "sequence": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "skipped"
+    },
+    "verify": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "constraint": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "refs": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    }
+  }
+}

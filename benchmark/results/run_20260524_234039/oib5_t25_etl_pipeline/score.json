@@ -1,0 +1,72 @@
+{
+  "id": "oib5_t25_etl_pipeline",
+  "score": 0.3445544554455446,
+  "passed": false,
+  "checkpoints": {
+    "etl_exists": {
+      "score": 0.01,
+      "max": 0.01,
+      "detail": "etl.py exists"
+    },
+    "rerun_success": {
+      "score": 0.02,
+      "max": 0.02,
+      "detail": "rerun created output/ artifacts"
+    },
+    "repeatable_with_existing_output": {
+      "score": 0.03,
+      "max": 0.03,
+      "detail": "rerun with existing output preserved exact artifacts"
+    },
+    "clean_rows_exact": {
+      "score": 0.0,
+      "max": 0.06,
+      "detail": "0/11 clean rows match expected values"
+    },
+    "joins_and_normalization": {
+      "score": 0.06,
+      "max": 0.06,
+      "detail": "joined names and normalized dates"
+    },
+    "no_duplicates": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "unique sale_ids only"
+    },
+    "quality_report": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "5/5 quality fields exact"
+    },
+    "variant_generalization": {
+      "score": 0.048,
+      "max": 0.12,
+      "detail": "2/5 hidden-variant rows exact (rerun created output/ artifacts; 5/5 quality fields exact)"
+    },
+    "variant_quality_report": {
+      "score": 0.08,
+      "max": 0.08,
+      "detail": "5/5 hidden-variant quality fields exact"
+    },
+    "edge_variant_generalization": {
+      "score": 0.0,
+      "max": 0.12,
+      "detail": "0/5 hidden edge-variant rows exact (Starting ETL pipeline...\nExtracting data from source files...\nTransforming data...\nError in ETL pipeline: time data \"2024/05/03\" doesn't match format \"%Y-%m-%d\", at position 3. You might want to try:\n    - passing `format` if your strings have a consistent format;\n    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;\n    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.\nTraceback (most recent call last):\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmp2mkc548w/etl.py\", line 184, in run_etl_pipeline\n    cleaned_df, quality_metrics = transform_data(sales_df, products_df, regions_df)\n                                  ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmp2mkc548w/etl.py\", line 105, in transform_data\n    df['date_parsed'] = pd.to_datetime(df['date'])\n                        ~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/core/tools/datetimes.py\", line 1072, in to_datetime\n    values = convert_listlike(arg._values, format)\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/core/tools/datetimes.py\", line 435, in _convert_listlike_datetimes\n    return _array_strptime_with_fallback(arg, name, utc, format, exact, errors)\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/core/tools/datetimes.py\", line 469, in _array_strptime_with_fallback\n    result, tz_out = array_strptime(arg, fmt, exact=exact, errors=errors, utc=utc)\n                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/tslibs/strptime.pyx\", line 501, in pandas._libs.tslibs.strptime.array_strptime\n  File \"pandas/_libs/tslibs/strptime.pyx\", line 451, in pandas._libs.tslibs.strptime.array_strptime\n  File \"pandas/_libs/tslibs/strptime.pyx\", line 583, in pandas._libs.tslibs.strptime._parse_with_format\nValueError: time data \"2024/05/03\" doesn't match format \"%Y-%m-%d\", at position 3. You might want to try:\n    - passing `format` if your strings have a consistent format;\n    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;\n    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.)"
+    },
+    "edge_variant_quality_report": {
+      "score": 0.0,
+      "max": 0.16,
+      "detail": "0/5 hidden edge-variant quality fields exact"
+    },
+    "stress_variant_generalization": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "0/5 hidden stress-variant rows exact (Starting ETL pipeline...\nExtracting data from source files...\nTransforming data...\nError in ETL pipeline: time data \"2024/06/03\" doesn't match format \"%Y-%m-%d\", at position 3. You might want to try:\n    - passing `format` if your strings have a consistent format;\n    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;\n    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.\nTraceback (most recent call last):\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmpa0s77h19/etl.py\", line 184, in run_etl_pipeline\n    cleaned_df, quality_metrics = transform_data(sales_df, products_df, regions_df)\n                                  ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmpa0s77h19/etl.py\", line 105, in transform_data\n    df['date_parsed'] = pd.to_datetime(df['date'])\n                        ~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/core/tools/datetimes.py\", line 1072, in to_datetime\n    values = convert_listlike(arg._values, format)\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/core/tools/datetimes.py\", line 435, in _convert_listlike_datetimes\n    return _array_strptime_with_fallback(arg, name, utc, format, exact, errors)\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/core/tools/datetimes.py\", line 469, in _array_strptime_with_fallback\n    result, tz_out = array_strptime(arg, fmt, exact=exact, errors=errors, utc=utc)\n                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/tslibs/strptime.pyx\", line 501, in pandas._libs.tslibs.strptime.array_strptime\n  File \"pandas/_libs/tslibs/strptime.pyx\", line 451, in pandas._libs.tslibs.strptime.array_strptime\n  File \"pandas/_libs/tslibs/strptime.pyx\", line 583, in pandas._libs.tslibs.strptime._parse_with_format\nValueError: time data \"2024/06/03\" doesn't match format \"%Y-%m-%d\", at position 3. You might want to try:\n    - passing `format` if your strings have a consistent format;\n    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;\n    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.)"
+    },
+    "stress_variant_quality_report": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "0/5 hidden stress-variant quality fields exact"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "constraints_20_message_recipient_disambiguation_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "decision_exists": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "recipient_decision.json exists"
+    },
+    "selected_target_is_correct": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "thread_id='t-100' selected_handle='@alex-release' selected_channel='telegram'"
+    },
+    "rejected_candidates_are_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "rejected_candidates=['@alex-design']"
+    },
+    "reason_is_grounded": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "reason='虽然两个候选人都叫 Alex Chen，但主题是 release approval follow-up，所需上下文是 release approval packet。@alex-release 属于 release 团队，而 @alex-design 属于 design 团队，不适合处理发布审批相关的跟进。根据 last_confirmed_target 规则，必须选择 @alex-release。'"
+    },
+    "single_recipient_only": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "payload={'thread_id': 't-100', 'selected_handle': '@alex-release', 'selected_channel': 'telegram', 'rejected_candidates': ['@alex-design'], 'reason': '虽然两个候选人都叫 Alex Chen，但主题是 release approval follow-up，所需上下文是 release approval packet。@alex-release 属于 release 团队，而 @alex-design 属于 design 团队，不适合处理发布审批相关的跟进。根据 last_confirmed_target 规则，必须选择 @alex-release。'}"
+    }
+  }
+}

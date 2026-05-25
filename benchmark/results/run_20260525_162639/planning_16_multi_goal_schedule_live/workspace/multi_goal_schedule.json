@@ -1,0 +1,19 @@
+{
+  "selected_plan": ["plan_beta", "plan_gamma", "plan_alpha"],
+  "rejected_plans": [
+    {"plan": "plan_delta", "reason": "Lower priority compared to customer commitment and revenue recovery objectives"},
+    {"plan": "plan_epsilon", "reason": "Lower priority compared to customer commitment and revenue recovery objectives"}
+  ],
+  "resource_allocation": [
+    {"window": "w1", "task": "plan_beta"},
+    {"window": "w2", "task": "plan_gamma"},
+    {"window": "w3", "task": "plan_alpha"}
+  ],
+  "governing_objective": "protect customer commitment",
+  "rationale": [
+    "Objective priority: The selected plans align with the highest-priority goal of protecting customer commitment, as indicated by planning contract ordering",
+    "Resource fit: Three CPU windows (w1=4, w2=3, w3=2) efficiently accommodate the three selected plans, assigning the most critical plan to the highest-capacity window",
+    "Tradeoff: By focusing on customer commitment and revenue recovery objectives, ops cleanup plans (delta, epsilon) are deferred to maximize business impact within resource constraints"
+  ],
+  "evidence_refs": ["work_items.json", "resource_limits.json", "business_objectives.md", "planning_contract.json"]
+}

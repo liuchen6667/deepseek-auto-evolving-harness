@@ -1,0 +1,37 @@
+{
+  "slot_decisions": [
+    {
+      "slot_start": 0,
+      "active_workloads": ["billing_sync", "realtime_search"],
+      "throughput_units": 19
+    },
+    {
+      "slot_start": 5,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 10,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 15,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 20,
+      "active_workloads": ["fraud_guard"],
+      "throughput_units": 6
+    }
+  ],
+  "final_delayed_workloads": [],
+  "final_canceled_workloads": ["image_backfill", "report_export"],
+  "total_completed_units": 61,
+  "notes": [
+    "billing_sync scheduled only in slot 0 due to memory_gb_max reduction to 1.0 in subsequent slots preventing concurrent execution with realtime_search",
+    "image_backfill and report_export canceled because image_backfill latency_s 6.0 exceeds all slots' latency_s_max (max 5), and report_export error_rate_pct 1.5 exceeds all slots' error_rate_pct_max (max 1.0)",
+    "fraud_guard selected in slot 20 despite lower throughput because realtime_search error_rate_pct 0.4 exceeds slot 20's strict error_rate_pct_max 0.1"
+  ]
+}

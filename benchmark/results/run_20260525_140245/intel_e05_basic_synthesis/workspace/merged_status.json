@@ -1,0 +1,12 @@
+{
+  "services": [
+    {"name": "auth-service", "status": "healthy", "source": "a"},
+    {"name": "payment-service", "status": "degraded", "source": "a"},
+    {"name": "notification-service", "status": "healthy", "source": "a"},
+    {"name": "user-service", "status": "healthy", "source": "b"},
+    {"name": "search-service", "status": "down", "source": "b"},
+    {"name": "auth-service", "status": "healthy", "source": "b"}
+  ],
+  "total_count": 6,
+  "healthy_count": 4
+}

@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_21_counterfactual_support_split_live",
+  "score": 0.38888888888888884,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "win": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "hyp_a"
+    },
+    "rej": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "[{'hypothesis': 'hyp_b', 'reason': 'violates rule 1: vendor notice posted after internal errors started, but hypothesis requires vendor outage before internal errors'}, {'hypothesis': 'hyp_c', 'reason': 'violates rule 2: error growth stopped immediately after rollback, but hypothesis treats rollback as irrelevant'}]"
+    },
+    "chain": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['hyp_b claims vendor outage triggered incident before internal errors, but E3 shows no vendor degraded notice before 10:05', 'hyp_c claims rollback was irrelevant to recovery, but E2 shows error growth stopped immediately after rollback started', 'Only hyp_a satisfies all counterfactual rules: parser enabled before error spike (E1) and rollback stopped error growth (E2)']"
+    },
+    "neg": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['E3', 'E2']"
+    },
+    "rule": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "Rule 2: Reject any hypothesis that treats a rollback-correlated recovery as irrelevant if the error growth stops immediately after rollback"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['evidence_set.json', 'candidate_explanations.md', 'counterfactual_rules.md', 'decision_contract.json']"
+    }
+  }
+}

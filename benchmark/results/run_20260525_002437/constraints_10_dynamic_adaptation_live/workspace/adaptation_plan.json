@@ -1,0 +1,36 @@
+{
+  "slot_decisions": [
+    {
+      "slot_start": 0,
+      "active_workloads": ["billing_sync", "realtime_search"],
+      "throughput_units": 19
+    },
+    {
+      "slot_start": 5,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 10,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 15,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 20,
+      "active_workloads": ["fraud_guard"],
+      "throughput_units": 6
+    }
+  ],
+  "final_delayed_workloads": ["billing_sync"],
+  "final_canceled_workloads": ["image_backfill", "report_export"],
+  "total_completed_units": 61,
+  "notes": [
+    "billing_sync 在 slot 5 (5-10分钟) 因内存限制 (1.0 GB) 无法与 realtime_search 同时运行，只能单独运行 realtime_search 以最大化吞吐量。",
+    "fraud_guard 是唯一满足 slot 20 (20-25分钟) 严格错误率约束 (0.1%) 的工作负载，因为其实时错误率仅 0.08%，而其他工作负载错误率均超过限制。"
+  ]
+}

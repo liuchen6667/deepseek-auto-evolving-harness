@@ -1,0 +1,37 @@
+{
+  "id": "synthesis_13_incident_timeline_fusion_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "fusion_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "incident_fusion.json exists"
+    },
+    "timeline_is_correct": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "timeline=[{'time': '01:02', 'event': \"Feature flag 'checkout_profile_enrichment' enabled (alerts.log line 1)\"}, {'time': '01:03', 'event': 'Profile-db connection pool spiked to 99% (db_metrics.json line 4, chat_notes.md line 1)'}, {'time': '01:04', 'event': \"First 'upstream_profile_timeout' errors appear (count=18) (alerts.log line 2)\"}, {'time': '01:08', 'event': \"Mitigation: rollback of 'checkout_profile_enrichment' started (alerts.log line 4)\"}, {'time': '01:10', 'event': 'Checkout error rate returned to baseline (alerts.log line 5)'}]"
+    },
+    "root_cause_is_correct": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "root_cause=\"The 'checkout_profile_enrichment' feature flag enabled a code path that triggered N+1 queries (as diagnosed by DBA at 01:07 in chat_notes.md), causing profile-db connection pool exhaustion (99% usage per db_metrics.json) and upstream timeouts.\""
+    },
+    "ruled_out_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "ruled_out=['Network issues (packet loss 0.1%, latency 12ms in db_metrics.json)', 'Payment gateway problems (status: healthy in db_metrics.json)']"
+    },
+    "confidence_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "confidence='high'"
+    },
+    "evidence_refs_are_complete": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['alerts.log: flag enable at 01:02, timeouts at 01:04 & 01:06, rollback at 01:08, recovery at 01:10', 'db_metrics.json: profile-db pool spike to 99% at 01:03 & 01:05, network healthy, payment-gateway healthy', 'chat_notes.md: oncall observation at 01:03, DBA diagnosis of N+1 query path at 01:07']"
+    }
+  }
+}

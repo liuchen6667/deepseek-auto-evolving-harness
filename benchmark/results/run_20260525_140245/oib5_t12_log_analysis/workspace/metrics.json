@@ -1,0 +1,23 @@
+{
+  "total_lines": 16,
+  "by_level": {
+    "INFO": 5,
+    "WARN": 4,
+    "ERROR": 7
+  },
+  "error_services": {
+    "PaymentService": 4,
+    "UserService": 2,
+    "OrderService": 1
+  },
+  "warnings": [
+    "[PaymentService] Payment processing slow: transaction_id=456",
+    "[OrderService] Order processing delayed: order_id=102",
+    "[PaymentService] High latency detected: avg_response_time=2.5s",
+    "[UserService] Multiple failed login attempts: ip=192.168.1.1"
+  ],
+  "critical_issues": [
+    "[PaymentService] Payment gateway unreachable: provider=stripe",
+    "[PaymentService] Critical: Payment data corruption detected"
+  ]
+}

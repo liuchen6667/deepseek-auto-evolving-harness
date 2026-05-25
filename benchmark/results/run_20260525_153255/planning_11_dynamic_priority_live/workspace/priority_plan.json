@@ -1,0 +1,21 @@
+{
+  "slot_plan": [
+    {"slot_start": 0, "task": "Z", "value_at_execution": 9},
+    {"slot_start": 5, "task": "X", "value_at_execution": 16},
+    {"slot_start": 10, "task": "A", "value_at_execution": 12},
+    {"slot_start": 15, "task": "B", "value_at_execution": 11},
+    {"slot_start": 20, "task": "C", "value_at_execution": 3}
+  ],
+  "total_value": 51,
+  "events_considered": [
+    "T+5: X价值翻倍为16（因为X在时间槽5时还未执行）",
+    "T+10: 新增A(P0,12)、B(P0,11)、C(P0,3)三个任务",
+    "T+15: Y的依赖被取消，变为可执行",
+    "T+20: Z降级变化不生效（因为Z已在时间槽0执行）"
+  ],
+  "notes": [
+    "优先执行最高优先级(P0)任务，同优先级内选择价值最高的任务以最大化总价值",
+    "在时间槽0选择Z(9)而非X(8)，因为Z价值更高且X在时间槽5会翻倍，可以等到翻倍后再执行",
+    "所有P0任务都得到执行，包括新增的A、B、C，确保了最高优先级任务的完成"
+  ]
+}

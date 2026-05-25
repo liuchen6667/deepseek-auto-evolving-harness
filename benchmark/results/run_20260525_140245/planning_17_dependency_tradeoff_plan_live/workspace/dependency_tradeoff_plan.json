@@ -1,0 +1,16 @@
+{
+  "execute_now": ["schema-prepare", "service-cutover", "smoke-verify"],
+  "defer": [
+    {"task": "analytics-rebuild", "reason": "excluded from current delivery window"},
+    {"task": "cache-warm", "reason": "dependency chain priority favors verification over optimization"},
+    {"task": "report-migration", "reason": "dependency chain priority favors core service delivery"}
+  ],
+  "dependency_order": ["schema-prepare", "service-cutover", "smoke-verify"],
+  "governing_rule": "Prefer the highest-priority dependency-closed chain that fits in the current window.",
+  "justification": [
+    "Dependency closure: schema-prepare → service-cutover → smoke-verify forms a complete deployment chain",
+    "Capacity fit: 3 tasks match the 3 available slots",
+    "Delivery priority: analytics-rebuild excluded, remaining chain maximizes deliverable value"
+  ],
+  "evidence_refs": ["task_graph.json", "capacity.json", "priority_rules.md", "delivery_window.json"]
+}

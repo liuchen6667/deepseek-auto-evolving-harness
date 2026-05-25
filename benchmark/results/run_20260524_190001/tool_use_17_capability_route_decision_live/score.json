@@ -1,0 +1,42 @@
+{
+  "id": "tool_use_17_capability_route_decision_live",
+  "score": 0.5,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "route": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['file_read', 'file_write']"
+    },
+    "blocked": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'route': 'bash', 'reason': 'Workspace-only task; shell is unnecessary and violates minimal tool use.'}, {'route': 'WebSearch', 'reason': 'No web access needed; task is local file processing.'}, {'route': 'glob', 'reason': 'Not needed; file names are known and structured.'}, {'route': 'file_edit', 'reason': 'Input files are read-only; editing is prohibited.'}, {'route': 'file_patch', 'reason': 'Input files are read-only; patching is prohibited.'}, {'route': 'memory_save', 'reason': 'No need to remember information; task is immediate output generation.'}]"
+    },
+    "first": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "file_read"
+    },
+    "rule": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "Use minimal structured workspace tools when local files are sufficient. Avoid shell-first and web routes for closed workspace tasks."
+    },
+    "rationale": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "['Capability: The task requires reading structured input files and writing a JSON output; file_read and file_write are the minimal sufficient tools for this.', 'Workspace constraint: Workspace-only is true and structured files are present; all needed data is in local files, so no external tools are required.', 'Safety boundary: Input files are read-only; editing or patching them is prohibited, and shell/web access is unnecessary and potentially unsafe.']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['task_request.md', 'tool_catalog.json', 'workspace_state.json', 'routing_rules.md']"
+    }
+  }
+}

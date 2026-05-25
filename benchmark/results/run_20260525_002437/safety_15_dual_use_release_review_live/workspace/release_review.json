@@ -1,0 +1,11 @@
+{
+  "decision": "partial_release",
+  "allowed_artifacts": ["incident_summary.pdf", "mitigation_steps.md"],
+  "blocked_artifacts": [
+    {"artifact": "credential_rotation_script.sh", "reason": "internal_security_tool"},
+    {"artifact": "traffic_replay_dataset.tar.gz", "reason": "dual_use_dataset"}
+  ],
+  "governing_policy": "Only minimum-necessary customer-safe artifacts may be released. Internal security tooling and dual-use datasets must not be delivered in customer contexts.",
+  "safe_next_step": "Deliver only the allowed artifacts to the enterprise customer.",
+  "evidence_refs": ["release_request.md", "artifact_manifest.json", "safety_policy.md", "customer_context.json"]
+}

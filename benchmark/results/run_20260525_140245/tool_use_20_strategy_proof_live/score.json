@@ -1,0 +1,42 @@
+{
+  "id": "tool_use_20_strategy_proof_live",
+  "score": 0.8333333333333333,
+  "passed": true,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "chosen": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "strategy_a"
+    },
+    "dom": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "[{'strategy': 'strategy_b', 'reason': 'feasible but suboptimal (higher cost without extra coverage)'}, {'strategy': 'strategy_c', 'reason': 'infeasible (requires forbidden remote step)'}]"
+    },
+    "proof": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "['Feasibility: strategy_a is explicitly stated as feasible in tool_constraints', 'Cost: strategy_a is minimal as strategy_b costs more without extra coverage', 'Sufficiency: strategy_a is explicitly stated as sufficient in tool_constraints']"
+    },
+    "constraint": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "minimal_feasible_strategy_under_local_tool_constraints"
+    },
+    "pre": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['strategy_a must be feasible', 'strategy_a must be sufficient']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['goal.md', 'strategy_candidates.json', 'tool_constraints.md', 'proof_rules.json']"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "order_mode": "reject_new_orders",
+  "chosen_strategies": ["sync_api_response_counts_as_primary_notification", "async_followup_notification_allowed"],
+  "rejected_strategies": [
+    {"strategy": "allow_async_payment", "reason": "payment_service_down_accepting_new_charges_false"},
+    {"strategy": "allow_manual_reconciliation_queue_for_new_orders", "reason": "policy_disallows_manual_reconciliation"}
+  ],
+  "degraded_flow": ["validate_request", "check_dependencies", "reject_checkout", "return_sync_response", "queue_async_notification"],
+  "consistency_guards": ["require_successful_payment_before_order_acceptance", "require_writable_inventory_before_order_acceptance", "allow_stale_inventory_reads_for_browsing_only", "sync_api_response_counts_as_primary_notification"],
+  "recovery_plan": ["monitor_payment_service_health", "wait_for_inventory_write_enabled", "reassess_degradation_policy", "resume_normal_checkout_flow"],
+  "user_response": {
+    "http_status": 503,
+    "status_code": "checkout_unavailable_due_dependency_outage",
+    "must_return_within_seconds": 5
+  },
+  "evidence_refs": [
+    "service_status.json",
+    "checkout_request.json",
+    "degradation_policy.yaml",
+    "logs/checkout.log",
+    "logs/notification.log",
+    "runbook.md"
+  ]
+}

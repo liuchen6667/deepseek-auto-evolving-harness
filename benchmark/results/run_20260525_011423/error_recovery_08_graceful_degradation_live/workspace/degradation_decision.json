@@ -1,0 +1,24 @@
+{
+  "order_mode": "reject_new_orders",
+  "chosen_strategies": ["sync_rejection_with_async_notification"],
+  "rejected_strategies": [
+    {"strategy": "accept_order_with_async_payment", "reason": "policy forbids async payment when payment service is down"},
+    {"strategy": "accept_order_with_inventory_bypass", "reason": "inventory readonly and policy requires writable inventory before order acceptance"}
+  ],
+  "degraded_flow": ["validate_request", "check_dependencies", "reject_synchronously", "queue_async_notification", "log_audit_event"],
+  "consistency_guards": ["no_order_created", "no_payment_attempted", "no_inventory_reserved", "async_notification_queued"],
+  "recovery_plan": ["monitor_payment_service_health", "restore_inventory_write_mode", "retry_notification_backlog", "resume_normal_checkout"],
+  "user_response": {
+    "http_status": 503,
+    "status_code": "SERVICE_UNAVAILABLE",
+    "must_return_within_seconds": 5
+  },
+  "evidence_refs": [
+    "service_status.json",
+    "checkout_request.json",
+    "degradation_policy.yaml",
+    "logs/checkout.log",
+    "logs/notification.log",
+    "runbook.md"
+  ]
+}

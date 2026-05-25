@@ -1,0 +1,32 @@
+{
+  "selected_checkpoint": "C2",
+  "total_recovery_cost": 51,
+  "rejected_checkpoints": [
+    {
+      "id": "C1",
+      "reason": "总恢复成本80分钟高于C2的51分钟，不是最优选择"
+    },
+    {
+      "id": "C3",
+      "reason": "状态为suspect_duplicate_write，需要计入25分钟风险惩罚，总成本60分钟高于C2的51分钟"
+    },
+    {
+      "id": "C4",
+      "reason": "状态以invalid_开头（invalid_missing_index_on_orders），根据规则不能被选择"
+    }
+  ],
+  "recovery_sequence": [
+    "验证C2检查点状态为clean且数据一致",
+    "执行C2检查点恢复操作（预计7分钟）",
+    "启动应用服务并验证基本功能",
+    "执行追赶操作恢复09:35至10:00的数据（预计19分钟）"
+  ],
+  "verification_focus": [
+    "验证09:35至10:00期间的数据一致性，确保无数据丢失或损坏",
+    "监控应用服务运行状态，确认无suspect或invalid状态出现"
+  ],
+  "notes": [
+    "C2检查点虽然比C4数据丢失多13分钟（25 vs 12），但C4因invalid状态不可用，C2是最优有效选择",
+    "C3虽有更少的数据丢失（18分钟），但风险惩罚使其总成本更高，且suspect状态可能引入额外风险"
+  ]
+}

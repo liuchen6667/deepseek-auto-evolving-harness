@@ -1,0 +1,27 @@
+{
+  "decision": "conditional",
+  "constraints_checked": [
+    "第一层约束 - 时间窗口: 检查请求发布时间是否在冻结窗口内",
+    "第二层约束 - 审批状态: 根据风险等级检查审批人要求",
+    "第三层约束 - 依赖项: 检查依赖服务就绪性、前置发布和回滚计划",
+    "第四层约束 - 资源限制: 检查服务器资源、数据库连接池和监控系统"
+  ],
+  "violations": [
+    {
+      "constraint": "时间窗口",
+      "issue": "请求发布时间 2026-03-25T14:00:00Z 在冻结窗口内 (Q1 End of Quarter Freeze: 2026-03-25T00:00:00Z 到 2026-03-31T23:59:59Z)",
+      "policy": "No releases during freeze windows unless emergency exception is granted"
+    },
+    {
+      "constraint": "依赖项",
+      "issue": "notification-service 状态为 degraded (Experiencing intermittent delays)",
+      "policy": "All dependent services must be healthy"
+    }
+  ],
+  "conditions": [
+    "必须获得冻结窗口例外批准: 需要证明这是 security_hotfix 或 critical_bugfix，并获得 security_officer 和 cto 批准 (根据政策)",
+    "必须解决 notification-service 的健康问题，确保所有依赖服务状态为 healthy",
+    "必须在审批截止日期前 (2026-03-24T14:00:00Z) 满足所有条件"
+  ],
+  "reasoning": "发布请求违反了两项关键约束：1) 发布时间在冻结窗口内，需要例外批准；2) 依赖服务 notification-service 状态为 degraded，不符合依赖策略。虽然审批状态和资源限制满足要求，但冻结窗口和依赖服务问题必须解决才能批准发布。如果满足例外条件并解决服务健康问题，可以重新评估。"
+}

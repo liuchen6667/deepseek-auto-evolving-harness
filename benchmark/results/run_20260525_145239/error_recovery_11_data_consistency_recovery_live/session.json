@@ -1,0 +1,18 @@
+[
+  {
+    "role": "user",
+    "content": "你要处理一个分布式数据库的一致性恢复问题。这个题是闭卷分析题，不需要联网。\n\n副本状态：\n- Replica A 是当前 primary\n- Replica B 一度落后，最近 3 分钟一直有复制延迟\n- Replica C 在一次隔离维护期间错过了回滚事件\n\n`orders` 表：\n- A: [701, 702, 703, 704, 705, 706]\n- B: [701, 702, 703, 704]\n- C: [701, 702, 703, 704, 705, 706, 799]\n\n`inventory.sku_77`：\n- A: 100\n- B: 100\n- C: 112\n\n复制与操作记录：\n- `replication_lag`: B 在 10:02 到 10:06 期间 lag=180s，C lag=0s\n- `operations.log`:\n  - 10:02 primary A 提交订单 705 和 706\n  - 10:03 C 在隔离维护中插入测试订单 799\n  - 10:04 A 和 B 已执行对 799 的回滚；C 因隔离没有收到这次回滚\n  - 10:05 A 对 `inventory.sku_77` 完成盘点修正，正确值是 100\n  - 10:06 C 错误重放了一次 `+12` restock 事件\n\n判定规则：\n- `orders` 的权威来源是最新且未隔离的 primary\n- 如果某副本缺少 primary 已确认提交的数据，原因记为 `replication_lag`\n- 如果某副本保留了已经在其他副本回滚的数据，原因记为 `missed_rollback`\n- 如果某副本重放了不应存在的库存事件，原因记为 `duplicate_replay`\n\n输出要求：\n创建 `consistency_recovery.json`，字段必须完整：\n{\n  \"canonical_sources\": {\n    \"orders\": \"...\",\n    \"inventory\": [\"...\", \"...\"]\n  },\n  \"orders_missing_in_B\": [0, 0],\n  \"orders_extra_in_C\": [0],\n  \"inventory_fix\": {\n    \"replica\": \"...\",\n    \"expected_value\": 0\n  },\n  \"root_causes\": {\n    \"B_orders\": \"...\",\n    \"C_orders\": \"...\",\n    \"C_inventory\": \"...\"\n  },\n  \"repair_sequence\": [\"...\", \"...\", \"...\"],\n  \"verification_steps\": [\"...\", \"...\", \"...\"],\n  \"notes\": [\"...\", \"...\"]\n}\n\n要求：\n- `orders_missing_in_B` 按升序\n- `orders_extra_in_C` 按升序\n- `repair_sequence` 需要体现先补缺失、再清污染、再修库存\n- `verification_steps` 至少 3 条\n"
+  },
+  {
+    "role": "assistant",
+    "content": "<tool_call>\n{\"name\": \"file_write\", \"arguments\": {\"path\": \"consistency_recovery.json\", \"content\": \"{\\n  \\\"canonical_sources\\\": {\\n    \\\"orders\\\": \\\"A\\\",\\n    \\\"inventory\\\": [\\\"A\\\", \\\"B\\\"]\\n  },\\n  \\\"orders_missing_in_B\\\": [705, 706],\\n  \\\"orders_extra_in_C\\\": [799],\\n  \\\"inventory_fix\\\": {\\n    \\\"replica\\\": \\\"C\\\",\\n    \\\"expected_value\\\": 100\\n  },\\n  \\\"root_causes\\\": {\\n    \\\"B_orders\\\": \\\"replication_lag\\\",\\n    \\\"C_orders\\\": \\\"missed_rollback\\\",\\n    \\\"C_inventory\\\": \\\"duplicate_replay\\\"\\n  },\\n  \\\"repair_sequence\\\": [\\n    \\\"Replicate missing orders 705 and 706 from A to B\\\",\\n    \\\"Delete extra order 799 from C\\\",\\n    \\\"Correct inventory.sku_77 value on C from 112 to 100\\\"\\n  ],\\n  \\\"verification_steps\\\": [\\n    \\\"Verify all replicas have identical orders list: [701, 702, 703, 704, 705, 706]\\\",\\n    \\\"Verify inventory.sku_77 is 100 on all replicas\\\",\\n    \\\"Check replication lag metrics to ensure B and C are fully caught up\\\",\\n    \\\"Validate no orphaned transactions or pending rollbacks in logs\\\"\\n  ],\\n  \\\"notes\\\": [\\n    \\\"Primary A is canonical for orders as it's latest and not isolated\\\",\\n    \\\"Replicas A and B agree on inventory value 100, making them canonical\\\",\\n    \\\"Repair sequence follows: fill missing data, remove contamination, fix inventory\\\"\\n  ]\\n}\"}}\n</tool_call>"
+  },
+  {
+    "role": "user",
+    "content": "<tool_result>\n<name>file_write</name>\n<output>\n已写入 /Users/liuchen/Desktop/deepseek-cli/liuchen-best-cli/benchmark/results/run_20260525_145239/error_recovery_11_data_consistency_recovery_live/workspace/consistency_recovery.json (33 行, 1097 字节)\n</output>\n</tool_result>"
+  },
+  {
+    "role": "assistant",
+    "content": "已创建 `consistency_recovery.json` 文件，包含所有要求的字段和正确的分析结果。"
+  }
+]

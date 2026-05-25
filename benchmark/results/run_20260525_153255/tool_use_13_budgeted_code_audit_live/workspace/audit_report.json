@@ -1,0 +1,22 @@
+{
+  "inspection_plan": [
+    "读取 audit_brief.md 了解审计规则（1次读取）",
+    "读取 suspects.txt 获取可疑文件列表（1次读取）",
+    "优先检查 src/config/local.py 寻找硬编码密钥（1次读取）",
+    "检查 src/payments/stripe.py 寻找硬编码 live key（1次读取）",
+    "检查 src/auth/session.py 寻找 token 日志记录（1次读取）"
+  ],
+  "confirmed_findings": [
+    {"path": "src/config/local.py", "issue": "硬编码 live key: API_KEY = \"sk-live-prod-001\""},
+    {"path": "src/auth/session.py", "issue": "将 bearer token 写入日志: logger.info(\"persisting bearer=%s\", token)"}
+  ],
+  "rejected_suspects": [
+    "src/payments/stripe.py",
+    "src/tests/fixtures.py"
+  ],
+  "read_budget_used": 5,
+  "notes": [
+    "由于读取预算限制（5次），src/reports/exporter.py 未检查",
+    "src/tests/fixtures.py 被排除，因为测试夹具中的假 token 不算真实问题"
+  ]
+}

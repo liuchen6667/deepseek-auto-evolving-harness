@@ -1,0 +1,32 @@
+{
+  "id": "oib5_t08_text_process",
+  "score": 0.9500000000000001,
+  "passed": true,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "report.json"
+    },
+    "total_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "total=12 (expected 12)"
+    },
+    "status_codes": {
+      "score": 0.2,
+      "max": 0.25,
+      "detail": "4/5 codes correct"
+    },
+    "top_ips": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "top IP correct and sorted"
+    },
+    "errors": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "3 error lines (expected 3)"
+    }
+  }
+}

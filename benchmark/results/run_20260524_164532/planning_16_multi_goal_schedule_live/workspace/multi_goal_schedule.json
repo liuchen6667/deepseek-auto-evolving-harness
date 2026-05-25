@@ -1,0 +1,19 @@
+{
+  "selected_plan": ["plan_alpha", "plan_beta", "plan_gamma"],
+  "rejected_plans": [
+    {"plan": "plan_delta", "reason": "Does not sufficiently protect customer commitment compared to selected plans"},
+    {"plan": "plan_epsilon", "reason": "Does not sufficiently protect customer commitment compared to selected plans"}
+  ],
+  "resource_allocation": [
+    {"window": "w1", "task": "plan_alpha"},
+    {"window": "w2", "task": "plan_beta"},
+    {"window": "w3", "task": "plan_gamma"}
+  ],
+  "governing_objective": "protect customer commitment",
+  "rationale": [
+    "Highest priority objective 'protect customer commitment' drives plan selection, ensuring customer-facing commitments are met first",
+    "Resource allocation fits within CPU window limits (w1:4, w2:3, w3:2) with one plan per window for balanced execution",
+    "Tradeoff accepts deferring ops cleanup (tertiary objective) to maximize customer commitment protection and revenue backlog recovery"
+  ],
+  "evidence_refs": ["work_items.json", "resource_limits.json", "business_objectives.md", "planning_contract.json"]
+}

@@ -1,0 +1,13 @@
+{
+  "decision": "no_go",
+  "requested_window": "2026-04-17 19:30-20:30 UTC",
+  "recommended_window": "2026-05-25 09:00-11:00 UTC",
+  "blocking_constraints": [
+    "Missing security approval (required for high-risk releases)",
+    "Requested window (2026-04-17 19:30-20:30 UTC) falls within blackout window (2026-04-17 18:00-23:59 UTC)",
+    "Schema migration requires DBA on call, but requested window has no DBA coverage",
+    "Requested window has already passed (current time is 2026-05-24 08:46 UTC)"
+  ],
+  "missing_approvals": ["security"],
+  "justification": "This high-risk release request cannot be executed due to multiple blocking constraints: 1) Security approval is missing (required for all high-risk releases). 2) The requested time window (2026-04-17 19:30-20:30 UTC) is within a blackout/freeze period (2026-04-17 18:00-23:59 UTC) when no releases are permitted. 3) The change involves schema migration which requires a DBA to be on call, but the requested window has no DBA coverage. 4) The requested window has already passed (current date is 2026-05-24). The next recommended window is 2026-05-25 09:00-11:00 UTC, assuming DBA coverage can be arranged and all required approvals (including security) are obtained."
+}

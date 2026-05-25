@@ -1,0 +1,21 @@
+{
+  "selected_window": "w2",
+  "rejected_windows": [
+    {"window": "w1", "reason": "too_old_clean_window"},
+    {"window": "w3", "reason": "contains_corrupted_writes"},
+    {"window": "w4", "reason": "after_faulty_change_set"}
+  ],
+  "verification_set": [
+    "w2_is_latest_clean_before_corruption",
+    "rule_choose_latest_clean_window_before_corruption",
+    "w3_contains_corrupted_writes"
+  ],
+  "rollback_gap_minutes": 0,
+  "governing_rule": "choose_latest_clean_window_before_corruption",
+  "evidence_refs": [
+    "rollback_candidates.json",
+    "signal_timeline.md",
+    "integrity_rules.json",
+    "recovery_target.txt"
+  ]
+}

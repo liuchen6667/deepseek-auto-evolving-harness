@@ -1,0 +1,25 @@
+{
+  "schedule": [
+    {"task": "A", "start": 0, "end": 2},
+    {"task": "B", "start": 0, "end": 2},
+    {"task": "C", "start": 2, "end": 5},
+    {"task": "D", "start": 2, "end": 4},
+    {"task": "E", "start": 5, "end": 9},
+    {"task": "F", "start": 4, "end": 7},
+    {"task": "G", "start": 9, "end": 14},
+    {"task": "H", "start": 9, "end": 10},
+    {"task": "I", "start": 14, "end": 16}
+  ],
+  "parallel_groups": [
+    ["A", "B"],
+    ["C", "D"],
+    ["E", "F"],
+    ["G", "H"]
+  ],
+  "makespan": 16,
+  "critical_path": ["A", "C", "E", "G", "I"],
+  "notes": [
+    "CPU is the primary limiting resource; tasks E and F run concurrently from time 5-7 using 7/8 CPU",
+    "Memory constraint (16) is never binding; peak memory usage is 10 at time 9-10 when G and H run together"
+  ]
+}

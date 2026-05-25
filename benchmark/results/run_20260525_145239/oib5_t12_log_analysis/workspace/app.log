@@ -1,0 +1,13 @@
+2024-05-25 10:15:23 INFO PaymentService - Transaction processed successfully
+2024-05-25 10:16:45 ERROR PaymentService - Failed to process payment: insufficient funds
+2024-05-25 10:17:12 WARN UserService - High memory usage detected
+2024-05-25 10:18:33 ERROR UserService - Database connection timeout
+2024-05-25 10:19:47 INFO OrderService - Order created: #12345
+2024-05-25 10:20:15 ERROR PaymentService - Payment gateway unreachable
+2024-05-25 10:21:09 WARN OrderService - Inventory low for product XYZ
+2024-05-25 10:22:31 ERROR OrderService - Failed to update order status
+2024-05-25 10:23:55 INFO UserService - User login successful
+2024-05-25 10:24:18 ERROR PaymentService - Card validation failed
+2024-05-25 10:25:42 WARN PaymentService - Slow response from payment processor
+2024-05-25 10:26:57 ERROR UserService - User authentication failed
+2024-05-25 10:28:11 INFO OrderService - Order shipped

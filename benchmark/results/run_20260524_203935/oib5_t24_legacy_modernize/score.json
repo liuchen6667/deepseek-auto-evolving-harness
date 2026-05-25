@@ -1,0 +1,47 @@
+{
+  "id": "oib5_t24_legacy_modernize",
+  "score": 0.9233,
+  "passed": true,
+  "checkpoints": {
+    "syntax_valid": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "valid Python 3"
+    },
+    "no_py2_syntax": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "no py2 syntax"
+    },
+    "no_print_stmt": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "print usage still present"
+    },
+    "tests_exist": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "20 tests (need >= 10)"
+    },
+    "tests_pass": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "20/20 passed"
+    },
+    "tests_method_coverage": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "11/11 required symbols referenced"
+    },
+    "tests_regression_resistance": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "11/11 mutants killed (m1=0/3 passed against mutant; m2=0/3 passed against mutant; m3=0/3 passed against mutant; m4=0/3 passed against mutant; m5=0/3 passed against mutant; m6=0/3 passed against mutant; m7=0/3 passed against mutant; m8=0/3 passed against mutant; m9=0/3 passed against mutant; m10=0/3 passed against mutant; m11=0/3 passed against mutant)"
+    },
+    "hidden_behavior": {
+      "score": 0.3733,
+      "max": 0.4,
+      "detail": "14/15 hidden behavior checks"
+    }
+  }
+}

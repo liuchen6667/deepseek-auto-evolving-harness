@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_21_counterfactual_support_split_live",
+  "score": 0.2777777777777778,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "win": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "hyp_a"
+    },
+    "rej": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "[{'hypothesis': 'hyp_b', 'reason': 'vendor outage notice posted after internal errors started (E3, E4), violating rule 1: trigger cannot happen after incident onset'}, {'hypothesis': 'hyp_c', 'reason': 'error growth stopped immediately after rollback (E2), violating rule 2: rollback-correlated recovery cannot be treated as irrelevant'}]"
+    },
+    "chain": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['Three hypotheses compete to explain the incident: hyp_a (internal parser regression), hyp_b (vendor outage), hyp_c (unrelated self-resolution)', 'Counterfactual rules exclude hyp_b (vendor notice too late) and hyp_c (rollback timing relevant)', 'Only hyp_a remains, satisfying temporal order and direct evidence']"
+    },
+    "neg": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['no_vendor_degraded_notice_before_10_05', 'rollback_started_and_error_growth_stopped']"
+    },
+    "rule": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "Reject any hypothesis that treats a rollback-correlated recovery as irrelevant if the error growth stops immediately after rollback"
+    },
+    "refs": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "['E1', 'E2', 'E3', 'E4']"
+    }
+  }
+}

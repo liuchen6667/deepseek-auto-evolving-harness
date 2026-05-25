@@ -1,0 +1,23 @@
+{
+  "selected_checkpoint": "C2",
+  "total_recovery_cost": 51,
+  "rejected_checkpoints": [
+    {"id": "C1", "reason": "total recovery cost 80 is higher than optimal cost 51"},
+    {"id": "C3", "reason": "status suspect_duplicate_write incurs risk penalty 25, making total cost 60 higher than optimal cost 51"},
+    {"id": "C4", "reason": "status invalid_missing_index_on_orders starts with 'invalid_', checkpoint cannot be selected"}
+  ],
+  "recovery_sequence": [
+    "Validate C2 checkpoint integrity and consistency",
+    "Restore database to C2 checkpoint (09:35) - estimated 7 minutes",
+    "Apply transaction log from 09:35 to 10:00 - estimated 19 minutes catch-up",
+    "Verify data consistency and business logic after recovery"
+  ],
+  "verification_focus": [
+    "Verify no data corruption from 09:35 to 10:00 period",
+    "Validate referential integrity and business constraints"
+  ],
+  "notes": [
+    "C2 provides optimal balance: data loss 25 minutes vs higher catch-up costs of earlier checkpoints",
+    "C3 rejected due to suspect status and risk penalty despite lower restore+catch_up+data_loss"
+  ]
+}

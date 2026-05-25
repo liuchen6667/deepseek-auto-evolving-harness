@@ -1,0 +1,18 @@
+{
+  "winning_hypothesis": "hyp_a",
+  "rejected_hypotheses": [
+    {"hypothesis": "hyp_b", "reason": "violates temporal order rule: vendor degradation notice posted after internal errors started (E4), and no evidence of vendor degradation before error spike (E3)."},
+    {"hypothesis": "hyp_c", "reason": "violates counterfactual rule 2: error growth stopped immediately after rollback started (E2), treating rollback as irrelevant is invalid."}
+  ],
+  "conflict_chain": [
+    "Three candidate explanations compete: hyp_a (parser regression), hyp_b (vendor outage), hyp_c (unrelated background condition).",
+    "Applying counterfactual rules: hyp_b rejected due to temporal order violation (trigger after onset); hyp_c rejected due to ignoring rollback-correlated recovery.",
+    "Only hyp_a survives: it directly explains earliest initiating signal (new parser enabled before error spike) and matches rollback stopping error growth."
+  ],
+  "negative_evidence": [
+    "no_vendor_degraded_notice_before_10_05",
+    "rollback_started_and_error_growth_stopped"
+  ],
+  "governing_rule": "If multiple hypotheses survive, prefer the one that directly explains the earliest initiating signal.",
+  "evidence_refs": ["evidence_set.json", "candidate_explanations.md", "counterfactual_rules.md", "decision_contract.json"]
+}

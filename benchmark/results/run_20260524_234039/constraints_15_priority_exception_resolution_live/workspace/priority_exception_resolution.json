@@ -1,0 +1,10 @@
+{
+  "winning_request": "req_a",
+  "denied_exceptions": [
+    {"request": "req_b", "reason": "exception_missing_required_security_approval"},
+    {"request": "req_c", "reason": "exception_strength_lower_than_base_winner"}
+  ],
+  "rule_chain": ["base_priority_determines_initial_winner", "exception_security_approval_check", "exception_strength_sufficiency_check"],
+  "governing_exception": "none",
+  "evidence_refs": ["request_queue.json", "exception_policy.md", "priority_matrix.json", "resolution_contract.json"]
+}

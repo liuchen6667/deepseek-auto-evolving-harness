@@ -1,0 +1,16 @@
+{
+  "allowed_selection": ["item_a", "item_c"],
+  "blocked_items": [
+    {"item": "item_b", "reason": "region-blocked"},
+    {"item": "item_d", "reason": "budget constraint when selecting item_a and item_c"},
+    {"item": "item_e", "reason": "ineligible"}
+  ],
+  "budget_used": 9,
+  "governing_guardrail": "region guardrails",
+  "rule_application": [
+    "Only items in eligible list may be selected.",
+    "Region-blocked items are excluded.",
+    "Total cost must not exceed budget limit of 9."
+  ],
+  "evidence_refs": ["candidate_set.json", "guardrails.md", "eligibility_rules.json", "selection_budget.txt"]
+}

@@ -1,0 +1,7 @@
+{
+  "total_raw_rows": 15,
+  "total_clean_rows": 11,
+  "duplicates_removed": 2,
+  "nulls_removed": 2,
+  "date_format_fixed": 3
+}

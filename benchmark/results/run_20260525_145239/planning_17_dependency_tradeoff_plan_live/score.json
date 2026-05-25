@@ -1,0 +1,42 @@
+{
+  "id": "planning_17_dependency_tradeoff_plan_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "now": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "['schema-prepare', 'service-cutover', 'smoke-verify']"
+    },
+    "defer": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "[{'task': 'analytics-rebuild', 'reason': 'excluded from current window'}, {'task': 'cache-warm', 'reason': 'depends on service-cutover which is part of current chain'}, {'task': 'report-migration', 'reason': 'depends on analytics-rebuild which is excluded'}]"
+    },
+    "order": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "['schema-prepare', 'service-cutover', 'smoke-verify']"
+    },
+    "rule": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "Prefer the highest-priority dependency-closed chain that fits in the current window."
+    },
+    "just": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "['schema-prepare must complete before service-cutover, which must complete before smoke-verify', 'Only 3 slots available, so we select the longest dependency chain that fits', 'analytics-rebuild is excluded from current window, preventing its dependent tasks']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['task_graph.json', 'capacity.json', 'priority_rules.md', 'delivery_window.json']"
+    }
+  }
+}

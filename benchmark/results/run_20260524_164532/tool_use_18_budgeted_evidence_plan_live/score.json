@@ -1,0 +1,42 @@
+{
+  "id": "tool_use_18_budgeted_evidence_plan_live",
+  "score": 0.65,
+  "passed": true,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "selected": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "['read_error_budget', 'read_recent_alerts']"
+    },
+    "skipped": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'action': 'query_full_audit_archive', 'reason': '只覆盖非必需信号 audit_trail_only'}, {'action': 'read_release_note', 'reason': '覆盖必需信号但成本高于 read_recent_alerts'}, {'action': 'run_expensive_trace_join', 'reason': '只覆盖非必需信号 optional_correlation_only'}, {'action': 'scan_all_service_logs', 'reason': '覆盖必需信号但成本高于 read_recent_alerts'}]"
+    },
+    "signals": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "['budget_breach_risk', 'recent_regression_signal']"
+    },
+    "budget": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "5"
+    },
+    "tradeoff": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "优先选择成本较低且足够的行动来覆盖必需信号，跳过更昂贵的替代方案和非必需信号覆盖"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['investigation_goal.md', 'action_costs.json', 'signal_map.json', 'budget_rules.md']"
+    }
+  }
+}

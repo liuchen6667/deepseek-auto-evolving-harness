@@ -1,0 +1,22 @@
+2024-05-24 10:15:23,456 - werkzeug - INFO - Starting application...
+2024-05-24 10:15:23,457 - werkzeug - INFO - Database max connections: 10
+2024-05-24 10:15:23,458 - werkzeug - INFO - Cache TTL: 60 seconds
+2024-05-24 10:15:23,458 - werkzeug - INFO - Max upload size: 5MB
+2024-05-24 10:15:23,459 - werkzeug - INFO - Rate limit: 100 requests per minute
+2024-05-24 10:15:23,459 - werkzeug - INFO - Query max rows: 1000
+2024-05-24 10:16:01,123 - werkzeug - INFO - Request: POST /upload
+2024-05-24 10:16:01,234 - werkzeug - ERROR - File upload failed: File size 6.2MB exceeds limit of 5MB
+2024-05-24 10:16:01,235 - werkzeug - INFO - Response: 413
+2024-05-24 10:16:15,789 - werkzeug - INFO - Request: GET /data
+2024-05-24 10:16:15,891 - werkzeug - INFO - Response: 200
+2024-05-24 10:16:45,123 - werkzeug - WARNING - Database connection pool exhausted, waiting for connection...
+2024-05-24 10:16:45,234 - werkzeug - INFO - Request: GET /users
+2024-05-24 10:16:45,456 - werkzeug - INFO - Query returned 1000 rows (max limit reached)
+2024-05-24 10:16:45,567 - werkzeug - INFO - Response: 200
+2024-05-24 10:17:01,123 - werkzeug - WARNING - Rate limit exceeded for 192.168.1.100
+2024-05-24 10:17:01,234 - werkzeug - INFO - Response: 429
+2024-05-24 10:18:15,789 - werkzeug - INFO - Cache miss for key: user_data_12345 (TTL expired)
+2024-05-24 10:18:15,891 - werkzeug - INFO - Cache set with 60s TTL
+2024-05-24 10:19:23,456 - werkzeug - INFO - Request: GET /data
+2024-05-24 10:19:23,567 - werkzeug - INFO - Cache hit for key: data_cache_key
+2024-05-24 10:19:23,678 - werkzeug - INFO - Response: 200

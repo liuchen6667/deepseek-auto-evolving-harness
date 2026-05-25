@@ -1,0 +1,21 @@
+{
+  "decision": "rejected",
+  "constraints_checked": [
+    "time_window",
+    "approval_status",
+    "dependencies",
+    "resource_limits"
+  ],
+  "violations": [
+    {
+      "constraint": "time_window",
+      "reason": "Requested release time 2026-03-25T14:00:00Z falls within freeze window (2026-03-25T00:00:00Z to 2026-03-31T23:59:59Z) and no valid exception is specified"
+    },
+    {
+      "constraint": "dependencies",
+      "reason": "Dependent service notification-service is in degraded status: Experiencing intermittent delays"
+    }
+  ],
+  "conditions": [],
+  "reasoning": "The release request violates two critical constraints: 1) The requested time falls within a freeze window (Q1 End of Quarter Freeze) without a valid exception (security_hotfix or critical_bugfix). 2) The notification-service dependency is in degraded status with intermittent delays. Both time window and dependency readiness are mandatory constraints that must be satisfied before release can proceed."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "planning_02_release_handoff_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "handoff_exists": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "handoff.md exists"
+    },
+    "required_sections": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "sections=3/3"
+    },
+    "critical_blockers_only": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "## Critical\n- B-17: payment callback regression (P0, open)\n- B-33: auth refresh flaky in staging (P1, investigating)\n\n## Owners\n- B-17: Unassigned\n- B-33: Mina\n\n## Next Step\nFirst blocker to reassign: B-17 (payment callback regression) - assign to platform-oncall as per team notes."
+    },
+    "owner_mapping": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "## Critical\n- B-17: payment callback regression (P0, open)\n- B-33: auth refresh flaky in staging (P1, investigating)\n\n## Owners\n- B-17: Unassigned\n- B-33: Mina\n\n## Next Step\nFirst blocker to reassign: B-17 (payment callback regression) - assign to platform-oncall as per team notes."
+    },
+    "next_step": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "## Critical\n- B-17: payment callback regression (P0, open)\n- B-33: auth refresh flaky in staging (P1, investigating)\n\n## Owners\n- B-17: Unassigned\n- B-33: Mina\n\n## Next Step\nFirst blocker to reassign: B-17 (payment callback regression) - assign to platform-oncall as per team notes."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "decision": "no_go",
+  "requested_window": "2026-04-17 19:30-20:30 UTC",
+  "recommended_window": "2026-05-25 09:00-11:00 UTC",
+  "blocking_constraints": [
+    "Requested window is in the past (2026-04-17, current date is 2026-05-24)",
+    "Requested window falls within blackout period (Friday production freeze: 2026-04-17T18:00:00Z to 2026-04-17T23:59:00Z)",
+    "Missing security approval (required for high-risk releases)",
+    "No DBA on call during requested window (required for schema migration)"
+  ],
+  "missing_approvals": ["security"],
+  "justification": "The release request cannot be executed due to multiple blocking constraints: 1) The requested window (2026-04-17) is in the past relative to current date (2026-05-24). 2) The window falls within a production freeze blackout period. 3) Security approval is missing (required for high-risk releases). 4) No DBA is on call during the requested window (required for schema migrations). The next recommended window is 2026-05-25 09:00-11:00 UTC, assuming a future weekday window with DBA coverage, but actual scheduling should be coordinated with the change calendar and DBA availability."
+}

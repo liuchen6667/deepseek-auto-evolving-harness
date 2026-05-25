@@ -1,0 +1,6 @@
+{
+  "price": {"value": 279, "source": "source_reviews.txt", "reason": "最新数据（3/15），显示促销价$279，原价$299，比官方数据（3/10）更新，比零售商数据（3/14）更完整（包含促销信息）"},
+  "stock": {"value": "有货", "source": "source_reviews.txt", "reason": "最新数据（3/15），显示'有货'且预计3-5天发货，比零售商数据（3/14）更新"},
+  "rating": {"value": 4.2, "source": "source_reviews.txt", "reason": "最新数据（3/15），基于1,247条真实用户评价，样本量大且可信度高"},
+  "conflicts_found": ["价格冲突：official.json ($299) vs retailer.json ($249) vs reviews.txt ($279)", "库存冲突：official.json (有货) vs retailer.json (无货) vs reviews.txt (有货)", "评分冲突：official.json (4.5) vs retailer.json (3.8) vs reviews.txt (4.2)"]
+}

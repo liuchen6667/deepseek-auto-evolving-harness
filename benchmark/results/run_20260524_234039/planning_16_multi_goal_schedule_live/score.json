@@ -1,0 +1,42 @@
+{
+  "id": "planning_16_multi_goal_schedule_live",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "missing"
+    },
+    "selected": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "skipped"
+    },
+    "rejected": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "skipped"
+    },
+    "alloc": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "objective": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "rationale": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "refs": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    }
+  }
+}

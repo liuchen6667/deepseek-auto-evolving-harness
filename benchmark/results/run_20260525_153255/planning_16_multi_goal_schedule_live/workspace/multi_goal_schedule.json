@@ -1,0 +1,19 @@
+{
+  "selected_plan": ["plan_beta", "plan_gamma", "plan_alpha"],
+  "rejected_plans": [
+    {"plan": "plan_delta", "reason": "Does not optimally address the highest priority objective of protecting customer commitment within resource constraints"},
+    {"plan": "plan_epsilon", "reason": "Does not optimally address the highest priority objective of protecting customer commitment within resource constraints"}
+  ],
+  "resource_allocation": [
+    {"window": "w1", "task": "plan_beta"},
+    {"window": "w2", "task": "plan_gamma"},
+    {"window": "w3", "task": "plan_alpha"}
+  ],
+  "governing_objective": "protect customer commitment",
+  "rationale": [
+    "Priority sequencing ensures the highest business objective (protect customer commitment) is addressed first by plan_beta, followed by secondary revenue recovery (plan_gamma) and tertiary ops cleanup (plan_alpha)",
+    "Resource allocation matches CPU window capacities (w1:4, w2:3, w3:2) to plan complexity, with the most critical plan_beta receiving the largest window",
+    "Tradeoff accepts suboptimal resource utilization for lower-priority ops cleanup to guarantee fulfillment of customer commitment and revenue recovery objectives"
+  ],
+  "evidence_refs": ["work_items.json", "resource_limits.json", "business_objectives.md", "planning_contract.json"]
+}

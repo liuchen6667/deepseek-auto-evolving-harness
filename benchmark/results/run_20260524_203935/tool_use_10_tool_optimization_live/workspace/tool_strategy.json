@@ -1,0 +1,13 @@
+{
+  "selected_pipeline": ["glob_py_js", "exec_union_candidates", "read_validate_hits", "write_report"],
+  "estimated_total_seconds": 9,
+  "estimated_peak_memory_gb": 0.4,
+  "true_positive_files": ["src/auth/session.py", "src/config/local.py", "src/payments/stripe.py"],
+  "false_positive_files": ["src/api/client.js", "src/helpers/request.js", "src/internal/debug.js"],
+  "why_not_alternatives": {
+    "exec_serial_all_files": "This approach scans all 10000 files serially with three scans, taking 36 seconds which is much slower than the selected pipeline (9 seconds), while providing the same recall. It meets memory constraints (0.4GB) but is inefficient on time.",
+    "exec_union_all_files": "This scans all 10000 files in a single union scan, achieving recall=100% but uses 0.7GB memory which is close to the 0.8GB limit. While acceptable, it's less memory-efficient than the selected pipeline (0.4GB) and takes 14 seconds vs 9 seconds.",
+    "exec_batched_candidates": "This uses four batched scans on candidate files, taking 18 seconds which is slower than the selected pipeline (9 seconds), with higher peak memory (0.5GB vs 0.4GB). It provides same recall but is less optimal in both time and memory."
+  },
+  "validation_rule": "True vulnerabilities are: 1) hardcoded secrets directly assigned in checked-in source code (e.g., PASSWORD = 'value'), 2) bearer or token values written into logs (e.g., logger.info('token=%s', token)). Excluded from true positives are: environment-variable reads, comments or descriptive text, and runtime template strings that interpolate a token instead of hardcoding one."
+}

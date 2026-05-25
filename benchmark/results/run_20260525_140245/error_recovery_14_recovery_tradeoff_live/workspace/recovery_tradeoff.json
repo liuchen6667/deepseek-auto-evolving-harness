@@ -1,0 +1,35 @@
+{
+  "selected_option": "checkpoint_restore_with_verified_replay",
+  "rejected_options": [
+    {
+      "option": "full_restore_from_09_00",
+      "reason": "priority_customer_window_ok=false violates priority customer recovery constraint; data_risk=high violates low data risk constraint"
+    },
+    {
+      "option": "hot_patch_in_place",
+      "reason": "data_risk=high violates low data risk constraint despite priority_customer_window_ok=true"
+    },
+    {
+      "option": "traffic_shift_then_restore",
+      "reason": "priority_customer_window_ok=false violates priority customer recovery constraint; data_risk=medium not low"
+    }
+  ],
+  "staged_recovery_sequence": [
+    "isolate_affected_components",
+    "restore_from_checkpoint",
+    "replay_verified_transactions",
+    "resume_normal_operations"
+  ],
+  "verification_focus": [
+    "order_integrity",
+    "priority_customer_checkout_path",
+    "tax_calculation_contract"
+  ],
+  "governing_constraint": "Priority customers must recover within the bounded incident window, and data risk must stay low even if a slower option is required.",
+  "evidence_refs": [
+    "incident_state.json",
+    "recovery_options.json",
+    "business_constraints.md",
+    "verification_contract.json"
+  ]
+}

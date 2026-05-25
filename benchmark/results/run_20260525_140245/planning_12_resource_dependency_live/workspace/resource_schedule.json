@@ -1,0 +1,20 @@
+{
+  "schedule": [
+    {"task": "A", "start": 0, "end": 2},
+    {"task": "B", "start": 0, "end": 2},
+    {"task": "C", "start": 2, "end": 5},
+    {"task": "D", "start": 2, "end": 4},
+    {"task": "F", "start": 4, "end": 7},
+    {"task": "E", "start": 5, "end": 9},
+    {"task": "G", "start": 9, "end": 14},
+    {"task": "H", "start": 9, "end": 10},
+    {"task": "I", "start": 14, "end": 16}
+  ],
+  "parallel_groups": [["A", "B"], ["C", "D"], ["F"], ["E"], ["G", "H"], ["I"]],
+  "makespan": 16,
+  "critical_path": ["A", "C", "E", "G", "I"],
+  "notes": [
+    "关键路径 A→C→E→G→I 决定了最小makespan为16，资源约束允许此路径无延迟执行",
+    "时间4-5期间C和F并行运行，充分利用了CPU资源（6/8），内存使用（8/16）也未达上限"
+  ]
+}

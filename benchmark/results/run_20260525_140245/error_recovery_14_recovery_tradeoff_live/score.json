@@ -1,0 +1,42 @@
+{
+  "id": "error_recovery_14_recovery_tradeoff_live",
+  "score": 0.5,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "selected": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "checkpoint_restore_with_verified_replay"
+    },
+    "rejected": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'option': 'full_restore_from_09_00', 'reason': 'priority_customer_window_ok=false violates priority customer recovery constraint; data_risk=high violates low data risk constraint'}, {'option': 'hot_patch_in_place', 'reason': 'data_risk=high violates low data risk constraint despite priority_customer_window_ok=true'}, {'option': 'traffic_shift_then_restore', 'reason': 'priority_customer_window_ok=false violates priority customer recovery constraint; data_risk=medium not low'}]"
+    },
+    "sequence": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['isolate_affected_components', 'restore_from_checkpoint', 'replay_verified_transactions', 'resume_normal_operations']"
+    },
+    "verify": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "['order_integrity', 'priority_customer_checkout_path', 'tax_calculation_contract']"
+    },
+    "constraint": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "Priority customers must recover within the bounded incident window, and data risk must stay low even if a slower option is required."
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['incident_state.json', 'recovery_options.json', 'business_constraints.md', 'verification_contract.json']"
+    }
+  }
+}

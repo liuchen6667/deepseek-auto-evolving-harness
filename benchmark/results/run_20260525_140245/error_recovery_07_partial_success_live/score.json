@@ -1,0 +1,12 @@
+{
+  "id": "error_recovery_07_partial_success_live",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "file": {
+      "score": 0.0,
+      "max": 1.0,
+      "detail": "recovery_plan.md not created"
+    }
+  }
+}

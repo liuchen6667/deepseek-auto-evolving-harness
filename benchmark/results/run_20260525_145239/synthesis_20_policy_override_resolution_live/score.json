@@ -1,0 +1,47 @@
+{
+  "id": "synthesis_20_policy_override_resolution_live",
+  "score": 0.8500000000000001,
+  "passed": true,
+  "checkpoints": {
+    "decision_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "policy_override_decision.json exists"
+    },
+    "decision_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "decision='deny'"
+    },
+    "policy_version_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "applied_policy_version='v2'"
+    },
+    "governing_rule_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "governing_rule='Clause V2-SEC-4: Any case involving exported customer data to an external destination must be denied unless a security-approved override explicitly names that exact destination and exact use case.'"
+    },
+    "manager_note_usage_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "manager_note_used=False"
+    },
+    "conflicting_signals_are_exact": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "support_signal=True v2_external_block=True security_chain_limit=True conflicting_signals=[\"Manager note provides approval for export to 'analytics sandbox mirror' for 'incident review tied to fraud-model drift'\", \"Case destination 'analytics sandbox mirror eu' is external and contains exported customer data, triggering V2-SEC-4 denial\", 'Manager note lacks security countersign, so V2-SEC-5 ensures v2 policy takes precedence']"
+    },
+    "reason_is_exact": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "semantic_hits=5/7 reason=\"The case involves exported customer data to an external destination. V2-SEC-4 mandates denial unless a security-approved override names the exact destination and use case. The manager note is not countersigned by security, so V2-SEC-5 ensures v2 policy prevails. The note's approved destination ('analytics sandbox mirror') and use case ('incident review tied to fraud-model drift') do not exactly match the case's 'analytics sandbox mirror eu' and 'vendor escalation', failing the override condition.\""
+    },
+    "evidence_refs_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['policy_v1.md', 'policy_v2.md', 'manager_note.txt', 'case_details.json']"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "workflow": ["glob_chunks", "read_each_summary", "write_running_totals", "final_rank"],
+  "chunk_read_order": ["chunk_001.summary", "chunk_002.summary", "chunk_003.summary", "chunk_004.summary"],
+  "aggregated_counts": {
+    "error": 4500,
+    "user": 2750,
+    "order": 2050,
+    "token": 1950,
+    "retry": 900,
+    "payment": 600
+  },
+  "top_3_words": ["error", "user", "order"],
+  "why_simple_tools_still_work": [
+    "逐片读取和内存累积避免了大数据集内存溢出的风险，符合分治思想",
+    "简单的读写操作足够完成词频统计和排序，无需复杂数据库或外部工具"
+  ],
+  "invalid_shortcuts_rejected": [
+    "不能一次性读取所有文件合并后再处理，这违反了逐shard read的限制",
+    "不能使用外部排序工具或数据库，必须手动实现计数和排序逻辑"
+  ]
+}

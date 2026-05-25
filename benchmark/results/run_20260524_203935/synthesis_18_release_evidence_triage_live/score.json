@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_18_release_evidence_triage_live",
+  "score": 0.65,
+  "passed": true,
+  "checkpoints": {
+    "triage_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "release_triage.json exists"
+    },
+    "launch_decision_is_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "launch_decision='hold'"
+    },
+    "primary_blocker_is_correct": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "primary_blocker='Checkout e2e gate failing due to null pointer regression after hotfix'"
+    },
+    "blocker_class_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "blocker_class='code_regression'"
+    },
+    "supporting_evidence_is_exact": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "supporting_evidence=['P0 bug P0_checkout_null_pointer_open is open in bug tracker', \"CI summary shows checkout_e2e gate failing with detail 'null pointer in checkout after hotfix'\", 'Launch plan states release can proceed only if all required release gates are passing and there are no open P0 bugs']"
+    },
+    "next_action_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "recommended_next_action='Fix the null pointer regression in checkout component and rerun the checkout_e2e gate'"
+    },
+    "confidence_and_refs_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "confidence='high' evidence_refs=['bug_tracker.json', 'ci_summary.json', 'ops_incidents.json', 'launch_plan.md']"
+    }
+  }
+}

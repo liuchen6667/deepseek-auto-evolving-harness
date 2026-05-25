@@ -1,0 +1,13 @@
+{
+  "selected_pipeline": ["glob_py_js", "exec_union_candidates", "read_validate_hits", "write_report"],
+  "estimated_total_seconds": 9,
+  "estimated_peak_memory_gb": 0.4,
+  "true_positive_files": ["src/auth/session.py", "src/config/local.py", "src/payments/stripe.py"],
+  "false_positive_files": ["src/api/client.js", "src/helpers/request.js", "src/internal/debug.js"],
+  "why_not_alternatives": {
+    "exec_serial_all_files": "Time too high (36 seconds vs 9 seconds) while recall and memory are acceptable but not optimal.",
+    "exec_union_all_files": "Memory usage (0.7 GB) is too close to the 0.8 GB limit, while exec_union_candidates uses only 0.4 GB with the same recall.",
+    "exec_batched_candidates": "Time (18 seconds) is double that of exec_union_candidates (4 seconds) and memory (0.5 GB) is higher than exec_union_candidates (0.4 GB)."
+  },
+  "validation_rule": "True positives: (1) hardcoded secrets directly assigned in checked-in source code, (2) bearer or token values written into logs. Exclusions: (1) environment-variable reads, (2) comments or descriptive text, (3) runtime template strings that interpolate a token instead of hardcoding one."
+}

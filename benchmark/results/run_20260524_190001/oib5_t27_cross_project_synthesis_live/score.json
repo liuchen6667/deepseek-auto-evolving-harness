@@ -1,0 +1,47 @@
+{
+  "id": "oib5_t27_cross_project_synthesis_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "database_recommendation.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "recommendation_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "recommended_database='PostgreSQL' recommended_version='14.2' primary_rationale='postgresql_best_matches_financial_acid_workload_with_proven_transaction_performance'"
+    },
+    "project_findings_are_exact": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "exact_project_findings=3/3"
+    },
+    "risks_are_exact": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "risks=[{'risk': 'connection_pooling_required', 'mitigation': 'pgbouncer_and_limit_direct_connections_to_500'}, {'risk': 'large_table_maintenance', 'mitigation': 'partition_large_tables_early_and_monitor_vacuum'}, {'risk': 'future_write_scale_beyond_single_node', 'mitigation': 'vertical_scale_first_then_plan_sharding'}]"
+    },
+    "performance_expectation_is_exact": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "performance_expectation={'steady_state_tps': 4800, 'pooled_peak_tps': 8000, 'p99_latency_ms': 50}"
+    },
+    "rejected_options_are_exact": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "rejected_options=[{'database': 'MongoDB 6.0', 'reason': 'network_partition_inconsistency_and_3_to_5x_transaction_latency_penalty'}, {'database': 'MySQL 8.0', 'reason': 'row_level_lock_contention_above_6000_concurrent_writes'}]"
+    },
+    "evidence_refs_are_complete": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['project_alpha/README.md', 'project_alpha/performance_report.md', 'project_beta/README.md', 'project_beta/issues.md', 'project_gamma/README.md', 'project_gamma/migration_lessons.md']"
+    }
+  }
+}

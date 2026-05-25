@@ -1,0 +1,32 @@
+{
+  "id": "oib5_t10_data_pipeline",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "analysis_exists": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "analysis.py exists"
+    },
+    "user_ltv": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "all correct and sorted"
+    },
+    "category_sales": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "all correct"
+    },
+    "monthly_orders": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "all correct and sorted"
+    },
+    "data_cleaning": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "dedup and null handling correct"
+    }
+  }
+}

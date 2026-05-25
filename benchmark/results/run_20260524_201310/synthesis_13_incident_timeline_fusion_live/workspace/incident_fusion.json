@@ -1,0 +1,22 @@
+{
+  "timeline": [
+    {"time": "01:02", "event": "Feature flag 'checkout_profile_enrichment' enabled, triggering new profile enrichment logic"},
+    {"time": "01:03", "event": "Profile-db connection pool spikes to 99% (from 72% at 01:01), oncall notices correlation with flag enable"},
+    {"time": "01:04", "event": "First upstream_profile_timeout errors appear (count=18) in checkout service due to database connection exhaustion"},
+    {"time": "01:08", "event": "Mitigation: rollback of checkout_profile_enrichment flag initiated"},
+    {"time": "01:10", "event": "Checkout error rate returns to baseline after rollback completes"}
+  ],
+  "root_cause": "N+1 query pattern in the newly enabled checkout_profile_enrichment feature caused excessive database connections, exhausting the profile-db connection pool and leading to timeouts",
+  "ruled_out": [
+    "Network infrastructure issues (packet loss and latency were normal)",
+    "Payment gateway vendor problem (payment-gateway status was healthy)"
+  ],
+  "confidence": "high",
+  "evidence_refs": [
+    "alerts.log: flag enable at 01:02 and subsequent timeout errors",
+    "db_metrics.json: profile-db connection pool spike to 99% at 01:03",
+    "chat_notes.md: DBA analysis pointing to N+1 query path triggered by checkout_profile_enrichment",
+    "alerts.log: error resolution after rollback at 01:10",
+    "db_metrics.json: normal network metrics ruling out infrastructure issues"
+  ]
+}

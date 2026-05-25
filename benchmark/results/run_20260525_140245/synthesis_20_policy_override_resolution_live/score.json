@@ -1,0 +1,47 @@
+{
+  "id": "synthesis_20_policy_override_resolution_live",
+  "score": 0.65,
+  "passed": false,
+  "checkpoints": {
+    "decision_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "policy_override_decision.json exists"
+    },
+    "decision_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "decision='deny'"
+    },
+    "policy_version_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "applied_policy_version='v2'"
+    },
+    "governing_rule_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "governing_rule='V2-SEC-4: Any case involving exported customer data to an external destination must be denied unless a security-approved override explicitly names that exact destination and exact use case.'"
+    },
+    "manager_note_usage_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "manager_note_used=False"
+    },
+    "conflicting_signals_are_exact": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "support_signal=True v2_external_block=False security_chain_limit=True conflicting_signals=['Manager note approves temporary override for sanitized billing samples to analytics sandbox mirror for incident review tied to fraud-model drift, but case is for customer support bundle export to analytics sandbox mirror eu for vendor escalation, and note does not cover other use cases.', 'V2-SEC-4 requires security-approved override naming exact destination and use case, which is absent as security countersign is not present and override does not match case details.', 'V2-SEC-5 states that when manager note conflicts with policy, formal v2 clause takes precedence unless note is countersigned by security; here note is not countersigned by security.']"
+    },
+    "reason_is_exact": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "semantic_hits=5/7 reason='Case involves exported customer data to external destination (analytics sandbox mirror eu). No security-approved override explicitly names this exact destination and exact use case (vendor escalation). Manager note is not countersigned by security and does not cover this use case, so V2-SEC-4 applies and requires denial.'"
+    },
+    "evidence_refs_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['policy_v1.md', 'policy_v2.md', 'manager_note.txt', 'case_details.json']"
+    }
+  }
+}

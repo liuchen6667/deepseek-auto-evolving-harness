@@ -1,0 +1,13 @@
+{
+  "timeline": [
+    {"time": "01:02", "event": "Feature flag 'checkout_profile_enrichment' enabled=true (alerts.log)"},
+    {"time": "01:03", "event": "Profile-db connections spiked from 72% to 99% pool usage (db_metrics.json + chat_notes.md)"},
+    {"time": "01:04", "event": "First 'upstream_profile_timeout' errors detected (count=18) (alerts.log)"},
+    {"time": "01:08", "event": "Mitigation rollback of checkout_profile_enrichment started (alerts.log)"},
+    {"time": "01:10", "event": "Checkout error rate returned to baseline after rollback (alerts.log)"}
+  ],
+  "root_cause": "N+1 query path triggered by the 'checkout_profile_enrichment' feature flag, causing profile-db connection pool exhaustion (99% usage). The new code path generated excessive database queries during checkout process.",
+  "ruled_out": ["Network issues (packet loss 0.1%, latency 12ms normal)", "Payment gateway failure (status healthy)"],
+  "confidence": "high",
+  "evidence_refs": ["alerts.log lines 1-5: feature flag enable, timeouts, rollback, recovery", "db_metrics.json: profile-db pool usage spiked to 99% at 01:03 and 01:05", "chat_notes.md: DBA analysis indicates N+1 query path triggered by checkout_profile_enrichment"]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "planning_10_multi_objective_optimization_live",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "file": {
+      "score": 0.0,
+      "max": 1.0,
+      "detail": "❌ optimization_decision.md not created"
+    }
+  }
+}

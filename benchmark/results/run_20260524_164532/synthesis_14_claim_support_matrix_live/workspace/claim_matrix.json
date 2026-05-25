@@ -1,0 +1,15 @@
+{
+  "claim_assessments": [
+    {"claim_id": "C1", "status": "contradicted", "evidence": ["E1"]},
+    {"claim_id": "C2", "status": "contradicted", "evidence": ["E2"]},
+    {"claim_id": "C3", "status": "supported", "evidence": ["E3"]},
+    {"claim_id": "C4", "status": "contradicted", "evidence": ["E4"]},
+    {"claim_id": "C5", "status": "supported", "evidence": ["E1", "E4"]}
+  ],
+  "primary_incident_driver": "发布变更（10:00开始发布，10:07首次出现支付超时）",
+  "recommended_action": "加强发布前的测试和灰度发布策略，确保变更在可控范围内逐步推出",
+  "notes": [
+    "供应商payment-auth的问题虽然出现较晚（10:09），但可能加剧了事故的影响范围",
+    "网络丢包率始终保持在0.1%以下，可以排除网络基础设施是事故的主要原因"
+  ]
+}

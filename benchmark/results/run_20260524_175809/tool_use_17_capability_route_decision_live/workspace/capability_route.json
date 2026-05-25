@@ -1,0 +1,19 @@
+{
+  "primary_route": ["file_read", "file_write"],
+  "blocked_routes": [
+    {"route": "bash", "reason": "shell-first route violates routing_rules.md (avoid shell-first for closed workspace tasks). workspace_state.json indicates workspace_only and structured_files_present, so local file tools are sufficient."},
+    {"route": "glob", "reason": "not needed for exact field collection from known files; glob is for discovery when file names are unknown. task_request.md specifies collecting from local workspace files, which are already known by name."},
+    {"route": "file_edit", "reason": "task requires creating new structured output, not editing existing files. file_edit is for modifying existing content, not for initial creation."},
+    {"route": "file_patch", "reason": "same as file_edit; creation task, not modification."},
+    {"route": "memory_save", "reason": "task is to produce output file, not to store information in memory. memory_save is for long-term memory, not structured file output."},
+    {"route": "WebSearch", "reason": "tool_catalog.json includes WebSearch, but routing_rules.md says avoid web routes for closed workspace tasks. workspace_state.json confirms workspace_only."}
+  ],
+  "first_tool": "file_read",
+  "governing_rule": "Use minimal structured workspace tools when local files are sufficient. Avoid shell-first and web routes for closed workspace tasks.",
+  "rationale": [
+    "Capability: The task requires reading multiple local files (task_request.md, tool_catalog.json, workspace_state.json, routing_rules.md) and writing one structured output file (capability_route.json). The minimal sufficient tool chain is file_read to collect exact fields and file_write to produce the output.",
+    "Workspace constraint: workspace_state.json indicates workspace_only and structured_files_present, confirming all necessary files are present locally and no external access is needed. The task_request.md states 'No web access is needed'.",
+    "Safety boundary: The routing_rules.md explicitly prohibits shell-first and web routes for closed workspace tasks. Using bash or WebSearch would violate safety rules. Additionally, using non-minimal tools like glob, file_edit, file_patch, or memory_save would exceed the task's requirements and potentially introduce unnecessary complexity or side-effects."
+  ],
+  "evidence_refs": ["task_request.md", "tool_catalog.json", "workspace_state.json", "routing_rules.md"]
+}

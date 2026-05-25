@@ -1,0 +1,16 @@
+{
+  "claim_assessments": [
+    {"claim_id": "C1", "status": "contradicted", "evidence": ["E1"]},
+    {"claim_id": "C2", "status": "contradicted", "evidence": ["E2"]},
+    {"claim_id": "C3", "status": "supported", "evidence": ["E3"]},
+    {"claim_id": "C4", "status": "contradicted", "evidence": ["E4"]},
+    {"claim_id": "C5", "status": "supported", "evidence": ["E1", "E4"]}
+  ],
+  "primary_incident_driver": "deployment",
+  "recommended_action": "Improve deployment validation and rollback automation; establish clearer communication channels with payment-auth vendor for early degradation alerts.",
+  "notes": [
+    "The incident timeline suggests deployment at 10:00 triggered payment timeouts starting at 10:07.",
+    "Vendor degradation at 10:09 may have exacerbated the issue but was not the initial cause.",
+    "Rollback effectiveness indicates the deployment contained the root cause."
+  ]
+}

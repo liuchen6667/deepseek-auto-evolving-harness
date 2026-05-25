@@ -1,0 +1,37 @@
+{
+  "id": "error_recovery_19_recovery_guardrail_order_live",
+  "score": 0.33333333333333337,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "order": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['freeze_writes', 'restore_last_clean_config', 'reopen_safe_traffic', 'replay_backlog_immediately', 'reopen_all_traffic']"
+    },
+    "blocked": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'action': 'skip_write_freeze', 'reason': 'Skipping write freeze risks amplifying corruption before state stabilization'}]"
+    },
+    "guard": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "stabilize_state_before_reintroducing_risk"
+    },
+    "why": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['Risk mitigation: freeze writes first to prevent corruption spread, aligning with system_risks.md warning', 'Dependency order: restore clean config before reintroducing any traffic, as per guardrail_order.yaml', 'Goal protection: gradual traffic reopening ensures safe_service_return by verifying stability at each step']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['recovery_actions.json', 'system_risks.md', 'guardrail_order.yaml', 'incident_goal.json']"
+    }
+  }
+}

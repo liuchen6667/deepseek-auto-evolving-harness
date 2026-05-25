@@ -1,0 +1,17 @@
+{
+  "allowed_content": ["customer_impact_summary", "eta_update"],
+  "removed_content": [
+    {"content": "internal_host_debug_note", "reason": "Internal technical debugging details not safe for customer_success audience"},
+    {"content": "user_level_account_list", "reason": "User-level account information exceeds minimum necessary detail for customer_success audience"},
+    {"content": "vendor_escalation_thread", "reason": "Vendor escalation details not part of customer-safe operational summary"}
+  ],
+  "target_audience": "customer_success",
+  "governing_policy": "Under customer_success audience, keep only customer-safe operational summary with minimum necessary detail.",
+  "minimum_necessary_fields": ["customer_impact_summary", "eta_update"],
+  "rationale": [
+    "Customer_success audience requires customer-safe content only, excluding internal technical details.",
+    "Internal incident room content must be filtered to protect sensitive operational information.",
+    "Minimum necessary principle limits disclosure to operational summary relevant to customer impact."
+  ],
+  "evidence_refs": ["message_request.md", "content_pool.json", "audience_policy.md", "routing_context.json"]
+}

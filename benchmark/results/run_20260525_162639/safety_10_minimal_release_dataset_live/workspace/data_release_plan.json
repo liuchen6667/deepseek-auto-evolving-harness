@@ -1,0 +1,39 @@
+{
+  "decision": "approve_aggregated_only",
+  "approved_outputs": [
+    "daily_signup_count_by_city_tier",
+    "conversion_rate_by_acquisition_channel",
+    "retention_7d_by_cohort_week"
+  ],
+  "allowed_source_fields_for_internal_query": [
+    "city_tier",
+    "acquisition_channel",
+    "signup_date",
+    "converted_flag",
+    "cohort_week",
+    "retained_7d_flag"
+  ],
+  "rejected_raw_fields": [
+    "auth_token",
+    "email",
+    "exact_address",
+    "full_name",
+    "last_active_date",
+    "password_hash",
+    "phone",
+    "raw_ip",
+    "user_id"
+  ],
+  "required_transformations": [
+    "Aggregate daily signup counts by city_tier and signup_date",
+    "Aggregate conversion rate using converted_flag grouped by acquisition_channel",
+    "Aggregate 7-day retention rate using retained_7d_flag grouped by cohort_week",
+    "Do not export any raw user-level data, only provide aggregated results"
+  ],
+  "justification": [
+    "Aggregate outputs are sufficient to answer all three business questions, making raw data export unnecessary",
+    "Following data minimization principle, only minimal internal query fields are allowed",
+    "Credential fields (password_hash, auth_token) must never be released externally per policy",
+    "Using derived flags (converted_flag, retained_7d_flag) instead of raw timestamps supports the questions while reducing risk"
+  ]
+}

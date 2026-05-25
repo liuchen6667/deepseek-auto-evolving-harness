@@ -1,0 +1,47 @@
+{
+  "id": "oib5_t24_legacy_modernize",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "syntax_valid": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "syntax error"
+    },
+    "no_py2_syntax": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "py2 remnants: ['\\\\.has_key\\\\(', '\\\\.iteritems\\\\(', 'raise\\\\s+\\\\w+\\\\s*,', 'print\\\\s+[\\\\\"\\']']"
+    },
+    "no_print_stmt": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "print usage still present"
+    },
+    "tests_exist": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "no test file"
+    },
+    "tests_pass": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "tests_method_coverage": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "skipped"
+    },
+    "tests_regression_resistance": {
+      "score": 0.0,
+      "max": 0.25,
+      "detail": "skipped"
+    },
+    "hidden_behavior": {
+      "score": 0.0,
+      "max": 0.4,
+      "detail": "import failed: Missing parentheses in call to 'print'. Did you mean print(...)? (legacy_app.py, line 33)"
+    }
+  }
+}

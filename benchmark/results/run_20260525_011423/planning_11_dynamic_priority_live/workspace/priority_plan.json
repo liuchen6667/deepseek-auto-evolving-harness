@@ -1,0 +1,24 @@
+{
+  "slot_plan": [
+    {"slot_start": 0, "task": "Z", "value_at_execution": 9},
+    {"slot_start": 5, "task": "X", "value_at_execution": 16},
+    {"slot_start": 10, "task": "A", "value_at_execution": 12},
+    {"slot_start": 15, "task": "B", "value_at_execution": 11},
+    {"slot_start": 20, "task": "C", "value_at_execution": 3}
+  ],
+  "total_value": 51,
+  "events_considered": [
+    "T+5: X value doubles to 16 if not executed by then",
+    "T+10: New P0 tasks A(12), B(11), C(3) added",
+    "T+15: Y's dependency on Q is removed, making Y executable",
+    "T+20: Z downgrades to P2 with value 1 if not executed by then",
+    "Priority rule: Must execute highest priority (P0 > P1 > P2) tasks first"
+  ],
+  "notes": [
+    "At slot 0: Z (value 9) has higher value than X (value 8), so Z is chosen. X will double at T+5 if not executed.",
+    "At slot 5: X has doubled to 16, making it the highest value P0 task. Executing X now captures the doubled value.",
+    "At slot 10: New P0 tasks A(12), B(11), C(3) are added. A has highest value among P0 tasks.",
+    "At slot 15: Y becomes executable but is P1, while B is P0 with value 11. Priority rule requires executing P0 tasks first.",
+    "At slot 20: C is the only remaining P0 task. All other tasks are P1 or P2, so C must be executed despite low value."
+  ]
+}

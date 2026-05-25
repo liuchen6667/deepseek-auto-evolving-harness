@@ -1,0 +1,32 @@
+{
+  "id": "constraints_20_message_recipient_disambiguation_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "decision_exists": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "recipient_decision.json exists"
+    },
+    "selected_target_is_correct": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "thread_id='t-100' selected_handle='@alex-release' selected_channel='telegram'"
+    },
+    "rejected_candidates_are_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "rejected_candidates=['@alex-design']"
+    },
+    "reason_is_grounded": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "reason='虽然两个候选人都叫Alex Chen，但根据last_confirmed_target策略要求必须使用@alex-release作为最终目标。另一个候选人@alex-design虽然同名，但其团队是design而不是release，且thread主题是release approval follow-up，需要release团队的负责人处理。'"
+    },
+    "single_recipient_only": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "payload={'thread_id': 't-100', 'selected_handle': '@alex-release', 'selected_channel': 'telegram', 'rejected_candidates': ['@alex-design'], 'reason': '虽然两个候选人都叫Alex Chen，但根据last_confirmed_target策略要求必须使用@alex-release作为最终目标。另一个候选人@alex-design虽然同名，但其团队是design而不是release，且thread主题是release approval follow-up，需要release团队的负责人处理。'}"
+    }
+  }
+}

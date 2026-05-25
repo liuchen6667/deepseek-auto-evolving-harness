@@ -1,0 +1,62 @@
+{
+  "selected_tasks": [
+    {
+      "id": "p01",
+      "start_day": 1,
+      "reason": "依赖已满足且符合并行限制"
+    },
+    {
+      "id": "p06",
+      "start_day": 1,
+      "reason": "依赖已满足且符合并行限制"
+    },
+    {
+      "id": "p07",
+      "start_day": 1,
+      "reason": "依赖已满足且符合并行限制"
+    },
+    {
+      "id": "p09",
+      "start_day": 2,
+      "reason": "依赖已满足且符合并行限制"
+    }
+  ],
+  "deferred_tasks": [
+    {
+      "id": "p02",
+      "reason": "预算不足"
+    },
+    {
+      "id": "p04",
+      "reason": "预算不足"
+    },
+    {
+      "id": "p05",
+      "reason": "依赖未满足: ['p03(阻塞)']"
+    },
+    {
+      "id": "p10",
+      "reason": "依赖未满足: ['p04']"
+    },
+    {
+      "id": "p11",
+      "reason": "预算不足"
+    },
+    {
+      "id": "p03",
+      "reason": "人员 charlie 被阻塞"
+    },
+    {
+      "id": "p08",
+      "reason": "人员 charlie 被阻塞"
+    },
+    {
+      "id": "p12",
+      "reason": "人员 charlie 被阻塞"
+    }
+  ],
+  "total_effort_hours": 39,
+  "within_budget": true,
+  "priority_tasks_scheduled": 2,
+  "constraint_violations": []
+}

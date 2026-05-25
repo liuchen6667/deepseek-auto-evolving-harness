@@ -1,0 +1,37 @@
+{
+  "slot_decisions": [
+    {
+      "slot_start": 0,
+      "active_workloads": ["billing_sync", "realtime_search"],
+      "throughput_units": 19
+    },
+    {
+      "slot_start": 5,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 10,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 15,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 20,
+      "active_workloads": ["fraud_guard"],
+      "throughput_units": 6
+    }
+  ],
+  "final_delayed_workloads": [],
+  "final_canceled_workloads": ["image_backfill", "report_export"],
+  "total_completed_units": 61,
+  "notes": [
+    "billing_sync只能在槽0运行，因为从槽5开始memory_gb_max降至1.0，而billing_sync需要0.9GB内存，无法与realtime_search(0.7GB)同时运行，单独运行billing_sync(7单位)不如realtime_search(12单位)高效。",
+    "image_backfill因延迟6.0s超过所有槽的latency_s_max(3-5s)而必须取消；report_export因错误率1.5%超过槽0-15的error_rate_pct_max(1.0%)且延迟3.2s超过槽15-20的latency_s_max(3s)而取消。",
+    "fraud_guard是唯一能在槽20运行的工作负载，因为其错误率0.08%满足槽20严格的error_rate_pct_max=0.1%，而其他工作负载错误率都超标。"
+  ]
+}

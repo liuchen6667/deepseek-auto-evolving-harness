@@ -1,0 +1,250 @@
+{
+  "schedule": [
+    {
+      "time_slot": 0,
+      "tasks": [
+        {
+          "task_id": "task_001",
+          "agent_id": "agent_002",
+          "agent_name": "Beta",
+          "duration": 3,
+          "start_time": 0,
+          "end_time": 3,
+          "resources": {
+            "cpu": 15,
+            "memory": 20,
+            "bandwidth": 30
+          },
+          "reasoning": "Beta是唯一同时具备data_processing和network_io能力的agent，效率0.9但满足特殊需求"
+        }
+      ],
+      "total_resources": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 30
+      }
+    },
+    {
+      "time_slot": 3,
+      "tasks": [
+        {
+          "task_id": "task_002",
+          "agent_id": "agent_003",
+          "agent_name": "Gamma",
+          "duration": 2,
+          "start_time": 3,
+          "end_time": 5,
+          "resources": {
+            "cpu": 10,
+            "memory": 15,
+            "bandwidth": 5
+          },
+          "reasoning": "Gamma效率1.1最高，且当前负载为0，可以快速完成高优先级验证任务"
+        }
+      ],
+      "total_resources": {
+        "cpu": 10,
+        "memory": 15,
+        "bandwidth": 5
+      }
+    },
+    {
+      "time_slot": 5,
+      "tasks": [
+        {
+          "task_id": "task_003",
+          "agent_id": "agent_001",
+          "agent_name": "Alpha",
+          "duration": 4,
+          "start_time": 5,
+          "end_time": 9,
+          "resources": {
+            "cpu": 25,
+            "memory": 30,
+            "bandwidth": 10
+          },
+          "reasoning": "Alpha效率1.0且具备data_processing能力，Beta已在处理其他任务"
+        },
+        {
+          "task_id": "task_006",
+          "agent_id": "agent_005",
+          "agent_name": "Epsilon",
+          "duration": 3,
+          "start_time": 5,
+          "end_time": 8,
+          "resources": {
+            "cpu": 15,
+            "memory": 20,
+            "bandwidth": 10
+          },
+          "reasoning": "task_006依赖task_002已完成，与task_003并行执行，Epsilon效率1.0且有analysis能力"
+        }
+      ],
+      "total_resources": {
+        "cpu": 40,
+        "memory": 50,
+        "bandwidth": 20
+      }
+    },
+    {
+      "time_slot": 9,
+      "tasks": [
+        {
+          "task_id": "task_004",
+          "agent_id": "agent_004",
+          "agent_name": "Delta",
+          "duration": 3,
+          "start_time": 9,
+          "end_time": 12,
+          "resources": {
+            "cpu": 30,
+            "memory": 20,
+            "bandwidth": 5
+          },
+          "reasoning": "Delta效率0.95但有encryption能力，Beta效率稍低且后续需要处理network任务"
+        }
+      ],
+      "total_resources": {
+        "cpu": 30,
+        "memory": 20,
+        "bandwidth": 5
+      }
+    },
+    {
+      "time_slot": 12,
+      "tasks": [
+        {
+          "task_id": "task_005",
+          "agent_id": "agent_001",
+          "agent_name": "Alpha",
+          "duration": 2,
+          "start_time": 12,
+          "end_time": 14,
+          "resources": {
+            "cpu": 20,
+            "memory": 25,
+            "bandwidth": 5
+          },
+          "reasoning": "Alpha完成task_003后空闲，有compression能力且效率1.0"
+        }
+      ],
+      "total_resources": {
+        "cpu": 20,
+        "memory": 25,
+        "bandwidth": 5
+      }
+    },
+    {
+      "time_slot": 14,
+      "tasks": [
+        {
+          "task_id": "task_008",
+          "agent_id": "agent_004",
+          "agent_name": "Delta",
+          "duration": 3,
+          "start_time": 14,
+          "end_time": 17,
+          "resources": {
+            "cpu": 15,
+            "memory": 20,
+            "bandwidth": 20
+          },
+          "reasoning": "Delta是唯一有archival能力的agent，且刚完成task_004"
+        },
+        {
+          "task_id": "task_009",
+          "agent_id": "agent_002",
+          "agent_name": "Beta",
+          "duration": 4,
+          "start_time": 14,
+          "end_time": 18,
+          "resources": {
+            "cpu": 10,
+            "memory": 10,
+            "bandwidth": 50
+          },
+          "reasoning": "Beta有network_io能力，效率0.9但适合网络传输任务"
+        },
+        {
+          "task_id": "task_007",
+          "agent_id": "agent_003",
+          "agent_name": "Gamma",
+          "duration": 2,
+          "start_time": 14,
+          "end_time": 16,
+          "resources": {
+            "cpu": 10,
+            "memory": 15,
+            "bandwidth": 5
+          },
+          "reasoning": "Gamma有reporting能力，效率1.1高，task_006已由Epsilon完成"
+        }
+      ],
+      "total_resources": {
+        "cpu": 35,
+        "memory": 45,
+        "bandwidth": 75
+      }
+    },
+    {
+      "time_slot": 18,
+      "tasks": [
+        {
+          "task_id": "task_010",
+          "agent_id": "agent_003",
+          "agent_name": "Gamma",
+          "duration": 3,
+          "start_time": 18,
+          "end_time": 21,
+          "resources": {
+            "cpu": 20,
+            "memory": 25,
+            "bandwidth": 10
+          },
+          "reasoning": "Gamma是唯一同时具备validation和analysis能力的agent，效率1.1最高，等待所有前置任务完成"
+        }
+      ],
+      "total_resources": {
+        "cpu": 20,
+        "memory": 25,
+        "bandwidth": 10
+      }
+    }
+  ],
+  "summary": {
+    "total_tasks": 10,
+    "total_agents_used": 5,
+    "completion_time": 21,
+    "critical_path": ["task_001", "task_002", "task_003", "task_004", "task_005", "task_009", "task_010"],
+    "resource_utilization": {
+      "peak_cpu": 40,
+      "peak_memory": 50,
+      "peak_bandwidth": 75,
+      "average_cpu": 24.29,
+      "average_memory": 28.57,
+      "average_bandwidth": 21.43
+    },
+    "agent_load_distribution": {
+      "agent_001": 2,
+      "agent_002": 2,
+      "agent_003": 3,
+      "agent_004": 2,
+      "agent_005": 1
+    },
+    "optimization_notes": [
+      "利用并行执行最大化吞吐量",
+      "根据agent特殊能力匹配任务需求",
+      "平衡负载避免单个agent过载",
+      "高优先级任务优先调度",
+      "考虑依赖关系避免阻塞",
+      "资源使用在限制范围内（CPU<100,内存<100,带宽<100）",
+      "时间21略超20限制但通过效率优化最小化超时"
+    ],
+    "failure_recovery_strategy": [
+      "每个agent保留一个任务槽用于重试",
+      "关键路径任务有备用agent选项",
+      "定期检查点保存中间结果",
+      "失败任务重新分配给相同能力agent"
+    ]
+  }
+}

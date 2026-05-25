@@ -1,0 +1,16 @@
+{
+  "allowed_selection": ["item_a", "item_c"],
+  "blocked_items": [
+    {"item": "item_b", "reason": "region-blocked"},
+    {"item": "item_d", "reason": "budget constraint after selecting higher priority items"},
+    {"item": "item_e", "reason": "ineligible"}
+  ],
+  "budget_used": 9,
+  "governing_guardrail": "region guardrails and total budget",
+  "rule_application": [
+    "item_e excluded due to ineligibility",
+    "item_b excluded due to region block",
+    "item_d excluded due to budget constraint after selecting item_a and item_c"
+  ],
+  "evidence_refs": ["candidate_set.json", "guardrails.md", "eligibility_rules.json", "selection_budget.txt"]
+}

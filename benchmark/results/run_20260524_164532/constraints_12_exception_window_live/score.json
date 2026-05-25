@@ -1,0 +1,52 @@
+{
+  "id": "constraints_12_exception_window_live",
+  "score": 0.9514166666666667,
+  "passed": true,
+  "checkpoints": {
+    "schedule_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "change_schedule.json exists"
+    },
+    "read_required_inputs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "read_count=3/3"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "top_level_contract_is_exact": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "keys=['deferred_tasks', 'notes', 'slot_plan', 'total_value', 'triggered_rules']"
+    },
+    "slot_plan_is_optimal": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "slot_plan=[{'hour': 9, 'task': 'db_reindex', 'value_at_execution': 7}, {'hour': 10, 'task': 'api_hotfix', 'value_at_execution': 10}, {'hour': 11, 'task': 'cache_rewarm', 'value_at_execution': 5}, {'hour': 12, 'task': 'observability_patch', 'value_at_execution': 3}]"
+    },
+    "deferred_tasks_are_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "deferred_tasks=['fraud_rule_update', 'promo_copy_fix']"
+    },
+    "total_value_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "total_value=25"
+    },
+    "triggered_rules_are_complete": {
+      "score": 0.075,
+      "max": 0.1,
+      "detail": "triggered_count=4 hits=3"
+    },
+    "notes_are_nontrivial": {
+      "score": 0.0667,
+      "max": 0.1,
+      "detail": "notes_count=2 hits=2"
+    }
+  }
+}

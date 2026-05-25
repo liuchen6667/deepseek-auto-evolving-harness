@@ -1,0 +1,47 @@
+{
+  "id": "oib5_t23_fullstack_project",
+  "score": 0.9786,
+  "passed": true,
+  "checkpoints": {
+    "app_exists": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "app at app.py"
+    },
+    "crud_endpoints": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "5/5 endpoints"
+    },
+    "sqlite_used": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "SQLite"
+    },
+    "test_count": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "14 tests (need >= 8)"
+    },
+    "tests_pass": {
+      "score": 0.2786,
+      "max": 0.3,
+      "detail": "13/14 passed"
+    },
+    "error_handling": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "404=Y 400=Y"
+    },
+    "readme": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "README exists"
+    },
+    "data_model": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "created_at=Y priority=Y"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schedule": [
+    {"task": "A", "start": 0, "end": 2},
+    {"task": "B", "start": 0, "end": 2},
+    {"task": "C", "start": 2, "end": 5},
+    {"task": "D", "start": 2, "end": 4},
+    {"task": "E", "start": 5, "end": 9},
+    {"task": "F", "start": 5, "end": 8},
+    {"task": "G", "start": 9, "end": 14},
+    {"task": "H", "start": 9, "end": 10},
+    {"task": "I", "start": 14, "end": 16}
+  ],
+  "parallel_groups": [["A", "B"], ["C", "D"], ["E", "F"], ["G", "H"]],
+  "makespan": 16,
+  "critical_path": ["A", "C", "E", "G", "I"],
+  "notes": [
+    "关键资源CPU和Memory始终未达上限，允许依赖就绪的任务并行执行",
+    "调度遵循关键路径A-C-E-G-I，总工期16时间单位，与无资源约束的关键路径长度一致"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "synthesis_09_causal_chain_break_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "causal_chain_break_report.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "step_verdicts_are_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "step_verdicts=[{'step': 'data_collection', 'status': 'raw_schema_published'}, {'step': 'data_cleaning', 'status': 'canonical_key_shifted_to_id'}, {'step': 'feature_extraction', 'status': 'downstream_contract_preserved'}, {'step': 'model_prediction', 'status': 'predictions_nonempty_but_id_only'}, {'step': 'result_output', 'status': 'silent_zero_row_failure'}]"
+    },
+    "break_summary_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "break_summary={'observed_failure_step': 'result_output', 'contract_drift_source_step': 'data_cleaning', 'failure_mode': 'hidden_dependency_join_key_mismatch', 'hidden_input': 'collected_data.json'}"
+    },
+    "contract_break_chain_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "contract_break_chain=['collection_exposed_record_id_only', 'cleaning_shifted_canonical_key_to_id', 'prediction_emitted_id_only_records', 'result_output_joined_against_hidden_raw_collection_input', 'join_dropped_all_rows_but_step_reported_success']"
+    },
+    "ruled_out_causes_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "ruled_out_causes=['feature_extraction_empty_batch', 'model_prediction_zero_rows', 'scheduler_race_before_prediction_write']"
+    },
+    "impact_summary_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "impact_summary={'prediction_rows': 4, 'final_output_rows': 0, 'dropped_rows': 4, 'severity': 'sev_1_complete_data_loss'}"
+    },
+    "repair_plan_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "repair_plan=['declare_collected_data_as_result_output_extra_input', 'add_explicit_id_record_id_alias_mapping_before_join', 'raise_error_when_joined_rows_are_zero_with_nonempty_predictions']"
+    },
+    "evidence_refs_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['pipeline_run.log:result_output_join_left_predictions.id', 'pipeline_run.log:result_output_zero_matches', 'config.yaml:result_output_missing_extra_inputs', 'collected_data.json:record_id_only_schema', 'predictions.json:id_only_schema', 'final_output.json:empty_array']"
+    }
+  }
+}

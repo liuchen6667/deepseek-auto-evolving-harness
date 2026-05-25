@@ -1,0 +1,22 @@
+{
+  "id": "constraints_13_exact_extract_no_inference_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "selection_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "recipient_selection.txt exists"
+    },
+    "output_is_exact": {
+      "score": 0.6,
+      "max": 0.6,
+      "detail": "content='RECIPIENT_ID: R-104\\nNAME: Lina Qiao\\nEMAIL: lina.qiao@company.test\\nEVIDENCE: exact_match_active_apac_renewal_owner_non_vendor'"
+    },
+    "no_extra_text": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "line_count=4"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "order_mode": "reject_new_orders",
+  "chosen_strategies": ["sync_api_immediate_rejection", "async_followup_notification"],
+  "rejected_strategies": [
+    {"strategy": "accept_order_with_async_payment", "reason": "degradation_policy.yaml disallows async payment (allow_async_payment: false)"},
+    {"strategy": "accept_order_without_inventory_reservation", "reason": "inventory-service is readonly and cannot write reservations (can_write_reservations: false), and inventory_required is true"},
+    {"strategy": "accept_order_without_payment", "reason": "payment-service is down and not accepting new charges, payment_capture_required is true, and acceptance_rules require successful payment before order acceptance"}
+  ],
+  "degraded_flow": ["validate_request", "check_dependencies", "reject_order_synchronously", "queue_async_notification", "log_rejection"],
+  "consistency_guards": ["no_order_created_without_payment", "no_inventory_reservation_in_readonly_mode", "no_manual_reconciliation_orders", "rejection_reason_logged"],
+  "recovery_plan": ["monitor_payment_service_recovery", "monitor_inventory_service_write_recovery", "resume_normal_checkout_after_all_required_services_healthy", "clear_notification_backlog"],
+  "user_response": {
+    "http_status": 503,
+    "status_code": "CHECKOUT_UNAVAILABLE_DUE_SERVICE_OUTAGE",
+    "must_return_within_seconds": 5
+  },
+  "evidence_refs": [
+    "service_status.json",
+    "checkout_request.json",
+    "degradation_policy.yaml",
+    "logs/checkout.log",
+    "logs/notification.log",
+    "runbook.md"
+  ]
+}

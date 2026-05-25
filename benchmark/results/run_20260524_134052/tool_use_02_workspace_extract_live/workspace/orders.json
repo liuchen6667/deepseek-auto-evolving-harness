@@ -1,0 +1,7 @@
+[
+  {"order_id": "A100", "tier": "vip", "total": 120},
+  {"order_id": "A101", "tier": "standard", "total": 210},
+  {"order_id": "A102", "tier": "vip", "total": 80},
+  {"order_id": "A103", "tier": "vip", "total": 180},
+  {"order_id": "A104", "tier": "standard", "total": 95}
+]

@@ -1,0 +1,22 @@
+{
+  "slot_plan": [
+    {"hour": 9, "task": "db_reindex", "value_at_execution": 7},
+    {"hour": 10, "task": "api_hotfix", "value_at_execution": 10},
+    {"hour": 11, "task": "cache_rewarm", "value_at_execution": 5},
+    {"hour": 12, "task": "observability_patch", "value_at_execution": 3}
+  ],
+  "deferred_tasks": ["fraud_rule_update", "promo_copy_fix"],
+  "total_value": 25,
+  "triggered_rules": [
+    "api_hotfix cannot start before security signoff is available (earliest_start=10)",
+    "external tasks cannot start in freeze windows (11,12) - promo_copy_fix deferred",
+    "cache_rewarm only has value after api_hotfix completes (dependency satisfied)",
+    "db_reindex must start before 11 (scheduled at 9)",
+    "fraud_rule_update must start before 11 but deferred due to slot conflict"
+  ],
+  "notes": [
+    "Chose db_reindex (value 7) over fraud_rule_update (value 6) for 9am slot, maximizing immediate value despite both requiring start before 11.",
+    "Promo_copy_fix (external, value 4) deferred because external freeze windows (11,12) prevent scheduling, and 9am/10am slots occupied by higher-value tasks.",
+    "Cache_rewarm scheduled at 11am to capture its value 5 after api_hotfix completes at 10am, satisfying dependency requirement."
+  ]
+}

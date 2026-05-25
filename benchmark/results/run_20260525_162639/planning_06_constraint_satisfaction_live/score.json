@@ -1,0 +1,32 @@
+{
+  "id": "planning_06_constraint_satisfaction_live",
+  "score": 0.8,
+  "passed": true,
+  "checkpoints": {
+    "all_meetings_scheduled": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "Scheduled 0/5 meetings"
+    },
+    "time_constraints": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "All time constraints satisfied ✅"
+    },
+    "room_constraints": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "Room constraints satisfied (≤2 concurrent) ✅"
+    },
+    "dependency_constraints": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "Dependency constraints satisfied ✅"
+    },
+    "attendee_constraints": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "No attendee conflicts ✅"
+    }
+  }
+}

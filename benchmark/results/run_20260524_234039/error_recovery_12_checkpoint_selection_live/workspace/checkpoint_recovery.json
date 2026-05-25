@@ -1,0 +1,23 @@
+{
+  "selected_checkpoint": "C2",
+  "total_recovery_cost": 51,
+  "rejected_checkpoints": [
+    {"id": "C1", "reason": "higher_total_recovery_cost"},
+    {"id": "C3", "reason": "higher_total_recovery_cost"},
+    {"id": "C4", "reason": "invalid_status_prefix"}
+  ],
+  "recovery_sequence": [
+    "validate_selected_checkpoint_integrity",
+    "restore_database_from_checkpoint_c2",
+    "apply_transaction_logs_from_09:35_to_10:00",
+    "verify_data_consistency_post_recovery"
+  ],
+  "verification_focus": [
+    "business_transaction_consistency",
+    "referential_integrity_constraints"
+  ],
+  "notes": [
+    "C2 provides optimal balance of low data_loss (25min) and reasonable catch_up time (19min)",
+    "C4 was invalid due to missing index on orders table, making it unusable for recovery"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "winning_hypothesis": "hyp_a: an internal parser regression triggered the incident, and rollback stopped the growth.",
+  "rejected_hypotheses": [
+    {"hypothesis": "hyp_b: a vendor outage was already the primary trigger before internal errors began.", "reason": "Violates rule 1: vendor notice posted after internal errors started, requiring trigger after incident onset."},
+    {"hypothesis": "hyp_c: rollback only coincided with recovery while an unrelated background condition self-resolved.", "reason": "Violates rule 2: error growth stopped immediately after rollback, making rollback-correlated recovery relevant."}
+  ],
+  "conflict_chain": ["Three competing hypotheses each claim to explain the incident.", "hyp_b fails temporal order (vendor notice after errors). hyp_c fails counterfactual (recovery correlates with rollback).", "Only hyp_a satisfies all rules and fits the evidence."],
+  "negative_evidence": ["E4: vendor_notice_posted_after_internal_errors_started", "E2: rollback_started_and_error_growth_stopped"],
+  "governing_rule": "If multiple hypotheses survive, prefer the one that directly explains the earliest initiating signal.",
+  "evidence_refs": ["E1", "E2", "E3", "E4"]
+}

@@ -1,0 +1,10 @@
+{
+  "total_users": 3,
+  "action_counts": {
+    "login": 1,
+    "purchase": 1,
+    "logout": 1
+  },
+  "users_in_time_order": ["Alice", "Bob", "Charlie"],
+  "analysis_method": ["used_file_read_to_examine_sample_data_structure", "used_bash_with_python_to_parse_json_and_compute_statistics"]
+}

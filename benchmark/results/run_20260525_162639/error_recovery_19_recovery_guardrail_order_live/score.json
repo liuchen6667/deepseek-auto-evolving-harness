@@ -1,0 +1,37 @@
+{
+  "id": "error_recovery_19_recovery_guardrail_order_live",
+  "score": 0.33333333333333337,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "order": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['freeze_writes', 'restore_last_clean_config', 'reopen_safe_traffic', 'replay_backlog_immediately', 'reopen_all_traffic']"
+    },
+    "blocked": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'action': 'skip_write_freeze', 'reason': '跳过写入冻结会违反稳定状态前必须先冻结写入的防护栏，可能导致损坏传播。'}]"
+    },
+    "guard": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "stabilize_state_before_reintroducing_risk"
+    },
+    "why": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['首先冻结写入和恢复干净配置以稳定系统状态，防止在重新引入流量前进一步损坏。', '重新打开安全流量依赖于干净配置的恢复，重放积压和重新打开所有流量需要在安全流量验证后。', '顺序确保安全服务返回的目标，通过逐步重新引入流量并在每一步验证稳定性。']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['recovery_actions.json', 'system_risks.md', 'guardrail_order.yaml', 'incident_goal.json']"
+    }
+  }
+}

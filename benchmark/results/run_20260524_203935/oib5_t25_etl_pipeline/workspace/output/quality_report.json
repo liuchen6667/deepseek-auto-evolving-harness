@@ -1,0 +1,17 @@
+{
+  "pipeline_run_timestamp": "2026-05-24T21:31:45.007985",
+  "quality_metrics": {
+    "total_raw_rows": 15,
+    "total_clean_rows": 12,
+    "duplicates_removed": 2,
+    "nulls_removed": 2,
+    "date_format_fixed": 3
+  },
+  "data_quality_score": 80.0,
+  "summary": {
+    "raw_data_quality": {
+      "duplicate_rate": 13.33,
+      "null_rate": 13.33
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "winning_hypothesis": "hyp_a",
+  "rejected_hypotheses": [
+    {"hypothesis": "hyp_b", "reason": "Vendor notice posted after internal errors started (E4), violating temporal order rule"},
+    {"hypothesis": "hyp_c", "reason": "Error growth stopped immediately after rollback (E2), making rollback relevant per counterfactual rule"}
+  ],
+  "conflict_chain": [
+    "Candidate conflict: hyp_b claims vendor outage was primary trigger, while hyp_a claims internal parser regression",
+    "Counterfactual exclusion: E3/E4 show vendor notice after internal errors, excluding hyp_b; E2 shows immediate stop after rollback, excluding hyp_c",
+    "Unique conclusion: Only hyp_a satisfies temporal order and direct evidence"
+  ],
+  "negative_evidence": [
+    "no_vendor_degraded_notice_before_10_05",
+    "rollback_started_and_error_growth_stopped"
+  ],
+  "governing_rule": "If multiple hypotheses survive, prefer the one that directly explains the earliest initiating signal",
+  "evidence_refs": ["E1", "E2", "E3", "E4"]
+}

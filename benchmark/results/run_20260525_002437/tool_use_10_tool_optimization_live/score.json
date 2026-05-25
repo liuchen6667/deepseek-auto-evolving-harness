@@ -1,0 +1,52 @@
+{
+  "id": "tool_use_10_tool_optimization_live",
+  "score": 0.18181818181818182,
+  "passed": false,
+  "checkpoints": {
+    "strategy_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "tool_strategy.json exists"
+    },
+    "read_seeded_inputs": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "read_count=0/10"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "pipeline_is_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "invalid JSON: Expecting property name enclosed in double quotes: line 2 column 3 (char 4)"
+    },
+    "time_and_memory_are_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "invalid JSON: Expecting property name enclosed in double quotes: line 2 column 3 (char 4)"
+    },
+    "true_positive_split_is_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "invalid JSON: Expecting property name enclosed in double quotes: line 2 column 3 (char 4)"
+    },
+    "false_positive_split_is_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "invalid JSON: Expecting property name enclosed in double quotes: line 2 column 3 (char 4)"
+    },
+    "alternative_rationale_is_complete": {
+      "score": 0.0,
+      "max": 0.075,
+      "detail": "invalid JSON: Expecting property name enclosed in double quotes: line 2 column 3 (char 4)"
+    },
+    "validation_rule_is_correct": {
+      "score": 0.0,
+      "max": 0.075,
+      "detail": "invalid JSON: Expecting property name enclosed in double quotes: line 2 column 3 (char 4)"
+    }
+  }
+}

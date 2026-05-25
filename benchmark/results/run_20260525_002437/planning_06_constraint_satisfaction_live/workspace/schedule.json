@@ -1,0 +1,39 @@
+{
+  "schedule": [
+    {
+      "meeting": "client_demo",
+      "start_time": "09:00",
+      "end_time": "10:00",
+      "room": "A",
+      "participants": ["eve", "frank", "henry"]
+    },
+    {
+      "meeting": "budget_planning",
+      "start_time": "10:30",
+      "end_time": "11:30",
+      "room": "A",
+      "participants": ["alice", "frank", "grace"]
+    },
+    {
+      "meeting": "team_sync",
+      "start_time": "12:00",
+      "end_time": "13:00",
+      "room": "B",
+      "participants": ["carol", "david", "henry"]
+    },
+    {
+      "meeting": "product_review",
+      "start_time": "14:00",
+      "end_time": "15:00",
+      "room": "A",
+      "participants": ["alice", "bob", "carol"]
+    },
+    {
+      "meeting": "tech_design",
+      "start_time": "15:30",
+      "end_time": "16:30",
+      "room": "B",
+      "participants": ["bob", "david", "eve"]
+    }
+  ]
+}

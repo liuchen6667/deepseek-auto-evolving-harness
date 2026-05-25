@@ -1,0 +1,34 @@
+{
+  "canonical_sources": {
+    "orders": "A",
+    "inventory": ["A", "primary after 10:05 inventory correction"]
+  },
+  "orders_missing_in_B": [705, 706],
+  "orders_extra_in_C": [799],
+  "inventory_fix": {
+    "replica": "C",
+    "expected_value": 100
+  },
+  "root_causes": {
+    "B_orders": "replication_lag",
+    "C_orders": "missed_rollback",
+    "C_inventory": "duplicate_replay"
+  },
+  "repair_sequence": [
+    "sync missing orders 705,706 from A to B",
+    "delete orphaned order 799 from C",
+    "correct inventory.sku_77 on C from 112 to 100"
+  ],
+  "verification_steps": [
+    "verify B orders list matches A [701-706]",
+    "verify C orders list matches A [701-706] without 799",
+    "verify all replicas show inventory.sku_77 = 100",
+    "check replication lag is resolved on B",
+    "confirm no pending rollback operations in logs"
+  ],
+  "notes": [
+    "Primary A is authoritative source for orders and inventory",
+    "C was isolated during maintenance causing missed rollback",
+    "B lagged due to replication delay during peak activity"
+  ]
+}

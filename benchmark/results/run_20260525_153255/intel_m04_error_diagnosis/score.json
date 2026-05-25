@@ -1,0 +1,32 @@
+{
+  "id": "intel_m04_error_diagnosis",
+  "score": 0.9,
+  "passed": true,
+  "checkpoints": {
+    "read_log": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "did not read error_log.json"
+    },
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "loaded diagnosis.json"
+    },
+    "most_failing_correct": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "got='auth-service' expected='auth-service'"
+    },
+    "most_common_correct": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "got='E5001' expected='E5001'"
+    },
+    "cascade_correct": {
+      "score": 0.30000000000000004,
+      "max": 0.3,
+      "detail": "cascade_detected=True total_errors=5"
+    }
+  }
+}

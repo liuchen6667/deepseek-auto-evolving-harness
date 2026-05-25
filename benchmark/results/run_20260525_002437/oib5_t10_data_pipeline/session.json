@@ -1,0 +1,114 @@
+[
+  {
+    "role": "user",
+    "content": "当前目录有三个数据文件：\n\n1. `users.json` — 用户数据（含 id, name, email, signup_date）\n2. `orders.csv` — 订单数据（含 order_id, user_id, product, amount, date）\n3. `products.json` — 产品数据（含 id, name, category, price）\n\n注意：数据中可能有脏数据（重复行、缺失值、格式不一致），需要先清洗。\n\n请完成以下任务：\n\n1. 创建 `analysis.py`，读取三个数据源，清洗后计算：\n   - 每个用户的总消费金额（LTV），输出到 `user_ltv.csv`（列：user_id, name, total_amount，按 total_amount 降序）\n   - 每个产品类别的销售总额，输出到 `category_sales.json`（格式：`{\"category\": amount}`）\n   - 每月订单数量趋势，输出到 `monthly_orders.csv`（列：month, order_count，按月份升序）\n\n2. 运行 `analysis.py` 确保输出正确\n\n要求：去重时按 order_id 去重；缺失 amount 的订单跳过；日期格式统一为 YYYY-MM。"
+  },
+  {
+    "role": "assistant",
+    "content": "我将帮您完成这个数据分析任务。首先让我查看当前目录和数据文件。\n\n<tool_call>\n<glob>\n{\"pattern\": \"*\"}\n</glob>\n</tool_call>"
+  },
+  {
+    "role": "user",
+    "content": "<tool_result>\n<name>glob</name>\n<output>\norders.csv\nproducts.json\nusers.json\n</output>\n</tool_result>"
+  },
+  {
+    "role": "assistant",
+    "content": "现在让我查看这三个数据文件的内容，了解它们的结构。\n\n<tool_call>\n<file_read>\n{\"path\": \"users.json\"}\n</file_read>\n</tool_call>"
+  },
+  {
+    "role": "user",
+    "content": "<tool_result>\n<name>file_read</name>\n<output>\n[users.json] 共 32 行，显示第 1-32 行\n   1 | [\n   2 |   {\n   3 |     \"id\": 1,\n   4 |     \"name\": \"Alice\",\n   5 |     \"email\": \"alice@example.com\",\n   6 |     \"signup_date\": \"2024-01-15\"\n   7 |   },\n   8 |   {\n   9 |     \"id\": 2,\n  10 |     \"name\": \"Bob\",\n  11 |     \"email\": \"bob@example.com\",\n  12 |     \"signup_date\": \"2024-02-20\"\n  13 |   },\n  14 |   {\n  15 |     \"id\": 3,\n  16 |     \"name\": \"Carol\",\n  17 |     \"email\": \"carol@example.com\",\n  18 |     \"signup_date\": \"2024-01-10\"\n  19 |   },\n  20 |   {\n  21 |     \"id\": 4,\n  22 |     \"name\": \"David\",\n  23 |     \"email\": \"david@example.com\",\n  24 |     \"signup_date\": \"2024-03-05\"\n  25 |   },\n  26 |   {\n  27 |     \"id\": 5,\n  28 |     \"name\": \"Eva\",\n  29 |     \"email\": \"eva@example.com\",\n  30 |     \"signup_date\": \"2024-02-28\"\n  31 |   }\n  32 | ]\n</output>\n</tool_result>"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n<tool_call>\n<file_read>\n<arguments>\n{\"path\": \"orders.csv\"}\n</arguments>\n</file_read>\n</tool_call>"
+  },
+  {
+    "role": "user",
+    "content": "<tool_result>\n<name>file_read</name>\n<output>\n[orders.csv] 共 20 行，显示第 1-20 行\n   1 | order_id,user_id,product,amount,date\n   2 | O001,1,P001,999,2024-01-20\n   3 | O002,1,P002,29,2024-01-25\n   4 | O003,2,P003,450,2024-02-15\n   5 | O004,2,P005,12,2024-02-20\n   6 | O005,3,P001,999,2024-01-18\n   7 | O006,3,P004,350,2024-03-10\n   8 | O007,4,P006,25,2024-03-15\n   9 | O008,4,P002,29,2024-03-20\n  10 | O009,5,P003,450,2024-02-28\n  11 | O010,5,P001,999,2024-03-05\n  12 | O011,1,P004,350,2024-02-10\n  13 | O012,2,P006,25,2024-03-01\n  14 | O013,3,P005,12,2024-02-22\n  15 | O014,4,P001,999,2024-03-25\n  16 | O015,5,P002,29,2024-03-15\n  17 | O003,2,P003,450,2024-02-15\n  18 | O016,1,P005,,2024-03-10\n  19 | O007,4,P006,25,2024-03-15\n  20 | O017,3,P002,,2024-03-20\n</output>\n</tool_result>"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n<tool_call>\n<file_read>\n<arguments>\n{\"path\": \"products.json\"}\n</arguments>\n</file_read>\n</tool_call>"
+  },
+  {
+    "role": "user",
+    "content": "<tool_result>\n<name>file_read</name>\n<output>\n[products.json] 共 38 行，显示第 1-38 行\n   1 | [\n   2 |   {\n   3 |     \"id\": \"P001\",\n   4 |     \"name\": \"Laptop\",\n   5 |     \"category\": \"Electronics\",\n   6 |     \"price\": 999\n   7 |   },\n   8 |   {\n   9 |     \"id\": \"P002\",\n  10 |     \"name\": \"Mouse\",\n  11 |     \"category\": \"Electronics\",\n  12 |     \"price\": 29\n  13 |   },\n  14 |   {\n  15 |     \"id\": \"P003\",\n  16 |     \"name\": \"Desk\",\n  17 |     \"category\": \"Furniture\",\n  18 |     \"price\": 450\n  19 |   },\n  20 |   {\n  21 |     \"id\": \"P004\",\n  22 |     \"name\": \"Chair\",\n  23 |     \"category\": \"Furniture\",\n  24 |     \"price\": 350\n  25 |   },\n  26 |   {\n  27 |     \"id\": \"P005\",\n  28 |     \"name\": \"Notebook\",\n  29 |     \"category\": \"Stationery\",\n  30 |     \"price\": 12\n  31 |   },\n  32 |   {\n  33 |     \"id\": \"P006\",\n  34 |     \"name\": \"Pen Set\",\n  35 |     \"category\": \"Stationery\",\n  36 |     \"price\": 25\n  37 |   }\n  38 | ]\n</output>\n</tool_result>"
+  },
+  {
+    "role": "assistant",
+    "content": "现在我已经了解了数据结构和脏数据问题。让我创建 `analysis.py` 脚本来完成所有任务：\n\n<tool_call>\n<file_write>\n<arguments>\n{\"path\": \"analysis.py\", \"content\": \"#!/usr/bin/env python3\\n\\\"\\\"\\\"\\n数据分析脚本\\n读取三个数据源，清洗后计算：\\n1. 每个用户的总消费金额（LTV）\\n2. 每个产品类别的销售总额\\n3. 每月订单数量趋势\\n\\\"\\\"\\\"\\n\\nimport json\\nimport csv\\nimport pandas as pd\\nfrom datetime import datetime\\n\\ndef load_and_clean_data():\\n    \\\"\\\"\\\"加载并清洗数据\\\"\\\"\\\"\\n    # 1. 加载用户数据\\n    with open('users.json', 'r') as f:\\n        users = json.load(f)\\n    \\n    # 2. 加载产品数据\\n    with open('products.json', 'r') as f:\\n        products = json.load(f)\\n    \\n    # 3. 加载订单数据\\n    orders_df = pd.read_csv('orders.csv')\\n    \\n    # 数据清洗\\n    # a. 去重：按 order_id 去重（保留第一个出现的）\\n    orders_df = orders_df.drop_duplicates(subset=['order_id'], keep='first')\\n    \\n    # b. 处理缺失值：跳过 amount 为空的订单\\n    orders_df = orders_df.dropna(subset=['amount'])\\n    \\n    # c. 确保 amount 是数值类型\\n    orders_df['amount'] = pd.to_numeric(orders_df['amount'], errors='coerce')\\n    orders_df = orders_df.dropna(subset=['amount'])\\n    \\n    # d. 统一日期格式为 YYYY-MM\\n    # 先确保日期是字符串类型\\n    orders_df['date'] = orders_df['date'].astype(str)\\n    # 提取 YYYY-MM 格式\\n    orders_df['month'] = orders_df['date'].apply(lambda x: x[:7] if len(x) >= 7 else None)\\n    orders_df = orders_df.dropna(subset=['month'])\\n    \\n    return users, products, orders_df\\n\\ndef calculate_user_ltv(users, orders_df):\\n    \\\"\\\"\\\"计算每个用户的总消费金额（LTV）\\\"\\\"\\\"\\n    # 按用户分组计算总金额\\n    user_spending = orders_df.groupby('user_id')['amount'].sum().reset_index()\\n    user_spending.columns = ['user_id', 'total_amount']\\n    \\n    # 添加用户姓名\\n    user_dict = {user['id']: user['name'] for user in users}\\n    user_spending['name'] = user_spending['user_id'].map(user_dict)\\n    \\n    # 按 total_amount 降序排序\\n    user_spending = user_spending.sort_values('total_amount', ascending=False)\\n    \\n    # 保存到 CSV\\n    user_spending.to_csv('user_ltv.csv', index=False, columns=['user_id', 'name', 'total_amount'])\\n    \\n    return user_spending\\n\\ndef calculate_category_sales(products, orders_df):\\n    \\\"\\\"\\\"计算每个产品类别的销售总额\\\"\\\"\\\"\\n    # 创建产品ID到类别的映射\\n    product_to_category = {product['id']: product['category'] for product in products}\\n    \\n    # 添加类别信息到订单数据\\n    orders_df['category'] = orders_df['product'].map(product_to_category)\\n    \\n    # 按类别分组计算总销售额\\n    category_sales = orders_df.groupby('category')['amount'].sum().reset_index()\\n    \\n    # 转换为字典格式\\n    category_dict = dict(zip(category_sales['category'], category_sales['amount']))\\n    \\n    # 保存到 JSON\\n    with open('category_sales.json', 'w') as f:\\n        json.dump(category_dict, f, indent=2)\\n    \\n    return category_dict\\n\\ndef calculate_monthly_orders(orders_df):\\n    \\\"\\\"\\\"计算每月订单数量趋势\\\"\\\"\\\"\\n    # 按月份分组计算订单数量\\n    monthly_orders = orders_df.groupby('month').size().reset_index()\\n    monthly_orders.columns = ['month', 'order_count']\\n    \\n    # 按月份升序排序\\n    monthly_orders = monthly_orders.sort_values('month')\\n    \\n    # 保存到 CSV\\n    monthly_orders.to_csv('monthly_orders.csv', index=False)\\n    \\n    return monthly_orders\\n\\ndef main():\\n    \\\"\\\"\\\"主函数\\\"\\\"\\\"\\n    print(\\\"开始加载和清洗数据...\\\")\\n    users, products, orders_df = load_and_clean_data()\\n    \\n    print(f\\\"清洗后数据统计:\\\")\\n    print(f\\\"  - 用户数量: {len(users)}\\\")\\n    print(f\\\"  - 产品数量: {len(products)}\\\")\\n    print(f\\\"  - 有效订单数量: {len(orders_df)}\\\")\\n    \\n    print(\\\"\\\\n计算用户LTV...\\\")\\n    user_ltv = calculate_user_ltv(users, orders_df)\\n    print(f\\\"  - 已保存到 user_ltv.csv\\\")\\n    \\n    print(\\\"\\\\n计算产品类别销售额...\\\")\\n    category_sales = calculate_category_sales(products, orders_df)\\n    print(f\\\"  - 已保存到 category_sales.json\\\")\\n    \\n    print(\\\"\\\\n计算每月订单趋势...\\\")\\n    monthly_orders = calculate_monthly_orders(orders_df)\\n    print(f\\\"  - 已保存到 monthly_orders.csv\\\")\\n    \\n    print(\\\"\\\\n分析完成!\\\")\\n    print(\\\"\\\\n用户LTV预览:\\\")\\n    print(user_ltv.head())\\n    print(\\\"\\\\n类别销售额:\\\")\\n    for category, amount in category_sales.items():\\n        print(f\\\"  {category}: {amount:.2f}\\\")\\n    print(\\\"\\\\n每月订单趋势:\\\")\\n    print(monthly_orders)\\n\\nif __name__ == '__main__':\\n    main()\\n\"}\n</arguments>\n</file_write>\n</tool_call>"
+  },
+  {
+    "role": "user",
+    "content": "<tool_result>\n<name>file_write</name>\n<output>\n已写入 /Users/liuchen/Desktop/deepseek-cli/liuchen-best-cli/benchmark/results/run_20260525_002437/oib5_t10_data_pipeline/workspace/analysis.py (133 行, 3727 字节)\n</output>\n</tool_result>"
+  },
+  {
+    "role": "assistant",
+    "content": "现在运行 `analysis.py` 脚本：\n\n<tool_call>\n<bash>\n<arguments>\n{\"command\": \"python3 analysis.py\"}\n</arguments>\n</bash>\n</tool_call>"
+  },
+  {
+    "role": "user",
+    "content": "<tool_result>\n<name>bash</name>\n<output>\n开始加载和清洗数据...\n清洗后数据统计:\n  - 用户数量: 5\n  - 产品数量: 6\n  - 有效订单数量: 15\n\n计算用户LTV...\n  - 已保存到 user_ltv.csv\n\n计算产品类别销售额...\n  - 已保存到 category_sales.json\n\n计算每月订单趋势...\n  - 已保存到 monthly_orders.csv\n\n分析完成!\n\n用户LTV预览:\n   user_id  total_amount   name\n4        5        1478.0    Eva\n0        1        1378.0  Alice\n2        3        1361.0  Carol\n3        4        1053.0  David\n1        2         487.0    Bob\n\n类别销售额:\n  Electronics: 4083.00\n  Furniture: 1600.00\n  Stationery: 74.00\n\n每月订单趋势:\n     month  order_count\n0  2024-01            3\n1  2024-02            5\n2  2024-03            7\n</output>\n</tool_result>"
+  },
+  {
+    "role": "assistant",
+    "content": "很好！脚本运行成功。现在让我检查生成的文件是否正确：\n\n<tool_call>\n<file_read>\n<arguments>\n{\"path\": \"user_ltv.csv\"}\n</arguments>\n</file_read>\n</tool_call>"
+  },
+  {
+    "role": "user",
+    "content": "<tool_result>\n<name>file_read</name>\n<output>\n[user_ltv.csv] 共 6 行，显示第 1-6 行\n   1 | user_id,name,total_amount\n   2 | 5,Eva,1478.0\n   3 | 1,Alice,1378.0\n   4 | 3,Carol,1361.0\n   5 | 4,David,1053.0\n   6 | 2,Bob,487.0\n</output>\n</tool_result>"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n<tool_call>\n<file_read>\n<arguments>\n{\"path\": \"category_sales.json\"}\n</arguments>\n</file_read>\n</tool_call>"
+  },
+  {
+    "role": "user",
+    "content": "<tool_result>\n<name>file_read</name>\n<output>\n[category_sales.json] 共 5 行，显示第 1-5 行\n   1 | {\n   2 |   \"Electronics\": 4083.0,\n   3 |   \"Furniture\": 1600.0,\n   4 |   \"Stationery\": 74.0\n   5 | }\n</output>\n</tool_result>"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n<tool_call>\n<file_read>\n<arguments>\n{\"path\": \"monthly_orders.csv\"}\n</arguments>\n</file_read>\n</tool_call>"
+  },
+  {
+    "role": "user",
+    "content": "<tool_result>\n<name>file_read</name>\n<output>\n[monthly_orders.csv] 共 4 行，显示第 1-4 行\n   1 | month,order_count\n   2 | 2024-01,3\n   3 | 2024-02,5\n   4 | 2024-03,7\n</output>\n</tool_result>"
+  },
+  {
+    "role": "assistant",
+    "content": "现在让我验证数据清洗是否正确。让我查看原始订单数据中有哪些问题被处理了：\n\n<tool_call>\n<bash>\n<arguments>\n{\"command\": \"python3 -c \\\"import pandas as pd; df = pd.read_csv('orders.csv'); print('原始订单数据:'); print(df); print('\\\\n原始数据行数:', len(df)); print('\\\\n重复的order_id:'); duplicates = df[df.duplicated(subset=['order_id'], keep=False)]; print(duplicates[['order_id', 'user_id', 'amount', 'date']]); print('\\\\namount为空的行:'); null_amount = df[df['amount'].isna() | (df['amount'] == '')]; print(null_amount[['order_id', 'user_id', 'amount', 'date']])\\\"\"}\n</arguments>\n</bash>\n</tool_call>"
+  },
+  {
+    "role": "user",
+    "content": "<tool_result>\n<name>bash</name>\n<output>\n原始订单数据:\n   order_id  user_id product  amount        date\n0      O001        1    P001   999.0  2024-01-20\n1      O002        1    P002    29.0  2024-01-25\n2      O003        2    P003   450.0  2024-02-15\n3      O004        2    P005    12.0  2024-02-20\n4      O005        3    P001   999.0  2024-01-18\n5      O006        3    P004   350.0  2024-03-10\n6      O007        4    P006    25.0  2024-03-15\n7      O008        4    P002    29.0  2024-03-20\n8      O009        5    P003   450.0  2024-02-28\n9      O010        5    P001   999.0  2024-03-05\n10     O011        1    P004   350.0  2024-02-10\n11     O012        2    P006    25.0  2024-03-01\n12     O013        3    P005    12.0  2024-02-22\n13     O014        4    P001   999.0  2024-03-25\n14     O015        5    P002    29.0  2024-03-15\n15     O003        2    P003   450.0  2024-02-15\n16     O016        1    P005     NaN  2024-03-10\n17     O007        4    P006    25.0  2024-03-15\n18     O017        3    P002     NaN  2024-03-20\n\n原始数据行数: 19\n\n重复的order_id:\n   order_id  user_id  amount        date\n2      O003        2   450.0  2024-02-15\n6      O007        4    25.0  2024-03-15\n15     O003        2   450.0  2024-02-15\n17     O007        4    25.0  2024-03-15\n\namount为空的行:\n   order_id  user_id  amount        date\n16     O016        1     NaN  2024-03-10\n18     O017        3     NaN  2024-03-20\n</output>\n</tool_result>"
+  },
+  {
+    "role": "assistant",
+    "content": "完美！数据清洗工作正确：\n\n1. **去重处理**：原始数据中有2个重复的订单（O003 和 O007），每个重复了1次，共4行重复数据\n2. **缺失值处理**：有2个订单（O016 和 O017）的 amount 为空\n3. **清洗后**：原始19行 → 去重后17行 → 去除缺失值后15行有效订单\n\n现在让我验证计算结果的正确性：\n\n<tool_call>\n<bash>\n<arguments>\n{\"command\": \"python3 -c \\\"import pandas as pd; import json; df = pd.read_csv('orders.csv'); # 清洗数据 df = df.drop_duplicates(subset=['order_id'], keep='first'); df = df.dropna(subset=['amount']); df['amount'] = pd.to_numeric(df['amount'], errors='coerce'); df = df.dropna(subset=['amount']); # 验证用户LTV计算 user_ltv = df.groupby('user_id')['amount'].sum().reset_index(); print('用户LTV验证:'); for user_id in [1,2,3,4,5]: total = user_ltv[user_ltv['user_id'] == user_id]['amount'].sum(); print(f'用户{user_id}: {total}'); # 验证类别销售额 with open('products.json') as f: products = json.load(f); product_to_category = {p['id']: p['category'] for p in products}; df['category'] = df['product'].map(product_to_category); category_sales = df.groupby('category')['amount'].sum(); print('\\\\n类别销售额验证:'); for cat in ['Electronics', 'Furniture', 'Stationery']: total = category_sales.get(cat, 0); print(f'{cat}: {total}'); # 验证月度趋势 df['month'] = df['date'].apply(lambda x: x[:7]); monthly = df.groupby('month').size(); print('\\\\n月度订单验证:'); for month in ['2024-01', '2024-02', '2024-03']: count = monthly.get(month, 0); print(f'{month}: {count}')\\\"\"}\n</arguments>\n</bash>\n</tool_call>"
+  },
+  {
+    "role": "user",
+    "content": "<tool_result>\n<name>bash</name>\n<output>\n(无输出)\n</output>\n</tool_result>"
+  },
+  {
+    "role": "assistant",
+    "content": "让我重新运行验证脚本：\n\n<tool_call>\n<bash>\n<arguments>\n{\"command\": \"python3 -c \\\"\\nimport pandas as pd\\nimport json\\n\\n# 读取原始订单数据\\ndf = pd.read_csv('orders.csv')\\nprint('原始订单数据行数:', len(df))\\n\\n# 清洗数据\\ndf = df.drop_duplicates(subset=['order_id'], keep='first')\\nprint('去重后行数:', len(df))\\n\\ndf = df.dropna(subset=['amount'])\\nprint('去除缺失amount后行数:', len(df))\\n\\ndf['amount'] = pd.to_numeric(df['amount'], errors='coerce')\\ndf = df.dropna(subset=['amount'])\\nprint('转换数值类型后行数:', len(df))\\n\\nprint('\\\\n=== 验证计算 ===')\\n\\n# 验证用户LTV计算\\nuser_ltv = df.groupby('user_id')['amount'].sum().reset_index()\\nprint('用户LTV验证:')\\nfor user_id in [1,2,3,4,5]:\\n    user_total = user_ltv[user_ltv['user_id'] == user_id]['amount'].sum()\\n    print(f'用户{user_id}: {user_total}')\\n\\n# 验证类别销售额\\nwith open('products.json') as f:\\n    products = json.load(f)\\n\\nproduct_to_category = {p['id']: p['category'] for p in products}\\ndf['category'] = df['product'].map(product_to_category)\\ncategory_sales = df.groupby('category')['amount'].sum()\\n\\nprint('\\\\n类别销售额验证:')\\nfor cat in ['Electronics', 'Furniture', 'Stationery']:\\n    total = category_sales.get(cat, 0)\\n    print(f'{cat}: {total}')\\n\\n# 验证月度趋势\\ndf['month'] = df['date'].apply(lambda x: str(x)[:7])\\nmonthly = df.groupby('month').size()\\n\\nprint('\\\\n月度订单验证:')\\nfor month in ['2024-01', '2024-02', '2024-03']:\\n    count = monthly.get(month, 0)\\n    print(f'{month}: {count}')\\n\\\"\"}\n</arguments>\n</bash>\n</tool_call>"
+  },
+  {
+    "role": "user",
+    "content": "<tool_result>\n<name>bash</name>\n<output>\n原始订单数据行数: 19\n去重后行数: 17\n去除缺失amount后行数: 15\n转换数值类型后行数: 15\n\n=== 验证计算 ===\n用户LTV验证:\n用户1: 1378.0\n用户2: 487.0\n用户3: 1361.0\n用户4: 1053.0\n用户5: 1478.0\n\n类别销售额验证:\nElectronics: 4083.0\nFurniture: 1600.0\nStationery: 74.0\n\n月度订单验证:\n2024-01: 3\n2024-02: 5\n2024-03: 7\n</output>\n</tool_result>"
+  },
+  {
+    "role": "assistant",
+    "content": "完美！所有验证都通过了。现在让我创建一个简单的测试脚本来确保所有输出文件格式正确：\n\n<tool_call>\n<bash>\n<arguments>\n{\"command\": \"echo '=== 检查输出文件 ===' && echo '' && echo '1. user_ltv.csv:' && cat user_ltv.csv && echo '' && echo '2. category_sales.json:' && cat category_sales.json && echo '' && echo '3. monthly_orders.csv:' && cat monthly_orders.csv\"}\n</arguments>\n</bash>\n</tool_call>"
+  },
+  {
+    "role": "user",
+    "content": "<tool_result>\n<name>bash</name>\n<output>\n=== 检查输出文件 ===\n\n1. user_ltv.csv:\nuser_id,name,total_amount\n5,Eva,1478.0\n1,Alice,1378.0\n3,Carol,1361.0\n4,David,1053.0\n2,Bob,487.0\n\n2. category_sales.json:\n{\n  \"Electronics\": 4083.0,\n  \"Furniture\": 1600.0,\n  \"Stationery\": 74.0\n}\n3. monthly_orders.csv:\nmonth,order_count\n2024-01,3\n2024-02,5\n2024-03,7\n</output>\n</tool_result>"
+  },
+  {
+    "role": "assistant",
+    "content": "任务完成！我已经成功创建并运行了 `analysis.py` 脚本，完成了所有要求：\n\n## 完成的任务：\n\n### 1. **创建了 `analysis.py` 脚本**，包含：\n   - 数据加载和清洗功能\n   - 按 `order_id` 去重\n   - 跳过缺失 `amount` 的订单\n   - 统一日期格式为 YYYY-MM\n   - 三个计算功能：\n     - 用户LTV（总消费金额）\n     - 产品类别销售额\n     - 每月订单趋势\n\n### 2. **运行脚本并生成三个输出文件**：\n\n#### **`user_ltv.csv`** - 每个用户的总消费金额\n   - 列：`user_id`, `name`, `total_amount`\n   - 按 `total_amount` 降序排列\n   - 用户5 (Eva) 消费最高：1478.0\n\n#### **`category_sales.json`** - 每个产品类别的销售总额\n   - 格式：`{\"category\": amount}`\n   - Electronics: 4083.0\n   - Furniture: 1600.0\n   - Stationery: 74.0\n\n#### **`monthly_orders.csv`** - 每月订单数量趋势\n   - 列：`month`, `order_count`\n   - 按月份升序排列\n   - 2024-01: 3单\n   - 2024-02: 5单\n   - 2024-03: 7单（增长趋势）\n\n### 3. **数据清洗验证**：\n   - 原始19行订单数据\n   - 去重：移除2个重复订单（O003, O007）\n   - 缺失值处理：跳过2个`amount`为空的订单（O016, O017）\n   - 最终有效订单：15行\n\n所有输出文件格式正确，计算准确，完全符合任务要求。"
+  }
+]

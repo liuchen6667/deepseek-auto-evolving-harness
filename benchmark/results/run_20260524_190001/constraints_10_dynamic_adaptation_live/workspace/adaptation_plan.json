@@ -1,0 +1,37 @@
+{
+  "slot_decisions": [
+    {
+      "slot_start": 0,
+      "active_workloads": ["billing_sync", "realtime_search"],
+      "throughput_units": 19
+    },
+    {
+      "slot_start": 5,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 10,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 15,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 20,
+      "active_workloads": ["fraud_guard"],
+      "throughput_units": 6
+    }
+  ],
+  "final_delayed_workloads": [],
+  "final_canceled_workloads": ["image_backfill", "report_export"],
+  "total_completed_units": 61,
+  "notes": [
+    "在槽5（slot_start=5）内存限制从2.0GB降至1.0GB，导致只能运行单个内存需求最小的高吞吐工作负载realtime_search（0.7GB），而billing_sync（0.9GB）因内存不足被排除，尽管其可延迟。",
+    "image_backfill（延迟6.0s）因超过所有槽的延迟限制（最大5s）而无法运行，report_export（错误率1.5%）因超过槽20的错误率限制（0.1%）而在该槽被排除，两者最终被取消。",
+    "在槽20（slot_start=20）错误率限制收紧至0.1%，只有fraud_guard（错误率0.08%）满足要求，realtime_search（错误率0.4%）被排除，即使其延迟和并发满足约束。"
+  ]
+}

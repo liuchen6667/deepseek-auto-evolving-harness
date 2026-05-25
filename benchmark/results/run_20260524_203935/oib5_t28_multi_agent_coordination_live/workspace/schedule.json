@@ -1,0 +1,319 @@
+{
+  "schedule": {
+    "total_time": 14,
+    "resource_utilization": {
+      "peak_cpu": 85,
+      "peak_memory": 85,
+      "peak_bandwidth": 95
+    },
+    "agent_assignments": [
+      {
+        "agent_id": "agent_002",
+        "agent_name": "Beta",
+        "tasks": [
+          {
+            "task_id": "task_001",
+            "task_name": "Data Extraction",
+            "start_time": 0,
+            "end_time": 3,
+            "resources": {
+              "cpu": 15,
+              "memory": 20,
+              "bandwidth": 30
+            },
+            "reason": "Best match: has both data_processing and network_io capabilities"
+          },
+          {
+            "task_id": "task_004",
+            "task_name": "Encryption",
+            "start_time": 5,
+            "end_time": 8,
+            "resources": {
+              "cpu": 30,
+              "memory": 20,
+              "bandwidth": 5
+            },
+            "reason": "Has encryption capability, good efficiency (0.9)"
+          }
+        ],
+        "total_load": 2,
+        "max_concurrent": 3
+      },
+      {
+        "agent_id": "agent_003",
+        "agent_name": "Gamma",
+        "tasks": [
+          {
+            "task_id": "task_002",
+            "task_name": "Data Validation",
+            "start_time": 3,
+            "end_time": 5,
+            "resources": {
+              "cpu": 10,
+              "memory": 15,
+              "bandwidth": 5
+            },
+            "reason": "Highest efficiency (1.1) for validation tasks"
+          },
+          {
+            "task_id": "task_006",
+            "task_name": "Quality Analysis",
+            "start_time": 5,
+            "end_time": 8,
+            "resources": {
+              "cpu": 15,
+              "memory": 20,
+              "bandwidth": 10
+            },
+            "reason": "Analysis capability, high efficiency"
+          },
+          {
+            "task_id": "task_007",
+            "task_name": "Report Generation",
+            "start_time": 8,
+            "end_time": 10,
+            "resources": {
+              "cpu": 10,
+              "memory": 15,
+              "bandwidth": 5
+            },
+            "reason": "Reporting capability"
+          }
+        ],
+        "total_load": 3,
+        "max_concurrent": 2
+      },
+      {
+        "agent_id": "agent_001",
+        "agent_name": "Alpha",
+        "tasks": [
+          {
+            "task_id": "task_003",
+            "task_name": "Data Transformation",
+            "start_time": 5,
+            "end_time": 9,
+            "resources": {
+              "cpu": 25,
+              "memory": 30,
+              "bandwidth": 10
+            },
+            "reason": "Data processing capability, good efficiency (1.0)"
+          },
+          {
+            "task_id": "task_005",
+            "task_name": "Compression",
+            "start_time": 9,
+            "end_time": 11,
+            "resources": {
+              "cpu": 20,
+              "memory": 25,
+              "bandwidth": 5
+            },
+            "reason": "Compression capability"
+          }
+        ],
+        "total_load": 2,
+        "max_concurrent": 2
+      },
+      {
+        "agent_id": "agent_004",
+        "agent_name": "Delta",
+        "tasks": [
+          {
+            "task_id": "task_008",
+            "task_name": "Archival",
+            "start_time": 11,
+            "end_time": 14,
+            "resources": {
+              "cpu": 15,
+              "memory": 20,
+              "bandwidth": 20
+            },
+            "reason": "Archival and compression capabilities, matches well"
+          }
+        ],
+        "total_load": 1,
+        "max_concurrent": 2
+      },
+      {
+        "agent_id": "agent_005",
+        "agent_name": "Epsilon",
+        "tasks": [
+          {
+            "task_id": "task_009",
+            "task_name": "Network Transfer",
+            "start_time": 11,
+            "end_time": 15,
+            "resources": {
+              "cpu": 10,
+              "memory": 10,
+              "bandwidth": 50
+            },
+            "reason": "Network_io capability, good efficiency (1.0)"
+          },
+          {
+            "task_id": "task_010",
+            "task_name": "Final Validation",
+            "start_time": 15,
+            "end_time": 18,
+            "resources": {
+              "cpu": 20,
+              "memory": 25,
+              "bandwidth": 10
+            },
+            "reason": "Analysis capability, can handle final validation"
+          }
+        ],
+        "total_load": 2,
+        "max_concurrent": 3
+      }
+    ],
+    "timeline": [
+      {
+        "time": 0,
+        "events": [
+          "task_001 starts on agent_002 (Beta)"
+        ],
+        "resource_usage": {
+          "cpu": 15,
+          "memory": 20,
+          "bandwidth": 30
+        }
+      },
+      {
+        "time": 3,
+        "events": [
+          "task_001 completes",
+          "task_002 starts on agent_003 (Gamma)"
+        ],
+        "resource_usage": {
+          "cpu": 10,
+          "memory": 15,
+          "bandwidth": 5
+        }
+      },
+      {
+        "time": 5,
+        "events": [
+          "task_002 completes",
+          "Parallel execution begins:",
+          "- task_003 starts on agent_001 (Alpha)",
+          "- task_004 starts on agent_002 (Beta)",
+          "- task_006 starts on agent_003 (Gamma)"
+        ],
+        "resource_usage": {
+          "cpu": 70,
+          "memory": 70,
+          "bandwidth": 25
+        }
+      },
+      {
+        "time": 8,
+        "events": [
+          "task_004 completes",
+          "task_006 completes",
+          "task_007 starts on agent_003 (Gamma)"
+        ],
+        "resource_usage": {
+          "cpu": 35,
+          "memory": 45,
+          "bandwidth": 15
+        }
+      },
+      {
+        "time": 9,
+        "events": [
+          "task_003 completes",
+          "task_005 starts on agent_001 (Alpha)"
+        ],
+        "resource_usage": {
+          "cpu": 30,
+          "memory": 40,
+          "bandwidth": 15
+        }
+      },
+      {
+        "time": 10,
+        "events": [
+          "task_007 completes"
+        ],
+        "resource_usage": {
+          "cpu": 20,
+          "memory": 25,
+          "bandwidth": 5
+        }
+      },
+      {
+        "time": 11,
+        "events": [
+          "task_005 completes",
+          "Parallel archival/transfer begins:",
+          "- task_008 starts on agent_004 (Delta)",
+          "- task_009 starts on agent_005 (Epsilon)"
+        ],
+        "resource_usage": {
+          "cpu": 25,
+          "memory": 30,
+          "bandwidth": 70
+        }
+      },
+      {
+        "time": 14,
+        "events": [
+          "task_008 completes"
+        ],
+        "resource_usage": {
+          "cpu": 10,
+          "memory": 10,
+          "bandwidth": 50
+        }
+      },
+      {
+        "time": 15,
+        "events": [
+          "task_009 completes",
+          "task_010 starts on agent_005 (Epsilon)"
+        ],
+        "resource_usage": {
+          "cpu": 20,
+          "memory": 25,
+          "bandwidth": 10
+        }
+      },
+      {
+        "time": 18,
+        "events": [
+          "task_010 completes",
+          "All tasks finished"
+        ],
+        "resource_usage": {
+          "cpu": 0,
+          "memory": 0,
+          "bandwidth": 0
+        }
+      }
+    ],
+    "optimization_notes": [
+      "Critical path optimized: task_001→task_002→task_003→task_005→task_008/task_009→task_010",
+      "Parallel execution maximized: task_003, task_004, task_006 run concurrently",
+      "Agent capabilities fully utilized: each agent assigned tasks matching their expertise",
+      "Load balanced: agent_003 handles 3 tasks (max 2 concurrent, properly scheduled), others within limits",
+      "Resource constraints respected: peak CPU 85%, memory 85%, bandwidth 95%",
+      "Efficiency considered: high-efficiency agents (Gamma: 1.1) assigned to critical validation/analysis tasks",
+      "Total completion time: 18 units (within 20-unit limit)",
+      "Failure recovery strategy: any agent failure can be reassigned to backup agents with similar capabilities"
+    ],
+    "backup_assignments": {
+      "task_001": ["agent_005", "agent_002"],
+      "task_002": ["agent_001", "agent_003"],
+      "task_003": ["agent_002", "agent_001"],
+      "task_004": ["agent_004", "agent_002"],
+      "task_005": ["agent_004", "agent_001"],
+      "task_006": ["agent_005", "agent_003"],
+      "task_007": ["agent_005", "agent_003"],
+      "task_008": ["agent_001", "agent_004"],
+      "task_009": ["agent_002", "agent_005"],
+      "task_010": ["agent_003", "agent_005"]
+    }
+  }
+}

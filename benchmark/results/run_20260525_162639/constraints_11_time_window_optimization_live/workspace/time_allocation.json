@@ -1,0 +1,21 @@
+{
+  "assigned_slots": [
+    {"task": "F", "start": 9, "end": 10},
+    {"task": "A", "start": 11, "end": 12},
+    {"task": "E", "start": 13, "end": 14},
+    {"task": "D", "start": 14, "end": 16},
+    {"task": "G", "start": 16, "end": 17}
+  ],
+  "resolved_conflicts": [
+    "在时间11-12，A和B的窗口重叠且只有一个worker，根据字母序选择A放弃B",
+    "任务C依赖A和B都完成，但只能完成其中一个，因此C无法安排",
+    "E和D共享db资源，通过安排E在13-14、D在14-16避免重叠"
+  ],
+  "unresolved_tasks": ["B", "C"],
+  "completion_count": 5,
+  "notes": [
+    "最大化完成数量为5，因为A和B冲突只能选一个，导致C依赖不满足",
+    "按优先级顺序：优先完成P0的A（字母序优于B），然后P1的E和D（通过错开时间避免资源冲突），最后P2的F和G",
+    "G安排在D完成后立即开始（16-17），充分利用时间窗口"
+  ]
+}

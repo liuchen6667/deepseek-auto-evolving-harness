@@ -1,0 +1,10 @@
+{
+  "winning_request": "req_a",
+  "denied_exceptions": [
+    {"request": "req_b", "reason": "security approval false, exception invalid"},
+    {"request": "req_c", "reason": "exception strength lower than base winner, cannot override"}
+  ],
+  "rule_chain": ["base_priority_rule", "exception_security_approval_rule", "exception_strength_comparison_rule"],
+  "governing_exception": "none",
+  "evidence_refs": ["request_queue.json", "exception_policy.md", "priority_matrix.json", "resolution_contract.json"]
+}

@@ -1,0 +1,17 @@
+{
+  "allowed_content": ["customer_impact_summary", "eta_update"],
+  "removed_content": [
+    {"content": "internal_host_debug_note", "reason": "contains_internal_technical_details"},
+    {"content": "user_level_account_list", "reason": "exceeds_minimum_necessary_detail"},
+    {"content": "vendor_escalation_thread", "reason": "contains_internal_escalation_details"}
+  ],
+  "target_audience": "customer_success",
+  "governing_policy": "Under customer_success audience, keep only customer-safe operational summary with minimum necessary detail.",
+  "minimum_necessary_fields": ["customer_impact_summary", "eta_update"],
+  "rationale": [
+    "internal_host_debug_note contains internal technical details not suitable for customer_success audience",
+    "user_level_account_list exceeds minimum necessary detail for customer-safe operational summary",
+    "vendor_escalation_thread contains internal escalation details inappropriate for external communication"
+  ],
+  "evidence_refs": ["message_request.md", "audience_policy.md", "content_pool.json", "routing_context.json"]
+}

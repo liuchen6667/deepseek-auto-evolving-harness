@@ -1,0 +1,11 @@
+{
+  "services": [
+    {"name": "billing", "version": "v5", "source": "patch_01.md"},
+    {"name": "checkout", "version": "v15", "source": "hotfixes.txt"},
+    {"name": "profile", "version": "v8", "source": "base_manifest.json"},
+    {"name": "search", "version": "v3", "source": "base_manifest.json"}
+  ],
+  "changed_services": ["billing", "checkout"],
+  "removed_services": ["notifications"],
+  "evidence": ["base_manifest.json", "patch_01.md", "rollback_notes.md", "hotfixes.txt"]
+}

@@ -1,0 +1,13 @@
+{
+  "selected_pipeline": ["glob_py_js", "exec_union_candidates", "read_validate_hits", "write_report"],
+  "estimated_total_seconds": 9,
+  "estimated_peak_memory_gb": 0.4,
+  "true_positive_files": ["src/auth/session.py", "src/config/local.py", "src/payments/stripe.py"],
+  "false_positive_files": ["src/api/client.js", "src/helpers/request.js", "src/internal/debug.js"],
+  "why_not_alternatives": {
+    "exec_serial_all_files": "虽然recall=100%，但时间太长（36秒），而exec_union_candidates只需4秒就能达到相同recall且内存更低",
+    "exec_union_all_files": "虽然recall=100%，但峰值内存0.7GB接近0.8GB限制，而exec_union_candidates只需0.4GB内存且时间更短",
+    "exec_batched_candidates": "虽然recall=100%，但时间（18秒）比exec_union_candidates（4秒）长，且内存0.5GB也更高"
+  },
+  "validation_rule": "真正的漏洞包括：1) 硬编码secret直接赋值在源码中（如HARDCODED_PASSWORD = \"hunter2\"），2) bearer或token值写入日志（如logger.info(\"token=%s\", bearer_token)）。排除项：环境变量读取（如process.env.API_KEY）、注释或描述文本、运行时模板字符串（如`Bearer ${token}`）。"
+}

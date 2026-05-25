@@ -1,0 +1,11 @@
+{
+  "winning_proposal_id": "beta-plan",
+  "selected_agent": "agent_beta",
+  "final_owner": "release-manager",
+  "rollback_required": true,
+  "invalidated_proposals": [
+    {"proposal_id": "alpha-plan", "reason": "Proposal claims service is healthy enough to continue rollout, but source-of-truth shows error budget remaining (0.8%) is below required threshold (2.0%), violating rollout policy that mandates rollback when budget is insufficient."}
+  ],
+  "decision_reason": "Source-of-truth states rollout requires >=2.0% error budget remaining; current budget is 0.8%, below threshold, making rollback mandatory. Agent_beta correctly identifies the budget breach and rollback requirement, while agent_alpha's proposal violates policy.",
+  "evidence_refs": ["agent_summaries.json", "source_of_truth.md", "output_spec.json"]
+}

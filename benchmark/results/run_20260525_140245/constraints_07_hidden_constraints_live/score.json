@@ -1,0 +1,32 @@
+{
+  "id": "constraints_07_hidden_constraints_live",
+  "score": 0.74,
+  "passed": true,
+  "checkpoints": {
+    "found_constraints": {
+      "score": 0.24,
+      "max": 0.3,
+      "detail": "Found 4/5 constraints: DB_POOL_SIZE, REDIS_TTL, RATE_LIMIT, MAX_QUERY_ROWS"
+    },
+    "evidence_quality": {
+      "score": 0.1,
+      "max": 0.2,
+      "detail": "⚠️ Has file references but missing line numbers"
+    },
+    "impact_analysis": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "✅ Has impact analysis"
+    },
+    "optimization_suggestions": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "✅ Has optimization suggestions"
+    },
+    "optimized_config": {
+      "score": 0.1,
+      "max": 0.2,
+      "detail": "⚠️ Created optimized_config.json but missing key optimizations"
+    }
+  }
+}

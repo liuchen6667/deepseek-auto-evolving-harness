@@ -1,0 +1,6 @@
+error=4500
+user=2750
+order=2050
+token=1950
+retry=900
+payment=600

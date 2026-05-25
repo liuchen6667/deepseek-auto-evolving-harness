@@ -1,0 +1,7 @@
+{
+  "direct_impacts": ["B", "C", "F", "G", "H"],
+  "indirect_impacts": ["A"],
+  "risk_levels": {"A": "high", "B": "high", "C": "medium", "F": "high", "G": "medium", "H": "medium"},
+  "recovery_priority": ["E", "D", "B", "F", "C", "G", "H", "A"],
+  "notes": ["关键传播链路：D停机影响B和F，E降级影响C、G、H，A因同时依赖B和C而受到双重影响", "缓解思路：考虑在维护期间为A提供备用服务或临时降低对B/C的依赖，以减轻级联影响"]
+}

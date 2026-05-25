@@ -1,0 +1,12 @@
+{
+  "slot_plan": [
+    {"slot_start": 0, "task": "...", "value_at_execution": 0},
+    {"slot_start": 5, "task": "...", "value_at_execution": 0},
+    {"slot_start": 10, "task": "...", "value_at_execution": 0},
+    {"slot_start": 15, "task": "...", "value_at_execution": 0},
+    {"slot_start": 20, "task": "...", "value_at_execution": 0}
+  ],
+  "total_value": 0,
+  "events_considered": ["...", "..."],
+  "notes": ["...", "..."]
+}

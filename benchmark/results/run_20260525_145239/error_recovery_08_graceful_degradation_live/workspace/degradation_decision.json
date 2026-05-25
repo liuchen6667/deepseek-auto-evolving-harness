@@ -1,0 +1,25 @@
+{
+  "order_mode": "reject_new_orders",
+  "chosen_strategies": ["reject_with_explanation"],
+  "rejected_strategies": [
+    {"strategy": "async_payment_capture", "reason": "allow_async_payment: false"},
+    {"strategy": "reserve_stale_inventory", "reason": "require_writable_inventory_before_order_acceptance: true"},
+    {"strategy": "queue_for_manual_reconciliation", "reason": "allow_manual_reconciliation_queue_for_new_orders: false"}
+  ],
+  "degraded_flow": ["validate_request", "check_dependencies", "reject_order", "log_audit_event", "return_sync_response"],
+  "consistency_guards": ["payment_service_down", "inventory_readonly", "no_manual_reconciliation", "no_async_payment"],
+  "recovery_plan": ["monitor_payment_health", "wait_inventory_write_enabled", "restore_normal_checkout_flow", "resume_new_orders"],
+  "user_response": {
+    "http_status": 503,
+    "status_code": "SERVICE_UNAVAILABLE",
+    "must_return_within_seconds": 5
+  },
+  "evidence_refs": [
+    "service_status.json",
+    "checkout_request.json",
+    "degradation_policy.yaml",
+    "logs/checkout.log",
+    "logs/notification.log",
+    "runbook.md"
+  ]
+}

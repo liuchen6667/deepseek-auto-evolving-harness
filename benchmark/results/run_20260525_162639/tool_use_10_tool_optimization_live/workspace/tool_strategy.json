@@ -1,0 +1,13 @@
+{
+  "selected_pipeline": ["glob_py_js", "exec_union_candidates", "read_validate_hits", "write_report"],
+  "estimated_total_seconds": 9,
+  "estimated_peak_memory_gb": 0.4,
+  "true_positive_files": ["src/auth/session.py", "src/config/local.py", "src/payments/stripe.py"],
+  "false_positive_files": ["src/api/client.js", "src/helpers/request.js", "src/internal/debug.js"],
+  "why_not_alternatives": {
+    "exec_serial_all_files": "虽然 recall=100%，但需要 36 秒，比候选组合（9 秒）慢得多，不符合时间效率要求",
+    "exec_union_all_files": "虽然 recall=100% 且内存 0.7GB 在限制内，但需要扫描所有 10000 个文件，耗时 14 秒，比候选组合（9 秒）慢，且内存峰值更高",
+    "exec_batched_candidates": "虽然 recall=100%，但需要 18 秒，比候选组合（9 秒）慢，且内存 0.5GB 也更高"
+  },
+  "validation_rule": "硬编码 secret：直接赋值给变量的字面值凭证（如 'hunter2'、'dev-token'）；日志泄漏 token：将 bearer 或 token 值写入日志输出。排除项：环境变量读取、注释或描述性文本、运行时模板字符串（仅插值 token 而非硬编码）。"
+}

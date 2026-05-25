@@ -1,0 +1,47 @@
+{
+  "id": "planning_09_resource_contention_live",
+  "score": 0.55,
+  "passed": false,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "resource_contention_plan.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "deadlock_cycles_are_exact": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "deadlock_cycles=[{'cycle_id': 'db_file_cycle', 'checkpoint_task_id': 'legacy_fee_reconcile', 'resolution_code': 'checkpoint_legacy_fee_reconcile'}, {'cycle_id': 'port_lock_cycle', 'checkpoint_task_id': 'legacy_lock_reindex', 'resolution_code': 'checkpoint_legacy_lock_reindex'}]"
+    },
+    "allocation_policy_is_exact": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "allocation_policy={'allocation_mode': 'full_batch_wave_launch', 'admission_rule': 'launch_only_when_all_selected_tasks_fit', 'resource_order': ['db_connections', 'file_handles', 'network_ports', 'lock_units']}"
+    },
+    "execution_waves_are_exact": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "execution_waves=[{'wave_id': 'wave_1', 'hours': [0, 2], 'tasks': ['invoice_rebuild', 'export_sync', 'legacy_export_fanout'], 'resource_totals': {'db_connections': 3, 'file_handles': 5, 'network_ports': 2, 'lock_units': 3}}, {'wave_id': 'wave_2', 'hours': [2, 4], 'tasks': ['fraud_scan', 'compliance_bundle', 'merchant_snapshot'], 'resource_totals': {'db_connections': 3, 'file_handles': 4, 'network_ports': 2, 'lock_units': 4}}]"
+    },
+    "deferred_tasks_are_exact": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "deferred_tasks=[{'task_id': 'legacy_invoice_rollup', 'reason_code': 'lower_value_than_other_feasible_wave_2_tasks'}, {'task_id': 'lock_reindex', 'reason_code': 'lower_value_than_other_feasible_wave_2_tasks'}]"
+    },
+    "completion_summary_is_exact": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "completion_summary={'completed_task_count': 6, 'must_finish_completed': ['invoice_rebuild', 'export_sync'], 'total_business_value': 355, 'window_hours': 4}"
+    },
+    "evidence_refs_are_complete": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['resource_pool.json', 'contention_snapshot.json', 'job_queue.json', 'sla_targets.json', 'scheduling_rules.yaml']"
+    }
+  }
+}

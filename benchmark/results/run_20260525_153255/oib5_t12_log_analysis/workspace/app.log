@@ -1,0 +1,17 @@
+2024-05-24 10:00:00 INFO Application starting up
+2024-05-24 10:00:05 INFO PaymentService initialized
+2024-05-24 10:00:10 INFO UserService connected to database
+2024-05-24 10:00:15 INFO OrderService ready
+2024-05-24 10:01:00 WARN PaymentService: High latency detected (500ms)
+2024-05-24 10:01:30 ERROR PaymentService: Failed to process transaction TX123 - Insufficient funds
+2024-05-24 10:02:15 WARN UserService: Cache miss rate above threshold (15%)
+2024-05-24 10:02:45 ERROR UserService: Database connection timeout - retrying
+2024-05-24 10:03:20 INFO OrderService: New order received #1001
+2024-05-24 10:03:45 ERROR PaymentService: Payment gateway unreachable - HTTP 503
+2024-05-24 10:04:10 WARN OrderService: Order #1001 processing delayed
+2024-05-24 10:04:30 ERROR OrderService: Inventory check failed for SKU A123
+2024-05-24 10:05:00 ERROR PaymentService: Critical: Fraud detection triggered for transaction TX456
+2024-05-24 10:05:30 INFO UserService: Password reset request for user@example.com
+2024-05-24 10:06:00 WARN PaymentService: Unusual transaction pattern detected
+2024-05-24 10:06:30 ERROR UserService: Failed to send notification email - SMTP error
+2024-05-24 10:07:00 INFO Application shutting down

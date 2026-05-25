@@ -1,0 +1,24 @@
+2024-05-24 10:00:01 INFO: Application started
+2024-05-24 10:00:05 WARNING: Database connection pool reached max size (10 connections)
+2024-05-24 10:00:10 INFO: User query executed - returned 1000 rows (max limit reached)
+2024-05-24 10:00:15 ERROR: File upload rejected - size 5.2MB exceeds 5MB limit
+2024-05-24 10:00:20 INFO: Rate limit exceeded for IP 192.168.1.100 (100 requests/minute)
+2024-05-24 10:00:25 INFO: Cache miss - key expired after 60 seconds TTL
+2024-05-24 10:00:30 WARNING: Database query timeout after 10 seconds
+2024-05-24 10:00:35 INFO: Redis memory usage at 85% of 100MB limit
+2024-05-24 10:00:40 ERROR: Too many concurrent queries (5 max) for user_id=123
+2024-05-24 10:00:45 INFO: Database connection idle timeout after 5 minutes
+2024-05-24 10:00:50 WARNING: Work memory limit exceeded (16MB)
+2024-05-24 10:00:55 INFO: API response time: 250ms (slow query detected)
+2024-05-24 10:01:00 INFO: Cache hit rate: 65% (low due to short TTL)
+2024-05-24 10:01:05 ERROR: File upload directory full - only 100MB allocated
+2024-05-24 10:01:10 INFO: Database connection pool wait time: 150ms (high load)
+2024-05-24 10:01:15 WARNING: Redis connection timeout after 5 seconds
+2024-05-24 10:01:20 INFO: Query result truncated to 1000 rows (max limit)
+2024-05-24 10:01:25 ERROR: Statement timeout after 10 seconds on complex query
+2024-05-24 10:01:30 INFO: Upload file validation: only image files allowed (jpg, png, gif)
+2024-05-24 10:01:35 WARNING: Concurrent user sessions limit: 1000 active sessions max
+2024-05-24 10:01:40 INFO: API request size limit: 1MB per request
+2024-05-24 10:01:45 ERROR: Database deadlock detected
+2024-05-24 10:01:50 INFO: Background job queue limit: 1000 jobs max
+2024-05-24 10:01:55 WARNING: External API call timeout: 30 seconds max

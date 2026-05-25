@@ -1,0 +1,153 @@
+{
+  "schedule": [
+    {
+      "task_id": "task_001",
+      "agent_id": "agent_002",
+      "start_time": 0,
+      "end_time": 3.33,
+      "duration": 3.33,
+      "resources": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 30
+      },
+      "reasoning": "需要data_processing和network_io能力，agent_002满足要求且有network_io能力，效率0.9调整后时长=3/0.9=3.33"
+    },
+    {
+      "task_id": "task_002",
+      "agent_id": "agent_001",
+      "start_time": 3.33,
+      "end_time": 5.33,
+      "duration": 2.0,
+      "resources": {
+        "cpu": 10,
+        "memory": 15,
+        "bandwidth": 5
+      },
+      "reasoning": "需要validation能力，agent_001满足要求，效率1.0，依赖task_001完成"
+    },
+    {
+      "task_id": "task_003",
+      "agent_id": "agent_001",
+      "start_time": 5.33,
+      "end_time": 9.33,
+      "duration": 4.0,
+      "resources": {
+        "cpu": 25,
+        "memory": 30,
+        "bandwidth": 10
+      },
+      "reasoning": "需要data_processing能力，agent_001满足要求，效率1.0，依赖task_002完成"
+    },
+    {
+      "task_id": "task_006",
+      "agent_id": "agent_003",
+      "start_time": 5.33,
+      "end_time": 8.18,
+      "duration": 2.73,
+      "resources": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 10
+      },
+      "reasoning": "需要analysis能力，agent_003效率1.1最佳，时长=3/1.1=2.73，可与task_003并行，依赖task_002完成"
+    },
+    {
+      "task_id": "task_004",
+      "agent_id": "agent_004",
+      "start_time": 9.33,
+      "end_time": 12.49,
+      "duration": 3.16,
+      "resources": {
+        "cpu": 30,
+        "memory": 20,
+        "bandwidth": 5
+      },
+      "reasoning": "需要encryption能力，agent_004效率0.95最佳，时长=3/0.95=3.16，依赖task_003完成"
+    },
+    {
+      "task_id": "task_005",
+      "agent_id": "agent_004",
+      "start_time": 12.49,
+      "end_time": 14.59,
+      "duration": 2.10,
+      "resources": {
+        "cpu": 20,
+        "memory": 25,
+        "bandwidth": 5
+      },
+      "reasoning": "需要compression能力，agent_004效率0.95，时长=2/0.95=2.10，依赖task_004完成"
+    },
+    {
+      "task_id": "task_007",
+      "agent_id": "agent_003",
+      "start_time": 8.18,
+      "end_time": 10.00,
+      "duration": 1.82,
+      "resources": {
+        "cpu": 10,
+        "memory": 15,
+        "bandwidth": 5
+      },
+      "reasoning": "需要reporting能力，agent_003效率1.1最佳，时长=2/1.1=1.82，依赖task_006完成"
+    },
+    {
+      "task_id": "task_008",
+      "agent_id": "agent_004",
+      "start_time": 14.59,
+      "end_time": 17.75,
+      "duration": 3.16,
+      "resources": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 20
+      },
+      "reasoning": "需要archival和compression能力，agent_004满足要求，效率0.95，时长=3/0.95=3.16，依赖task_005完成"
+    },
+    {
+      "task_id": "task_009",
+      "agent_id": "agent_005",
+      "start_time": 14.59,
+      "end_time": 18.59,
+      "duration": 4.0,
+      "resources": {
+        "cpu": 10,
+        "memory": 10,
+        "bandwidth": 50
+      },
+      "reasoning": "需要network_io能力，agent_005效率1.0，与task_008并行执行，依赖task_005完成"
+    },
+    {
+      "task_id": "task_010",
+      "agent_id": "agent_003",
+      "start_time": 18.59,
+      "end_time": 21.32,
+      "duration": 2.73,
+      "resources": {
+        "cpu": 20,
+        "memory": 25,
+        "bandwidth": 10
+      },
+      "reasoning": "需要validation和analysis能力，agent_003效率1.1最佳，时长=3/1.1=2.73，等待所有前置任务完成(task_007, task_008, task_009)"
+    }
+  ],
+  "summary": {
+    "total_tasks": 10,
+    "agents_used": ["agent_001", "agent_002", "agent_003", "agent_004", "agent_005"],
+    "total_completion_time": 21.32,
+    "critical_path": "task_001 → task_002 → task_003 → task_004 → task_005 → task_009 → task_010",
+    "resource_peak_usage": {
+      "cpu": 65,
+      "memory": 70,
+      "bandwidth": 80
+    },
+    "load_balance": {
+      "agent_001": 2,
+      "agent_002": 1,
+      "agent_003": 3,
+      "agent_004": 3,
+      "agent_005": 1
+    },
+    "optimization_strategy": "优先安排关键路径任务，利用agent效率优势，最大化并行执行，平衡负载"
+  }
+}

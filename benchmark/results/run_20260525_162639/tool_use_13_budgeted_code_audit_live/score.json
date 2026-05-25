@@ -1,0 +1,37 @@
+{
+  "id": "tool_use_13_budgeted_code_audit_live",
+  "score": 0.6083000000000001,
+  "passed": true,
+  "checkpoints": {
+    "audit_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "audit_report.json exists"
+    },
+    "inspection_plan_is_budget_aware": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "inspection_plan=['检查src/payments/stripe.py（支付API可能包含密钥）', '检查src/config/local.py（配置可能包含硬编码密钥）', '检查src/auth/session.py（认证可能涉及token日志）', '检查src/reports/exporter.py（报告可能包含敏感数据）']"
+    },
+    "findings_are_correct": {
+      "score": 0.2333,
+      "max": 0.35,
+      "detail": "matched 2/3 findings got_paths=['src/config/local.py', 'src/auth/session.py']"
+    },
+    "rejected_suspects_are_correct": {
+      "score": 0.075,
+      "max": 0.15,
+      "detail": "rejected_hits=1/2 false_rejections=0 rejected_suspects=['src/payments/stripe.py']"
+    },
+    "reported_budget_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "read_budget_used=5"
+    },
+    "notes_are_nontrivial": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "notes_count=3 hits=2"
+    }
+  }
+}

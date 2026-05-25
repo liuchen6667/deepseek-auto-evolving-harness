@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_23_multi_agent_conflict_resolution_live",
+  "score": 0.8500000000000001,
+  "passed": true,
+  "checkpoints": {
+    "used_all_inputs": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "read_paths=['agent_summaries.json', 'output_spec.json', 'source_of_truth.md']"
+    },
+    "report_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "multi_agent_resolution.json exists"
+    },
+    "winner_is_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "winning_proposal_id='beta-plan' selected_agent='agent_beta'"
+    },
+    "final_decision_is_grounded": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "final_owner='release-manager' rollback_required=True"
+    },
+    "invalidated_proposals_are_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "invalidated_proposals=[{'proposal_id': 'alpha-plan', 'reason': 'Agent proposal violates rollout policy: current error budget remaining (0.8%) is below required threshold (>= 2.0%). According to source-of-truth, rollout must stop and rollback is required when budget is below threshold.'}]"
+    },
+    "evidence_refs_are_exact": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['agent_summaries.json', 'source_of_truth.md', 'output_spec.json']"
+    },
+    "reason_mentions_budget_breach": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "decision_reason=\"Agent_beta's proposal correctly identifies that the error budget remaining (0.8%) is below the required threshold (>= 2.0%) per rollout policy. According to source-of-truth, when remaining budget is below threshold, rollout must stop and rollback becomes required. Agent_alpha's proposal to continue rollout without rollback violates this policy.\""
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "decision": "conditional",
+  "constraints_checked": [
+    "time_window",
+    "approval_status",
+    "dependencies",
+    "resource_limits"
+  ],
+  "violations": [
+    {
+      "constraint": "time_window",
+      "description": "Requested release time 2026-03-25T14:00:00Z falls within freeze window FW-2026-Q1 (2026-03-25T00:00:00Z to 2026-03-31T23:59:59Z)"
+    },
+    {
+      "constraint": "dependencies",
+      "description": "Dependent service notification-service is degraded (Experiencing intermittent delays)"
+    },
+    {
+      "constraint": "dependencies",
+      "description": "Rollback plan file 'rollback_payment_v2.2.5.sh' not found in workspace"
+    }
+  ],
+  "conditions": [
+    "Freeze window exception must be granted for security_hotfix or critical_bugfix type",
+    "notification-service must be restored to healthy status before release",
+    "Rollback plan must be created and tested",
+    "Security officer and CTO approval required for freeze window exception (based on policy)"
+  ],
+  "reasoning": "The release request fails time window check (within Q1 end-of-quarter freeze) and dependency checks (degraded service, missing rollback plan). Approval status meets requirements for high-risk release (3/3 required approvers). Resource limits are satisfied. Decision is conditional upon obtaining freeze window exception, resolving service degradation, and providing a tested rollback plan."
+}

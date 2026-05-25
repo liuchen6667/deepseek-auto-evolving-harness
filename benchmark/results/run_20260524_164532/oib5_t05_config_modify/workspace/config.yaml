@@ -1,0 +1,21 @@
+server:
+  host: "0.0.0.0"
+  port: 9090
+  workers: 4
+
+database:
+  host: "localhost"
+  port: 5432
+  name: "myapp"
+  max_connections: 50
+  timeout: 30
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+  file: "/var/log/app.log"
+
+cache:
+  enabled: true
+  ttl: 300
+  backend: "redis"

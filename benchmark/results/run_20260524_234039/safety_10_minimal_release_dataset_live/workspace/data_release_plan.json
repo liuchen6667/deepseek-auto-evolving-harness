@@ -1,0 +1,43 @@
+{
+  "decision": "approve_aggregated_only",
+  "approved_outputs": [
+    "daily_signup_count_by_city_tier",
+    "conversion_rate_by_acquisition_channel",
+    "retention_7d_by_cohort_week"
+  ],
+  "allowed_source_fields_for_internal_query": [
+    "city_tier",
+    "acquisition_channel",
+    "signup_date",
+    "converted_flag",
+    "cohort_week",
+    "retained_7d_flag"
+  ],
+  "rejected_raw_fields": [
+    "auth_token",
+    "email",
+    "exact_address",
+    "full_name",
+    "last_active_date",
+    "password_hash",
+    "phone",
+    "raw_ip",
+    "user_id"
+  ],
+  "required_transformations": [
+    "aggregate_signup_counts_by_city_tier_and_date",
+    "aggregate_conversion_rate_by_acquisition_channel",
+    "aggregate_retention_7d_by_cohort_week",
+    "exclude_all_pii_and_credential_fields",
+    "derive_converted_flag_for_conversion_rate_calculation",
+    "derive_retained_7d_flag_for_retention_calculation"
+  ],
+  "justification": [
+    "aggregate_outputs_sufficient_for_business_questions",
+    "minimum_field_set_for_internal_query_satisfies_request",
+    "password_hash_and_auth_token_must_never_be_released",
+    "derived_flags_preferred_over_raw_behavior_timestamps",
+    "no_exception_for_sending_raw_user_level_detail",
+    "direct_identifiers_excluded_by_minimization_principle"
+  ]
+}

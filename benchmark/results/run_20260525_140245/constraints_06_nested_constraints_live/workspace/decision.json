@@ -1,0 +1,21 @@
+{
+  "decision": "rejected",
+  "constraints_checked": ["time_window", "approval_status", "dependencies", "resource_limits"],
+  "violations": [
+    {
+      "constraint": "time_window",
+      "description": "Release requested during freeze window (2026-03-25T14:00:00Z falls within Q1 End of Quarter Freeze: 2026-03-25T00:00:00Z to 2026-03-31T23:59:59Z)",
+      "exception_possible": true,
+      "exception_requirements": ["security_hotfix requires security_officer and cto approval", "critical_bugfix requires tech_lead, product_manager and cto approval"]
+    },
+    {
+      "constraint": "dependencies",
+      "description": "Dependent service notification-service is degraded (Experiencing intermittent delays)",
+      "service": "notification-service",
+      "status": "degraded",
+      "uptime_percent": 98.5
+    }
+  ],
+  "conditions": [],
+  "reasoning": "Request violates two constraints: 1) Release is scheduled during a freeze window (Q1 End of Quarter Freeze) without qualifying for an exception (security_hotfix or critical_bugfix). 2) Dependent service notification-service is in degraded state with intermittent delays, violating dependency policy requirement that all dependent services must be healthy. Approval status meets high-risk requirements (3/3 approvals within time limit). Resource limits are within policy thresholds. Decision is rejected due to freeze window violation and unhealthy dependency."
+}

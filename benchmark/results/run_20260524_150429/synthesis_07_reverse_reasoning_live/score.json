@@ -1,0 +1,57 @@
+{
+  "id": "synthesis_07_reverse_reasoning_live",
+  "score": 0.09090909090909091,
+  "passed": false,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "missing incident_reverse_report.json"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "timeline_is_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "suspicious_changes_are_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "dependency_findings_are_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "root_cause_is_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "causal_chain_is_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "ruled_out_are_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "verification_steps_are_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "evidence_refs_are_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    }
+  }
+}

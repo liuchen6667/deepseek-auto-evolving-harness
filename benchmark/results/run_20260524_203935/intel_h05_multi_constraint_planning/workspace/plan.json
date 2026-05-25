@@ -1,0 +1,22 @@
+{
+  "selected_tasks": [
+    {"id": "p01", "start_day": 1, "reason": "安全审计扫描，无依赖，优先级类别(security)，负责人alice可用"},
+    {"id": "p02", "start_day": 2, "reason": "合规文档编写，依赖p01完成，优先级类别(compliance)，负责人bob可用"},
+    {"id": "p04", "start_day": 2, "reason": "数据加密升级，依赖p01完成，优先级类别(security)，负责人alice可用"},
+    {"id": "p06", "start_day": 1, "reason": "权限模型重设计，无依赖，优先级类别(security)，负责人bob可用"},
+    {"id": "p10", "start_day": 3, "reason": "密钥轮换自动化，依赖p04完成，优先级类别(security)，负责人alice可用"}
+  ],
+  "deferred_tasks": [
+    {"id": "p03", "reason": "负责人charlie被阻塞"},
+    {"id": "p05", "reason": "依赖p03且负责人dave可用，但p03被阻塞"},
+    {"id": "p07", "reason": "非优先级类别(design)，预算不足"},
+    {"id": "p08", "reason": "负责人charlie被阻塞"},
+    {"id": "p09", "reason": "非优先级类别(engineering)，预算不足"},
+    {"id": "p11", "reason": "依赖p07且负责人eve可用，但p07未安排"},
+    {"id": "p12", "reason": "负责人charlie被阻塞"}
+  ],
+  "total_effort_hours": 36,
+  "within_budget": true,
+  "priority_tasks_scheduled": 5,
+  "constraint_violations": []
+}

@@ -1,0 +1,7 @@
+{
+  "direct_impacts": ["B", "C", "F", "G", "H"],
+  "indirect_impacts": ["A"],
+  "risk_levels": {"A": "high", "B": "high", "C": "medium", "F": "high", "G": "medium", "H": "medium"},
+  "recovery_priority": ["D", "E", "B", "F", "C", "G", "H", "A"],
+  "notes": ["关键传播链路：D停机直接影响B和F，E降级直接影响C、G、H；A通过B和C两条链路间接受影响，风险等级为high", "缓解思路：优先恢复D（完全停机）比E（降级）更紧急；恢复D后B和F立即恢复，恢复E后C、G、H立即恢复，最后恢复A"]
+}

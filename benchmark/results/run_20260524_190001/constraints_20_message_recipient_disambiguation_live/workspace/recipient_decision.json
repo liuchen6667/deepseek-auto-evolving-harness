@@ -1,0 +1,7 @@
+{
+  "thread_id": "t-100",
+  "selected_handle": "@alex-release",
+  "selected_channel": "telegram",
+  "rejected_candidates": ["@alex-design"],
+  "reason": "虽然两个候选人都叫Alex Chen，但根据last_confirmed_target策略要求必须使用@alex-release作为最终目标。另一个候选人@alex-design虽然同名，但其团队是design而不是release，且thread主题是release approval follow-up，需要release团队的负责人处理。"
+}

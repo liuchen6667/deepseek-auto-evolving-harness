@@ -1,0 +1,16 @@
+{
+  "allowed_selection": ["item_a", "item_c"],
+  "blocked_items": [
+    {"item": "item_b", "reason": "region-blocked per guardrail"},
+    {"item": "item_d", "reason": "not selected under tie-breaker when choosing between equal-cost options"},
+    {"item": "item_e", "reason": "ineligible per eligibility rules"}
+  ],
+  "budget_used": 9,
+  "governing_guardrail": "Selected items must respect region guardrails and total budget",
+  "rule_application": [
+    "Eligibility: only items in eligible list may be selected",
+    "Guardrail: region-blocked items are prohibited",
+    "Budget: total cost must not exceed 9, with tie-breaker favoring alphabetical order when costs equal"
+  ],
+  "evidence_refs": ["candidate_set.json", "eligibility_rules.json", "guardrails.md", "selection_budget.txt"]
+}

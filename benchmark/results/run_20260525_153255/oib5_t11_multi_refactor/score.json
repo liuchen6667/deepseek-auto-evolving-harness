@@ -1,0 +1,42 @@
+{
+  "id": "oib5_t11_multi_refactor",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "common_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "common.py valid"
+    },
+    "common_functions": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "3/3 helpers present"
+    },
+    "user_manager_refactored": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "imports_common=True"
+    },
+    "order_manager_refactored": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "imports_common=True"
+    },
+    "validates_preserved": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "validate_email=True validate_amount=True"
+    },
+    "dedup_achieved": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "shared helpers used"
+    },
+    "hidden_behavior": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "6/6 hidden behavior checks"
+    }
+  }
+}

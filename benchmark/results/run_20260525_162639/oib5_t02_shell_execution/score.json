@@ -1,0 +1,27 @@
+{
+  "id": "oib5_t02_shell_execution",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "stats.txt exists"
+    },
+    "total_lines": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "expected ~119, got 119"
+    },
+    "largest_file": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "expected handlers.py(21), got handlers.py(21)"
+    },
+    "import_count": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "expected 7, got 7"
+    }
+  }
+}

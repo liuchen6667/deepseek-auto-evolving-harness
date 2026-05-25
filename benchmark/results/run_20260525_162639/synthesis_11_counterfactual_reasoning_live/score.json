@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_11_counterfactual_reasoning_live",
+  "score": 0.2,
+  "passed": false,
+  "checkpoints": {
+    "analysis_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "counterfactual_analysis.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "individual_rank_is_correct": {
+      "score": 0.0,
+      "max": 0.25,
+      "detail": "individual_rank=[{'decision_id': 'staffing', 'alternative': 'specialist_pod', 'projected_score': 87.0, 'score_improvement': -2.0}, {'decision_id': 'team', 'alternative': 'team_of_10', 'projected_score': 82.0, 'score_improvement': -7.0}, {'decision_id': 'governance', 'alternative': 'design_reviews', 'projected_score': 80.0, 'score_improvement': -9.0}]"
+    },
+    "individual_scores_are_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "individual_rank_score_hits=0.0"
+    },
+    "best_plan_is_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "best_three_change_plan=['governance', 'staffing', 'team']"
+    },
+    "combined_projection_is_correct": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "combined_hits=0/5"
+    },
+    "recommendations_are_exact": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "recommendations=['adopt_tdd_before_sequential_integration_rollout', 'delay_testing_changes_until_after_release']"
+    }
+  }
+}

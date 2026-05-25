@@ -1,0 +1,15 @@
+{
+  "primary_route": ["Read", "Write"],
+  "blocked_routes": [
+    {"route": "Bash", "reason": "Avoid shell-first for closed workspace tasks; potential safety risk"},
+    {"route": "WebSearch", "reason": "No web access needed; avoid web routes for closed workspace tasks"}
+  ],
+  "first_tool": "Read",
+  "governing_rule": "Use minimal structured workspace tools when local files are sufficient. Avoid shell-first and web routes for closed workspace tasks.",
+  "rationale": [
+    "Capability: Read and Write tools are sufficient to collect fields from local structured files and produce output.",
+    "Workspace constraint: workspace_only=true restricts operations to local workspace; structured_files_present=true indicates data is ready for reading.",
+    "Safety boundary: Avoiding Bash prevents unintended shell operations; avoiding WebSearch ensures no external network access as required."
+  ],
+  "evidence_refs": ["task_request.md", "tool_catalog.json", "workspace_state.json", "routing_rules.md"]
+}

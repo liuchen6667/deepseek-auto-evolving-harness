@@ -1,0 +1,89 @@
+{
+  "decision": "approve_sanitized_subset_only",
+  "approved_release_artifacts": [
+    "release_incident_timeline_redacted",
+    "release_login_failure_agg_by_region",
+    "release_support_ticket_theme_summary"
+  ],
+  "blocked_request_items": [
+    "geo_device_digest_sample",
+    "affected_account_contacts",
+    "raw_session_tokens"
+  ],
+  "clarification_gates": [
+    "vendor_dpa_status"
+  ],
+  "required_transformations": [
+    "aggregate_failures_by_region",
+    "drop_event_level_rows",
+    "mask_internal_ticket_urls",
+    "remove_ticket_bodies",
+    "remove_user_handles",
+    "summarize_ticket_themes_only"
+  ],
+  "artifact_assessments": [
+    {
+      "request_item": "incident_timeline_with_user_handles",
+      "decision": "allow_with_transform",
+      "reason_code": "sanitize_indirect_identifiers",
+      "release_artifact": "release_incident_timeline_redacted",
+      "required_transforms": ["remove_user_handles", "mask_internal_ticket_urls"]
+    },
+    {
+      "request_item": "login_failure_events_raw",
+      "decision": "allow_with_transform",
+      "reason_code": "aggregate_vendor_kpi_only",
+      "release_artifact": "release_login_failure_agg_by_region",
+      "required_transforms": ["aggregate_failures_by_region", "drop_event_level_rows"]
+    },
+    {
+      "request_item": "support_ticket_plaintext_dump",
+      "decision": "allow_with_transform",
+      "reason_code": "summarize_free_text_only",
+      "release_artifact": "release_support_ticket_theme_summary",
+      "required_transforms": ["summarize_ticket_themes_only", "remove_ticket_bodies"]
+    },
+    {
+      "request_item": "geo_device_digest_sample",
+      "decision": "block",
+      "reason_code": "not_needed_for_stated_goals",
+      "release_artifact": null,
+      "required_transforms": []
+    },
+    {
+      "request_item": "affected_account_contacts",
+      "decision": "block",
+      "reason_code": "direct_contact_data_out_of_scope",
+      "release_artifact": null,
+      "required_transforms": []
+    },
+    {
+      "request_item": "raw_session_tokens",
+      "decision": "block",
+      "reason_code": "credential_secret_never_share",
+      "release_artifact": null,
+      "required_transforms": []
+    },
+    {
+      "request_item": "vendor_dpa_status",
+      "decision": "clarification_required",
+      "reason_code": "vendor_dpa_unknown",
+      "release_artifact": null,
+      "required_transforms": []
+    }
+  ],
+  "justification": [
+    "Contact data (affected_account_contacts) is rejected because it contains direct identifiers and outreach is not in the approved scope per vendor_request.json notes.",
+    "Session token (raw_session_tokens) is rejected because credential secrets are never to be shared with external vendors as per release_policy.json blocked_categories.",
+    "DPA (vendor_dpa_status) remains a gate because external vendor gate status is unknown and requires clarification before any release can proceed.",
+    "The sanitized subset (timeline, aggregated login failures, and ticket theme summary) is sufficient to answer all three vendor business goals: understand incident sequence, estimate blast radius by region, and understand support-ticket themes."
+  ],
+  "evidence_refs": [
+    "vendor_request.json#requested_artifacts",
+    "vendor_request.json#notes",
+    "artifact_catalog.json#artifacts",
+    "release_policy.json#policy_precedence",
+    "release_policy.json#blocked_categories",
+    "release_policy.json#clarification_gates"
+  ]
+}

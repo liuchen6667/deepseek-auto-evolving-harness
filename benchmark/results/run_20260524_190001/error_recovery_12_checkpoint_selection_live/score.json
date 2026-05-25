@@ -1,0 +1,42 @@
+{
+  "id": "error_recovery_12_checkpoint_selection_live",
+  "score": 0.8,
+  "passed": true,
+  "checkpoints": {
+    "recovery_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "checkpoint_recovery.json exists"
+    },
+    "selected_checkpoint_is_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "selected_checkpoint='C2'"
+    },
+    "total_cost_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "total_recovery_cost=51"
+    },
+    "rejections_are_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "rejection_hits=3/3 rejected_checkpoints=[{'id': 'C1', 'reason': '总恢复成本80高于C2的51，不是最优选择'}, {'id': 'C3', 'reason': '状态为suspect_duplicate_write，虽然有较低的恢复和追赶时间，但风险惩罚25使总成本达到60，高于C2的51'}, {'id': 'C4', 'reason': '状态以invalid_开头，根据规则不能被选择'}]"
+    },
+    "recovery_sequence_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "sequence_hits=4/4 recovery_sequence=['验证C2检查点完整性', '恢复数据库到C2检查点状态', '应用09:35到10:00期间的日志或增量数据', '验证数据一致性和业务功能']"
+    },
+    "verification_focus_is_complete": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "verification_focus=['验证订单数据在09:35检查点的完整性', '验证09:35到10:00期间的数据变更是否正确应用']"
+    },
+    "notes_are_nontrivial": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "notes_count=2 hits=1"
+    }
+  }
+}

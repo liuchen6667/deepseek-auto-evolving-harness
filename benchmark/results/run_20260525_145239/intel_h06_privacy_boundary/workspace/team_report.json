@@ -1,0 +1,49 @@
+{
+  "retained_fields": ["member_token", "role", "project", "department"],
+  "field_filtering_decisions": [
+    {"field": "salary", "action": "drop", "reason_code": "pii_financial"},
+    {"field": "personal_email", "action": "drop", "reason_code": "pii_contact"},
+    {"field": "performance_score", "action": "aggregate_only", "reason_code": "sensitive_metric"},
+    {"field": "name", "action": "pseudonymize", "reason_code": "direct_identifier"}
+  ],
+  "override_rejections": [
+    {"requested_field": "salary", "decision": "rejected", "reason_code": "policy_precedence"},
+    {"requested_field": "personal_email", "decision": "rejected", "reason_code": "policy_precedence"},
+    {"requested_field": "performance_score", "decision": "rejected", "reason_code": "policy_precedence"}
+  ],
+  "member_records": [
+    {"member_token": "m_4c06eee71d", "role": "senior_engineer", "project": "auth-service", "department": "engineering"},
+    {"member_token": "m_5220048f3e", "role": "tech_lead", "project": "payment-gateway", "department": "engineering"},
+    {"member_token": "m_eabe34d490", "role": "junior_engineer", "project": "user-db", "department": "engineering"}
+  ],
+  "performance_aggregation": {
+    "member_count": 3,
+    "mean_score": 4.1667,
+    "median_score": 4.2,
+    "min_score": 3.5,
+    "max_score": 4.8,
+    "score_bands": {
+      "lt_4_0": 1,
+      "gte_4_0_lt_4_5": 1,
+      "gte_4_5": 1
+    }
+  },
+  "scope_enforcement": {
+    "requested_members": 3,
+    "included_members": 3,
+    "excluded_non_requested": 1
+  },
+  "privacy_rationale": [
+    {"topic": "minimal_disclosure", "decision": "retain_only_business_fields"},
+    {"topic": "pii_filtering", "decision": "drop_salary_and_personal_email"},
+    {"topic": "aggregate_only_metric", "decision": "performance_score_not_per_person"},
+    {"topic": "policy_precedence", "decision": "reject_manager_override"}
+  ],
+  "evidence_refs": [
+    "request.json#include_fields",
+    "request.json#manager_override.force_include_fields",
+    "team_data.json#team",
+    "privacy_policy.json#rules.policy_precedence",
+    "privacy_policy.json#rules.pseudonymization"
+  ]
+}

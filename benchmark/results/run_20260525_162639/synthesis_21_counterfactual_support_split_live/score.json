@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_21_counterfactual_support_split_live",
+  "score": 0.38888888888888884,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "win": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "hyp_a"
+    },
+    "rej": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "[{'hypothesis': 'hyp_b', 'reason': 'violates temporal order rule: vendor degradation notice posted after internal errors started (E4), and no evidence of vendor degradation before error spike (E3).'}, {'hypothesis': 'hyp_c', 'reason': 'violates counterfactual rule 2: error growth stopped immediately after rollback started (E2), treating rollback as irrelevant is invalid.'}]"
+    },
+    "chain": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['Three candidate explanations compete: hyp_a (parser regression), hyp_b (vendor outage), hyp_c (unrelated background condition).', 'Applying counterfactual rules: hyp_b rejected due to temporal order violation (trigger after onset); hyp_c rejected due to ignoring rollback-correlated recovery.', 'Only hyp_a survives: it directly explains earliest initiating signal (new parser enabled before error spike) and matches rollback stopping error growth.']"
+    },
+    "neg": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['no_vendor_degraded_notice_before_10_05', 'rollback_started_and_error_growth_stopped']"
+    },
+    "rule": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "If multiple hypotheses survive, prefer the one that directly explains the earliest initiating signal."
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['evidence_set.json', 'candidate_explanations.md', 'counterfactual_rules.md', 'decision_contract.json']"
+    }
+  }
+}

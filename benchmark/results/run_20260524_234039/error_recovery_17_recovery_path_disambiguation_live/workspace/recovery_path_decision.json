@@ -1,0 +1,11 @@
+{
+  "chosen_path": "path_a",
+  "ruled_out_paths": [
+    {"path": "path_b", "reason": "skip_integrity_guard"},
+    {"path": "path_c", "reason": "misses_window"},
+    {"path": "path_d", "reason": "unavailable_precondition"}
+  ],
+  "verification_order": ["api_restored", "integrity_preserved", "within_window"],
+  "governing_risk_rule": "preserve_integrity_before_speed_only_paths",
+  "evidence_refs": ["incident_paths.json", "recovery_goal.txt", "risk_rules.json", "system_signals.md"]
+}

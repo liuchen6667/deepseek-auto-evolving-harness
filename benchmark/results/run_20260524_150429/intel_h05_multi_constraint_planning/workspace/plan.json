@@ -1,0 +1,22 @@
+{
+  "selected_tasks": [
+    {"id": "p01", "start_day": 1, "reason": "安全审计扫描是优先级任务(security)，无依赖，可以立即开始"},
+    {"id": "p06", "start_day": 1, "reason": "权限模型重设计是优先级任务(security)，无依赖，可以立即开始"},
+    {"id": "p02", "start_day": 2, "reason": "合规文档编写是优先级任务(compliance)，依赖p01完成，p01在第1天开始8小时任务"},
+    {"id": "p04", "start_day": 2, "reason": "数据加密升级是优先级任务(security)，依赖p01完成，p01在第1天开始8小时任务"},
+    {"id": "p10", "start_day": 4, "reason": "密钥轮换自动化是优先级任务(security)，依赖p04完成，p04在第2天开始5小时任务"}
+  ],
+  "deferred_tasks": [
+    {"id": "p03", "reason": "分配给被阻止人员charlie"},
+    {"id": "p05", "reason": "依赖p03，而p03分配给被阻止人员charlie"},
+    {"id": "p07", "reason": "非优先级任务，超出预算"},
+    {"id": "p08", "reason": "分配给被阻止人员charlie"},
+    {"id": "p09", "reason": "非优先级任务，超出预算"},
+    {"id": "p11", "reason": "非优先级任务，超出预算"},
+    {"id": "p12", "reason": "分配给被阻止人员charlie"}
+  ],
+  "total_effort_hours": 36,
+  "within_budget": true,
+  "priority_tasks_scheduled": 5,
+  "constraint_violations": []
+}

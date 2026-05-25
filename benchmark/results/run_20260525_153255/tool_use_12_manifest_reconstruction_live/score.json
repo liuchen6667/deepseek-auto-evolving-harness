@@ -1,0 +1,37 @@
+{
+  "id": "tool_use_12_manifest_reconstruction_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "manifest_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "release_manifest.json exists"
+    },
+    "services_are_correct": {
+      "score": 0.4,
+      "max": 0.4,
+      "detail": "services=[{'name': 'billing', 'version': 'v5', 'source': 'patch_01.md'}, {'name': 'checkout', 'version': 'v15', 'source': 'hotfixes.txt'}, {'name': 'profile', 'version': 'v8', 'source': 'base_manifest.json'}, {'name': 'search', 'version': 'v3', 'source': 'base_manifest.json'}]"
+    },
+    "service_count_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "service_count=4"
+    },
+    "changed_services_are_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "changed_services=['billing', 'checkout']"
+    },
+    "removed_services_are_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "removed_services=['notifications']"
+    },
+    "evidence_is_complete": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_count=3 hits=3"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "decision": "conditional",
+  "constraints_checked": [
+    "第一层约束 - 时间窗口",
+    "第二层约束 - 审批状态",
+    "第三层约束 - 依赖项",
+    "第四层约束 - 资源限制"
+  ],
+  "violations": [
+    {
+      "constraint": "第一层约束 - 时间窗口",
+      "issue": "请求发布时间在冻结窗口内（Q1 End of Quarter Freeze）",
+      "details": "请求时间：2026-03-25T14:00:00Z，冻结窗口：2026-03-25T00:00:00Z 到 2026-03-31T23:59:59Z"
+    },
+    {
+      "constraint": "第三层约束 - 依赖项",
+      "issue": "依赖服务状态不健康",
+      "details": "notification-service 状态为 degraded，存在间歇性延迟问题"
+    }
+  ],
+  "conditions": [
+    "需要获得冻结窗口例外批准：需要 security_officer 和 cto 批准（针对 security_hotfix），或 tech_lead、product_manager 和 cto 批准（针对 critical_bugfix）",
+    "需要修复或确认 notification-service 问题不影响本次发布",
+    "需要确认回滚计划 rollback_payment_v2.2.5.sh 已测试且有效"
+  ],
+  "reasoning": "请求满足高风险级别的审批要求（3/3 审批人批准，在72小时内）。资源状态符合要求（CPU 35%，内存 28%，数据库连接使用率≤70%）。然而，请求时间在Q1季末冻结窗口内，需要例外批准。此外，依赖服务 notification-service 状态为 degraded，可能影响发布稳定性。因此，决策为有条件批准，需要满足上述条件。"
+}

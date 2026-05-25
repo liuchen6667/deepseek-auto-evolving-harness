@@ -1,0 +1,25 @@
+{
+  "decision": "rejected",
+  "constraints_checked": [
+    "time_window",
+    "approval_status", 
+    "dependencies",
+    "resource_limits"
+  ],
+  "violations": [
+    {
+      "constraint": "time_window",
+      "details": "Requested time 2026-03-25T14:00:00Z falls within freeze window FW-2026-Q1 (2026-03-25T00:00:00Z to 2026-03-31T23:59:59Z). Request is not a security_hotfix or critical_bugfix exception."
+    },
+    {
+      "constraint": "dependencies",
+      "details": "Dependent service 'notification-service' is in degraded status with intermittent delays."
+    },
+    {
+      "constraint": "dependencies", 
+      "details": "Rollback plan file 'rollback_payment_v2.2.5.sh' does not exist."
+    }
+  ],
+  "conditions": [],
+  "reasoning": "The release request violates multiple constraints: 1) It is scheduled during a freeze window without being an allowed exception type (security_hotfix or critical_bugfix). 2) A dependent service (notification-service) is degraded, which violates dependency policy requiring all dependent services to be healthy. 3) The specified rollback plan file does not exist. While approval status and resource limits meet requirements, the freeze window violation alone is sufficient to reject the request."
+}

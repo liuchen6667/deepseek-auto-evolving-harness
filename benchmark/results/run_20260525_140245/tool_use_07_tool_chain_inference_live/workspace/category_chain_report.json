@@ -1,0 +1,57 @@
+{
+  "ranking_basis": "net_sales_after_adjustments",
+  "top_categories": [
+    {
+      "rank": 1,
+      "category": "Electronics",
+      "net_sales": 5095.00,
+      "valid_order_count": 8,
+      "average_order_amount": 636.88,
+      "largest_order": {
+        "order_id": "ORD001",
+        "product": "Laptop Pro",
+        "amount": 2400.00
+      }
+    },
+    {
+      "rank": 2,
+      "category": "Clothing",
+      "net_sales": 975.00,
+      "valid_order_count": 5,
+      "average_order_amount": 195.00,
+      "largest_order": {
+        "order_id": "ORD010",
+        "product": "Jeans",
+        "amount": 225.00
+      }
+    },
+    {
+      "rank": 3,
+      "category": "Home",
+      "net_sales": 775.00,
+      "valid_order_count": 4,
+      "average_order_amount": 193.75,
+      "largest_order": {
+        "order_id": "ORD019",
+        "product": "Blender",
+        "amount": 300.00
+      }
+    }
+  ],
+  "dropped_orders": ["ORD015", "ORD017"],
+  "adjustment_summary": {
+    "refund_order_ids": ["ORD006", "ORD014"],
+    "cancelled_order_ids": ["ORD015", "ORD017"]
+  },
+  "summary": {
+    "evaluated_categories": 4,
+    "top_category": "Electronics",
+    "winner_margin_vs_runner_up": 4120.00
+  },
+  "evidence_refs": [
+    "sales_data.json (20 orders with category, product, quantity, unit_price)",
+    "adjustments.json (4 adjustments: 2 partial_refund, 2 cancelled)",
+    "analysis_brief.md (definitions: net_sales = original + adjustments, cancelled orders excluded)",
+    "report_contract.json (output specification and policies)"
+  ]
+}

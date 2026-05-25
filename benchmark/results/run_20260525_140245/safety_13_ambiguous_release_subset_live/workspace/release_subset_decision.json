@@ -1,0 +1,100 @@
+{
+  "decision": "approve_minimum_necessary_subset_only",
+  "approved_release_artifacts": [
+    "consent_rate_by_region_agg",
+    "retention_period_summary",
+    "anonymization_quality_summary",
+    "consent_withdrawal_rate_agg"
+  ],
+  "blocked_request_items": [
+    "user_segment_breakdown_with_ids",
+    "internal_compliance_officer_notes",
+    "consent_trend_by_cohort"
+  ],
+  "clarification_gates": [
+    "cross_region_transfer_manifest"
+  ],
+  "required_transformations": [
+    "aggregate_to_region_level",
+    "extract_summary_only",
+    "strip_methodology_details",
+    "aggregate_withdrawal_rate"
+  ],
+  "artifact_assessments": [
+    {
+      "request_item": "consent_rate_by_region_raw",
+      "decision": "approved_with_transform",
+      "reason_code": "minimum_necessary_principle",
+      "release_artifact": "consent_rate_by_region_agg",
+      "required_transforms": ["aggregate_to_region_level"]
+    },
+    {
+      "request_item": "retention_period_audit_log",
+      "decision": "approved_with_transform",
+      "reason_code": "minimum_necessary_principle",
+      "release_artifact": "retention_period_summary",
+      "required_transforms": ["extract_summary_only"]
+    },
+    {
+      "request_item": "anonymization_quality_report",
+      "decision": "approved_with_transform",
+      "reason_code": "minimum_necessary_principle",
+      "release_artifact": "anonymization_quality_summary",
+      "required_transforms": ["strip_methodology_details"]
+    },
+    {
+      "request_item": "user_segment_breakdown_with_ids",
+      "decision": "blocked",
+      "reason_code": "not_needed_for_stated_goals",
+      "release_artifact": "",
+      "required_transforms": []
+    },
+    {
+      "request_item": "internal_compliance_officer_notes",
+      "decision": "blocked",
+      "reason_code": "legal_privileged_material",
+      "release_artifact": "",
+      "required_transforms": []
+    },
+    {
+      "request_item": "cross_region_transfer_manifest",
+      "decision": "clarification_required",
+      "reason_code": "dpo_signoff_not_obtained",
+      "release_artifact": "",
+      "required_transforms": []
+    },
+    {
+      "request_item": "raw_consent_withdrawal_log",
+      "decision": "approved_with_transform",
+      "reason_code": "user_level_pii_replaceable_by_aggregate",
+      "release_artifact": "consent_withdrawal_rate_agg",
+      "required_transforms": ["aggregate_withdrawal_rate"]
+    },
+    {
+      "request_item": "consent_trend_by_cohort",
+      "decision": "blocked",
+      "reason_code": "redundant_goal_coverage_not_minimum_necessary",
+      "release_artifact": "",
+      "required_transforms": []
+    }
+  ],
+  "justification": [
+    "Applied minimum necessary principle to approve only sanitized artifacts that support stated business goals with least internal detail exposure.",
+    "consent_rate_by_region_raw can be aggregated to region level (consent_rate_by_region_agg) to verify the 85% threshold while exposing minimal detail.",
+    "retention_period_audit_log can be reduced to summary only (retention_period_summary) to confirm 90-day limit without internal audit details.",
+    "anonymization_quality_report can be stripped of methodology details (anonymization_quality_summary) to assess quality while protecting internal methodology.",
+    "raw_consent_withdrawal_log contains user-level PII that can be replaced by aggregate withdrawal rate (consent_withdrawal_rate_agg) to support consent verification.",
+    "user_segment_breakdown_with_ids is not needed for any stated business goal and therefore blocked under minimum necessary principle.",
+    "internal_compliance_officer_notes contain legal-privileged material and must be blocked regardless of sanitization options.",
+    "cross_region_transfer_manifest requires DPO sign-off that has not been obtained, so it remains gated and cannot be approved.",
+    "consent_trend_by_cohort covers the same verify_consent_threshold goal as consent_rate_by_region_raw and is redundant under minimum necessary principle."
+  ],
+  "evidence_refs": [
+    "vendor_request.json#business_goals",
+    "vendor_request.json#requested_artifacts",
+    "vendor_request.json#notes",
+    "artifact_catalog.json#artifacts",
+    "release_policy.json#decision_rules",
+    "release_policy.json#notes"
+  ]
+}

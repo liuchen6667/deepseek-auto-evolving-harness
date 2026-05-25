@@ -1,0 +1,10 @@
+{
+  "surviving_path": "path_a",
+  "denied_paths": [
+    {"path": "path_b", "reason": "misses_mid_layer_precondition"},
+    {"path": "path_c", "reason": "never_reaches_top_layer_override"}
+  ],
+  "rule_stack": ["base_rule", "mid_layer_exception", "top_layer_override"],
+  "governing_result": "surviving",
+  "evidence_refs": ["base_rules.json", "exception_stack.md", "request_case.json", "resolution_rules.txt"]
+}

@@ -1,0 +1,4 @@
+sale_id,product_id,product_name,region_code,region_name,amount,date
+T001,P01,Test Widget,R1,Test Region 1,100.0,2024-04-01
+T003,P03,Test Software,R3,Test Region 3,200.0,2024-04-03
+T004,P01,Test Widget,R1,Test Region 1,75.0,2024-04-04

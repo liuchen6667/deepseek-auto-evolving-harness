@@ -1,0 +1,13 @@
+{
+  "selected_pipeline": ["glob_py_js", "exec_union_candidates", "read_validate_hits", "write_report"],
+  "estimated_total_seconds": 9,
+  "estimated_peak_memory_gb": 0.4,
+  "true_positive_files": ["src/auth/session.py", "src/config/local.py", "src/payments/stripe.py"],
+  "false_positive_files": ["src/api/client.js", "src/helpers/request.js", "src/internal/debug.js"],
+  "why_not_alternatives": {
+    "exec_serial_all_files": "time_too_high_36s_vs_9s",
+    "exec_union_all_files": "time_higher_14s_vs_9s_and_scans_unnecessary_8400_files",
+    "exec_batched_candidates": "time_higher_18s_vs_9s_and_memory_higher_0.5gb_vs_0.4gb"
+  },
+  "validation_rule": "true_positives_are_hardcoded_secrets_directly_assigned_in_source_or_bearer_token_values_written_into_logs; exclude_environment_variable_reads_comments_and_runtime_template_strings"
+}

@@ -1,0 +1,12 @@
+{
+  "selected_option": "checkpoint_restore_with_verified_replay",
+  "rejected_options": [
+    {"option": "full_restore_from_09_00", "reason": "数据风险高且优先客户窗口不OK，违反业务约束"},
+    {"option": "hot_patch_in_place", "reason": "数据风险高，违反数据风险必须保持低水平的业务约束"},
+    {"option": "traffic_shift_then_restore", "reason": "数据风险中等且优先客户窗口不OK，违反业务约束"}
+  ],
+  "staged_recovery_sequence": ["暂停新写入", "验证检查点完整性", "应用检查点恢复", "恢复新写入"],
+  "verification_focus": ["order_integrity", "priority_customer_checkout_path", "tax_calculation_contract"],
+  "governing_constraint": "Priority customers must recover within the bounded incident window, and data risk must stay low even if a slower option is required.",
+  "evidence_refs": ["incident_state.json", "recovery_options.json", "business_constraints.md", "verification_contract.json"]
+}

@@ -1,0 +1,12 @@
+{
+  "claim_assessments": [
+    {"claim_id": "C1", "status": "contradicted", "evidence": ["E1"]},
+    {"claim_id": "C2", "status": "contradicted", "evidence": ["E2"]},
+    {"claim_id": "C3", "status": "supported", "evidence": ["E3"]},
+    {"claim_id": "C4", "status": "contradicted", "evidence": ["E4"]},
+    {"claim_id": "C5", "status": "supported", "evidence": ["E1", "E4"]}
+  ],
+  "primary_incident_driver": "发布变更，可能是代码变更或配置变更导致支付超时",
+  "recommended_action": "加强发布前的供应商状态检查，并在发布过程中更早地监控支付相关指标，建立更快的回滚机制",
+  "notes": ["供应商问题在错误开始后2分钟才出现，可能是连锁反应而非根本原因", "网络丢包率很低(<=0.1%)，可以排除网络基础设施问题"]
+}

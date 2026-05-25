@@ -1,0 +1,24 @@
+{
+  "slot_plan": [
+    {"slot_start": 0, "task": "Z", "value_at_execution": 9},
+    {"slot_start": 5, "task": "X", "value_at_execution": 16},
+    {"slot_start": 10, "task": "A", "value_at_execution": 12},
+    {"slot_start": 15, "task": "B", "value_at_execution": 11},
+    {"slot_start": 20, "task": "C", "value_at_execution": 3}
+  ],
+  "total_value": 51,
+  "events_considered": [
+    "T+5: X价值翻倍为16（因为还没执行）",
+    "T+10: 新增P0任务A(12), B(11), C(3)",
+    "T+15: Y依赖取消变为可执行",
+    "T+20: Z降级变化不生效（因Z已执行）",
+    "严格遵循优先级规则：先执行最高优先级任务"
+  ],
+  "notes": [
+    "在[0,5)选择Z而不是X，因为Z价值更高(9>8)，为X价值翻倍留出机会",
+    "在[5,10)执行翻倍后的X(16)，最大化利用了动态变化",
+    "在[10,15)和[15,20)优先执行新增的P0任务A和B，因为P0优先级最高",
+    "Y(14)虽然价值高，但优先级为P1，始终低于P0任务，所以最后没执行",
+    "总价值51是通过优先执行高优先级任务并在同优先级内选价值最高实现的"
+  ]
+}

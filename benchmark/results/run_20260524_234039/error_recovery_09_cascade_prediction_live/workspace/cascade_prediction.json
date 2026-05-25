@@ -1,0 +1,7 @@
+{
+  "direct_impacts": ["B", "C", "F", "G", "H"],
+  "indirect_impacts": ["A"],
+  "risk_levels": {"A": "high", "B": "high", "C": "medium", "F": "high", "G": "medium", "H": "medium"},
+  "recovery_priority": ["E", "D", "B", "C", "F", "G", "H", "A"],
+  "notes": ["key_propagation_paths: D_outage_impacts_B_and_F; E_degradation_impacts_C_G_H; A_indirectly_affected_via_B_and_C", "mitigation_strategy: prioritize_E_recovery_to_mitigate_three_services_degradation_then_D_to_resolve_two_services_outage"]
+}

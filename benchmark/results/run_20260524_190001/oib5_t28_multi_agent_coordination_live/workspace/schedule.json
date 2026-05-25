@@ -1,0 +1,333 @@
+{
+  "schedule": {
+    "overview": {
+      "total_tasks": 10,
+      "total_agents": 5,
+      "expected_completion_time": 12,
+      "critical_path": ["task_001", "task_002", "task_003", "task_004", "task_005", "task_008", "task_010"],
+      "makespan_optimization": "Parallel execution with resource constraints"
+    },
+    "resource_constraints": {
+      "max_cpu": 100,
+      "max_memory": 100,
+      "max_bandwidth": 100,
+      "peak_usage": {
+        "cpu": 85,
+        "memory": 85,
+        "bandwidth": 90
+      }
+    },
+    "task_assignments": [
+      {
+        "task_id": "task_001",
+        "name": "Data Extraction",
+        "assigned_agent": "agent_002",
+        "agent_name": "Beta",
+        "start_time": 0,
+        "duration": 3,
+        "end_time": 3,
+        "priority": "high",
+        "resources": {
+          "cpu": 15,
+          "memory": 20,
+          "bandwidth": 30
+        },
+        "justification": "Beta has both data_processing and network_io capabilities, efficiency 0.9 but can handle concurrent tasks"
+      },
+      {
+        "task_id": "task_002",
+        "name": "Data Validation",
+        "assigned_agent": "agent_003",
+        "agent_name": "Gamma",
+        "start_time": 3,
+        "duration": 2,
+        "end_time": 5,
+        "priority": "high",
+        "resources": {
+          "cpu": 10,
+          "memory": 15,
+          "bandwidth": 5
+        },
+        "justification": "Gamma has validation capability with highest efficiency (1.1), task_002 depends on task_001"
+      },
+      {
+        "task_id": "task_003",
+        "name": "Data Transformation",
+        "assigned_agent": "agent_001",
+        "agent_name": "Alpha",
+        "start_time": 5,
+        "duration": 4,
+        "end_time": 9,
+        "priority": "medium",
+        "resources": {
+          "cpu": 25,
+          "memory": 30,
+          "bandwidth": 10
+        },
+        "justification": "Alpha has data_processing capability, task_003 depends on task_002"
+      },
+      {
+        "task_id": "task_004",
+        "name": "Encryption",
+        "assigned_agent": "agent_004",
+        "agent_name": "Delta",
+        "start_time": 9,
+        "duration": 3,
+        "end_time": 12,
+        "priority": "high",
+        "resources": {
+          "cpu": 30,
+          "memory": 20,
+          "bandwidth": 5
+        },
+        "justification": "Delta has encryption capability, task_004 depends on task_003"
+      },
+      {
+        "task_id": "task_005",
+        "name": "Compression",
+        "assigned_agent": "agent_004",
+        "agent_name": "Delta",
+        "start_time": 12,
+        "duration": 2,
+        "end_time": 14,
+        "priority": "medium",
+        "resources": {
+          "cpu": 20,
+          "memory": 25,
+          "bandwidth": 5
+        },
+        "justification": "Delta also has compression capability, task_005 depends on task_004, Delta can handle sequential tasks"
+      },
+      {
+        "task_id": "task_006",
+        "name": "Quality Analysis",
+        "assigned_agent": "agent_003",
+        "agent_name": "Gamma",
+        "start_time": 5,
+        "duration": 3,
+        "end_time": 8,
+        "priority": "medium",
+        "resources": {
+          "cpu": 15,
+          "memory": 20,
+          "bandwidth": 10
+        },
+        "justification": "Gamma has analysis capability with high efficiency (1.1), task_006 depends on task_002 only, can run in parallel with task_003"
+      },
+      {
+        "task_id": "task_007",
+        "name": "Report Generation",
+        "assigned_agent": "agent_005",
+        "agent_name": "Epsilon",
+        "start_time": 8,
+        "duration": 2,
+        "end_time": 10,
+        "priority": "low",
+        "resources": {
+          "cpu": 10,
+          "memory": 15,
+          "bandwidth": 5
+        },
+        "justification": "Epsilon has reporting capability, task_007 depends on task_006"
+      },
+      {
+        "task_id": "task_008",
+        "name": "Archival",
+        "assigned_agent": "agent_004",
+        "agent_name": "Delta",
+        "start_time": 14,
+        "duration": 3,
+        "end_time": 17,
+        "priority": "low",
+        "resources": {
+          "cpu": 15,
+          "memory": 20,
+          "bandwidth": 20
+        },
+        "justification": "Delta has archival and compression capabilities, task_008 depends on task_005"
+      },
+      {
+        "task_id": "task_009",
+        "name": "Network Transfer",
+        "assigned_agent": "agent_002",
+        "agent_name": "Beta",
+        "start_time": 14,
+        "duration": 4,
+        "end_time": 18,
+        "priority": "medium",
+        "resources": {
+          "cpu": 10,
+          "memory": 10,
+          "bandwidth": 50
+        },
+        "justification": "Beta has network_io capability, task_009 depends on task_005, Beta has high bandwidth capacity"
+      },
+      {
+        "task_id": "task_010",
+        "name": "Final Validation",
+        "assigned_agent": "agent_003",
+        "agent_name": "Gamma",
+        "start_time": 18,
+        "duration": 3,
+        "end_time": 21,
+        "priority": "high",
+        "resources": {
+          "cpu": 20,
+          "memory": 25,
+          "bandwidth": 10
+        },
+        "justification": "Gamma has both validation and analysis capabilities with highest efficiency (1.1), task_010 depends on task_007, task_008, task_009"
+      }
+    ],
+    "agent_workload": [
+      {
+        "agent_id": "agent_001",
+        "agent_name": "Alpha",
+        "assigned_tasks": ["task_003"],
+        "total_work_time": 4,
+        "concurrent_usage": 1,
+        "max_concurrent": 2,
+        "utilization": "50%"
+      },
+      {
+        "agent_id": "agent_002",
+        "agent_name": "Beta",
+        "assigned_tasks": ["task_001", "task_009"],
+        "total_work_time": 7,
+        "concurrent_usage": 1,
+        "max_concurrent": 3,
+        "utilization": "33%"
+      },
+      {
+        "agent_id": "agent_003",
+        "agent_name": "Gamma",
+        "assigned_tasks": ["task_002", "task_006", "task_010"],
+        "total_work_time": 8,
+        "concurrent_usage": 1,
+        "max_concurrent": 2,
+        "utilization": "50%"
+      },
+      {
+        "agent_id": "agent_004",
+        "agent_name": "Delta",
+        "assigned_tasks": ["task_004", "task_005", "task_008"],
+        "total_work_time": 8,
+        "concurrent_usage": 1,
+        "max_concurrent": 2,
+        "utilization": "50%"
+      },
+      {
+        "agent_id": "agent_005",
+        "agent_name": "Epsilon",
+        "assigned_tasks": ["task_007"],
+        "total_work_time": 2,
+        "concurrent_usage": 1,
+        "max_concurrent": 3,
+        "utilization": "33%"
+      }
+    ],
+    "timeline_summary": {
+      "time_0_3": {
+        "active_tasks": ["task_001"],
+        "resource_usage": {
+          "cpu": 15,
+          "memory": 20,
+          "bandwidth": 30
+        }
+      },
+      "time_3_5": {
+        "active_tasks": ["task_002"],
+        "resource_usage": {
+          "cpu": 10,
+          "memory": 15,
+          "bandwidth": 5
+        }
+      },
+      "time_5_8": {
+        "active_tasks": ["task_003", "task_006"],
+        "resource_usage": {
+          "cpu": 40,
+          "memory": 50,
+          "bandwidth": 20
+        }
+      },
+      "time_8_9": {
+        "active_tasks": ["task_003", "task_007"],
+        "resource_usage": {
+          "cpu": 35,
+          "memory": 45,
+          "bandwidth": 15
+        }
+      },
+      "time_9_10": {
+        "active_tasks": ["task_004", "task_007"],
+        "resource_usage": {
+          "cpu": 40,
+          "memory": 35,
+          "bandwidth": 10
+        }
+      },
+      "time_10_12": {
+        "active_tasks": ["task_004"],
+        "resource_usage": {
+          "cpu": 30,
+          "memory": 20,
+          "bandwidth": 5
+        }
+      },
+      "time_12_14": {
+        "active_tasks": ["task_005"],
+        "resource_usage": {
+          "cpu": 20,
+          "memory": 25,
+          "bandwidth": 5
+        }
+      },
+      "time_14_17": {
+        "active_tasks": ["task_008", "task_009"],
+        "resource_usage": {
+          "cpu": 25,
+          "memory": 30,
+          "bandwidth": 70
+        }
+      },
+      "time_17_18": {
+        "active_tasks": ["task_009"],
+        "resource_usage": {
+          "cpu": 10,
+          "memory": 10,
+          "bandwidth": 50
+        }
+      },
+      "time_18_21": {
+        "active_tasks": ["task_010"],
+        "resource_usage": {
+          "cpu": 20,
+          "memory": 25,
+          "bandwidth": 10
+        }
+      }
+    },
+    "optimization_notes": [
+      "1. 关键路径优化：最长依赖链从task_001到task_010，总时间21个单位",
+      "2. 并行执行：task_006与task_003并行，减少总时间",
+      "3. 负载均衡：所有agent都有任务分配，没有过度负载",
+      "4. 能力匹配：每个任务都分配给具有所需能力的agent",
+      "5. 资源约束：所有时间段资源使用都在限制范围内（CPU≤85，内存≤85，带宽≤90）",
+      "6. 优先级处理：高优先级任务优先调度",
+      "7. 失败恢复策略：每个agent都有备用能力，如果某个agent失败，任务可以重新分配给其他有相同能力的agent"
+    ],
+    "alternative_assignments": {
+      "task_001": "也可分配给agent_001（如果agent_002失败）",
+      "task_002": "也可分配给agent_001（如果agent_003失败）",
+      "task_003": "也可分配给agent_002（如果agent_001失败）",
+      "task_004": "也可分配给agent_002（如果agent_004失败）",
+      "task_005": "也可分配给agent_001（如果agent_004失败）",
+      "task_006": "也可分配给agent_005（如果agent_003失败）",
+      "task_007": "也可分配给agent_003（如果agent_005失败）",
+      "task_008": "也可分配给agent_001+agent_004组合（如果单个agent失败）",
+      "task_009": "也可分配给agent_005（如果agent_002失败）",
+      "task_010": "也可分配给agent_001+agent_003组合（如果单个agent失败）"
+    }
+  }
+}

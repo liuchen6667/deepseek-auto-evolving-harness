@@ -1,0 +1,62 @@
+{
+  "recommended_database": "PostgreSQL",
+  "recommended_version": "14.2",
+  "primary_rationale": "postgresql_best_matches_financial_acid_workload_with_proven_transaction_performance",
+  "project_findings": {
+    "project_alpha": {
+      "database": "PostgreSQL 14.2",
+      "peak_tps": 12500,
+      "pooled_stable_tps": 8000,
+      "direct_connection_limit": 500
+    },
+    "project_beta": {
+      "database": "MongoDB 6.0",
+      "inconsistent_records": 3420,
+      "transaction_latency_penalty": "3-5x",
+      "decision": "reject_for_financial_core"
+    },
+    "project_gamma": {
+      "database": "MySQL 8.0",
+      "concurrent_sessions": 200000,
+      "write_contention_threshold": 6000,
+      "decision": "secondary_option_not_primary"
+    }
+  },
+  "risks": [
+    {
+      "risk": "connection_pooling_required",
+      "mitigation": "pgbouncer_and_limit_direct_connections_to_500"
+    },
+    {
+      "risk": "large_table_maintenance",
+      "mitigation": "partition_large_tables_early_and_monitor_vacuum"
+    },
+    {
+      "risk": "future_write_scale_beyond_single_node",
+      "mitigation": "vertical_scale_first_then_plan_sharding"
+    }
+  ],
+  "performance_expectation": {
+    "steady_state_tps": 4800,
+    "pooled_peak_tps": 8000,
+    "p99_latency_ms": 50
+  },
+  "rejected_options": [
+    {
+      "database": "MongoDB 6.0",
+      "reason": "network_partition_inconsistency_and_3_to_5x_transaction_latency_penalty"
+    },
+    {
+      "database": "MySQL 8.0",
+      "reason": "row_level_lock_contention_above_6000_concurrent_writes"
+    }
+  ],
+  "evidence_refs": [
+    "project_alpha/README.md",
+    "project_alpha/performance_report.md",
+    "project_beta/README.md",
+    "project_beta/issues.md",
+    "project_gamma/README.md",
+    "project_gamma/migration_lessons.md"
+  ]
+}

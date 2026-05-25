@@ -1,0 +1,37 @@
+{
+  "id": "error_recovery_19_recovery_guardrail_order_live",
+  "score": 0.33333333333333337,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "order": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['freeze_writes', 'restore_last_clean_config', 'reopen_safe_traffic', 'replay_backlog_immediately', 'reopen_all_traffic']"
+    },
+    "blocked": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'action': 'skip_write_freeze', 'reason': \"Skipping write freeze violates the 'stabilize_state_before_reintroducing_risk' guardrail by allowing ongoing corruption during recovery\"}]"
+    },
+    "guard": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "stabilize_state_before_reintroducing_risk"
+    },
+    "why": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['Risk mitigation: freeze_writes first prevents ongoing corruption, aligning with system_risks.md warning about early traffic reintroduction', 'Dependency ordering: restore_last_clean_config must precede any traffic reintroduction to establish a stable baseline', 'Goal protection: gradual traffic reopening (safe then all) ensures safe_service_return by minimizing reintroduced risk']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['recovery_actions.json', 'system_risks.md', 'guardrail_order.yaml', 'incident_goal.json']"
+    }
+  }
+}

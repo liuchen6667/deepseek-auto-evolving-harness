@@ -1,0 +1,34 @@
+{
+  "direct_impacts": [
+    "B",
+    "C",
+    "F",
+    "G",
+    "H"
+  ],
+  "indirect_impacts": [
+    "A"
+  ],
+  "risk_levels": {
+    "A": "high",
+    "B": "high",
+    "C": "medium",
+    "F": "high",
+    "G": "medium",
+    "H": "medium"
+  },
+  "recovery_priority": [
+    "E",
+    "D",
+    "B",
+    "C",
+    "F",
+    "G",
+    "H",
+    "A"
+  ],
+  "notes": [
+    "\u5173\u952e\u4f20\u64ad\u94fe\u8def1: D\u505c\u673a\u76f4\u63a5\u5f71\u54cdB\u548cF\uff0cB\u6545\u969c\u8fdb\u4e00\u6b65\u5bfc\u81f4A\u95f4\u63a5\u53d7\u5f71\u54cd",
+    "\u5173\u952e\u4f20\u64ad\u94fe\u8def2: E\u964d\u7ea7\u76f4\u63a5\u5f71\u54cdC\u3001G\u548cH\uff0cC\u6027\u80fd\u4e0b\u964d\u8fdb\u4e00\u6b65\u5bfc\u81f4A\u95f4\u63a5\u53d7\u5f71\u54cd"
+  ]
+}

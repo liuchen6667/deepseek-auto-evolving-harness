@@ -1,0 +1,47 @@
+{
+  "id": "constraints_05_release_gate_live",
+  "score": 0.52,
+  "passed": false,
+  "checkpoints": {
+    "decision_file_exists": {
+      "score": 0.08,
+      "max": 0.08,
+      "detail": "release_decision.json exists"
+    },
+    "decision_is_no_go": {
+      "score": 0.16,
+      "max": 0.16,
+      "detail": "decision='no_go'"
+    },
+    "windows_are_correct": {
+      "score": 0.06,
+      "max": 0.16,
+      "detail": "requested='2026-04-17 19:30-20:30 UTC' recommended='2026-05-25 09:00-11:00 UTC'"
+    },
+    "blockers_are_complete": {
+      "score": 0.08,
+      "max": 0.16,
+      "detail": "1/2 required blockers found"
+    },
+    "missing_approvals_are_complete": {
+      "score": 0.14,
+      "max": 0.14,
+      "detail": "missing_approvals=['security']"
+    },
+    "justification_mentions_dba": {
+      "score": 0.0,
+      "max": 0.12,
+      "detail": "missing DBA fallback rationale"
+    },
+    "risk_level_identified": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "risk_level='' expected='high'"
+    },
+    "weekend_window_rejected": {
+      "score": 0.0,
+      "max": 0.08,
+      "detail": "weekend_rejected=False"
+    }
+  }
+}

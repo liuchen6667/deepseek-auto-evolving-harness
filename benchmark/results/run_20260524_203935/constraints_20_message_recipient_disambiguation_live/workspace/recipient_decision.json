@@ -1,0 +1,7 @@
+{
+  "thread_id": "t-100",
+  "selected_handle": "@alex-release",
+  "selected_channel": "telegram",
+  "rejected_candidates": ["@alex-design"],
+  "reason": "The policy requires using last_confirmed_target as the final target, which is @alex-release (team: release). The rejected candidate @alex-design (team: design) has the same name but is from a different team, making them unsuitable for the release approval follow-up topic requiring release approval packet context."
+}

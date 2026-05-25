@@ -1,0 +1,15 @@
+{
+  "claim_assessments": [
+    {"claim_id": "C1", "status": "contradicted", "evidence": ["E1"]},
+    {"claim_id": "C2", "status": "contradicted", "evidence": ["E2"]},
+    {"claim_id": "C3", "status": "supported", "evidence": ["E3"]},
+    {"claim_id": "C4", "status": "contradicted", "evidence": ["E4"]},
+    {"claim_id": "C5", "status": "supported", "evidence": ["E1", "E4"]}
+  ],
+  "primary_incident_driver": "发布变更（首次支付超时出现在发布后7分钟，早于供应商问题）",
+  "recommended_action": "1. 继续使用回滚作为恢复措施；2. 深入分析发布中的支付相关变更；3. 与供应商确认问题时间线是否准确",
+  "notes": [
+    "供应商状态页显示 degraded 时间（10:09）晚于首次支付超时（10:07），但状态页更新可能有延迟",
+    "网络监控显示丢包率正常（<=0.1%），排除网络基础设施问题"
+  ]
+}

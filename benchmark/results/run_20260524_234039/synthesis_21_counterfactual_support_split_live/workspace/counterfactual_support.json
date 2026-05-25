@@ -1,0 +1,11 @@
+{
+  "winning_hypothesis": "hyp_a",
+  "rejected_hypotheses": [
+    {"hypothesis": "hyp_b", "reason": "trigger_after_incident_onset"},
+    {"hypothesis": "hyp_c", "reason": "rollback_irrelevant_despite_timing"}
+  ],
+  "conflict_chain": ["hyp_b_requires_earlier_vendor_degradation", "E3_shows_no_vendor_degraded_notice_before_10_05", "hyp_b_violates_temporal_order"],
+  "negative_evidence": ["E3", "E4"],
+  "governing_rule": "rule_1",
+  "evidence_refs": ["E1", "E2", "E3", "E4"]
+}

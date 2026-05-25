@@ -1,0 +1,33 @@
+{
+  "scheduled_order": [
+    {"slot": 0, "transaction_id": "tx101"},
+    {"slot": 1, "transaction_id": "tx103"},
+    {"slot": 2, "transaction_id": "tx102"},
+    {"slot": 3, "transaction_id": "tx105"},
+    {"slot": 4, "transaction_id": "tx104"},
+    {"slot": 5, "transaction_id": "tx106"},
+    {"slot": 6, "transaction_id": "tx100"}
+  ],
+  "rejected_transactions": [
+    {"transaction_id": "tx107", "reason": "dependency_cycle"},
+    {"transaction_id": "tx108", "reason": "dependency_cycle"}
+  ],
+  "total_completion_seconds": 7,
+  "resolution_notes": [
+    "tx103_before_tx100_due_large_before_small_rule",
+    "tx102_waited_until_slot_2_due_same_user_order_and_side_gap_after_tx101",
+    "tx105_took_slot_3_due_earliest_latest_start",
+    "tx104_before_tx106_due_dependency",
+    "tx107_and_tx108_rejected_due_dependency_cycle"
+  ],
+  "evidence_refs": [
+    "transactions.json:tx101",
+    "transactions.json:tx102",
+    "transactions.json:tx104",
+    "transactions.json:tx105",
+    "transactions.json:tx106",
+    "transactions.json:tx107",
+    "transactions.json:tx108",
+    "policy.json:hard_rules"
+  ]
+}

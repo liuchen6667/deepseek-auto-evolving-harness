@@ -1,0 +1,72 @@
+{
+  "id": "oib5_t25_etl_pipeline",
+  "score": 0.1188118811881188,
+  "passed": false,
+  "checkpoints": {
+    "etl_exists": {
+      "score": 0.01,
+      "max": 0.01,
+      "detail": "etl.py exists"
+    },
+    "rerun_success": {
+      "score": 0.0,
+      "max": 0.02,
+      "detail": "Starting ETL pipeline...\n1. Extracting data from source files...\n   - Sales data: 15 rows\n   - Products data: 3 rows\n   - Regions data: 3 regions\n2. Transforming and cleaning data...\n3. Loading cleaned data...\nTraceback (most recent call last):\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmp7dg18ywd/etl.py\", line 227, in <module>\n    main()\n    ~~~~^^\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmp7dg18ywd/etl.py\", line 210, in main\n    output_path = load(cleaned_df)\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmp7dg18ywd/etl.py\", line 150, in load\n    cleaned_df.to_csv(output_path, index=False)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/util/_decorators.py\", line 333, in wrapper\n    return func(*args, **kwargs)\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/core/generic.py\", line 3986, in to_csv\n    return DataFrameRenderer(formatter).to_csv(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        path_or_buf,\n        ^^^^^^^^^^^^\n    ...<14 lines>...\n        storage_options=storage_options,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/formats/format.py\", line 1014, in to_csv\n    csv_formatter.save()\n    ~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/formats/csvs.py\", line 251, in save\n    with get_handle(\n         ~~~~~~~~~~^\n        self.filepath_or_buffer,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n        storage_options=self.storage_options,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ) as handles:\n    ^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/common.py\", line 749, in get_handle\n    check_parent_directory(str(handle))\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/common.py\", line 616, in check_parent_directory\n    raise OSError(rf\"Cannot save file into a non-existent directory: '{parent}'\")\nOSError: Cannot save file into a non-existent directory: 'output'"
+    },
+    "repeatable_with_existing_output": {
+      "score": 0.0,
+      "max": 0.03,
+      "detail": "initial run failed: Starting ETL pipeline...\n1. Extracting data from source files...\n   - Sales data: 15 rows\n   - Products data: 3 rows\n   - Regions data: 3 regions\n2. Transforming and cleaning data...\n3. Loading cleaned data...\nTraceback (most recent call last):\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmpv7hsc99z/etl.py\", line 227, in <module>\n    main()\n    ~~~~^^\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmpv7hsc99z/etl.py\", line 210, in main\n    output_path = load(cleaned_df)\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmpv7hsc99z/etl.py\", line 150, in load\n    cleaned_df.to_csv(output_path, index=False)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/util/_decorators.py\", line 333, in wrapper\n    return func(*args, **kwargs)\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/core/generic.py\", line 3986, in to_csv\n    return DataFrameRenderer(formatter).to_csv(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        path_or_buf,\n        ^^^^^^^^^^^^\n    ...<14 lines>...\n        storage_options=storage_options,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/formats/format.py\", line 1014, in to_csv\n    csv_formatter.save()\n    ~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/formats/csvs.py\", line 251, in save\n    with get_handle(\n         ~~~~~~~~~~^\n        self.filepath_or_buffer,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n        storage_options=self.storage_options,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ) as handles:\n    ^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/common.py\", line 749, in get_handle\n    check_parent_directory(str(handle))\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/common.py\", line 616, in check_parent_directory\n    raise OSError(rf\"Cannot save file into a non-existent directory: '{parent}'\")\nOSError: Cannot save file into a non-existent directory: 'output'"
+    },
+    "clean_rows_exact": {
+      "score": 0.0,
+      "max": 0.06,
+      "detail": "0/11 clean rows match expected values"
+    },
+    "joins_and_normalization": {
+      "score": 0.06,
+      "max": 0.06,
+      "detail": "joined names and normalized dates"
+    },
+    "no_duplicates": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "unique sale_ids only"
+    },
+    "quality_report": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "0/5 quality fields exact"
+    },
+    "variant_generalization": {
+      "score": 0.0,
+      "max": 0.12,
+      "detail": "0/5 hidden-variant rows exact (Starting ETL pipeline...\n1. Extracting data from source files...\n   - Sales data: 7 rows\n   - Products data: 3 rows\n   - Regions data: 3 regions\n2. Transforming and cleaning data...\n3. Loading cleaned data...\nTraceback (most recent call last):\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmp3aeqg0i2/etl.py\", line 227, in <module>\n    main()\n    ~~~~^^\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmp3aeqg0i2/etl.py\", line 210, in main\n    output_path = load(cleaned_df)\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmp3aeqg0i2/etl.py\", line 150, in load\n    cleaned_df.to_csv(output_path, index=False)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/util/_decorators.py\", line 333, in wrapper\n    return func(*args, **kwargs)\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/core/generic.py\", line 3986, in to_csv\n    return DataFrameRenderer(formatter).to_csv(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        path_or_buf,\n        ^^^^^^^^^^^^\n    ...<14 lines>...\n        storage_options=storage_options,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/formats/format.py\", line 1014, in to_csv\n    csv_formatter.save()\n    ~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/formats/csvs.py\", line 251, in save\n    with get_handle(\n         ~~~~~~~~~~^\n        self.filepath_or_buffer,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n        storage_options=self.storage_options,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ) as handles:\n    ^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/common.py\", line 749, in get_handle\n    check_parent_directory(str(handle))\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/common.py\", line 616, in check_parent_directory\n    raise OSError(rf\"Cannot save file into a non-existent directory: '{parent}'\")\nOSError: Cannot save file into a non-existent directory: 'output')"
+    },
+    "variant_quality_report": {
+      "score": 0.0,
+      "max": 0.08,
+      "detail": "0/5 hidden-variant quality fields exact"
+    },
+    "edge_variant_generalization": {
+      "score": 0.0,
+      "max": 0.12,
+      "detail": "0/5 hidden edge-variant rows exact (Starting ETL pipeline...\n1. Extracting data from source files...\n   - Sales data: 8 rows\n   - Products data: 3 rows\n   - Regions data: 3 regions\n2. Transforming and cleaning data...\n3. Loading cleaned data...\nTraceback (most recent call last):\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmp6g7csqln/etl.py\", line 227, in <module>\n    main()\n    ~~~~^^\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmp6g7csqln/etl.py\", line 210, in main\n    output_path = load(cleaned_df)\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmp6g7csqln/etl.py\", line 150, in load\n    cleaned_df.to_csv(output_path, index=False)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/util/_decorators.py\", line 333, in wrapper\n    return func(*args, **kwargs)\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/core/generic.py\", line 3986, in to_csv\n    return DataFrameRenderer(formatter).to_csv(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        path_or_buf,\n        ^^^^^^^^^^^^\n    ...<14 lines>...\n        storage_options=storage_options,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/formats/format.py\", line 1014, in to_csv\n    csv_formatter.save()\n    ~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/formats/csvs.py\", line 251, in save\n    with get_handle(\n         ~~~~~~~~~~^\n        self.filepath_or_buffer,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n        storage_options=self.storage_options,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ) as handles:\n    ^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/common.py\", line 749, in get_handle\n    check_parent_directory(str(handle))\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/common.py\", line 616, in check_parent_directory\n    raise OSError(rf\"Cannot save file into a non-existent directory: '{parent}'\")\nOSError: Cannot save file into a non-existent directory: 'output')"
+    },
+    "edge_variant_quality_report": {
+      "score": 0.0,
+      "max": 0.16,
+      "detail": "0/5 hidden edge-variant quality fields exact"
+    },
+    "stress_variant_generalization": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "0/5 hidden stress-variant rows exact (Starting ETL pipeline...\n1. Extracting data from source files...\n   - Sales data: 9 rows\n   - Products data: 3 rows\n   - Regions data: 3 regions\n2. Transforming and cleaning data...\n3. Loading cleaned data...\nTraceback (most recent call last):\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmp35lcq3xt/etl.py\", line 227, in <module>\n    main()\n    ~~~~^^\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmp35lcq3xt/etl.py\", line 210, in main\n    output_path = load(cleaned_df)\n  File \"/private/var/folders/n1/9byf96vj7l12zw2n3ckqs3d80000gn/T/tmp35lcq3xt/etl.py\", line 150, in load\n    cleaned_df.to_csv(output_path, index=False)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/util/_decorators.py\", line 333, in wrapper\n    return func(*args, **kwargs)\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/core/generic.py\", line 3986, in to_csv\n    return DataFrameRenderer(formatter).to_csv(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        path_or_buf,\n        ^^^^^^^^^^^^\n    ...<14 lines>...\n        storage_options=storage_options,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/formats/format.py\", line 1014, in to_csv\n    csv_formatter.save()\n    ~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/formats/csvs.py\", line 251, in save\n    with get_handle(\n         ~~~~~~~~~~^\n        self.filepath_or_buffer,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n        storage_options=self.storage_options,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ) as handles:\n    ^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/common.py\", line 749, in get_handle\n    check_parent_directory(str(handle))\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.13/site-packages/pandas/io/common.py\", line 616, in check_parent_directory\n    raise OSError(rf\"Cannot save file into a non-existent directory: '{parent}'\")\nOSError: Cannot save file into a non-existent directory: 'output')"
+    },
+    "stress_variant_quality_report": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "0/5 hidden stress-variant quality fields exact"
+    }
+  }
+}

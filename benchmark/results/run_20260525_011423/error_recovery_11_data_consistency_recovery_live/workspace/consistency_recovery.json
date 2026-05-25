@@ -1,0 +1,33 @@
+{
+  "canonical_sources": {
+    "orders": "A",
+    "inventory": ["A", "operations.log"]
+  },
+  "orders_missing_in_B": [705, 706],
+  "orders_extra_in_C": [799],
+  "inventory_fix": {
+    "replica": "C",
+    "expected_value": 100
+  },
+  "root_causes": {
+    "B_orders": "replication_lag",
+    "C_orders": "missed_rollback",
+    "C_inventory": "duplicate_replay"
+  },
+  "repair_sequence": [
+    "Sync missing orders 705,706 from A to B",
+    "Remove rolled-back order 799 from C",
+    "Correct inventory.sku_77 value on C from 112 to 100"
+  ],
+  "verification_steps": [
+    "Verify all replicas have orders [701,702,703,704,705,706] only",
+    "Confirm inventory.sku_77 = 100 on all replicas",
+    "Check replication lag is resolved and no isolation events pending",
+    "Validate no duplicate or missing operations in operations.log"
+  ],
+  "notes": [
+    "Primary A is authoritative for orders as it's latest and not isolated",
+    "Inventory correction at 10:05 on A establishes canonical value 100",
+    "C's isolation during maintenance caused missed rollback and duplicate replay"
+  ]
+}

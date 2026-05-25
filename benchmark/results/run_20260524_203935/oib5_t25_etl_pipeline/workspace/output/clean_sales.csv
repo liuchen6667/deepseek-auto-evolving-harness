@@ -1,0 +1,13 @@
+sale_id,product_id,product_name,region_code,region_name,amount,date
+S006,P01,Widget Pro,R2,Europe,75.0,03/05/2024
+S010,P03,DataHub,R1,North America,95.0,03/08/2024
+S001,P01,Widget Pro,R1,North America,150.0,2024-03-01
+S003,P01,Widget Pro,R1,North America,150.0,2024-03-01
+S002,P02,Gadget X,R2,Europe,89.5,2024-03-02
+S005,P02,Gadget X,R1,North America,200.0,2024-03-04
+S007,P03,DataHub,R3,Asia Pacific,320.0,2024-03-05
+S009,P01,Widget Pro,R2,Europe,180.0,2024-03-07
+S011,P02,Gadget X,R3,Asia Pacific,110.0,2024-03-08
+,,,,,,2024-03-08
+S012,P01,Widget Pro,R1,North America,250.0,2024-03-09
+S013,P03,DataHub,R2,Europe,145.0,2024-03-10

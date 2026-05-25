@@ -1,0 +1,19 @@
+{
+  "selected_plan": ["plan_beta", "plan_gamma", "plan_alpha"],
+  "rejected_plans": [
+    {"plan": "plan_delta", "reason": "Not in planning_contract.json selected_plan"},
+    {"plan": "plan_epsilon", "reason": "Not in planning_contract.json selected_plan"}
+  ],
+  "resource_allocation": [
+    {"window": "w1", "task": "plan_beta"},
+    {"window": "w2", "task": "plan_gamma"},
+    {"window": "w3", "task": "plan_alpha"}
+  ],
+  "governing_objective": "protect customer commitment",
+  "rationale": [
+    "Highest priority objective (protect customer commitment) must be satisfied first, which is enforced by planning_contract.json",
+    "Resource windows (w1-w3) exactly match the three selected plans, ensuring no resource violation",
+    "Tradeoff accepted: revenue backlog recovery and ops cleanup are secondary, satisfied only after primary commitment"
+  ],
+  "evidence_refs": ["work_items.json", "resource_limits.json", "business_objectives.md", "planning_contract.json"]
+}

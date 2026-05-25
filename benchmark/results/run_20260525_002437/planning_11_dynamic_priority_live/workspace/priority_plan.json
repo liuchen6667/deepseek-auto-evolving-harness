@@ -1,0 +1,20 @@
+{
+  "slot_plan": [
+    {"slot_start": 0, "task": "Z", "value_at_execution": 9},
+    {"slot_start": 5, "task": "X", "value_at_execution": 16},
+    {"slot_start": 10, "task": "A", "value_at_execution": 12},
+    {"slot_start": 15, "task": "B", "value_at_execution": 11},
+    {"slot_start": 20, "task": "C", "value_at_execution": 3}
+  ],
+  "total_value": 51,
+  "events_considered": [
+    "T+5: X value doubled to 16 if not executed",
+    "T+10: New tasks A(P0,12), B(P0,11), C(P0,3) added",
+    "T+15: Y's dependency removed, becomes executable",
+    "T+20: Z downgraded to P2 value=1 if not executed (but Z already executed at slot 0)"
+  ],
+  "notes": [
+    "Priority rule strictly followed: must execute highest priority tasks first. At slot 15-20, chose B(P0,11) over Y(P1,14) even though Y has higher value, because P0 > P1.",
+    "Maximized value within same priority: At slot 0-5, chose Z(9) over X(8); at slot 10-15, chose A(12) over B(11) and C(3); at slot 15-20, chose B(11) over C(3)."
+  ]
+}

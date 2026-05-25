@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_21_counterfactual_support_split_live",
+  "score": 0.2777777777777778,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "win": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "hyp_a"
+    },
+    "rej": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "[{'hypothesis': 'hyp_b', 'reason': 'trigger_after_incident_onset'}, {'hypothesis': 'hyp_c', 'reason': 'rollback_irrelevant_despite_timing'}]"
+    },
+    "chain": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['hyp_b_requires_earlier_vendor_degradation', 'E3_shows_no_vendor_degraded_notice_before_10_05', 'hyp_b_violates_temporal_order']"
+    },
+    "neg": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['E3', 'E4']"
+    },
+    "rule": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "rule_1"
+    },
+    "refs": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "['E1', 'E2', 'E3', 'E4']"
+    }
+  }
+}

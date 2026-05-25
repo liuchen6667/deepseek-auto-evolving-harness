@@ -1,0 +1,44 @@
+{
+  "execution_order": [
+    "t1",
+    "t2",
+    "t3",
+    "t6",
+    "t4",
+    "t5"
+  ],
+  "critical_path_task_ids": [
+    "t1",
+    "t3",
+    "t4",
+    "t5"
+  ],
+  "critical_path_minutes": 110,
+  "has_cycle": false,
+  "parallel_groups": [
+    [
+      "t1"
+    ],
+    [
+      "t2",
+      "t3"
+    ],
+    [
+      "t6"
+    ],
+    [
+      "t4"
+    ],
+    [
+      "t5"
+    ]
+  ],
+  "earliest_start_minutes": {
+    "t1": 0,
+    "t2": 30,
+    "t3": 30,
+    "t6": 50,
+    "t4": 55,
+    "t5": 70
+  }
+}

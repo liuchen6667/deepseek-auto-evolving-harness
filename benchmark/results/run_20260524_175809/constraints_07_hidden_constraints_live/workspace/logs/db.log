@@ -1,0 +1,8 @@
+2024-05-24 10:15:23 INFO: Database connection pool initialized with max 10 connections
+2024-05-24 10:15:45 WARNING: Large query result truncated from 1250 to 1000 rows
+2024-05-24 10:16:10 ERROR: Cannot acquire connection from pool, all 10 connections in use
+2024-05-24 10:16:30 INFO: Connection released back to pool, available: 3/10
+2024-05-24 10:17:05 INFO: Query executed in 1.5s, returned 800 rows
+2024-05-24 10:17:45 INFO: Query executed in 0.8s, returned 100 rows
+2024-05-24 10:18:20 INFO: Query timeout after 30s, cancelled
+2024-05-24 10:19:15 INFO: Connection pool stats: active=8, idle=2, total=10

@@ -1,0 +1,62 @@
+{
+  "database": {
+    "max_connections": 10,
+    "connection_timeout": 30,
+    "statement_timeout": 5000,
+    "idle_in_transaction_timeout": 10000,
+    "pool_recycle": 3600,
+    "connection_reuse_strategy": "lru"
+  },
+  "cache": {
+    "default_ttl": 60,
+    "hot_data_ttl": 300,
+    "cold_data_ttl": 30,
+    "enable_warmup": true,
+    "warmup_threshold": 0.8,
+    "cache_penetration_protection": true,
+    "bloom_filter_enabled": false
+  },
+  "upload": {
+    "max_file_size": 5242880,
+    "chunk_size": 1048576,
+    "enable_resumable": true,
+    "max_concurrent_uploads": 3,
+    "temp_storage_ttl": 86400,
+    "cdn_enabled": false
+  },
+  "rate_limit": {
+    "global_per_minute": 100,
+    "per_endpoint": {
+      "/api/read": 200,
+      "/api/write": 50,
+      "/api/upload": 30,
+      "/api/search": 150
+    },
+    "burst_limit": 20,
+    "enable_sliding_window": true,
+    "distributed_limiter": true,
+    "redis_key_prefix": "rate_limit:"
+  },
+  "query": {
+    "max_rows": 1000,
+    "default_page_size": 100,
+    "enable_cursor_pagination": true,
+    "optimize_index_usage": true,
+    "materialized_view_refresh_interval": 300,
+    "query_timeout_ms": 10000
+  },
+  "monitoring": {
+    "connection_pool_alert": 0.8,
+    "cache_hit_rate_alert": 0.7,
+    "rate_limit_alert": 0.9,
+    "query_slow_threshold_ms": 1000,
+    "upload_failure_alert": true
+  },
+  "optimization_strategy": {
+    "connection_pool": "Implement connection reuse and monitor idle connections",
+    "cache": "Use tiered TTL based on access patterns and implement cache warming",
+    "upload": "Implement chunked uploads and resumable transfers",
+    "rate_limit": "Use sliding window algorithm and endpoint-specific limits",
+    "query": "Implement cursor pagination and optimize indexes"
+  }
+}

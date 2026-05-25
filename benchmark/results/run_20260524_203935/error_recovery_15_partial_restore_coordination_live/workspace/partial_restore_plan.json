@@ -1,0 +1,12 @@
+{
+  "restore_now": ["config-service", "status-api"],
+  "restore_later": [
+    {"service": "checkout-api", "reason": "depends_on_payment-adapter"},
+    {"service": "payment-adapter", "reason": "gateway_state_dirty"},
+    {"service": "receipt-worker", "reason": "depends_on_checkout-api"}
+  ],
+  "dependency_order": ["config-service", "status-api", "checkout-api"],
+  "post_restore_checks": ["config-service health check", "status-api endpoint response", "dependency graph validation"],
+  "customer_priority": "status_visibility_before_transaction_recovery",
+  "evidence_refs": ["service_graph.json", "restore_status.json", "dependency_rules.md", "customer_impact.json"]
+}

@@ -1,0 +1,7 @@
+{
+  "thread_id": "t-100",
+  "selected_handle": "@alex-release",
+  "selected_channel": "telegram",
+  "rejected_candidates": ["@alex-design"],
+  "reason": "根据 policy.yaml 中的 confirmation_policy.require_last_confirmed_target: true，必须使用 last_confirmed_target (@alex-release)。虽然两个候选人都叫 Alex Chen，但 @alex-release 属于 release team，与主题 'release approval follow-up' 和所需上下文 'release approval packet' 更相关，而 @alex-design 属于 design team，相关性较低。"
+}

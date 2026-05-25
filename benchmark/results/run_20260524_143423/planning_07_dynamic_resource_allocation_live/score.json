@@ -1,0 +1,47 @@
+{
+  "id": "planning_07_dynamic_resource_allocation_live",
+  "score": 0.8,
+  "passed": true,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "dynamic_allocation_plan.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "baseline_service_is_exact": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "baseline_service={'service_id': 'api_guardrail', 'resource_reservation': {'cpu': 2, 'ram_gb': 4}}"
+    },
+    "window_allocations_are_exact": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "window_allocations=[{'window_id': 'window_1', 'minutes': [0, 5], 'tasks': ['stream_restore', 'feature_backfill_a', 'feature_backfill_b'], 'resource_totals': {'cpu': 10, 'ram_gb': 20}}, {'window_id': 'window_2', 'minutes': [5, 10], 'tasks': ['ingestion_repair'], 'resource_totals': {'cpu': 4, 'ram_gb': 8}}, {'window_id': 'window_3', 'minutes': [10, 15], 'tasks': ['analytics_rollup'], 'resource_totals': {'cpu': 7, 'ram_gb': 14}}, {'window_id': 'window_4', 'minutes': [15, 20], 'tasks': ['analytics_rollup', 'cache_rebuild'], 'resource_totals': {'cpu': 9, 'ram_gb': 18}}]"
+    },
+    "reallocation_events_are_exact": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "reallocation_events=[{'at_minute': 5, 'action_code': 'launch_analytics_rollup_at_5_after_ingestion_repair'}, {'at_minute': 15, 'action_code': 'launch_cache_rebuild_at_15_after_analytics_rollup'}]"
+    },
+    "deferred_tasks_are_exact": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "deferred_tasks=[{'task_id': 'model_refresh', 'reason_code': 'lower_completed_task_count_than_analytics_path'}]"
+    },
+    "completion_summary_is_exact": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "completion_summary={'deadline_met_task_ids': ['stream_restore', 'feature_backfill_a', 'feature_backfill_b', 'ingestion_repair', 'analytics_rollup', 'cache_rebuild'], 'completed_task_count': 6, 'total_business_value': 275}"
+    },
+    "evidence_refs_are_complete": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['resource_windows.json', 'task_catalog.json', 'baseline_service.json', 'scheduler_objectives.json', 'allocation_rules.yaml']"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "planning_02_release_handoff_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "handoff_exists": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "handoff.md exists"
+    },
+    "required_sections": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "sections=3/3"
+    },
+    "critical_blockers_only": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "## Critical\n1. **B-17**: payment callback regression (P0, open) - owner: Unassigned\n2. **B-33**: auth refresh flaky in staging (P1, investigating) - owner: Mina\n\n## Owners\n- **Mina**: B-33 (auth refresh flaky in staging)\n- **Unassigned**: B-17 (payment callback regression)\n\n## Next Step\nThe highest priority blocker that needs reassignment is **B-17** (payment callback regression, P0). According to team notes, this should go to platform-oncall first if no owner is assigned. This blocker should be assigned immediately due to its P0 severity."
+    },
+    "owner_mapping": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "## Critical\n1. **B-17**: payment callback regression (P0, open) - owner: Unassigned\n2. **B-33**: auth refresh flaky in staging (P1, investigating) - owner: Mina\n\n## Owners\n- **Mina**: B-33 (auth refresh flaky in staging)\n- **Unassigned**: B-17 (payment callback regression)\n\n## Next Step\nThe highest priority blocker that needs reassignment is **B-17** (payment callback regression, P0). According to team notes, this should go to platform-oncall first if no owner is assigned. This blocker should be assigned immediately due to its P0 severity."
+    },
+    "next_step": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "## Critical\n1. **B-17**: payment callback regression (P0, open) - owner: Unassigned\n2. **B-33**: auth refresh flaky in staging (P1, investigating) - owner: Mina\n\n## Owners\n- **Mina**: B-33 (auth refresh flaky in staging)\n- **Unassigned**: B-17 (payment callback regression)\n\n## Next Step\nThe highest priority blocker that needs reassignment is **B-17** (payment callback regression, P0). According to team notes, this should go to platform-oncall first if no owner is assigned. This blocker should be assigned immediately due to its P0 severity."
+    }
+  }
+}

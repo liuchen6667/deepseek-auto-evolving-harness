@@ -1,0 +1,66 @@
+{
+  "filtered": [
+    {
+      "id": "t01",
+      "title": "Fix login bug",
+      "priority": 1,
+      "category": "dev",
+      "owner": "bob"
+    },
+    {
+      "id": "t05",
+      "title": "Deploy monitoring",
+      "priority": 1,
+      "category": "ops",
+      "owner": "eve"
+    },
+    {
+      "id": "t10",
+      "title": "Scale API servers",
+      "priority": 2,
+      "category": "ops",
+      "owner": "eve"
+    },
+    {
+      "id": "t03",
+      "title": "Refactor auth module",
+      "priority": 3,
+      "category": "dev",
+      "owner": "carol"
+    },
+    {
+      "id": "t08",
+      "title": "Update CI pipeline",
+      "priority": 3,
+      "category": "dev",
+      "owner": "frank"
+    }
+  ],
+  "rejected": [
+    {
+      "id": "t02",
+      "reason": "owner 'alice' is blocked"
+    },
+    {
+      "id": "t04",
+      "reason": "category 'marketing' not allowed"
+    },
+    {
+      "id": "t06",
+      "reason": "priority > 3"
+    },
+    {
+      "id": "t07",
+      "reason": "owner 'alice' is blocked"
+    },
+    {
+      "id": "t09",
+      "reason": "category 'marketing' not allowed"
+    }
+  ],
+  "summary": {
+    "total": 10,
+    "passed": 5,
+    "rejected": 5
+  }
+}

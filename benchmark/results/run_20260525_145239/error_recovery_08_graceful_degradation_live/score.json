@@ -1,0 +1,52 @@
+{
+  "id": "error_recovery_08_graceful_degradation_live",
+  "score": 0.82,
+  "passed": true,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "degradation_decision.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "order_mode_and_chosen_strategies_are_correct": {
+      "score": 0.13,
+      "max": 0.15,
+      "detail": "order_mode='reject_new_orders' chosen_strategies=['reject_with_explanation'] reject=True async_notification=False"
+    },
+    "rejected_strategies_are_exact": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "categories=['async_payment', 'cached_inventory', 'manual_reconciliation_queue'] rejected_strategies=[{'strategy': 'async_payment_capture', 'reason': 'allow_async_payment: false'}, {'strategy': 'reserve_stale_inventory', 'reason': 'require_writable_inventory_before_order_acceptance: true'}, {'strategy': 'queue_for_manual_reconciliation', 'reason': 'allow_manual_reconciliation_queue_for_new_orders: false'}]"
+    },
+    "degraded_flow_is_exact": {
+      "score": 0.09,
+      "max": 0.15,
+      "detail": "semantic_hits=3/5 degraded_flow=['validate_request', 'check_dependencies', 'reject_order', 'log_audit_event', 'return_sync_response']"
+    },
+    "consistency_guards_are_exact": {
+      "score": 0.075,
+      "max": 0.1,
+      "detail": "semantic_hits=3/4 consistency_guards=['payment_service_down', 'inventory_readonly', 'no_manual_reconciliation', 'no_async_payment']"
+    },
+    "recovery_plan_is_exact": {
+      "score": 0.025,
+      "max": 0.1,
+      "detail": "semantic_hits=1/4 recovery_plan=['monitor_payment_health', 'wait_inventory_write_enabled', 'restore_normal_checkout_flow', 'resume_new_orders']"
+    },
+    "user_response_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "user_response={'http_status': 503, 'status_code': 'SERVICE_UNAVAILABLE', 'must_return_within_seconds': 5}"
+    },
+    "evidence_refs_are_complete": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['service_status.json', 'checkout_request.json', 'degradation_policy.yaml', 'logs/checkout.log', 'logs/notification.log', 'runbook.md']"
+    }
+  }
+}

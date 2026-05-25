@@ -1,0 +1,47 @@
+{
+  "id": "tool_use_08_tool_combination_live",
+  "score": 0.8500000000000001,
+  "passed": true,
+  "checkpoints": {
+    "output_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "analysis_result.json exists"
+    },
+    "read_seeded_input": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "read_count=0/1"
+    },
+    "seeded_input_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "valid_json": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "analysis_result.json parsed successfully"
+    },
+    "total_users_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "total_users=3"
+    },
+    "action_counts_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "action_counts={'login': 1, 'purchase': 1, 'logout': 1}"
+    },
+    "users_in_time_order_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "users_in_time_order=['Alice', 'Bob', 'Charlie']"
+    },
+    "analysis_method_nontrivial": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "analysis_method=['Combined file_read tool to read sample_data.json', 'Used Python script to parse JSON and calculate statistics', 'Applied sorted() function to order users by timestamp']"
+    }
+  }
+}

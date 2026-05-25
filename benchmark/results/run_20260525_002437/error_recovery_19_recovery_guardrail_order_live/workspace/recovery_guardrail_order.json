@@ -1,0 +1,13 @@
+{
+  "action_order": ["freeze_writes", "restore_last_clean_config", "reopen_safe_traffic", "reopen_all_traffic", "replay_backlog_immediately"],
+  "blocked_actions": [
+    {"action": "skip_write_freeze", "reason": "skips critical state stabilization step, violating guardrail"}
+  ],
+  "governing_guardrail": "stabilize_state_before_reintroducing_risk",
+  "why_this_order": [
+    "Risk: Prevents reintroducing corruption by delaying replay/reopen until state is stabilized",
+    "Dependency: freeze_writes and restore_last_clean_config must precede traffic reintroduction to satisfy guardrail",
+    "Goal protection: Ensures safe_service_return by methodically stabilizing before risking re-corruption"
+  ],
+  "evidence_refs": ["recovery_actions.json", "system_risks.md", "guardrail_order.yaml", "incident_goal.json"]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "oib5_t10_data_pipeline",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "analysis_exists": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "missing"
+    },
+    "user_ltv": {
+      "score": 0.0,
+      "max": 0.25,
+      "detail": "user_ltv.csv missing or empty"
+    },
+    "category_sales": {
+      "score": 0.0,
+      "max": 0.25,
+      "detail": "category_sales.json missing"
+    },
+    "monthly_orders": {
+      "score": 0.0,
+      "max": 0.25,
+      "detail": "monthly_orders.csv missing or empty"
+    },
+    "data_cleaning": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "data cleaning issues"
+    }
+  }
+}

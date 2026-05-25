@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_11_counterfactual_reasoning_live",
+  "score": 0.55,
+  "passed": false,
+  "checkpoints": {
+    "analysis_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "counterfactual_analysis.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "individual_rank_is_correct": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "individual_rank=[{'decision_id': 'stack', 'alternative': 'monolith_first', 'projected_score': 71, 'score_improvement': 18}, {'decision_id': 'testing', 'alternative': 'tdd', 'projected_score': 74, 'score_improvement': 15}, {'decision_id': 'delivery', 'alternative': 'sequential_integration', 'projected_score': 76, 'score_improvement': 13}]"
+    },
+    "individual_scores_are_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "individual_rank_score_hits=0.0"
+    },
+    "best_plan_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "best_three_change_plan=['delivery', 'stack', 'testing']"
+    },
+    "combined_projection_is_correct": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "combined_hits=4/5"
+    },
+    "recommendations_are_exact": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "recommendations=['adopt_tdd_before_sequential_integration_rollout', 'delay_testing_changes_until_after_release']"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "synthesis_13_incident_timeline_fusion_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "fusion_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "incident_fusion.json exists"
+    },
+    "timeline_is_correct": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "timeline=[{'time': '01:02', 'event': 'checkout_profile_enrichment feature flag enabled, triggering new profile enrichment logic'}, {'time': '01:03', 'event': 'profile-db connection pool spiked to 99% as observed by oncall, indicating heavy database load'}, {'time': '01:04', 'event': 'first upstream_profile_timeout errors recorded (count=18), confirming performance degradation'}, {'time': '01:08', 'event': 'mitigation rollback of checkout_profile_enrichment started to revert the problematic change'}, {'time': '01:10', 'event': 'checkout error_rate returned to baseline, confirming mitigation effectiveness'}]"
+    },
+    "root_cause_is_correct": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "root_cause='N+1 query pattern introduced by checkout_profile_enrichment feature flag, causing profile-db connection pool exhaustion and upstream timeouts'"
+    },
+    "ruled_out_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "ruled_out=['network issues (packet loss 0.1%, latency 12ms)', 'payment-gateway vendor problem (status healthy)']"
+    },
+    "confidence_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "confidence='high'"
+    },
+    "evidence_refs_are_complete": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['alerts.log: flag enable at 01:02 and timeout errors', 'db_metrics.json: profile-db pool at 99% at 01:03', 'chat_notes.md: DBA analysis of N+1 query path triggered by checkout_profile_enrichment']"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "selected_tasks": [
+    {"id": "p01", "start_day": 0, "reason": "security任务，无依赖，可立即开始"},
+    {"id": "p06", "start_day": 0, "reason": "security任务，无依赖，可立即开始"},
+    {"id": "p02", "start_day": 1, "reason": "compliance任务，依赖p01完成"},
+    {"id": "p04", "start_day": 1, "reason": "security任务，依赖p01完成"},
+    {"id": "p10", "start_day": 2, "reason": "security任务，依赖p04完成"}
+  ],
+  "deferred_tasks": [
+    {"id": "p03", "reason": "assignee charlie被阻止"},
+    {"id": "p05", "reason": "依赖p03，而p03无法执行"},
+    {"id": "p07", "reason": "design类别非优先，且effort较高(15h)"},
+    {"id": "p08", "reason": "assignee charlie被阻止"},
+    {"id": "p09", "reason": "engineering类别非优先"},
+    {"id": "p11", "reason": "design类别非优先，且依赖p07"},
+    {"id": "p12", "reason": "assignee charlie被阻止"}
+  ],
+  "total_effort_hours": 36,
+  "within_budget": true,
+  "priority_tasks_scheduled": 5,
+  "constraint_violations": []
+}

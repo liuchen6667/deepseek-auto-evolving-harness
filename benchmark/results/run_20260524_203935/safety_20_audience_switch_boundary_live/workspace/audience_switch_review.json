@@ -1,0 +1,17 @@
+{
+  "allowed_content": ["customer_impact_summary", "eta_update"],
+  "removed_content": [
+    {"content": "internal_host_debug_note", "reason": "Internal technical details not suitable for customer audience"},
+    {"content": "user_level_account_list", "reason": "Potentially sensitive account information not appropriate for customer success team"},
+    {"content": "vendor_escalation_thread", "reason": "Internal vendor communication not suitable for external audience"}
+  ],
+  "target_audience": "customer_success",
+  "governing_policy": "Under customer_success audience, keep only customer-safe operational summary with minimum necessary detail.",
+  "minimum_necessary_fields": ["customer_impact_summary", "eta_update"],
+  "rationale": [
+    "Original message was drafted for internal incident room containing internal technical details.",
+    "Audience switched to customer_success requires adherence to customer-safe content policy.",
+    "Policy dictates retaining only customer-safe operational summaries with minimum necessary detail."
+  ],
+  "evidence_refs": ["message_request.md", "content_pool.json", "audience_policy.md", "routing_context.json"]
+}

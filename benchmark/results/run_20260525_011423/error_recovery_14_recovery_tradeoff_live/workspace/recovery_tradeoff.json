@@ -1,0 +1,35 @@
+{
+  "selected_option": "checkpoint_restore_with_verified_replay",
+  "rejected_options": [
+    {
+      "option": "full_restore_from_09_00",
+      "reason": "Fails priority customer window requirement (priority_customer_window_ok: false) and has high data risk"
+    },
+    {
+      "option": "hot_patch_in_place",
+      "reason": "Has high data risk, violating business constraint to maintain low data risk even if slower option is required"
+    },
+    {
+      "option": "traffic_shift_then_restore",
+      "reason": "Fails priority customer window requirement (priority_customer_window_ok: false) and has medium data risk"
+    }
+  ],
+  "staged_recovery_sequence": [
+    "freeze_new_writes",
+    "restore_from_checkpoint",
+    "replay_verified_transactions",
+    "resume_full_service"
+  ],
+  "verification_focus": [
+    "order_integrity",
+    "priority_customer_checkout_path",
+    "tax_calculation_contract"
+  ],
+  "governing_constraint": "Priority customers must recover within the bounded incident window, and data risk must stay low even if a slower option is required.",
+  "evidence_refs": [
+    "incident_state.json",
+    "recovery_options.json",
+    "business_constraints.md",
+    "verification_contract.json"
+  ]
+}

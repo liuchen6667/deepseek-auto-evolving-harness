@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_21_counterfactual_support_split_live",
+  "score": 0.11111111111111112,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "win": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "hyp_a: an internal parser regression triggered the incident, and rollback stopped the growth."
+    },
+    "rej": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "[{'hypothesis': 'hyp_b: a vendor outage was already the primary trigger before internal errors began.', 'reason': 'violates rule 1: vendor notice posted after internal errors started (E4) and no vendor degraded notice before 10:05 (E3)'}, {'hypothesis': 'hyp_c: rollback only coincided with recovery while an unrelated background condition self-resolved.', 'reason': 'violates rule 2: error growth stopped immediately after rollback started (E2), making rollback-correlated recovery relevant'}]"
+    },
+    "chain": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['Candidate conflict: three competing hypotheses (hyp_a internal parser, hyp_b vendor outage, hyp_c unrelated condition)', 'Counterfactual exclusion: hyp_b rejected by temporal misalignment (E3), hyp_c rejected by rollback-correlated recovery (E2)', 'Unique conclusion: only hyp_a survives all rules and evidence']"
+    },
+    "neg": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['no_vendor_degraded_notice_before_10_05', 'rollback_started_and_error_growth_stopped']"
+    },
+    "rule": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "If multiple hypotheses survive, prefer the one that directly explains the earliest initiating signal."
+    },
+    "refs": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "['E1', 'E2', 'E3', 'E4']"
+    }
+  }
+}

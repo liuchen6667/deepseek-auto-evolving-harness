@@ -1,0 +1,3 @@
+STATUS: HOLD
+RISK: low
+REASON: Release day Saturday not in Mon-Fri; 2 bugs > 0 max; risk score 4 ≤ 4 threshold

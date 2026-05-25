@@ -1,0 +1,37 @@
+{
+  "id": "error_recovery_17_recovery_path_disambiguation_live",
+  "score": 0.5555555555555556,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "chosen": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "path_a"
+    },
+    "ruled": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'path': 'path_b', 'reason': 'Skips integrity guard, violating the governing risk rule that prioritizes integrity over speed'}, {'path': 'path_c', 'reason': 'Misses the recovery window, violating the goal to restore within current window'}, {'path': 'path_d', 'reason': 'Requires an unavailable precondition, making it infeasible'}]"
+    },
+    "verify": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['Verify integrity guard is enabled and functioning', 'Confirm primary API endpoints are restored and responding', 'Check that order consistency is preserved across all services']"
+    },
+    "risk": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "preserve_integrity_before_speed_only_paths"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['incident_paths.json', 'system_signals.md', 'risk_rules.json', 'recovery_goal.txt']"
+    }
+  }
+}

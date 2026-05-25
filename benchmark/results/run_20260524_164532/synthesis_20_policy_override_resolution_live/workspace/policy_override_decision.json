@@ -1,0 +1,9 @@
+{
+  "decision": "deny",
+  "applied_policy_version": "v2",
+  "governing_rule": "V2-SEC-4: Any case involving exported customer data to an external destination must be denied unless a security-approved override explicitly names that exact destination and exact use case.",
+  "manager_note_used": false,
+  "conflicting_signals": ["Manager approval present and manager note approves specific export", "V2-SEC-4 requires security-approved override naming exact destination and use case", "V2-SEC-5 gives precedence to formal v2 clause when manager note conflicts without security countersign"],
+  "reason": "The case involves export of customer data to an external destination (analytics sandbox mirror eu). The manager note lacks security countersign, does not match the exact use case (vendor escalation vs fraud-model drift incident review), and does not cover the exact data type (customer support bundle vs sanitized billing samples). V2-SEC-4 requires denial as no security-approved override exists for this exact destination and use case.",
+  "evidence_refs": ["policy_v1.md", "policy_v2.md", "manager_note.txt", "case_details.json"]
+}

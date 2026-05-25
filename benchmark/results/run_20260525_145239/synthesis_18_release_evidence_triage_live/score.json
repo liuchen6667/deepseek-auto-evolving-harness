@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_18_release_evidence_triage_live",
+  "score": 0.65,
+  "passed": true,
+  "checkpoints": {
+    "triage_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "release_triage.json exists"
+    },
+    "launch_decision_is_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "launch_decision='hold'"
+    },
+    "primary_blocker_is_correct": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "primary_blocker='checkout_e2e gate failing due to null pointer in checkout after hotfix'"
+    },
+    "blocker_class_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "blocker_class='code_regression'"
+    },
+    "supporting_evidence_is_exact": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "supporting_evidence=['checkout_e2e gate status: fail with detail: null pointer in checkout after hotfix', 'open P0 bug: Null pointer after hotfix when address2 is empty in checkout component', 'Launch plan rule: all required release gates are passing']"
+    },
+    "next_action_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "recommended_next_action='Fix the null pointer regression and rerun checkout_e2e gate'"
+    },
+    "confidence_and_refs_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "confidence='high' evidence_refs=['ci_summary.json', 'bug_tracker.json', 'launch_plan.md', 'ops_incidents.json']"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+2024-05-25 10:00:00 INFO [UserService] User login successful: user_id=123
+2024-05-25 10:01:00 WARN [PaymentService] Payment processing slow: transaction_id=456
+2024-05-25 10:02:00 ERROR [PaymentService] Payment failed: transaction_id=789, reason=insufficient_funds
+2024-05-25 10:03:00 INFO [OrderService] Order created: order_id=101
+2024-05-25 10:04:00 ERROR [UserService] User authentication failed: user_id=456, reason=invalid_token
+2024-05-25 10:05:00 WARN [OrderService] Order processing delayed: order_id=102
+2024-05-25 10:06:00 INFO [PaymentService] Payment successful: transaction_id=999
+2024-05-25 10:07:00 ERROR [PaymentService] Database connection failed: timeout=30s
+2024-05-25 10:08:00 ERROR [OrderService] Inventory check failed: product_id=555, reason=stock_unavailable
+2024-05-25 10:09:00 INFO [UserService] User profile updated: user_id=123
+2024-05-25 10:10:00 WARN [PaymentService] High latency detected: avg_response_time=2.5s
+2024-05-25 10:11:00 ERROR [PaymentService] Payment gateway unreachable: provider=stripe
+2024-05-25 10:12:00 INFO [OrderService] Order shipped: order_id=101
+2024-05-25 10:13:00 ERROR [UserService] Database error: query_timeout
+2024-05-25 10:14:00 WARN [UserService] Multiple failed login attempts: ip=192.168.1.1
+2024-05-25 10:15:00 ERROR [PaymentService] Critical: Payment data corruption detected

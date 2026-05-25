@@ -1,0 +1,12 @@
+{
+  "id": "constraints_07_hidden_constraints_live",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.0,
+      "max": 1.0,
+      "detail": "❌ constraint_discovery.md not created"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "winning_proposal_id": "beta-plan",
+  "selected_agent": "agent_beta",
+  "final_owner": "release-manager",
+  "rollback_required": true,
+  "invalidated_proposals": [
+    {
+      "proposal_id": "alpha-plan",
+      "reason": "Agent_alpha claims service is healthy enough to continue rollout with no rollback required, but source_of_truth.md states current error budget remaining is 0.8% which is below the required >=2.0% threshold. According to rollout policy, when remaining budget is below threshold, rollout must stop and rollback becomes required. Therefore, alpha-plan's recommendation violates the established policy."
+    }
+  ],
+  "decision_reason": "Source_of_truth.md clearly states that rollout requires >=2.0% remaining error budget to continue, but current budget is only 0.8%. This is below the threshold, requiring rollout to stop and rollback to become mandatory. Agent_beta's proposal correctly identifies the error budget breach and recommends rollback with the appropriate owner (release-manager), while agent_alpha's proposal contradicts the established policy by suggesting continuation without rollback.",
+  "evidence_refs": ["agent_summaries.json", "source_of_truth.md", "output_spec.json"]
+}

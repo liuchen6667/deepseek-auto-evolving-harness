@@ -1,0 +1,18 @@
+{
+  "direct_impacts": ["B", "C", "F", "G", "H"],
+  "indirect_impacts": ["A"],
+  "risk_levels": {
+    "A": "high",
+    "B": "high",
+    "C": "medium",
+    "F": "high",
+    "G": "medium",
+    "H": "medium"
+  },
+  "recovery_priority": ["E", "D", "B", "C", "F", "G", "H", "A"],
+  "notes": [
+    "E降级影响范围更大（影响C、G、H、A共4个服务），因此优先恢复E，尽管D是完全停机但只影响3个服务",
+    "A同时依赖B和C，两个上游都受影响，风险等级为high，需要特别监控和优先恢复",
+    "缓解思路：考虑在维护期间临时降低A的负载，或准备备用方案应对A可能出现的故障"
+  ]
+}

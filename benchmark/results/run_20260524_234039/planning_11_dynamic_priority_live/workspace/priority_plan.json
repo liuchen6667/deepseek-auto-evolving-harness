@@ -1,0 +1,23 @@
+{
+  "slot_plan": [
+    {"slot_start": 0, "task": "Z", "value_at_execution": 9},
+    {"slot_start": 5, "task": "X", "value_at_execution": 16},
+    {"slot_start": 10, "task": "A", "value_at_execution": 12},
+    {"slot_start": 15, "task": "B", "value_at_execution": 11},
+    {"slot_start": 20, "task": "C", "value_at_execution": 3}
+  ],
+  "total_value": 51,
+  "events_considered": [
+    "T+5: X value doubles if not executed yet",
+    "T+10: new tasks A(P0,12), B(P0,11), C(P0,3) added",
+    "T+15: Y dependency removed, becomes executable",
+    "T+20: Z downgrades to P2 value=1 if not executed yet"
+  ],
+  "notes": [
+    "Slot 0: Choose Z(9) over X(8) for higher immediate value, delaying X for potential doubling",
+    "Slot 5: X value doubled to 16, execute immediately as highest priority P0",
+    "Slot 10: After new P0 tasks added, choose highest value A(12)",
+    "Slot 15: Y becomes executable but is P1, lower priority than remaining P0 tasks B(11) and C(3)",
+    "Slot 20: Execute last P0 task C(3), maximizing total value within priority constraints"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "slot_plan": [
+    {"slot_start": 0, "task": "Z", "value_at_execution": 9},
+    {"slot_start": 5, "task": "X", "value_at_execution": 16},
+    {"slot_start": 10, "task": "A", "value_at_execution": 12},
+    {"slot_start": 15, "task": "B", "value_at_execution": 11},
+    {"slot_start": 20, "task": "C", "value_at_execution": 3}
+  ],
+  "total_value": 51,
+  "events_considered": [
+    "T+5: X价值翻倍为16（因为X在T+5时还未执行）",
+    "T+10: 新增A(P0,12)、B(P0,11)、C(P0,3)三个任务",
+    "T+15: Y的依赖被取消，变为可执行",
+    "T+20: Z已执行，所以降级变化不生效"
+  ],
+  "notes": [
+    "在[0,5)执行Z而不是X，因为Z初始价值9>8，且X在T+5会翻倍，留到后面更划算",
+    "同优先级内按价值最大化选择：P0中Z(9)>X(8)，A(12)>B(11)>C(3)",
+    "Y虽然价值14很高，但一直是P1优先级，而P0任务始终存在，所以Y从未有机会执行"
+  ]
+}

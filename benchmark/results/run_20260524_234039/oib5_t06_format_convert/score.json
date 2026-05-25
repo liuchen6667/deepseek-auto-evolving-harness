@@ -1,0 +1,32 @@
+{
+  "id": "oib5_t06_format_convert",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "data.csv exists"
+    },
+    "correct_headers": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "headers=['id', 'name', 'category', 'price', 'in_stock']"
+    },
+    "correct_rows": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "7 rows (expected 7)"
+    },
+    "price_format": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "all 2 decimal places"
+    },
+    "bool_convert": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "yes/no format"
+    }
+  }
+}

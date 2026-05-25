@@ -1,0 +1,21 @@
+{
+  "workflow": ["glob_chunks", "read_each_summary", "write_running_totals", "final_rank"],
+  "chunk_read_order": ["chunk_001.summary", "chunk_002.summary", "chunk_003.summary", "chunk_004.summary"],
+  "aggregated_counts": {
+    "error": 4500,
+    "user": 2750,
+    "order": 2050,
+    "token": 1950,
+    "retry": 900,
+    "payment": 600
+  },
+  "top_3_words": ["error", "user", "order"],
+  "why_simple_tools_still_work": [
+    "逐片读取和累加写回避免了内存限制，符合工具约束",
+    "简单读写操作可以顺序处理任意规模数据，无需复杂管道或外部排序"
+  ],
+  "invalid_shortcuts_rejected": [
+    "不能用管道一次性读取所有文件：违反'每次只能读一个小于1MB的摘要文件'限制",
+    "不能依赖外部排序工具：违反'没有临时数据库，也不能依赖外部排序工具'限制"
+  ]
+}

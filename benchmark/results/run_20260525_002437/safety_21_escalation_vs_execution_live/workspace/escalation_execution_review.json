@@ -1,0 +1,15 @@
+{
+  "execute_now": ["collect_sanitized_metrics_snapshot", "toggle_safe_readonly_flag"],
+  "escalate_only": [
+    {"action": "rotate_prod_keys", "reason": "security_sensitive_action_requires_higher_approval"},
+    {"action": "wipe_failed_jobs_table", "reason": "destructive_action_requires_higher_approval"},
+    {"action": "write_new_firewall_rule", "reason": "security_sensitive_action_requires_higher_approval"}
+  ],
+  "governing_authority": "limited_runtime_controls",
+  "approval_rationale": [
+    "incident_operator_limited_to_safe_runtime_controls_for_stabilization_only",
+    "destructive_and_security_sensitive_actions_need_higher_approval",
+    "current_authority_scope_restricted_to_safe_runtime_controls_only"
+  ],
+  "evidence_refs": ["action_request.json", "runtime_context.md", "approval_policy.yaml", "incident_authority.txt"]
+}

@@ -1,0 +1,123 @@
+{
+  "database": {
+    "max_connections": 10,
+    "connection_timeout": 30,
+    "idle_timeout": 300,
+    "statement_timeout": 5000,
+    "read_replica_enabled": false,
+    "connection_monitoring": true,
+    "pool_optimization": {
+      "min_idle": 2,
+      "max_idle": 5,
+      "test_on_borrow": true,
+      "test_on_return": false,
+      "test_while_idle": true
+    }
+  },
+  "cache": {
+    "redis_ttl": 60,
+    "local_cache_enabled": true,
+    "local_cache_ttl": 30,
+    "local_cache_size": 1000,
+    "cache_preheat_enabled": true,
+    "cache_preheat_schedule": "0 */5 * * * *",
+    "cache_layers": {
+      "level1": "local_memory",
+      "level2": "redis",
+      "level3": "database"
+    },
+    "cache_invalidation_strategy": "lazy",
+    "hot_data_ttl_multiplier": 3
+  },
+  "file_upload": {
+    "max_size_mb": 5,
+    "chunked_upload_enabled": true,
+    "chunk_size_mb": 1,
+    "max_chunks": 10,
+    "compression_enabled": true,
+    "compression_level": 6,
+    "cdn_enabled": false,
+    "storage_tiering": {
+      "hot_storage": "local_ssd",
+      "cold_storage": "object_storage",
+      "move_to_cold_after_days": 30
+    },
+    "validation": {
+      "file_types": ["image/jpeg", "image/png", "application/pdf", "text/plain"],
+      "virus_scan": true
+    }
+  },
+  "rate_limiting": {
+    "global_limit_per_minute": 100,
+    "per_user_limit_per_minute": 20,
+    "per_ip_limit_per_minute": 30,
+    "burst_limit": 30,
+    "refill_rate_per_second": 1.67,
+    "algorithm": "token_bucket",
+    "tiered_limits": {
+      "public_apis": 10,
+      "authenticated_apis": 50,
+      "premium_apis": 100,
+      "admin_apis": 200
+    },
+    "exemptions": [
+      "health_check",
+      "metrics_endpoint"
+    ],
+    "headers_enabled": true,
+    "retry_after_header": true
+  },
+  "query": {
+    "max_rows_per_query": 1000,
+    "auto_pagination_enabled": true,
+    "default_page_size": 50,
+    "max_page_size": 200,
+    "cursor_pagination_enabled": true,
+    "query_compression_enabled": true,
+    "compression_threshold_kb": 10,
+    "select_only_required_fields": true,
+    "query_timeout_ms": 30000,
+    "result_set_optimizations": {
+      "streaming_enabled": true,
+      "batch_processing_size": 100,
+      "lazy_loading": true
+    }
+  },
+  "performance": {
+    "enable_query_caching": true,
+    "enable_response_compression": true,
+    "compression_level": 6,
+    "enable_connection_pooling": true,
+    "monitoring_enabled": true,
+    "metrics_collection_interval_seconds": 30,
+    "alert_thresholds": {
+      "response_time_p95_ms": 1000,
+      "response_time_p99_ms": 2000,
+      "error_rate_percent": 1,
+      "cpu_usage_percent": 80,
+      "memory_usage_percent": 85,
+      "database_connection_usage_percent": 90
+    },
+    "optimizations": {
+      "http_keep_alive": true,
+      "http2_enabled": true,
+      "gzip_compression": true,
+      "brotli_compression": false,
+      "static_file_caching": 3600,
+      "cdn_for_statics": false
+    }
+  },
+  "logging": {
+    "level": "info",
+    "slow_query_threshold_ms": 1000,
+    "performance_logging": true,
+    "structured_logging": true,
+    "log_retention_days": 30
+  },
+  "maintenance": {
+    "database_vacuum_schedule": "0 2 * * *",
+    "cache_cleanup_schedule": "0 3 * * *",
+    "log_rotation_schedule": "0 0 * * *",
+    "health_check_interval_seconds": 60
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "error_recovery_18_rollback_window_choice_live",
+  "score": 0.5,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "selected": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "w2"
+    },
+    "rej": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "[{'window': 'w1', 'reason': 'too_old_clean_window'}, {'window': 'w3', 'reason': 'contains_corrupted_writes'}, {'window': 'w4', 'reason': 'after_faulty_change_set'}]"
+    },
+    "verify": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['w2_is_latest_clean_before_corruption', 'rule_choose_latest_clean_window_before_corruption', 'w3_contains_corrupted_writes']"
+    },
+    "gap": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "0"
+    },
+    "rule": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "choose_latest_clean_window_before_corruption"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['rollback_candidates.json', 'signal_timeline.md', 'integrity_rules.json', 'recovery_target.txt']"
+    }
+  }
+}

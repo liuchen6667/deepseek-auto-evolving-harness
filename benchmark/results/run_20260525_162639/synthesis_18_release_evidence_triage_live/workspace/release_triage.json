@@ -1,0 +1,13 @@
+{
+  "launch_decision": "hold",
+  "primary_blocker": "P0 checkout null pointer bug causing checkout_e2e gate failure",
+  "blocker_class": "code_regression",
+  "supporting_evidence": [
+    "bug_tracker.json shows open P0 checkout null pointer bug",
+    "ci_summary.json shows checkout_e2e gate failed with null pointer error",
+    "launch_plan.md requires no open P0 bugs and all gates passing"
+  ],
+  "recommended_next_action": "Fix null pointer regression in checkout, then rerun checkout_e2e gate",
+  "confidence": "high",
+  "evidence_refs": ["bug_tracker.json", "ci_summary.json", "ops_incidents.json", "launch_plan.md"]
+}

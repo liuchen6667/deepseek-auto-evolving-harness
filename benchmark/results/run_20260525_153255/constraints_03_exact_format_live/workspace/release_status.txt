@@ -1,0 +1,3 @@
+STATUS: HOLD
+RISK: medium
+REASON: 发布日期 Sat 不在允许工作日 [Mon-Fri]；bug_count 2 > 最大允许 0；风险分数 4

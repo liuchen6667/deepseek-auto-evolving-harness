@@ -1,0 +1,20 @@
+{
+  "slot_plan": [
+    {"hour": 9, "task": "db_reindex", "value_at_execution": 7},
+    {"hour": 10, "task": "api_hotfix", "value_at_execution": 10},
+    {"hour": 11, "task": "cache_rewarm", "value_at_execution": 5},
+    {"hour": 12, "task": "observability_patch", "value_at_execution": 3}
+  ],
+  "deferred_tasks": ["fraud_rule_update", "promo_copy_fix"],
+  "total_value": 25,
+  "triggered_rules": [
+    "api_hotfix requires security signoff before starting",
+    "external tasks (api_hotfix, promo_copy_fix) cannot start in freeze windows 11-12",
+    "cache_rewarm only has value (5) after api_hotfix completes",
+    "db_reindex and fraud_rule_update must start before hour 11"
+  ],
+  "notes": [
+    "Deferred fraud_rule_update (value 6) because db_reindex (value 7) has higher value and both must start before 11",
+    "Promo_copy_fix (value 4) deferred because external tasks cannot run in freeze windows 11-12, leaving only internal tasks for those slots"
+  ]
+}

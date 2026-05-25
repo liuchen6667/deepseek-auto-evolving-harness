@@ -1,0 +1,18 @@
+{
+  "assigned_slots": [
+    {"task": "F", "start": 9, "end": 10},
+    {"task": "A", "start": 11, "end": 12},
+    {"task": "D", "start": 13, "end": 15},
+    {"task": "G", "start": 16, "end": 17}
+  ],
+  "resolved_conflicts": [
+    "在窗口11-12中，A和B竞争同一时间槽，选择A因为字母序更小（A在B之前）",
+    "在资源db上，D（duration=2）和E（duration=1）冲突，选择D以便G可以执行，从而增加总完成数"
+  ],
+  "unresolved_tasks": ["B", "C", "E"],
+  "completion_count": 4,
+  "notes": [
+    "C无法执行，因为其依赖A和B需要同时完成，但单worker下A和B的窗口（11-12）重叠，无法同时安排",
+    "选择D而非E是因为D的2小时占用允许后续执行G，总完成数从3（F,A,E）提升到4（F,A,D,G）"
+  ]
+}

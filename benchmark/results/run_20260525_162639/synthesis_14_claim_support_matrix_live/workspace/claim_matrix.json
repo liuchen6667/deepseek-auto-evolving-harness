@@ -1,0 +1,16 @@
+{
+  "claim_assessments": [
+    {"claim_id": "C1", "status": "contradicted", "evidence": ["E1"]},
+    {"claim_id": "C2", "status": "contradicted", "evidence": ["E2"]},
+    {"claim_id": "C3", "status": "supported", "evidence": ["E3"]},
+    {"claim_id": "C4", "status": "contradicted", "evidence": ["E4"]},
+    {"claim_id": "C5", "status": "supported", "evidence": ["E1", "E4"]}
+  ],
+  "primary_incident_driver": "发布变更（10:00开始），导致支付超时首次出现，随后供应商payment-auth在10:09出现degraded状态，两者叠加导致事故扩大",
+  "recommended_action": "1. 加强发布前的供应商状态检查；2. 优化支付超时的监控告警，缩短发现时间；3. 建立发布与关键供应商状态关联的应急预案",
+  "notes": [
+    "发布开始时间（10:00）与支付超时首次出现时间（10:07）存在时间关联，表明发布是事故起点",
+    "供应商payment-auth的degraded状态出现时间（10:09）晚于支付超时首次出现时间（10:07），说明供应商问题不是事故起点但加剧了事故",
+    "网络丢包率始终很低（<=0.1%），排除网络是主要原因的可能"
+  ]
+}

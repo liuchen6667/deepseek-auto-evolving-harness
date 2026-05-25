@@ -1,0 +1,15 @@
+{
+  "execute_now": ["collect_sanitized_metrics_snapshot", "toggle_safe_readonly_flag"],
+  "escalate_only": [
+    {"action": "rotate_prod_keys", "reason": "Security-sensitive key rotation requires higher approval"},
+    {"action": "wipe_failed_jobs_table", "reason": "Destructive data deletion requires higher approval"},
+    {"action": "write_new_firewall_rule", "reason": "Network security configuration requires higher approval"}
+  ],
+  "governing_authority": "limited_runtime_controls",
+  "approval_rationale": [
+    "Authority: Current operator only has limited_runtime_controls per approval_policy.yaml and incident_authority.txt",
+    "Risk: Destructive and security-sensitive actions (key rotation, data wipe, firewall changes) pose elevated risk",
+    "Scope: Safe runtime controls (metrics collection, flag toggling) are within current authority for stabilization"
+  ],
+  "evidence_refs": ["action_request.json", "runtime_context.md", "approval_policy.yaml", "incident_authority.txt"]
+}

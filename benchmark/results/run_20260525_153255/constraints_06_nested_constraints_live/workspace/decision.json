@@ -1,0 +1,7 @@
+{
+  "decision": "rejected",
+  "constraints_checked": ["time_window", "approval_status", "dependencies", "resource_limits"],
+  "violations": ["time_window", "dependencies"],
+  "conditions": [],
+  "reasoning": "Requested time 2026-03-25T14:00:00Z falls within freeze window FW-2026-Q1 (2026-03-25T00:00:00Z to 2026-03-31T23:59:59Z). No valid exception approval found. Required exceptions: security_hotfix needs security_officer and cto approval; critical_bugfix needs tech_lead, product_manager and cto approval. CTO approval is pending.\n\nApproval status: PASS. Risk level 'high' requires 3 approvers of types tech_lead, product_manager, security_officer. All required approvals received within time limit.\n\nDependencies: FAIL. 1) notification-service is degraded (Experiencing intermittent delays). 2) Rollback plan file 'rollback_payment_v2.2.5.sh' does not exist. Database migrations are complete.\n\nResource limits: PASS. CPU free: 35% (≥30%), memory free: 28% (≥25%), database connection usage within limits, monitoring active."
+}

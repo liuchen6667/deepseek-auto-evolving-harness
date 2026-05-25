@@ -1,0 +1,17 @@
+{
+  "total_users": 3,
+  "action_counts": {
+    "login": 1,
+    "purchase": 1,
+    "logout": 1
+  },
+  "users_in_time_order": [
+    "Alice",
+    "Bob",
+    "Charlie"
+  ],
+  "analysis_method": [
+    "python_script_parsing",
+    "manual_calculation_with_bash"
+  ]
+}

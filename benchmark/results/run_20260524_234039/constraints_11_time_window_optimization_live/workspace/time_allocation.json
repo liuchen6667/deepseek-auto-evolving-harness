@@ -1,0 +1,22 @@
+{
+  "assigned_slots": [
+    {"task": "F", "start": 9, "end": 10},
+    {"task": "A", "start": 11, "end": 12},
+    {"task": "E", "start": 13, "end": 14},
+    {"task": "D", "start": 14, "end": 16},
+    {"task": "G", "start": 16, "end": 17}
+  ],
+  "resolved_conflicts": [
+    "A_selected_over_B_due_to_alphabetical_tie_break_at_slot_11_12",
+    "E_scheduled_before_D_to_avoid_db_resource_overlap_and_maximize_completion_count",
+    "G_scheduled_immediately_after_D_completion_at_slot_16_17_within_window"
+  ],
+  "unresolved_tasks": ["B", "C"],
+  "completion_count": 5,
+  "notes": [
+    "A_chosen_over_B_at_slot_11_12_based_on_alphabetical_tie_break_after_priority_equality",
+    "C_cannot_be_scheduled_due_to_missing_dependency_B_though_A_completed",
+    "E_and_D_sequenced_to_share_db_resource_without_overlap_E_first_then_D",
+    "G_fits_in_window_16_18_immediately_after_D_completion_at_16"
+  ]
+}

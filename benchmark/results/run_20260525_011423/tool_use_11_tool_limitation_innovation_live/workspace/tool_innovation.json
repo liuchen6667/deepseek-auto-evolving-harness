@@ -1,0 +1,21 @@
+{
+  "workflow": ["glob_chunks", "read_each_summary", "write_running_totals", "final_rank"],
+  "chunk_read_order": ["chunk_001.summary", "chunk_002.summary", "chunk_003.summary", "chunk_004.summary"],
+  "aggregated_counts": {
+    "error": 4500,
+    "user": 2750,
+    "order": 2050,
+    "token": 1950,
+    "retry": 900,
+    "payment": 600
+  },
+  "top_3_words": ["error", "user", "order"],
+  "why_simple_tools_still_work": [
+    "逐分片处理策略避免了内存限制，每个分片小于1MB，可以安全读取和处理",
+    "通过写回中间结果文件实现累积聚合，无需数据库或复杂数据结构，符合工具限制"
+  ],
+  "invalid_shortcuts_rejected": [
+    "一次性读取所有分片文件进行批量处理（违反逐分片read限制）",
+    "使用外部排序工具或管道命令（违反exec简单命令限制，不能使用复杂脚本）"
+  ]
+}

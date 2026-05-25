@@ -1,0 +1,13 @@
+{
+  "selected_pipeline": ["glob_py_js", "exec_union_candidates", "read_validate_hits", "write_report"],
+  "estimated_total_seconds": 9,
+  "estimated_peak_memory_gb": 0.4,
+  "true_positive_files": ["src/auth/session.py", "src/config/local.py", "src/payments/stripe.py"],
+  "false_positive_files": ["src/api/client.js", "src/helpers/request.js", "src/internal/debug.js"],
+  "why_not_alternatives": {
+    "exec_serial_all_files": "exec_serial_all_files takes 36 seconds (vs 9 seconds for selected pipeline), which is unnecessarily slow while providing the same recall and similar memory usage.",
+    "exec_union_all_files": "exec_union_all_files uses 0.7 GB peak memory, which is too close to the 0.8 GB limit and risks exceeding it in practice, while the selected pipeline uses only 0.4 GB with the same recall.",
+    "exec_batched_candidates": "exec_batched_candidates takes 18 seconds (twice as long as selected pipeline) and uses 0.5 GB memory (higher than 0.4 GB), making it less efficient in both time and memory."
+  },
+  "validation_rule": "True vulnerabilities are: 1) hardcoded secrets directly assigned in checked-in source code, 2) bearer or token values written into logs. Excluded from true positives are: environment-variable reads, comments or descriptive text, and runtime template strings that interpolate a token instead of hardcoding one."
+}

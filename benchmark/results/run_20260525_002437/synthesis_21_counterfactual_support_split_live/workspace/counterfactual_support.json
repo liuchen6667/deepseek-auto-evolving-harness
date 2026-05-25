@@ -1,0 +1,15 @@
+{
+  "winning_hypothesis": "hyp_a",
+  "rejected_hypotheses": [
+    {"hypothesis": "hyp_b", "reason": "violates rule 1: vendor degradation notice appeared after internal errors started, not before"},
+    {"hypothesis": "hyp_c", "reason": "violates rule 2: error growth stopped immediately after rollback, cannot treat rollback as irrelevant"}
+  ],
+  "conflict_chain": [
+    "three hypotheses compete: hyp_a (parser regression), hyp_b (vendor outage), hyp_c (coincidental recovery)",
+    "rule 1 excludes hyp_b (vendor notice after errors), rule 2 excludes hyp_c (rollback correlated with recovery)",
+    "hyp_a survives as only hypothesis consistent with all evidence and counterfactual rules"
+  ],
+  "negative_evidence": ["E3", "E2"],
+  "governing_rule": "rule_1_and_rule_2",
+  "evidence_refs": ["E1", "E2", "E3", "E4"]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "oib5_t07_git_ops",
+  "score": 0.8,
+  "passed": true,
+  "checkpoints": {
+    "readme_created": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "README.md with MyProject"
+    },
+    "log_saved": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "git_log.txt exists"
+    },
+    "commit_message": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "commit message found"
+    },
+    "branch_created": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "feature branch created"
+    },
+    "two_commits_in_log": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "0 commits in log"
+    }
+  }
+}

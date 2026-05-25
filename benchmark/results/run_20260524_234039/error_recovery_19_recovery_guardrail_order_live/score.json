@@ -1,0 +1,37 @@
+{
+  "id": "error_recovery_19_recovery_guardrail_order_live",
+  "score": 0.33333333333333337,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "order": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['freeze_writes', 'restore_last_clean_config', 'reopen_safe_traffic', 'replay_backlog_immediately', 'reopen_all_traffic']"
+    },
+    "blocked": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'action': 'skip_write_freeze', 'reason': 'bypasses_stabilization_required_by_guardrail'}]"
+    },
+    "guard": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "stabilize_state_before_reintroducing_risk"
+    },
+    "why": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['risk: early_traffic_reintroduction_can_corrupt_system', 'dependency: clean_config_needs_write_freeze_first', 'goal_protection: safe_return_requires_gradual_risk_reintroduction']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['recovery_actions.json', 'system_risks.md', 'guardrail_order.yaml', 'incident_goal.json']"
+    }
+  }
+}

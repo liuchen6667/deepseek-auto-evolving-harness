@@ -1,0 +1,14 @@
+{
+  "decision": "no_go",
+  "requested_window": "2026-04-17 19:30-20:30 UTC",
+  "recommended_window": "2026-04-20T09:00:00Z-2026-04-20T11:00:00Z",
+  "blocking_constraints": [
+    "missing_security_approval",
+    "requested_window_in_blackout",
+    "schema_migration_requires_dba_oncall"
+  ],
+  "missing_approvals": [
+    "security"
+  ],
+  "justification": "High-risk release requires security approval (missing), cannot ship during blackout window (requested window falls within Friday production freeze), and schema migration requires DBA on call (no DBA available in requested window). Next valid window with DBA on call is 2026-04-20T09:00:00Z-2026-04-20T11:00:00Z."
+}

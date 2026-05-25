@@ -1,0 +1,10 @@
+{
+  "winning_claim": "claim_a",
+  "invalidated_claims": [
+    {"claim": "claim_b", "reason": "Observation o2 contradicts claim_b"},
+    {"claim": "claim_c", "reason": "Resolution policy prefers claim_a over claim_c"}
+  ],
+  "conflict_chain": ["claim_b contradicted by o2", "claim_a and claim_c remain", "claim_a selected by resolution policy"],
+  "governing_resolution_rule": "Apply consistency first, then choose the highest-priority remaining claim.",
+  "evidence_refs": ["claims.json", "observations.md", "resolution_policy.md", "output_spec.json"]
+}

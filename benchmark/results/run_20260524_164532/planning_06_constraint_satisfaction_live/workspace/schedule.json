@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Team Sync",
+    "start": "09:00",
+    "end": "10:00",
+    "room": "A",
+    "attendees": [
+      "Carol",
+      "David",
+      "Henry"
+    ]
+  },
+  {
+    "name": "Budget Planning",
+    "start": "09:30",
+    "end": "10:30",
+    "room": "A",
+    "attendees": [
+      "Alice",
+      "Frank",
+      "Grace"
+    ]
+  },
+  {
+    "name": "Tech Design",
+    "start": "10:00",
+    "end": "11:00",
+    "room": "A",
+    "attendees": [
+      "Bob",
+      "David",
+      "Eve"
+    ]
+  },
+  {
+    "name": "Client Demo",
+    "start": "11:00",
+    "end": "12:00",
+    "room": "A",
+    "attendees": [
+      "Eve",
+      "Frank",
+      "Henry"
+    ]
+  },
+  {
+    "name": "Product Review",
+    "start": "14:00",
+    "end": "15:00",
+    "room": "A",
+    "attendees": [
+      "Alice",
+      "Bob",
+      "Carol"
+    ]
+  }
+]

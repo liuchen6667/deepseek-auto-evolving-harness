@@ -1,0 +1,27 @@
+
+{
+  "total_lines": 17,
+  "by_level": {
+    "INFO": 6,
+    "WARN": 3,
+    "ERROR": 7
+  },
+  "error_services": {
+    "PaymentService": 3,
+    "UserService": 1,
+    "OrderService": 1,
+    "InventoryService": 1,
+    "NotificationService": 1
+  },
+  "warnings": [
+    "[UserService] Failed to update user profile cache for user_id=567",
+    "[OrderService] Low inventory alert for product #789",
+    "[PaymentService] Unusual payment pattern detected"
+  ],
+  "critical_issues": [
+    "PaymentService: Fraud check failed - manual review required (安全风险)",
+    "PaymentService: Payment gateway timeout for order #1002 (收入影响)",
+    "OrderService: Order fulfillment failed - shipping API unavailable (客户体验)",
+    "UserService: Database connection failed - retrying (系统稳定性)"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "claim_assessments": [
+    {"claim_id": "C1", "status": "contradicted", "evidence": ["E1"]},
+    {"claim_id": "C2", "status": "contradicted", "evidence": ["E2"]},
+    {"claim_id": "C3", "status": "supported", "evidence": ["E3"]},
+    {"claim_id": "C4", "status": "contradicted", "evidence": ["E4"]},
+    {"claim_id": "C5", "status": "supported", "evidence": ["E1", "E4"]}
+  ],
+  "primary_incident_driver": "发布变更（10:00开始）导致支付超时（10:07首次出现），回滚后恢复",
+  "recommended_action": "1. 加强发布前的集成测试和灰度发布策略\n2. 优化回滚流程，缩短故障恢复时间",
+  "notes": [
+    "供应商 payment-auth 在 10:09 才出现 degraded，比首次支付超时晚2分钟，表明可能是发布触发了供应商问题",
+    "网络丢包率始终低于0.1%，排除了网络基础设施问题作为主要原因"
+  ]
+}

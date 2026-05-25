@@ -1,0 +1,27 @@
+{
+  "id": "oib5_t05_config_modify",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "port_changed": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "port=9090 ✓"
+    },
+    "max_conn_changed": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "max_connections=50 ✓"
+    },
+    "log_file_added": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "logging.file=/var/log/app.log"
+    },
+    "others_intact": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "other configs intact"
+    }
+  }
+}

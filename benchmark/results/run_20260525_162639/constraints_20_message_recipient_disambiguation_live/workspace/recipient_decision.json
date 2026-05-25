@@ -1,0 +1,7 @@
+{
+  "thread_id": "t-100",
+  "selected_handle": "@alex-release",
+  "selected_channel": "telegram",
+  "rejected_candidates": ["@alex-design"],
+  "reason": "Policy requires using last_confirmed_target (@alex-release). Both candidates have the same name but different teams: @alex-release is from release team (matching required context 'release approval packet'), while @alex-design is from design team."
+}

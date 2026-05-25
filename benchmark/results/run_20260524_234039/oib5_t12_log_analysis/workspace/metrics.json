@@ -1,0 +1,25 @@
+{
+  "total_lines": 15,
+  "by_level": {
+    "INFO": 5,
+    "WARN": 4,
+    "ERROR": 6
+  },
+  "error_services": {
+    "PaymentService": 3,
+    "OrderService": 2,
+    "UserService": 1
+  },
+  "warnings": [
+    "Failed to update user profile cache",
+    "Payment gateway timeout",
+    "Multiple failed login attempts detected",
+    "Low stock alert for product XYZ"
+  ],
+  "critical_issues": [
+    "Payment service unavailable",
+    "Database connection lost during transaction",
+    "Order processing timeout",
+    "Payment gateway timeout"
+  ]
+}

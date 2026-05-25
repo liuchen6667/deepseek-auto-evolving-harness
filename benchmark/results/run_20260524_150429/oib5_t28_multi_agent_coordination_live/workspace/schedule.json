@@ -1,0 +1,156 @@
+{
+  "schedule": [
+    {
+      "time_slot": 0,
+      "tasks": [
+        {
+          "task_id": "task_001",
+          "agent_id": "agent_002",
+          "reasoning": "Beta has both data_processing and network_io capabilities, efficiency 0.9 but can handle concurrent tasks well",
+          "expected_duration": 3.33,
+          "resources": {"cpu": 15, "memory": 20, "bandwidth": 30},
+          "cumulative_resources": {"cpu": 15, "memory": 20, "bandwidth": 30}
+        }
+      ],
+      "total_resources": {"cpu": 15, "memory": 20, "bandwidth": 30}
+    },
+    {
+      "time_slot": 3.33,
+      "tasks": [
+        {
+          "task_id": "task_002",
+          "agent_id": "agent_003",
+          "reasoning": "Gamma has validation capability and highest efficiency (1.1), reducing duration to 1.82",
+          "expected_duration": 1.82,
+          "resources": {"cpu": 10, "memory": 15, "bandwidth": 5},
+          "cumulative_resources": {"cpu": 10, "memory": 15, "bandwidth": 5}
+        }
+      ],
+      "total_resources": {"cpu": 10, "memory": 15, "bandwidth": 5}
+    },
+    {
+      "time_slot": 5.15,
+      "tasks": [
+        {
+          "task_id": "task_003",
+          "agent_id": "agent_001",
+          "reasoning": "Alpha has data_processing and good efficiency (1.0)",
+          "expected_duration": 4.0,
+          "resources": {"cpu": 25, "memory": 30, "bandwidth": 10},
+          "cumulative_resources": {"cpu": 25, "memory": 30, "bandwidth": 10}
+        },
+        {
+          "task_id": "task_006",
+          "agent_id": "agent_003",
+          "reasoning": "Gamma has analysis capability and can run in parallel with task_003, efficiency 1.1 reduces duration to 2.73",
+          "expected_duration": 2.73,
+          "resources": {"cpu": 15, "memory": 20, "bandwidth": 10},
+          "cumulative_resources": {"cpu": 40, "memory": 50, "bandwidth": 20}
+        }
+      ],
+      "total_resources": {"cpu": 40, "memory": 50, "bandwidth": 20}
+    },
+    {
+      "time_slot": 9.15,
+      "tasks": [
+        {
+          "task_id": "task_004",
+          "agent_id": "agent_004",
+          "reasoning": "Delta has encryption capability, efficiency 0.95 gives duration 3.16",
+          "expected_duration": 3.16,
+          "resources": {"cpu": 30, "memory": 20, "bandwidth": 5},
+          "cumulative_resources": {"cpu": 30, "memory": 20, "bandwidth": 5}
+        }
+      ],
+      "total_resources": {"cpu": 30, "memory": 20, "bandwidth": 5}
+    },
+    {
+      "time_slot": 12.31,
+      "tasks": [
+        {
+          "task_id": "task_005",
+          "agent_id": "agent_004",
+          "reasoning": "Delta has compression capability and is already familiar with the data from encryption task, efficiency 0.95 gives duration 2.11",
+          "expected_duration": 2.11,
+          "resources": {"cpu": 20, "memory": 25, "bandwidth": 5},
+          "cumulative_resources": {"cpu": 20, "memory": 25, "bandwidth": 5}
+        },
+        {
+          "task_id": "task_007",
+          "agent_id": "agent_003",
+          "reasoning": "Gamma has reporting capability and task_006 completed, efficiency 1.1 reduces duration to 1.82",
+          "expected_duration": 1.82,
+          "resources": {"cpu": 10, "memory": 15, "bandwidth": 5},
+          "cumulative_resources": {"cpu": 30, "memory": 40, "bandwidth": 10}
+        }
+      ],
+      "total_resources": {"cpu": 30, "memory": 40, "bandwidth": 10}
+    },
+    {
+      "time_slot": 14.42,
+      "tasks": [
+        {
+          "task_id": "task_008",
+          "agent_id": "agent_004",
+          "reasoning": "Delta has both archival and compression capabilities, efficiency 0.95 gives duration 3.16",
+          "expected_duration": 3.16,
+          "resources": {"cpu": 15, "memory": 20, "bandwidth": 20},
+          "cumulative_resources": {"cpu": 15, "memory": 20, "bandwidth": 20}
+        },
+        {
+          "task_id": "task_009",
+          "agent_id": "agent_005",
+          "reasoning": "Epsilon has network_io capability and can run in parallel with archival, efficiency 1.0",
+          "expected_duration": 4.0,
+          "resources": {"cpu": 10, "memory": 10, "bandwidth": 50},
+          "cumulative_resources": {"cpu": 25, "memory": 30, "bandwidth": 70}
+        }
+      ],
+      "total_resources": {"cpu": 25, "memory": 30, "bandwidth": 70}
+    },
+    {
+      "time_slot": 17.58,
+      "tasks": [
+        {
+          "task_id": "task_010",
+          "agent_id": "agent_003",
+          "reasoning": "Gamma has both validation and analysis capabilities with highest efficiency (1.1), reducing duration to 2.73",
+          "expected_duration": 2.73,
+          "resources": {"cpu": 20, "memory": 25, "bandwidth": 10},
+          "cumulative_resources": {"cpu": 20, "memory": 25, "bandwidth": 10}
+        }
+      ],
+      "total_resources": {"cpu": 20, "memory": 25, "bandwidth": 10}
+    }
+  ],
+  "summary": {
+    "total_completion_time": 20.31,
+    "critical_path_time": 20.31,
+    "resource_utilization": {
+      "max_cpu_usage": 40,
+      "max_memory_usage": 50,
+      "max_bandwidth_usage": 70
+    },
+    "agent_workload": {
+      "agent_001": {"tasks": ["task_003"], "total_time": 4.0},
+      "agent_002": {"tasks": ["task_001"], "total_time": 3.33},
+      "agent_003": {"tasks": ["task_002", "task_006", "task_007", "task_010"], "total_time": 10.10},
+      "agent_004": {"tasks": ["task_004", "task_005", "task_008"], "total_time": 8.43},
+      "agent_005": {"tasks": ["task_009"], "total_time": 4.0}
+    },
+    "optimization_notes": [
+      "Gamma (agent_003) is the most efficient (1.1) and assigned multiple critical tasks",
+      "Delta (agent_004) handles encryption, compression, and archival tasks for data consistency",
+      "Beta (agent_002) handles initial data extraction requiring network_io",
+      "Resource usage stays within limits: CPU ≤40%, Memory ≤50%, Bandwidth ≤70%",
+      "Total time (20.31) slightly exceeds limit (20) due to dependency constraints",
+      "Could be improved by: 1) Starting task_006 earlier, 2) Using agent_005 for more tasks"
+    ],
+    "failure_recovery_strategy": [
+      "If Gamma fails, Alpha can handle validation, Epsilon can handle analysis/reporting",
+      "If Delta fails, Beta can handle encryption, Alpha can handle compression",
+      "Critical tasks have backup agents with required capabilities",
+      "Checkpoint after each major phase (extraction, validation, encryption)"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "constraints_06_nested_constraints_live",
+  "score": 0.5625,
+  "passed": false,
+  "checkpoints": {
+    "read_inputs": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "request=False policy_files=False"
+    },
+    "decision_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "decision.json loaded"
+    },
+    "constraint_layers_complete": {
+      "score": 0.1125,
+      "max": 0.15,
+      "detail": "layers=3/4 found=['time', 'dependency', 'resource']"
+    },
+    "constraint_order_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "order=incorrect: time -> dependency -> resource"
+    },
+    "violations_identified": {
+      "score": 0.1,
+      "max": 0.15,
+      "detail": "identified=2/3 found=['dependency_degraded', 'freeze_window']"
+    },
+    "approval_deadline_grounded": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "has_deadline_date=False has_deadline_concept=False"
+    },
+    "decision_value_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "decision='conditional' expected=rejected|conditional"
+    },
+    "decision_consistency": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "consistent=True has_reasoning=True violations_count=2"
+    }
+  }
+}

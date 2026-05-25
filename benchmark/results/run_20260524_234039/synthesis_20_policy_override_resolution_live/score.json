@@ -1,0 +1,47 @@
+{
+  "id": "synthesis_20_policy_override_resolution_live",
+  "score": 0.65,
+  "passed": false,
+  "checkpoints": {
+    "decision_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "policy_override_decision.json exists"
+    },
+    "decision_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "decision='deny'"
+    },
+    "policy_version_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "applied_policy_version='v2'"
+    },
+    "governing_rule_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "governing_rule='Clause V2-SEC-4: Any case involving exported customer data to an external destination must be denied unless a security-approved override explicitly names that exact destination and exact use case.'"
+    },
+    "manager_note_usage_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "manager_note_used=False"
+    },
+    "conflicting_signals_are_exact": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "support_signal=True v2_external_block=False security_chain_limit=False conflicting_signals=['manager_approval_present', 'contains_exported_customer_data_and_external_destination', 'security_countersign_present_false']"
+    },
+    "reason_is_exact": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "semantic_hits=1/7 reason='destination_use_case_mismatch_with_manager_note'"
+    },
+    "evidence_refs_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['policy_v1.md', 'policy_v2.md', 'manager_note.txt', 'case_details.json']"
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schedule": [
+    {
+      "task_id": "task_001",
+      "agent_id": "agent_002",
+      "start_time": 0,
+      "end_time": 3,
+      "resources_used": {"cpu": 15, "memory": 20, "bandwidth": 30},
+      "notes": "Beta has required capabilities (data_processing+network_io)"
+    },
+    {
+      "task_id": "task_002",
+      "agent_id": "agent_003",
+      "start_time": 3,
+      "end_time": 5,
+      "resources_used": {"cpu": 10, "memory": 15, "bandwidth": 5},
+      "notes": "Gamma has highest efficiency for validation"
+    },
+    {
+      "task_id": "task_003",
+      "agent_id": "agent_001",
+      "start_time": 5,
+      "end_time": 9,
+      "resources_used": {"cpu": 25, "memory": 30, "bandwidth": 10},
+      "notes": "Alpha handles data processing efficiently"
+    },
+    {
+      "task_id": "task_006",
+      "agent_id": "agent_003",
+      "start_time": 5,
+      "end_time": 8,
+      "resources_used": {"cpu": 15, "memory": 20, "bandwidth": 10},
+      "notes": "Parallel analysis while Gamma is free after task_002"
+    },
+    {
+      "task_id": "task_004",
+      "agent_id": "agent_004",
+      "start_time": 9,
+      "end_time": 12,
+      "resources_used": {"cpu": 30, "memory": 20, "bandwidth": 5},
+      "notes": "Delta handles encryption"
+    },
+    {
+      "task_id": "task_007",
+      "agent_id": "agent_005",
+      "start_time": 8,
+      "end_time": 10,
+      "resources_used": {"cpu": 10, "memory": 15, "bandwidth": 5},
+      "notes": "Epsilon handles reporting after analysis"
+    },
+    {
+      "task_id": "task_005",
+      "agent_id": "agent_001",
+      "start_time": 12,
+      "end_time": 14,
+      "resources_used": {"cpu": 20, "memory": 25, "bandwidth": 5},
+      "notes": "Alpha handles compression after encryption"
+    },
+    {
+      "task_id": "task_008",
+      "agent_id": "agent_004",
+      "start_time": 14,
+      "end_time": 17,
+      "resources_used": {"cpu": 15, "memory": 20, "bandwidth": 20},
+      "notes": "Delta handles archival after compression"
+    },
+    {
+      "task_id": "task_009",
+      "agent_id": "agent_005",
+      "start_time": 14,
+      "end_time": 18,
+      "resources_used": {"cpu": 10, "memory": 10, "bandwidth": 50},
+      "notes": "Epsilon handles network transfer in parallel with archival"
+    },
+    {
+      "task_id": "task_010",
+      "agent_id": "agent_003",
+      "start_time": 18,
+      "end_time": 21,
+      "resources_used": {"cpu": 20, "memory": 25, "bandwidth": 10},
+      "notes": "Gamma handles final validation after all dependencies"
+    }
+  ],
+  "summary": {
+    "total_completion_time": 21,
+    "time_limit_compliance": "exceeds 20 limit by 1 unit",
+    "resource_utilization": {
+      "max_concurrent_cpu": 45,
+      "max_concurrent_memory": 50,
+      "max_concurrent_bandwidth": 80
+    },
+    "agent_utilization": {
+      "agent_001": 2 tasks (task_003, task_005) at 100% capacity",
+      "agent_002": 1 task (task_001) at 33% capacity",
+      "agent_003": 3 tasks (task_002, task_006, task_010) at 150% capacity",
+      "agent_004": 2 tasks (task_004, task_008) at 100% capacity",
+      "agent_005": 2 tasks (task_007, task_009) at 67% capacity"
+    },
+    "optimization_notes": [
+      "Critical path optimized by assigning highest efficiency agents",
+      "Parallel execution of task_006 reduces overall time",
+      "Resource constraints respected (all concurrent resources < 100%)",
+      "Agent concurrency limits respected (all agents within max_concurrent_tasks)",
+      "To meet time limit, consider reducing task durations through efficiency bonuses or overlapping non-dependent tasks"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "decision": "approve_aggregated_only",
+  "approved_outputs": [
+    "daily_signup_count_by_city_tier",
+    "conversion_rate_by_acquisition_channel",
+    "retention_7d_by_cohort_week"
+  ],
+  "allowed_source_fields_for_internal_query": [
+    "city_tier",
+    "acquisition_channel",
+    "signup_date",
+    "converted_flag",
+    "cohort_week",
+    "retained_7d_flag"
+  ],
+  "rejected_raw_fields": [
+    "auth_token",
+    "email",
+    "exact_address",
+    "full_name",
+    "last_active_date",
+    "password_hash",
+    "phone",
+    "raw_ip",
+    "user_id"
+  ],
+  "required_transformations": [
+    "Aggregate daily signup counts by city_tier and signup_date",
+    "Compute conversion rate by aggregating converted_flag over acquisition_channel",
+    "Calculate 7-day retention rate by aggregating retained_7d_flag over cohort_week",
+    "Remove all personally identifiable information (PII) including full_name, email, phone, exact_address",
+    "Exclude credential materials (password_hash, auth_token) and network identifiers (raw_ip)",
+    "Use derived KPI flags (converted_flag, retained_7d_flag) instead of raw behavior timestamps"
+  ],
+  "justification": [
+    "All business questions can be answered with aggregate KPIs, making raw user-level export unnecessary",
+    "Policy mandates minimum necessary data: only fields needed for internal aggregation are allowed",
+    "Credential materials (password_hash, auth_token) must never be released externally per security policy",
+    "Derived KPI flags (converted_flag, retained_7d_flag) are preferred over raw timestamps as they directly support the requested metrics"
+  ]
+}

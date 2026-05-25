@@ -1,0 +1,25 @@
+{
+  "order_mode": "reject_new_orders",
+  "chosen_strategies": ["reject_with_graceful_message", "queue_notification_for_later"],
+  "rejected_strategies": [
+    {"strategy": "create_order_with_async_payment", "reason": "policy prohibits async payment for new orders"},
+    {"strategy": "create_order_without_payment", "reason": "payment capture required and payment service down"},
+    {"strategy": "create_order_with_inventory_reservation", "reason": "inventory service readonly, cannot reserve stock"}
+  ],
+  "degraded_flow": ["validate_request", "check_dependencies", "determine_unmet_requirements", "prepare_rejection_response", "queue_notification"],
+  "consistency_guards": ["no_order_created", "no_payment_attempted", "no_inventory_reserved", "no_manual_reconciliation_needed"],
+  "recovery_plan": ["monitor_payment_service_recovery", "monitor_inventory_service_write_capability", "retry_checkout_when_dependencies_healthy", "send_recovery_notification"],
+  "user_response": {
+    "http_status": 503,
+    "status_code": "CHECKOUT_UNAVAILABLE_DUE_TO_SYSTEM_OUTAGE",
+    "must_return_within_seconds": 5
+  },
+  "evidence_refs": [
+    "service_status.json",
+    "checkout_request.json",
+    "degradation_policy.yaml",
+    "logs/checkout.log",
+    "logs/notification.log",
+    "runbook.md"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "synthesis_20_policy_override_resolution_live",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "decision_file_exists": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "missing policy_override_decision.json"
+    },
+    "decision_is_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "policy_version_is_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "governing_rule_is_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "manager_note_usage_is_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "conflicting_signals_are_exact": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "skipped"
+    },
+    "reason_is_exact": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "evidence_refs_are_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    }
+  }
+}

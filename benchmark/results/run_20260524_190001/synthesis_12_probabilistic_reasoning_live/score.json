@@ -1,0 +1,47 @@
+{
+  "id": "synthesis_12_probabilistic_reasoning_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "decision_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "probabilistic_decision.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "probabilities_are_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "success=0.504 failure=0.496"
+    },
+    "expected_value_is_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "expected_revenue_delta_pct=5.12"
+    },
+    "worst_case_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "worst_case_revenue_delta_pct=-15.0"
+    },
+    "decision_matches_rule": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "decision='gather_more_info'"
+    },
+    "confidence_gap_is_noted": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "confidence_observation='market_research_confidence_below_85_threshold'"
+    },
+    "key_risks_are_complete": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "key_risks=['compliance_approval_risk', 'market_adoption_risk', 'technical_execution_risk']"
+    }
+  }
+}

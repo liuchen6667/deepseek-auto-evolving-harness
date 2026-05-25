@@ -1,0 +1,52 @@
+{
+  "id": "tool_use_10_tool_optimization_live",
+  "score": 0.5636363636363636,
+  "passed": true,
+  "checkpoints": {
+    "strategy_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "tool_strategy.json exists"
+    },
+    "read_seeded_inputs": {
+      "score": 0.02,
+      "max": 0.2,
+      "detail": "read_count=1/10"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "pipeline_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "selected_pipeline=['glob_py_js', 'exec_union_candidates', 'read_validate_hits', 'write_report']"
+    },
+    "time_and_memory_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "estimated_total_seconds=9 estimated_peak_memory_gb=0.4"
+    },
+    "true_positive_split_is_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "true_positive_files=['src/api/client.js', 'src/auth/session.py', 'src/config/local.py', 'src/payments/stripe.py']"
+    },
+    "false_positive_split_is_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "false_positive_files=['src/helpers/request.js', 'src/internal/debug.js']"
+    },
+    "alternative_rationale_is_complete": {
+      "score": 0.075,
+      "max": 0.075,
+      "detail": "why_not_alternatives_keys=['exec_batched_candidates', 'exec_serial_all_files', 'exec_union_all_files']"
+    },
+    "validation_rule_is_correct": {
+      "score": 0.07500000000000001,
+      "max": 0.075,
+      "detail": "validation rule incomplete: hardcoded=True log=True exclusion=True"
+    }
+  }
+}

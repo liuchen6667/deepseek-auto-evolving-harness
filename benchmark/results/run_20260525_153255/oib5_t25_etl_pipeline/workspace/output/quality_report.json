@@ -1,0 +1,9 @@
+{
+  "total_raw_rows": 15,
+  "duplicates_removed": 2,
+  "nulls_removed": 2,
+  "date_format_fixed": 3,
+  "total_clean_rows": 11,
+  "clean_percentage": 73.33,
+  "run_timestamp": "2026-05-25T16:19:24.612538"
+}

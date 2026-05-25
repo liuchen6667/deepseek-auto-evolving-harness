@@ -1,0 +1,28 @@
+{
+  "decision": "rejected",
+  "constraints_checked": [
+    "第一层约束 - 时间窗口",
+    "第二层约束 - 审批状态", 
+    "第三层约束 - 依赖项",
+    "第四层约束 - 资源限制"
+  ],
+  "violations": [
+    {
+      "constraint": "第一层约束 - 时间窗口",
+      "description": "请求发布时间在冻结窗口内 (FW-2026-Q1: 2026-03-25T00:00:00Z 到 2026-03-31T23:59:59Z)",
+      "details": "请求时间 2026-03-25T14:00:00Z 在冻结窗口内。需要满足例外条件，但请求未指定为 security_hotfix 或 critical_bugfix"
+    },
+    {
+      "constraint": "第二层约束 - 审批状态",
+      "description": "审批已过期",
+      "details": "最新批准时间 2026-03-21T14:00:00Z 到请求时间 2026-03-25T14:00:00Z 超过72小时限制。审批截止时间 2026-03-24T14:00:00Z 在请求时间之前"
+    },
+    {
+      "constraint": "第三层约束 - 依赖项",
+      "description": "依赖服务状态不健康",
+      "details": "notification-service 状态为 degraded，存在间歇性延迟问题"
+    }
+  ],
+  "conditions": [],
+  "reasoning": "发布请求被拒绝，原因如下：1) 发布时间在季度末冻结窗口内且未满足例外条件；2) 审批已过期，最新批准时间超过72小时限制；3) 依赖服务 notification-service 状态为 degraded。即使资源限制检查通过，前两层约束的违反导致发布不可进行。"
+}

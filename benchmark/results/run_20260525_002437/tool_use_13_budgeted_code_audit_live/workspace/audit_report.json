@@ -1,0 +1,24 @@
+{
+  "inspection_plan": [
+    "检查 src/auth/session.py 是否存在将 bearer token 写入日志",
+    "检查 src/config/local.py 是否存在硬编码 live key/secret",
+    "检查 src/reports/exporter.py 是否存在将 auth token 写入日志",
+    "检查 src/payments/stripe.py 是否存在硬编码 live key 或日志泄漏",
+    "检查 src/tests/fixtures.py 是否为测试夹具（根据规则4不算问题）"
+  ],
+  "confirmed_findings": [
+    {"path": "src/auth/session.py", "issue": "将 bearer token 写入日志"},
+    {"path": "src/config/local.py", "issue": "硬编码 live key (sk-live-prod-001)"}
+  ],
+  "rejected_suspects": [
+    "src/reports/exporter.py",
+    "src/payments/stripe.py",
+    "src/tests/fixtures.py"
+  ],
+  "read_budget_used": 5,
+  "notes": [
+    "src/reports/exporter.py 将 auth header 写入审计行，但不是写入日志，因此不算问题",
+    "src/payments/stripe.py 从环境变量读取 secret，根据规则3不算泄漏",
+    "src/tests/fixtures.py 包含测试夹具假 token，根据规则4不算问题"
+  ]
+}

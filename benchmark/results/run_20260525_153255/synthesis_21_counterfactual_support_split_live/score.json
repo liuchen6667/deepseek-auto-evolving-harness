@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_21_counterfactual_support_split_live",
+  "score": 0.2777777777777778,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "win": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "hyp_a"
+    },
+    "rej": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "[{'hypothesis': 'hyp_b', 'reason': 'Vendor notice posted after internal errors started (E4), violating temporal order rule'}, {'hypothesis': 'hyp_c', 'reason': 'Error growth stopped immediately after rollback (E2), making rollback relevant per counterfactual rule'}]"
+    },
+    "chain": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['Candidate conflict: hyp_b claims vendor outage was primary trigger, while hyp_a claims internal parser regression', 'Counterfactual exclusion: E3/E4 show vendor notice after internal errors, excluding hyp_b; E2 shows immediate stop after rollback, excluding hyp_c', 'Unique conclusion: Only hyp_a satisfies temporal order and direct evidence']"
+    },
+    "neg": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['no_vendor_degraded_notice_before_10_05', 'rollback_started_and_error_growth_stopped']"
+    },
+    "rule": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "If multiple hypotheses survive, prefer the one that directly explains the earliest initiating signal"
+    },
+    "refs": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "['E1', 'E2', 'E3', 'E4']"
+    }
+  }
+}

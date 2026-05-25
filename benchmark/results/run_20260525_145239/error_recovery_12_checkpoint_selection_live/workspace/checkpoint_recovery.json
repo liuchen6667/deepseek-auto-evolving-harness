@@ -1,0 +1,23 @@
+{
+  "selected_checkpoint": "C2",
+  "total_recovery_cost": 51,
+  "rejected_checkpoints": [
+    {"id": "C1", "reason": "Higher total recovery cost (80) compared to C2 (51)."},
+    {"id": "C3", "reason": "status suspect_duplicate_write incurs risk_penalty (25), making total cost (60) higher than C2 (51)."},
+    {"id": "C4", "reason": "status invalid_missing_index_on_orders starts with 'invalid_', thus cannot be selected per rule."}
+  ],
+  "recovery_sequence": [
+    "Validate selected checkpoint C2 integrity.",
+    "Restore database to C2 state (restore=7 minutes).",
+    "Apply transaction log to catch up to current time (catch_up=19 minutes).",
+    "Verify data consistency and application functionality."
+  ],
+  "verification_focus": [
+    "Confirm no data corruption from checkpoint C2.",
+    "Validate all application services are operational post-recovery."
+  ],
+  "notes": [
+    "C2 provides optimal balance of data loss (25 minutes) and operational cost.",
+    "C4 was invalid due to status rule; C1 and C3 had higher total costs."
+  ]
+}

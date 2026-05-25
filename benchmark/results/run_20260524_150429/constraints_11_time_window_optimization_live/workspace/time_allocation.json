@@ -1,0 +1,21 @@
+{
+  "assigned_slots": [
+    {"task": "F", "start": 9, "end": 10},
+    {"task": "A", "start": 11, "end": 12},
+    {"task": "E", "start": 13, "end": 14},
+    {"task": "D", "start": 14, "end": 16},
+    {"task": "G", "start": 16, "end": 17}
+  ],
+  "resolved_conflicts": [
+    "A与B在窗口[11,12]冲突，只能选一个；按字母序选择A（A < B），放弃B",
+    "C因依赖A和B无法安排，因为A和B不能同时在窗口内完成（只有一个worker且窗口限制）",
+    "D和E共享db资源，通过错开时间解决：E在13开始，D在14开始，避免资源重叠"
+  ],
+  "unresolved_tasks": ["B", "C"],
+  "completion_count": 5,
+  "notes": [
+    "最大化完成数量优先，因此放弃C（因依赖无法满足）以安排更多任务",
+    "在A和B之间按字母序选择A，满足tertiary目标（字母序更小的任务更早）",
+    "D和E的资源冲突通过E在13开始、D在14开始解决，使两者都能安排"
+  ]
+}

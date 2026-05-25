@@ -1,0 +1,42 @@
+{
+  "id": "planning_17_dependency_tradeoff_plan_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "now": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "['schema-prepare', 'service-cutover', 'smoke-verify']"
+    },
+    "defer": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "[{'task': 'analytics-rebuild', 'reason': 'excluded from current delivery window'}, {'task': 'cache-warm', 'reason': 'dependency chain priority favors verification over optimization'}, {'task': 'report-migration', 'reason': 'dependency chain priority favors core service delivery'}]"
+    },
+    "order": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "['schema-prepare', 'service-cutover', 'smoke-verify']"
+    },
+    "rule": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "Prefer the highest-priority dependency-closed chain that fits in the current window."
+    },
+    "just": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "['Dependency closure: schema-prepare → service-cutover → smoke-verify forms a complete deployment chain', 'Capacity fit: 3 tasks match the 3 available slots', 'Delivery priority: analytics-rebuild excluded, remaining chain maximizes deliverable value']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['task_graph.json', 'capacity.json', 'priority_rules.md', 'delivery_window.json']"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "planning_17_dependency_tradeoff_plan_live",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "missing"
+    },
+    "now": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "skipped"
+    },
+    "defer": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "skipped"
+    },
+    "order": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "rule": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "just": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "refs": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    }
+  }
+}

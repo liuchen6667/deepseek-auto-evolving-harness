@@ -1,0 +1,42 @@
+{
+  "id": "tool_use_17_capability_route_decision_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "route": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "['Read', 'Write']"
+    },
+    "blocked": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "[{'route': ['Bash', 'Write'], 'reason': 'Avoid shell-first routes for closed workspace tasks'}, {'route': ['WebSearch', 'Write'], 'reason': 'No web access needed; avoid web routes when local files are sufficient'}, {'route': ['Grep', 'Write'], 'reason': 'Read is more appropriate for collecting exact fields from structured files'}]"
+    },
+    "first": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "Read"
+    },
+    "rule": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "Use minimal structured workspace tools when local files are sufficient"
+    },
+    "rationale": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "['Capability: The task requires collecting exact fields from local files; Read tool is designed for reading file contents to gather structured data', 'Workspace constraint: workspace_only is true, indicating operations must stay within the workspace; Read and Write are workspace-contained tools', 'Safety boundary: routing_rules.md prohibits shell-first and web routes for closed workspace tasks; Read+Write adheres to this safety boundary']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['task_request.md', 'tool_catalog.json', 'workspace_state.json', 'routing_rules.md']"
+    }
+  }
+}

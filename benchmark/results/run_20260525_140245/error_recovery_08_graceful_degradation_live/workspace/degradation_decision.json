@@ -1,0 +1,24 @@
+{
+  "order_mode": "reject_new_orders",
+  "chosen_strategies": ["async_followup_notification", "sync_api_response_with_status"],
+  "rejected_strategies": [
+    {"strategy": "create_order_with_pending_payment", "reason": "payment_service_down_and_not_accepting_new_charges"},
+    {"strategy": "create_order_with_stale_inventory", "reason": "inventory_service_readonly_cannot_write_reservations"}
+  ],
+  "degraded_flow": ["validate_cart", "check_dependencies", "reject_order_sync_response", "queue_async_notification", "log_for_audit"],
+  "consistency_guards": ["no_order_created_without_payment", "no_inventory_reserved_without_write", "no_manual_reconciliation_required", "sync_response_within_slo"],
+  "recovery_plan": ["monitor_payment_service_recovery", "resume_normal_checkout_when_deps_healthy", "process_queued_notifications", "audit_rejected_checkouts"],
+  "user_response": {
+    "http_status": 503,
+    "status_code": "SERVICE_UNAVAILABLE",
+    "must_return_within_seconds": 5
+  },
+  "evidence_refs": [
+    "service_status.json",
+    "checkout_request.json",
+    "degradation_policy.yaml",
+    "logs/checkout.log",
+    "logs/notification.log",
+    "runbook.md"
+  ]
+}

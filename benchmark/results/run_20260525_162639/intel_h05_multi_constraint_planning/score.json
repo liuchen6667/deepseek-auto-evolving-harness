@@ -1,0 +1,62 @@
+{
+  "id": "intel_h05_multi_constraint_planning",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "read_both": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "project=False constraints=False"
+    },
+    "file_exists": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "missing plan.json"
+    },
+    "no_blocked_assignees": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "dependencies_respected": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "within_budget": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "skipped"
+    },
+    "total_effort_accurate": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "priority_first": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "skipped"
+    },
+    "max_parallel_respected": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "skipped"
+    },
+    "dependency_order_respected": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "deferred_tasks_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "transitive_block_detected": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "skipped"
+    }
+  }
+}

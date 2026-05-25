@@ -1,0 +1,7 @@
+{
+  "direct_impacts": ["B", "C", "F", "G", "H"],
+  "indirect_impacts": ["A"],
+  "risk_levels": {"A": "high", "B": "high", "C": "medium", "F": "high", "G": "medium", "H": "medium"},
+  "recovery_priority": ["B", "C", "F", "G", "H", "A"],
+  "notes": ["关键传播链路：D停机直接影响B和F；E降级直接影响C、G、H；B和C的故障进一步影响A，形成A->B->D和A->C->E两条影响链路。", "缓解思路：1) 在维护窗口前为A服务增加缓存或降级方案，减少对B和C的依赖；2) 考虑将部分负载从E临时迁移，减轻降级影响；3) 优先监控B和F，因为依赖完全停机的D风险最高。"]
+}

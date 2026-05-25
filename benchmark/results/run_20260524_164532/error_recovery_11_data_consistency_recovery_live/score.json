@@ -1,0 +1,42 @@
+{
+  "id": "error_recovery_11_data_consistency_recovery_live",
+  "score": 0.9500000000000001,
+  "passed": true,
+  "checkpoints": {
+    "recovery_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "consistency_recovery.json exists"
+    },
+    "canonical_sources_are_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "canonical_sources={'orders': 'A', 'inventory': ['A', 'B']}"
+    },
+    "order_anomalies_are_correct": {
+      "score": 0.25,
+      "max": 0.25,
+      "detail": "missing_in_b=[705, 706] extra_in_c=[799]"
+    },
+    "inventory_fix_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "inventory_fix={'replica': 'C', 'expected_value': 100}"
+    },
+    "root_causes_are_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "cause_hits=3"
+    },
+    "repair_sequence_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "repair_sequence=['Replicate missing orders 705 and 706 from A to B', 'Remove invalid order 799 from C (rollback missed during isolation)', 'Correct inventory value in C from 112 to 100 (undo duplicate replay)']"
+    },
+    "verification_is_complete": {
+      "score": 0.05,
+      "max": 0.1,
+      "detail": "verification_steps=5 hits=0"
+    }
+  }
+}

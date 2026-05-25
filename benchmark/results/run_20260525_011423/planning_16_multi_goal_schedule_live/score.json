@@ -1,0 +1,42 @@
+{
+  "id": "planning_16_multi_goal_schedule_live",
+  "score": 0.4,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "selected": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "['plan_beta', 'plan_gamma', 'plan_alpha']"
+    },
+    "rejected": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'plan': 'plan_delta', 'reason': 'Lower priority than customer commitment and revenue recovery objectives'}, {'plan': 'plan_epsilon', 'reason': 'Lower priority than customer commitment and revenue recovery objectives'}]"
+    },
+    "alloc": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "[{'window': 'w1', 'task': 'plan_beta'}, {'window': 'w2', 'task': 'plan_gamma'}, {'window': 'w3', 'task': 'plan_alpha'}]"
+    },
+    "objective": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "protect customer commitment"
+    },
+    "rationale": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['Plan beta is prioritized first to protect customer commitment, the highest business objective', 'Resource allocation matches CPU window capacities: w1 (4 CPU) handles the most critical task, w2 (3 CPU) and w3 (2 CPU) handle subsequent tasks', 'Tradeoff accepted: ops cleanup plans (delta, epsilon) are deferred to focus on customer commitment and revenue recovery']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['work_items.json', 'resource_limits.json', 'business_objectives.md', 'planning_contract.json']"
+    }
+  }
+}

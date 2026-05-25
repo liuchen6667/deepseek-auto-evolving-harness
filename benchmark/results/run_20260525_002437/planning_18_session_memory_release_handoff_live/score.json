@@ -1,0 +1,32 @@
+{
+  "id": "planning_18_session_memory_release_handoff_live",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "handoff_exists": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "handoff.md exists"
+    },
+    "required_sections": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "sections=0/3"
+    },
+    "critical_blockers_only": {
+      "score": 0.0,
+      "max": 0.25,
+      "detail": ""
+    },
+    "session_memory_owner_reuse": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": ""
+    },
+    "next_step_is_grounded": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": ""
+    }
+  }
+}

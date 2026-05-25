@@ -1,0 +1,32 @@
+{
+  "canonical_sources": {
+    "orders": "A",
+    "inventory": ["A", "B"]
+  },
+  "orders_missing_in_B": [705, 706],
+  "orders_extra_in_C": [799],
+  "inventory_fix": {
+    "replica": "C",
+    "expected_value": 100
+  },
+  "root_causes": {
+    "B_orders": "replication_lag",
+    "C_orders": "missed_rollback",
+    "C_inventory": "duplicate_replay"
+  },
+  "repair_sequence": [
+    "replicate missing orders 705,706 from A to B",
+    "delete orphaned order 799 from C",
+    "correct inventory.sku_77 value to 100 on C"
+  ],
+  "verification_steps": [
+    "verify orders table consistency across all replicas",
+    "confirm inventory.sku_77 = 100 on all replicas",
+    "monitor replication lag and ensure no delayed operations"
+  ],
+  "notes": [
+    "B lagged during 10:02-10:06, missing recent commits",
+    "C was isolated during maintenance, missed rollback operation",
+    "C incorrectly replayed +12 restock event at 10:06"
+  ]
+}

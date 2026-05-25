@@ -1,0 +1,22 @@
+{
+  "slot_plan": [
+    {"slot_start": 0, "task": "Z", "value_at_execution": 9},
+    {"slot_start": 5, "task": "X", "value_at_execution": 16},
+    {"slot_start": 10, "task": "A", "value_at_execution": 12},
+    {"slot_start": 15, "task": "B", "value_at_execution": 11},
+    {"slot_start": 20, "task": "C", "value_at_execution": 3}
+  ],
+  "total_value": 51,
+  "events_considered": [
+    "T+5: X价值翻倍为16（如果未执行），因此安排在槽5-10执行以获得更高价值",
+    "T+10: 新增三个P0任务A(12), B(11), C(3)，这些必须优先于所有P1/P2任务执行",
+    "T+15: Y依赖取消但仍是P1优先级，而B和C是P0优先级，因此不能执行Y",
+    "T+20: Z降级变化不生效，因为Z已在槽0-5执行"
+  ],
+  "notes": [
+    "根据规则必须优先执行最高优先级任务，因此所有P0任务（包括新增的）必须在P1/P2任务之前执行",
+    "在槽0-5选择Z而不是X，是为了让X在槽5-10执行时获得翻倍价值16，而不是原始价值8",
+    "虽然Y价值14很高，但因其是P1优先级且P0任务必须优先执行，所以无法安排Y执行",
+    "总价值51是通过执行所有P0任务获得的：Z(9)+X(16)+A(12)+B(11)+C(3)=51"
+  ]
+}

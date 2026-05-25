@@ -1,0 +1,23 @@
+{
+  "selected_checkpoint": "C2",
+  "total_recovery_cost": 51,
+  "rejected_checkpoints": [
+    {"id": "C1", "reason": "总恢复成本80高于C2的51，不是最优选择"},
+    {"id": "C3", "reason": "status为suspect_duplicate_write需要计入25风险惩罚，总成本60高于C2的51，不是最优选择"},
+    {"id": "C4", "reason": "status以invalid_开头，根据规则不能被选为恢复点"}
+  ],
+  "recovery_sequence": [
+    "验证C2检查点状态为clean，确保无数据完整性问题",
+    "执行恢复操作，预计耗时7分钟",
+    "追赶丢失的事务，预计耗时19分钟",
+    "验证数据一致性，处理数据丢失25分钟的影响"
+  ],
+  "verification_focus": [
+    "检查恢复后数据库索引完整性",
+    "验证事务日志连续性，确保无数据丢失超出预期"
+  ],
+  "notes": [
+    "选择C2(09:35)在数据丢失(25分钟)和恢复总成本(51分钟)之间达到最佳平衡",
+    "C1虽然更早但恢复和追赶时间太长，C3有风险惩罚，C4因无效状态被排除"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "id": "synthesis_07_reverse_reasoning_live",
+  "score": 0.13636363636363638,
+  "passed": false,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "incident_reverse_report.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "timeline_is_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "invalid JSON: Expecting ',' delimiter: line 29 column 49 (char 1303)"
+    },
+    "suspicious_changes_are_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "invalid JSON: Expecting ',' delimiter: line 29 column 49 (char 1303)"
+    },
+    "dependency_findings_are_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "invalid JSON: Expecting ',' delimiter: line 29 column 49 (char 1303)"
+    },
+    "root_cause_is_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "invalid JSON: Expecting ',' delimiter: line 29 column 49 (char 1303)"
+    },
+    "causal_chain_is_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "invalid JSON: Expecting ',' delimiter: line 29 column 49 (char 1303)"
+    },
+    "ruled_out_are_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "invalid JSON: Expecting ',' delimiter: line 29 column 49 (char 1303)"
+    },
+    "verification_steps_are_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "invalid JSON: Expecting ',' delimiter: line 29 column 49 (char 1303)"
+    },
+    "evidence_refs_are_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "invalid JSON: Expecting ',' delimiter: line 29 column 49 (char 1303)"
+    }
+  }
+}

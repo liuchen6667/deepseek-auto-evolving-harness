@@ -1,0 +1,150 @@
+{
+  "schedule": [
+    {
+      "task_id": "task_001",
+      "agent_id": "agent_002",
+      "start_time": 0,
+      "end_time": 3,
+      "resources_used": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 30
+      },
+      "notes": "High priority, requires data_processing and network_io, agent_002 has both"
+    },
+    {
+      "task_id": "task_002",
+      "agent_id": "agent_003",
+      "start_time": 3,
+      "end_time": 5,
+      "resources_used": {
+        "cpu": 10,
+        "memory": 15,
+        "bandwidth": 5
+      },
+      "notes": "High priority, depends on task_001, agent_003 has validation and highest efficiency (1.1)"
+    },
+    {
+      "task_id": "task_003",
+      "agent_id": "agent_001",
+      "start_time": 5,
+      "end_time": 9,
+      "resources_used": {
+        "cpu": 25,
+        "memory": 30,
+        "bandwidth": 10
+      },
+      "notes": "Depends on task_002, agent_001 has data_processing and available"
+    },
+    {
+      "task_id": "task_004",
+      "agent_id": "agent_004",
+      "start_time": 9,
+      "end_time": 12,
+      "resources_used": {
+        "cpu": 30,
+        "memory": 20,
+        "bandwidth": 5
+      },
+      "notes": "High priority, depends on task_003, agent_004 has encryption"
+    },
+    {
+      "task_id": "task_005",
+      "agent_id": "agent_001",
+      "start_time": 12,
+      "end_time": 14,
+      "resources_used": {
+        "cpu": 20,
+        "memory": 25,
+        "bandwidth": 5
+      },
+      "notes": "Depends on task_004, agent_001 has compression and available after task_003"
+    },
+    {
+      "task_id": "task_006",
+      "agent_id": "agent_003",
+      "start_time": 5,
+      "end_time": 8,
+      "resources_used": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 10
+      },
+      "notes": "Parallel branch, depends on task_002, agent_003 has analysis and available after task_002"
+    },
+    {
+      "task_id": "task_007",
+      "agent_id": "agent_005",
+      "start_time": 8,
+      "end_time": 10,
+      "resources_used": {
+        "cpu": 10,
+        "memory": 15,
+        "bandwidth": 5
+      },
+      "notes": "Depends on task_006, agent_005 has reporting and available"
+    },
+    {
+      "task_id": "task_008",
+      "agent_id": "agent_004",
+      "start_time": 14,
+      "end_time": 17,
+      "resources_used": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 20
+      },
+      "notes": "Depends on task_005, agent_004 has archival and available after task_004"
+    },
+    {
+      "task_id": "task_009",
+      "agent_id": "agent_002",
+      "start_time": 14,
+      "end_time": 18,
+      "resources_used": {
+        "cpu": 10,
+        "memory": 10,
+        "bandwidth": 50
+      },
+      "notes": "Depends on task_005, agent_002 has network_io and available"
+    },
+    {
+      "task_id": "task_010",
+      "agent_id": "agent_003",
+      "start_time": 18,
+      "end_time": 21,
+      "resources_used": {
+        "cpu": 20,
+        "memory": 25,
+        "bandwidth": 10
+      },
+      "notes": "High priority, depends on task_007, task_008, task_009, agent_003 has validation and analysis"
+    }
+  ],
+  "summary": {
+    "total_tasks": 10,
+    "total_agents_used": 5,
+    "estimated_completion_time": 21,
+    "critical_path": ["task_001", "task_002", "task_003", "task_004", "task_005", "task_009", "task_010"],
+    "resource_peak_usage": {
+      "cpu": 65,
+      "memory": 60,
+      "bandwidth": 85
+    },
+    "load_balance": {
+      "agent_001": 2,
+      "agent_002": 2,
+      "agent_003": 3,
+      "agent_004": 2,
+      "agent_005": 1
+    },
+    "optimization_notes": [
+      "充分利用并行性：task_006与task_003-005并行执行",
+      "关键路径决定最小完成时间：21个时间单位",
+      "资源使用在限制范围内：CPU峰值65%，内存峰值60%，带宽峰值85%",
+      "负载均衡良好，所有agent都有任务分配",
+      "高优先级任务优先安排，确保及时完成",
+      "失败恢复策略：每个任务完成后可检查点，失败时重新分配给有相同能力的其他agent"
+    ]
+  }
+}

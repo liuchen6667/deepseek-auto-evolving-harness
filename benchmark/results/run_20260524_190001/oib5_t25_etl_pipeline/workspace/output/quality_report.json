@@ -1,0 +1,8 @@
+{
+  "total_raw_rows": 4,
+  "duplicates_removed": 0,
+  "nulls_removed": 0,
+  "date_format_fixed": 2,
+  "total_clean_rows": 2,
+  "clean_percentage": 50.0
+}

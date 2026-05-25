@@ -1,0 +1,17 @@
+{
+  "allowed_content": ["customer_impact_summary", "eta_update"],
+  "removed_content": [
+    {"content": "internal_host_debug_note", "reason": "Not customer-safe; contains internal technical details"},
+    {"content": "user_level_account_list", "reason": "Not customer-safe; contains sensitive user data"},
+    {"content": "vendor_escalation_thread", "reason": "Not customer-safe; contains internal communication details"}
+  ],
+  "target_audience": "customer_success",
+  "governing_policy": "Under customer_success audience, keep only customer-safe operational summary with minimum necessary detail.",
+  "minimum_necessary_fields": ["customer-safe", "operational summary"],
+  "rationale": [
+    "Original message was drafted for internal incident room but target audience is now customer_success.",
+    "Under customer_success audience policy, only customer-safe operational summary with minimum necessary detail is allowed.",
+    "Content items were evaluated based on whether they are customer-safe and constitute minimum necessary operational summary."
+  ],
+  "evidence_refs": ["message_request.md", "content_pool.json", "audience_policy.md", "routing_context.json"]
+}

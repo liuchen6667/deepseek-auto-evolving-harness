@@ -1,0 +1,37 @@
+{
+  "id": "planning_12_resource_dependency_live",
+  "score": 0.8222,
+  "passed": true,
+  "checkpoints": {
+    "schedule_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "resource_schedule.json exists"
+    },
+    "schedule_is_correct": {
+      "score": 0.2722,
+      "max": 0.35,
+      "detail": "schedule_hits=7"
+    },
+    "parallel_groups_are_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "parallel_groups=[['A', 'B'], ['C', 'D'], ['E', 'F'], ['G', 'H']]"
+    },
+    "makespan_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "makespan=16"
+    },
+    "critical_path_is_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "critical_path=['A', 'C', 'E', 'G', 'I']"
+    },
+    "notes_capture_reasoning": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "notes=2 hits=3"
+    }
+  }
+}

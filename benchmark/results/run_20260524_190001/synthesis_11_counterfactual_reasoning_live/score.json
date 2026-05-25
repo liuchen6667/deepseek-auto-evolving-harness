@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_11_counterfactual_reasoning_live",
+  "score": 0.1,
+  "passed": false,
+  "checkpoints": {
+    "analysis_file_exists": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "missing counterfactual_analysis.json"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "individual_rank_is_correct": {
+      "score": 0.0,
+      "max": 0.25,
+      "detail": "skipped"
+    },
+    "individual_scores_are_correct": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "best_plan_is_correct": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    },
+    "combined_projection_is_correct": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "skipped"
+    },
+    "recommendations_are_exact": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "skipped"
+    }
+  }
+}

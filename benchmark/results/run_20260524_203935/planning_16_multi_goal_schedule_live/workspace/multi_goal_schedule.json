@@ -1,0 +1,19 @@
+{
+  "selected_plan": ["plan_beta", "plan_gamma", "plan_alpha"],
+  "rejected_plans": [
+    {"plan": "plan_delta", "reason": "Cannot be accommodated while meeting top objective of protecting customer commitment within available CPU windows"},
+    {"plan": "plan_epsilon", "reason": "Cannot be accommodated while meeting top objective of protecting customer commitment within available CPU windows"}
+  ],
+  "resource_allocation": [
+    {"window": "w1", "task": "plan_beta"},
+    {"window": "w2", "task": "plan_gamma"},
+    {"window": "w3", "task": "plan_alpha"}
+  ],
+  "governing_objective": "protect customer commitment",
+  "rationale": [
+    "Objective priority dictates that protecting customer commitment must be satisfied first, which requires executing plan_beta, plan_gamma, and plan_alpha as specified in planning_contract.json",
+    "Resource fit is optimal with w1 (4 CPU) allocated to plan_beta, w2 (3 CPU) to plan_gamma, and w3 (2 CPU) to plan_alpha, fully utilizing available capacity without exceeding limits",
+    "Tradeoff accepts the opportunity cost of not pursuing plan_delta and plan_epsilon (which might address secondary revenue recovery or tertiary ops cleanup) to ensure the primary objective is fully met"
+  ],
+  "evidence_refs": ["work_items.json", "resource_limits.json", "business_objectives.md", "planning_contract.json"]
+}

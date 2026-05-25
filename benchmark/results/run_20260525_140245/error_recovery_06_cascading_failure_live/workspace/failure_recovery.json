@@ -1,0 +1,47 @@
+{
+  "timeline": [
+    {"time": "2026-03-21T14:20:01Z", "event": "payment_gateway_reloaded_with_user_service_port_9091"},
+    {"time": "2026-03-21T14:20:03Z", "event": "payment_gateway_connection_refused_to_user_service"},
+    {"time": "2026-03-21T14:20:09Z", "event": "order_service_full_workflow_retries_started"},
+    {"time": "2026-03-21T14:20:18Z", "event": "inventory_service_queue_depth_240_triggered_503"},
+    {"time": "2026-03-21T14:20:24Z", "event": "order_service_checkout_timeout"}
+  ],
+  "root_cause_service": "payment-gateway",
+  "root_cause": "user_service_port_misconfigured_to_9091_after_reload",
+  "propagation_chain": [
+    "payment-gateway_cannot_reach_user-service",
+    "order-service_retries_full_checkout_workflow",
+    "inventory-service_duplicate_reservation_queue_overflows",
+    "order-service_times_out"
+  ],
+  "config_fixes": {
+    "payment-gateway": {
+      "user_service_port": 8081
+    },
+    "order-service": {
+      "max_checkout_retries": 2,
+      "fail_fast_on_payment_gateway_down": true
+    }
+  },
+  "degrade_actions": [
+    "temporarily_disable_full_checkout_retries",
+    "fail_fast_when_payment_gateway_is_unhealthy",
+    "pause_inventory_duplicate_reservation_replay_until_backlog_is_drained"
+  ],
+  "recovery_order": [
+    "fix_payment_gateway_upstream_port",
+    "tighten_order_service_retry_policy",
+    "drain_inventory_backlog",
+    "restore_normal_checkout_flow"
+  ],
+  "services_to_keep_running": ["user-service"],
+  "evidence_refs": [
+    "service_status.json",
+    "logs/order-service.log",
+    "logs/inventory-service.log",
+    "logs/payment-gateway.log",
+    "logs/user-service.log",
+    "configs/order-service.yaml",
+    "configs/payment-gateway.yaml"
+  ]
+}

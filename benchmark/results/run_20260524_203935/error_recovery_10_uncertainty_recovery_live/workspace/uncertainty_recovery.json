@@ -1,0 +1,26 @@
+{
+  "pattern": "periodic_burst",
+  "severity": "medium",
+  "hypotheses": [
+    "db_connection_pool_exhaustion",
+    "intermittent_network_fault", 
+    "application_regression"
+  ],
+  "primary_hypothesis": "db_connection_pool_exhaustion",
+  "validation_plan": {
+    "db_connection_pool_exhaustion": "检查数据库连接池监控，确认在错误发生前30秒连接池使用率是否达到98%-99%；分析数据库查询性能，查看是否有慢查询或连接泄漏；检查应用日志中数据库连接获取超时的记录",
+    "intermittent_network_fault": "检查网络设备日志，特别是profile-db所在网络的交换机/路由器；分析网络延迟和丢包率的时间序列数据；验证数据库服务器与应用程序服务器之间的网络连通性",
+    "application_regression": "审查最近的应用部署变更，特别是与数据库交互相关的代码；检查应用线程池配置和使用情况；分析模块A、B、C的错误日志，寻找共同模式或堆栈跟踪"
+  },
+  "recovery_mode": "mixed",
+  "immediate_actions": [
+    "临时增加数据库连接池大小以缓解压力，例如从20增加到30",
+    "重启应用程序以释放可能被占用的数据库连接，清除连接池中的无效连接"
+  ],
+  "preventive_actions": [
+    "实施连接池监控告警，当使用率超过80%时触发预警",
+    "优化数据库查询，添加索引或重写低效查询以减少连接占用时间",
+    "实现连接泄漏检测机制，定期检查并回收未正确关闭的连接",
+    "调整重试策略，增加retry_backoff_ms或实现指数退避机制"
+  ]
+}

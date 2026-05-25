@@ -1,0 +1,6 @@
+{
+  "price": {"value": 249, "source": "source_retailer.json", "reason": "零售商数据是最新价格信息（3/14），明确说明由于新款发布降价，且价格最低"},
+  "stock": {"value": "无货", "source": "source_retailer.json", "reason": "零售商数据（3/14）显示库存为0，且有备注说明缺货，比官方数据（3/10）更新"},
+  "rating": {"value": 4.2, "source": "source_reviews.txt", "reason": "用户评价是最新数据（3/15），基于1247条实际用户评价，时效性和可信度最高"},
+  "conflicts_found": ["价格：官方299 vs 零售商249 vs 用户评价279", "库存：官方150 vs 零售商0 vs 用户评价有货", "评分：官方4.5 vs 零售商3.8 vs 用户评价4.2"]
+}

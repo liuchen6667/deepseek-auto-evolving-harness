@@ -1,0 +1,9 @@
+{
+  "action_order": ["freeze_writes", "restore_last_clean_config", "reopen_safe_traffic", "replay_backlog_immediately", "reopen_all_traffic"],
+  "blocked_actions": [
+    {"action": "skip_write_freeze", "reason": "Violates guardrail 'stabilize_state_before_reintroducing_risk' by skipping necessary state stabilization step"}
+  ],
+  "governing_guardrail": "stabilize_state_before_reintroducing_risk",
+  "why_this_order": ["Risk: Replay or reopen traffic too early can reintroduce corruption (system_risks.md)", "Dependency: Must freeze writes and restore clean config before reintroducing any traffic to stabilize system state", "Goal protection: Ensures safe_service_return by preventing premature risk reintroduction that could compromise recovery"],
+  "evidence_refs": ["recovery_actions.json", "system_risks.md", "guardrail_order.yaml", "incident_goal.json"]
+}

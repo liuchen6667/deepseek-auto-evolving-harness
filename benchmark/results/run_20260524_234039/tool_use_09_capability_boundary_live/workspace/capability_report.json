@@ -1,0 +1,16 @@
+{
+  "read_limit_mb": 9,
+  "read_failure_starts_at_mb": 10,
+  "safe_exec_batch_mb": 18,
+  "exec_failure_starts_at_mb": 20,
+  "memory_limit_gb": 0.75,
+  "recommended_sample_shards": ["dataset/shard_a.jsonl", "dataset/shard_b.jsonl", "dataset/shard_d.jsonl"],
+  "sample_bundle_logical_size_mb": 17,
+  "rejected_candidates": {
+    "dataset/archive_full_export.bin": "archive_placeholder_unsafe",
+    "dataset/shard_c.jsonl": "safe_but_suboptimal_bundle",
+    "dataset/shard_e.jsonl": "safe_but_suboptimal_bundle",
+    "dataset/shard_f.jsonl": "read_limit_exceeded"
+  },
+  "estimated_batches_for_full_run": 86
+}

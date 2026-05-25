@@ -1,0 +1,37 @@
+{
+  "id": "synthesis_22_conflict_resolution_chain_live",
+  "score": 0.4444444444444445,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "win": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "claim_a"
+    },
+    "invalid": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'claim': 'claim_b', 'reason': 'Contradicted by observation o2'}, {'claim': 'claim_c', 'reason': 'Not selected by resolution policy despite being consistent'}]"
+    },
+    "chain": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['observation_o2', 'claim_b', 'resolution_policy']"
+    },
+    "rule": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "Apply consistency first, then choose the highest-priority remaining claim."
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['claims.json', 'observations.md', 'resolution_policy.md', 'output_spec.json']"
+    }
+  }
+}

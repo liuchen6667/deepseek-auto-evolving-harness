@@ -1,0 +1,3 @@
+sale_id,product_id,product_name,region_code,region_name,amount,date
+S002,P02,Gadget X,R2,Europe,89.5,2024-03-02
+S003,P01,Widget Pro,R1,North America,150.0,2024-03-01

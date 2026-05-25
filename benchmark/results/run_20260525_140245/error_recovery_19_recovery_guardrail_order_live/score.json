@@ -1,0 +1,37 @@
+{
+  "id": "error_recovery_19_recovery_guardrail_order_live",
+  "score": 0.33333333333333337,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "order": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['freeze_writes', 'restore_last_clean_config', 'reopen_safe_traffic', 'reopen_all_traffic']"
+    },
+    "blocked": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'action': 'replay_backlog_immediately', 'reason': '过早回放积压可能重新引入损坏，违反在重新引入风险前稳定状态的原则'}, {'action': 'skip_write_freeze', 'reason': '跳过写入冻结会绕过必要的状态稳定步骤，违反防护栏规则'}]"
+    },
+    "guard": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "stabilize_state_before_reintroducing_risk"
+    },
+    "why": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['风险：过早重新开放流量可能重新引入损坏，因此必须在稳定状态后才能重新引入流量', '依赖：必须先冻结写入和恢复干净配置以稳定状态，然后才能逐步重新开放流量', '目标保护：顺序确保安全服务恢复，避免重新引入损坏']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['recovery_actions.json', 'system_risks.md', 'guardrail_order.yaml', 'incident_goal.json']"
+    }
+  }
+}

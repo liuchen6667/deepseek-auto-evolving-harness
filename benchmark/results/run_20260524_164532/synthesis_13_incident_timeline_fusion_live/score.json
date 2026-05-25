@@ -1,0 +1,37 @@
+{
+  "id": "synthesis_13_incident_timeline_fusion_live",
+  "score": 0.75,
+  "passed": true,
+  "checkpoints": {
+    "fusion_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "incident_fusion.json exists"
+    },
+    "timeline_is_correct": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "timeline=[{'time': '01:02', 'event': \"Feature flag 'checkout_profile_enrichment' enabled (alerts.log)\"}, {'time': '01:03', 'event': 'Profile-db connection pool spikes to 99% (db_metrics.json), oncall notices spike after flag enable (chat_notes.md)'}, {'time': '01:04', 'event': \"First 'upstream_profile_timeout' errors appear (18 count) in checkout (alerts.log)\"}, {'time': '01:08', 'event': \"Mitigation rollback of 'checkout_profile_enrichment' started (alerts.log)\"}, {'time': '01:10', 'event': 'Checkout error rate back to baseline after rollback (alerts.log)'}]"
+    },
+    "root_cause_is_correct": {
+      "score": 0.0,
+      "max": 0.25,
+      "detail": "root_cause=\"The 'checkout_profile_enrichment' feature flag introduced an N+1 query pattern that overwhelmed the profile-db connection pool, causing timeouts in the checkout service.\""
+    },
+    "ruled_out_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "ruled_out=['Network issues (packet loss 0.1%, latency 12ms, DBA confirmed no network anomaly)', \"Payment gateway failure (status was 'healthy' in db_metrics.json)\"]"
+    },
+    "confidence_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "confidence='high'"
+    },
+    "evidence_refs_are_complete": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['alerts.log: Feature flag enabled at 01:02, followed by timeout errors at 01:04-01:06, rollback at 01:08, recovery at 01:10', 'db_metrics.json: Profile-db connection pool spiked from 72% to 99% at 01:03, remained at 99% at 01:05', 'chat_notes.md: DBA analysis points to N+1 query path triggered by checkout_profile_enrichment']"
+    }
+  }
+}

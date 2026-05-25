@@ -1,0 +1,52 @@
+{
+  "id": "error_recovery_08_graceful_degradation_live",
+  "score": 0.975,
+  "passed": true,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "degradation_decision.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.05,
+      "max": 0.05,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "order_mode_and_chosen_strategies_are_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "order_mode='reject_new_orders' chosen_strategies=['synchronous_rejection', 'async_notification_queued'] reject=True async_notification=True"
+    },
+    "rejected_strategies_are_exact": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "categories=['async_payment', 'cached_inventory', 'manual_reconciliation_queue'] rejected_strategies=[{'strategy': 'async_payment_with_sync_order', 'reason': 'policy forbids async_payment'}, {'strategy': 'create_order_without_inventory_reservation', 'reason': 'inventory_service_readonly_and_policy_requires_writable_inventory'}, {'strategy': 'manual_reconciliation_queue', 'reason': 'policy forbids manual_reconciliation_queue_for_new_orders'}]"
+    },
+    "degraded_flow_is_exact": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "semantic_hits=5/5 degraded_flow=['checkout_request_received', 'dependency_health_check_failed', 'synchronous_rejection_response', 'async_notification_queued', 'user_informed_via_response']"
+    },
+    "consistency_guards_are_exact": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "semantic_hits=4/4 consistency_guards=['no_order_created_without_payment', 'no_inventory_reservation_without_write', 'no_manual_reconciliation_needed', 'async_notification_only_after_sync_response']"
+    },
+    "recovery_plan_is_exact": {
+      "score": 0.075,
+      "max": 0.1,
+      "detail": "semantic_hits=3/4 recovery_plan=['monitor_payment_service_recovery', 'restore_inventory_write_capability', 'resume_normal_checkout_flow', 'process_queued_notifications']"
+    },
+    "user_response_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "user_response={'http_status': 503, 'status_code': 'SERVICE_UNAVAILABLE', 'must_return_within_seconds': 5}"
+    },
+    "evidence_refs_are_complete": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['service_status.json', 'checkout_request.json', 'degradation_policy.yaml', 'logs/checkout.log', 'logs/notification.log', 'runbook.md']"
+    }
+  }
+}

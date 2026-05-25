@@ -1,0 +1,19 @@
+[2024-01-15 08:30:15] INFO PaymentService: Transaction processed successfully for order #12345
+[2024-01-15 08:32:45] ERROR PaymentService: Failed to connect to payment gateway - timeout after 30s
+[2024-01-15 08:33:10] WARN UserService: High memory usage detected (85%)
+[2024-01-15 08:35:22] ERROR UserService: Database connection failed - retrying...
+[2024-01-15 08:36:05] INFO OrderService: Order #12346 created
+[2024-01-15 08:37:18] ERROR PaymentService: Invalid credit card format for user 789
+[2024-01-15 08:38:42] WARN OrderService: Slow response time detected (2.5s)
+[2024-01-15 08:40:15] ERROR OrderService: Inventory check failed - product out of stock
+[2024-01-15 08:41:30] INFO UserService: User profile updated
+[2024-01-15 08:43:55] ERROR PaymentService: Payment declined - insufficient funds
+[2024-01-15 08:45:10] WARN PaymentService: Retry limit reached for transaction #789
+[2024-01-15 08:46:25] ERROR UserService: Authentication failed - invalid credentials
+[2024-01-15 08:47:40] INFO OrderService: Order shipped
+[2024-01-15 08:48:55] ERROR OrderService: Shipping address validation failed
+[2024-01-15 08:50:10] ERROR PaymentService: Fraud detection triggered for transaction #890
+[2024-01-15 08:51:25] WARN UserService: Multiple failed login attempts detected
+[2024-01-15 08:52:40] INFO PaymentService: Refund processed
+[2024-01-15 08:53:55] ERROR OrderService: Delivery service unavailable
+[2024-01-15 08:55:10] CRITICAL System: Database cluster down - emergency mode

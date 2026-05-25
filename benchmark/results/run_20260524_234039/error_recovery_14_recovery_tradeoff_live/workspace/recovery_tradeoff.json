@@ -1,0 +1,12 @@
+{
+  "selected_option": "checkpoint_restore_with_verified_replay",
+  "rejected_options": [
+    {"option": "full_restore_from_09_00", "reason": "data_risk_high_and_window_violation"},
+    {"option": "hot_patch_in_place", "reason": "data_risk_high"},
+    {"option": "traffic_shift_then_restore", "reason": "data_risk_medium_and_window_violation"}
+  ],
+  "staged_recovery_sequence": ["pause_new_writes", "restore_checkpoint", "verify_replay_integrity", "resume_traffic"],
+  "verification_focus": ["order_integrity", "priority_customer_checkout_path", "tax_calculation_contract"],
+  "governing_constraint": "priority_customers_must_recover_within_window_and_data_risk_low",
+  "evidence_refs": ["incident_state.json", "recovery_options.json", "business_constraints.md", "verification_contract.json"]
+}

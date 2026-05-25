@@ -1,0 +1,3 @@
+STATUS: HOLD
+RISK: medium
+REASON: 发布日期周六不在允许的周一至周五，开放bug数2超过最大值0

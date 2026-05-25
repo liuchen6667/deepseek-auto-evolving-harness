@@ -1,0 +1,9 @@
+{
+  "decision": "deny",
+  "applied_policy_version": "v2",
+  "governing_rule": "Clause V2-SEC-4: Any case involving exported customer data to an external destination must be denied unless a security-approved override explicitly names that exact destination and exact use case.",
+  "manager_note_used": false,
+  "conflicting_signals": ["Manager approval supports approval per V1-EXP-2 and manager note", "V2-SEC-4 requires denial for exported customer data to external destination", "Manager note lacks security countersignature, so V2-SEC-5 gives precedence to formal v2 clause"],
+  "reason": "The case involves exported customer data to an external destination (external hosted mirror). While manager approval exists and a manager note provides a temporary override, the note lacks security countersignature. Per V2-SEC-5, formal v2 clauses take precedence when manager note conflicts with policy without security countersignature. V2-SEC-4 mandates denial for exported customer data to external destinations unless security-approved override exists. No security-approved override is present, so the case must be denied.",
+  "evidence_refs": ["policy_v1.md", "policy_v2.md", "manager_note.txt", "case_details.json"]
+}

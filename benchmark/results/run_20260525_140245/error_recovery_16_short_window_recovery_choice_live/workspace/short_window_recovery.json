@@ -1,0 +1,12 @@
+{
+  "selected_action": "rollback_last_config_and_replay_safe_queue",
+  "rejected_actions": [
+    {"action": "full_rebuild", "reason": "35 minutes exceeds 15-minute SLA window"},
+    {"action": "manual_row_repair", "reason": "high data risk violates SLA constraint"},
+    {"action": "traffic_drain_then_investigate", "reason": "20 minutes exceeds 15-minute SLA window"}
+  ],
+  "verification_steps": ["checkout_smoke_test", "order_write_guard", "tax_response_validation"],
+  "governing_constraint": "Checkout critical path must be restored under 15 minutes without increasing data risk.",
+  "expected_restore_minutes": 12,
+  "evidence_refs": ["incident_snapshot.json", "candidate_actions.json", "sla_constraints.md", "validation_rules.json"]
+}

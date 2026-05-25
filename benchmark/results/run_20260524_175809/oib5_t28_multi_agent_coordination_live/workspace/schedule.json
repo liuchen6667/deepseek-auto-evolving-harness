@@ -1,0 +1,159 @@
+{
+  "schedule": [
+    {
+      "time_slot": 0,
+      "tasks": [
+        {
+          "task_id": "task_001",
+          "agent_id": "agent_002",
+          "duration": 3,
+          "resources_used": {"cpu": 15, "memory": 20, "bandwidth": 30},
+          "reason": "Beta has network_io capability and can handle high bandwidth"
+        }
+      ],
+      "total_resources": {"cpu": 15, "memory": 20, "bandwidth": 30}
+    },
+    {
+      "time_slot": 3,
+      "tasks": [
+        {
+          "task_id": "task_002",
+          "agent_id": "agent_003",
+          "duration": 2,
+          "resources_used": {"cpu": 10, "memory": 15, "bandwidth": 5},
+          "reason": "Gamma has validation and highest efficiency (1.1)"
+        }
+      ],
+      "total_resources": {"cpu": 10, "memory": 15, "bandwidth": 5}
+    },
+    {
+      "time_slot": 5,
+      "tasks": [
+        {
+          "task_id": "task_003",
+          "agent_id": "agent_001",
+          "duration": 4,
+          "resources_used": {"cpu": 25, "memory": 30, "bandwidth": 10},
+          "reason": "Alpha has data_processing and is available"
+        },
+        {
+          "task_id": "task_006",
+          "agent_id": "agent_005",
+          "duration": 3,
+          "resources_used": {"cpu": 15, "memory": 20, "bandwidth": 10},
+          "reason": "Epsilon has analysis capability, runs parallel with task_003"
+        }
+      ],
+      "total_resources": {"cpu": 40, "memory": 50, "bandwidth": 20}
+    },
+    {
+      "time_slot": 8,
+      "tasks": [
+        {
+          "task_id": "task_004",
+          "agent_id": "agent_004",
+          "duration": 3,
+          "resources_used": {"cpu": 30, "memory": 20, "bandwidth": 5},
+          "reason": "Delta has encryption capability"
+        },
+        {
+          "task_id": "task_007",
+          "agent_id": "agent_003",
+          "duration": 2,
+          "resources_used": {"cpu": 10, "memory": 15, "bandwidth": 5},
+          "reason": "Gamma has reporting capability, after task_006 completes"
+        }
+      ],
+      "total_resources": {"cpu": 40, "memory": 35, "bandwidth": 10}
+    },
+    {
+      "time_slot": 11,
+      "tasks": [
+        {
+          "task_id": "task_005",
+          "agent_id": "agent_004",
+          "duration": 2,
+          "resources_used": {"cpu": 20, "memory": 25, "bandwidth": 5},
+          "reason": "Delta has compression capability, continues after task_004"
+        }
+      ],
+      "total_resources": {"cpu": 20, "memory": 25, "bandwidth": 5}
+    },
+    {
+      "time_slot": 13,
+      "tasks": [
+        {
+          "task_id": "task_008",
+          "agent_id": "agent_004",
+          "duration": 3,
+          "resources_used": {"cpu": 15, "memory": 20, "bandwidth": 20},
+          "reason": "Delta has archival and compression capabilities"
+        },
+        {
+          "task_id": "task_009",
+          "agent_id": "agent_002",
+          "duration": 4,
+          "resources_used": {"cpu": 10, "memory": 10, "bandwidth": 50},
+          "reason": "Beta has network_io capability for high bandwidth transfer"
+        }
+      ],
+      "total_resources": {"cpu": 25, "memory": 30, "bandwidth": 70}
+    },
+    {
+      "time_slot": 17,
+      "tasks": [
+        {
+          "task_id": "task_010",
+          "agent_id": "agent_003",
+          "duration": 3,
+          "resources_used": {"cpu": 20, "memory": 25, "bandwidth": 10},
+          "reason": "Gamma has validation and analysis, highest efficiency for final task"
+        }
+      ],
+      "total_resources": {"cpu": 20, "memory": 25, "bandwidth": 10}
+    }
+  ],
+  "summary": {
+    "total_completion_time": 20,
+    "agent_assignments": {
+      "agent_001": ["task_003"],
+      "agent_002": ["task_001", "task_009"],
+      "agent_003": ["task_002", "task_007", "task_010"],
+      "agent_004": ["task_004", "task_005", "task_008"],
+      "agent_005": ["task_006"]
+    },
+    "agent_loads": {
+      "agent_001": 1,
+      "agent_002": 2,
+      "agent_003": 3,
+      "agent_004": 3,
+      "agent_005": 1
+    },
+    "critical_path": "task_001 → task_002 → task_003 → task_004 → task_005 → task_008/009 → task_010",
+    "parallel_tasks": [
+      {"time": "5-8", "tasks": ["task_003", "task_006"]},
+      {"time": "8-10", "tasks": ["task_004", "task_007"]},
+      {"time": "13-17", "tasks": ["task_008", "task_009"]}
+    ],
+    "resource_peak_usage": {
+      "cpu": 40,
+      "memory": 50,
+      "bandwidth": 70
+    },
+    "resource_safety_margin": {
+      "cpu": 60,
+      "memory": 50,
+      "bandwidth": 30
+    },
+    "optimization_notes": [
+      "All tasks completed within time limit (20 units)",
+      "Resource usage stays within limits (max: CPU 40%, Memory 50%, Bandwidth 70%)",
+      "High priority tasks scheduled early",
+      "Agent capabilities fully utilized",
+      "Load balanced: no agent overloaded (max 3 tasks vs capacity 2-3)",
+      "Parallel execution maximized based on dependencies",
+      "Efficiency considered: Gamma (1.1) assigned to critical tasks",
+      "Failure recovery: tasks can be reassigned to alternate agents with same capabilities"
+    ]
+  }
+}

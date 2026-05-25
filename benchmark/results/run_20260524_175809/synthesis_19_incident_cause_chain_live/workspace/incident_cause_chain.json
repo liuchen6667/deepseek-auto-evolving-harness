@@ -1,0 +1,22 @@
+{
+  "timeline": [
+    {"time": "09:14", "event": "checkout service config_v42 deployed with EU tax endpoint mapping change"},
+    {"time": "09:16", "event": "first tax service request failed: region mismatch for eu-order"},
+    {"time": "09:17", "event": "retry failed: tax endpoint us-east cannot serve eu tax quote"},
+    {"time": "09:19", "event": "incident detected: EU checkout requests failing with tax calculation errors"},
+    {"time": "09:23", "event": "rollback started: checkout config reverted to config_v41"}
+  ],
+  "root_cause": "EU tax endpoint misrouting due to faulty checkout configuration change",
+  "why_it_happened": [
+    "A configuration change at 09:14 switched EU tax endpoint mapping incorrectly",
+    "The misconfigured endpoint mapping caused EU tax requests to be routed to US-east region",
+    "US-east tax endpoint cannot process EU tax quotes, resulting in region mismatch errors"
+  ],
+  "ruled_out_hypotheses": [
+    "Payment gateway outage (would affect both EU and US checkout traffic)",
+    "Database pool exhaustion (presents as pool timeout saturation, not region mismatch)"
+  ],
+  "immediate_mitigation": "Rollback checkout config to last known good version (config_v41)",
+  "confidence": "high",
+  "evidence_refs": ["incident_ticket.md", "service_logs.json", "deploy_history.json", "runbook_excerpt.txt"]
+}

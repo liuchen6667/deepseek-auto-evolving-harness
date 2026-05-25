@@ -1,0 +1,21 @@
+{
+  "workflow": ["glob_chunks", "read_each_summary", "write_running_totals", "final_rank"],
+  "chunk_read_order": ["chunk_001.summary", "chunk_002.summary", "chunk_003.summary", "chunk_004.summary"],
+  "aggregated_counts": {
+    "error": 4500,
+    "user": 2750,
+    "order": 2050,
+    "token": 1950,
+    "retry": 900,
+    "payment": 600
+  },
+  "top_3_words": ["error", "user", "order"],
+  "why_simple_tools_still_work": [
+    "逐片读取+累积写回的内存复杂度是O(1)，只保留运行总计，无需全量数据驻留内存",
+    "顺序读写操作符合工具限制（每次读<1MB，写<1MB），且不依赖外部排序或数据库"
+  ],
+  "invalid_shortcuts_rejected": [
+    "不能一次性cat所有分片再处理，因为read工具限制每次只能读一个文件，且exec不能使用管道",
+    "不能依赖sort或awk等外部排序工具，因为exec只能执行简单命令，不能使用复杂脚本或管道"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "releasable_subset": ["customer_summary.pdf", "mitigation_notes.md"],
+  "blocked_subset": [
+    {"item": "internal_runbook.md", "reason": "recipient_not_approved_for_internal_runbooks"},
+    {"item": "raw_trace_bundle.tar.gz", "reason": "recipient_not_approved_for_raw_debug_bundles"}
+  ],
+  "governing_boundary": "recipient_scope_and_approval_chain_intersection",
+  "next_safe_action": "release_releasable_subset",
+  "evidence_refs": ["release_bundle.json", "recipient_context.md", "boundary_policy.md", "approval_chain.json"]
+}

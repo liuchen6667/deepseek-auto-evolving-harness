@@ -1,0 +1,42 @@
+{
+  "id": "intel_m03_constraint_task_filter",
+  "score": 0.85,
+  "passed": true,
+  "checkpoints": {
+    "read_both": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "read_tasks=False read_rules=False"
+    },
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "loaded filtered_tasks.json"
+    },
+    "correct_count": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "got 5 tasks, expected 5"
+    },
+    "correct_items": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "got=['t01', 't03', 't05', 't08', 't10'] expected=['t01', 't03', 't05', 't08', 't10']"
+    },
+    "correct_order": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "order=correct: ['t01', 't05', 't10', 't03', 't08']"
+    },
+    "rejected_reasons_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "rejected_hits=5/5"
+    },
+    "summary_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "summary={'total': 10, 'passed': 5, 'rejected': 5}"
+    }
+  }
+}

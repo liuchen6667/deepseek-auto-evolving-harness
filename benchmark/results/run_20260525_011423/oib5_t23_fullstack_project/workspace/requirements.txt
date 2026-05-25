@@ -1,0 +1,6 @@
+fastapi==0.104.1
+uvicorn==0.24.0
+sqlalchemy==2.0.23
+pydantic==1.10.13  # 使用更旧的兼容版本
+pytest==7.4.3
+httpx==0.25.1

@@ -1,0 +1,16 @@
+{
+  "restore_now": ["config-service", "status-api"],
+  "restore_later": [
+    {"service": "checkout-api", "reason": "depends_on_payment-adapter which is blocked"},
+    {"service": "payment-adapter", "reason": "gateway_state_dirty"},
+    {"service": "receipt-worker", "reason": "depends_on_checkout-api which is blocked"}
+  ],
+  "dependency_order": ["config-service", "status-api", "payment-adapter"],
+  "post_restore_checks": [
+    "Verify config-service is healthy and serving configurations",
+    "Confirm status-api returns correct system status without errors",
+    "Ensure no new customer impact introduced by restored services"
+  ],
+  "customer_priority": "status_visibility_before_transaction_recovery",
+  "evidence_refs": ["service_graph.json", "restore_status.json", "dependency_rules.md", "customer_impact.json"]
+}

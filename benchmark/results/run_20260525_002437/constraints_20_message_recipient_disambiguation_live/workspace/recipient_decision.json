@@ -1,0 +1,7 @@
+{
+  "thread_id": "t-100",
+  "selected_handle": "@alex-release",
+  "selected_channel": "telegram",
+  "rejected_candidates": ["@alex-design"],
+  "reason": "虽然两个候选人都叫Alex Chen，但根据policy要求必须使用last_confirmed_target作为最终目标。当前线程的主题是'release approval follow-up'，所需上下文是'release approval packet'，这更符合release团队的职责范围。@alex-design属于design团队，与release审批包的上下文不匹配，因此被拒绝。"
+}

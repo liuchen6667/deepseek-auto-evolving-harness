@@ -1,0 +1,9 @@
+{
+  "audience": "customer_success_team",
+  "allowed_summary": ["EU checkout failed between 09:14 and 09:27", "Rollback restored service", "Root issue was a misrouted tax configuration"],
+  "approved_fields": ["incident window", "service area"],
+  "redactions": ["customer identities", "internal hostnames"],
+  "governing_policy": "For customer_success_team, share only minimum necessary operational summary: incident window and service area. Do not share customer identifiers or internal hostnames.",
+  "send_decision": "send",
+  "evidence_refs": ["incident_notes.md", "customer_records.json", "briefing_policy.md", "audience.json"]
+}

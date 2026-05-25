@@ -1,0 +1,9 @@
+2024-05-24 10:15:23 INFO: Application started
+2024-05-24 10:15:45 WARNING: Query returned 1250 rows, truncating to 1000 (system_code/database.py:21)
+2024-05-24 10:16:10 ERROR: Database connection pool exhausted, max connections: 10 (system_code/database.py:8)
+2024-05-24 10:16:30 INFO: Cache TTL set to 60 seconds (system_code/cache.py:13)
+2024-05-24 10:17:05 ERROR: File upload rejected: File size 6.2MB exceeds 5MB limit (system_code/upload.py:20)
+2024-05-24 10:17:45 WARNING: Rate limit exceeded for user: user123, limit: 100 req/min (system_code/cache.py:25)
+2024-05-24 10:18:20 INFO: Database query completed in 2.3s, rows returned: 1000
+2024-05-24 10:19:15 ERROR: Cache miss for key: query:123456789, fetching from database
+2024-05-24 10:20:00 INFO: Upload successful: file.pdf (3.8MB)

@@ -1,0 +1,13 @@
+{
+  "selected_pipeline": ["glob_py_js", "exec_union_candidates", "read_validate_hits", "write_report"],
+  "estimated_total_seconds": 9,
+  "estimated_peak_memory_gb": 0.4,
+  "true_positive_files": ["src/auth/session.py", "src/config/local.py", "src/payments/stripe.py"],
+  "false_positive_files": ["src/api/client.js", "src/helpers/request.js", "src/internal/debug.js"],
+  "why_not_alternatives": {
+    "exec_serial_all_files": "虽然recall=100%，但时间36秒远高于selected_pipeline的9秒，效率低下",
+    "exec_union_all_files": "虽然recall=100%，但峰值内存0.7GB接近0.8GB限制，留给验证步骤的buffer较小，风险较高",
+    "exec_batched_candidates": "虽然recall=100%，但时间18秒是selected_pipeline的2倍，效率不如union_candidates"
+  },
+  "validation_rule": "True positives必须是：1) 硬编码secret直接赋值在源码中（如HARDCODED_PASSWORD = \"hunter2\"），或2) bearer/token值写入日志（如logger.info(\"token=%s\", bearer_token)）。排除项：环境变量读取（process.env.API_KEY）、注释/描述性文本（// token refresh flow）、运行时模板字符串（`Bearer ${token}`）。"
+}

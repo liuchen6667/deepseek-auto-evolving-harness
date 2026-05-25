@@ -1,0 +1,13 @@
+{
+  "selected_pipeline": ["glob_py_js", "exec_union_candidates", "read_validate_hits", "write_report"],
+  "estimated_total_seconds": 9,
+  "estimated_peak_memory_gb": 0.4,
+  "true_positive_files": ["src/auth/session.py", "src/config/local.py", "src/payments/stripe.py"],
+  "false_positive_files": ["src/api/client.js", "src/helpers/request.js", "src/internal/debug.js"],
+  "why_not_alternatives": {
+    "exec_serial_all_files": "虽然recall=100%且内存0.4GB合规，但时间36秒远长于选定流程的9秒，不满足效率最优要求。",
+    "exec_union_all_files": "recall=100%但峰值内存0.7GB接近0.8GB上限，虽然合规但不如exec_union_candidates（0.4GB）安全边际大，且时间14秒长于9秒。",
+    "exec_batched_candidates": "recall=100%但时间18秒长于9秒，内存0.5GB高于0.4GB，效率较低。"
+  },
+  "validation_rule": "真正的漏洞包括：1) 硬编码secret直接分配在已提交的源代码中；2) bearer或token值写入日志。排除项包括：1) 环境变量读取；2) 注释或描述性文本；3) 运行时模板字符串（仅插值token而非硬编码）。"
+}

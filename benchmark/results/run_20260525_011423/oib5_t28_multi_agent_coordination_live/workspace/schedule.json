@@ -1,0 +1,257 @@
+{
+  "schedule": [
+    {
+      "time_slot": 0,
+      "assignments": [
+        {
+          "task_id": "task_001",
+          "agent_id": "agent_002",
+          "agent_name": "Beta",
+          "duration": 3,
+          "resources": {
+            "cpu": 15,
+            "memory": 20,
+            "bandwidth": 30
+          },
+          "reasoning": "Beta has both required capabilities (data_processing, network_io) and can handle network_io tasks efficiently. Starting at time 0 as it's the first task in critical path."
+        }
+      ],
+      "total_resources": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 30
+      }
+    },
+    {
+      "time_slot": 3,
+      "assignments": [
+        {
+          "task_id": "task_002",
+          "agent_id": "agent_003",
+          "agent_name": "Gamma",
+          "duration": 2,
+          "resources": {
+            "cpu": 10,
+            "memory": 15,
+            "bandwidth": 5
+          },
+          "reasoning": "Gamma has validation capability and high efficiency (1.1). task_002 depends on task_001, so starts after task_001 completes."
+        },
+        {
+          "task_id": "task_006",
+          "agent_id": "agent_005",
+          "agent_name": "Epsilon",
+          "duration": 3,
+          "resources": {
+            "cpu": 15,
+            "memory": 20,
+            "bandwidth": 10
+          },
+          "reasoning": "Epsilon has analysis capability. task_006 depends on task_002 but can start at same time as task_002 due to resource availability."
+        }
+      ],
+      "total_resources": {
+        "cpu": 25,
+        "memory": 35,
+        "bandwidth": 15
+      }
+    },
+    {
+      "time_slot": 5,
+      "assignments": [
+        {
+          "task_id": "task_003",
+          "agent_id": "agent_001",
+          "agent_name": "Alpha",
+          "duration": 4,
+          "resources": {
+            "cpu": 25,
+            "memory": 30,
+            "bandwidth": 10
+          },
+          "reasoning": "Alpha has data_processing capability. task_003 depends on task_002, so starts after task_002 completes at time 5."
+        },
+        {
+          "task_id": "task_007",
+          "agent_id": "agent_003",
+          "agent_name": "Gamma",
+          "duration": 2,
+          "resources": {
+            "cpu": 10,
+            "memory": 15,
+            "bandwidth": 5
+          },
+          "reasoning": "Gamma has reporting capability and just finished task_002. task_007 depends on task_006 which started at time 3 and runs for 3 units, so can start at time 6, but Gamma is available at time 5."
+        }
+      ],
+      "total_resources": {
+        "cpu": 35,
+        "memory": 45,
+        "bandwidth": 15
+      }
+    },
+    {
+      "time_slot": 9,
+      "assignments": [
+        {
+          "task_id": "task_004",
+          "agent_id": "agent_004",
+          "agent_name": "Delta",
+          "duration": 3,
+          "resources": {
+            "cpu": 30,
+            "memory": 20,
+            "bandwidth": 5
+          },
+          "reasoning": "Delta has encryption capability. task_004 depends on task_003 which completes at time 9."
+        }
+      ],
+      "total_resources": {
+        "cpu": 30,
+        "memory": 20,
+        "bandwidth": 5
+      }
+    },
+    {
+      "time_slot": 12,
+      "assignments": [
+        {
+          "task_id": "task_005",
+          "agent_id": "agent_004",
+          "agent_name": "Delta",
+          "duration": 2,
+          "resources": {
+            "cpu": 20,
+            "memory": 25,
+            "bandwidth": 5
+          },
+          "reasoning": "Delta has compression capability and just finished task_004. task_005 depends on task_004 which completes at time 12."
+        },
+        {
+          "task_id": "task_009",
+          "agent_id": "agent_002",
+          "agent_name": "Beta",
+          "duration": 4,
+          "resources": {
+            "cpu": 10,
+            "memory": 10,
+            "bandwidth": 50
+          },
+          "reasoning": "Beta has network_io capability. task_009 depends on task_005 but can start in parallel with task_005 since Beta is different agent. Starting at same time to maximize parallelism."
+        }
+      ],
+      "total_resources": {
+        "cpu": 30,
+        "memory": 35,
+        "bandwidth": 55
+      }
+    },
+    {
+      "time_slot": 14,
+      "assignments": [
+        {
+          "task_id": "task_008",
+          "agent_id": "agent_004",
+          "agent_name": "Delta",
+          "duration": 3,
+          "resources": {
+            "cpu": 15,
+            "memory": 20,
+            "bandwidth": 20
+          },
+          "reasoning": "Delta is the only agent with both archival and compression capabilities. task_008 depends on task_005 which completes at time 14."
+        }
+      ],
+      "total_resources": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 20
+      }
+    },
+    {
+      "time_slot": 17,
+      "assignments": [
+        {
+          "task_id": "task_010",
+          "agent_id": "agent_003",
+          "agent_name": "Gamma",
+          "duration": 3,
+          "resources": {
+            "cpu": 20,
+            "memory": 25,
+            "bandwidth": 10
+          },
+          "reasoning": "Gamma is the only agent with both validation and analysis capabilities. task_010 depends on task_007 (completes at time 7), task_008 (completes at time 17), and task_009 (completes at time 16). Last dependency completes at time 17."
+        }
+      ],
+      "total_resources": {
+        "cpu": 20,
+        "memory": 25,
+        "bandwidth": 10
+      }
+    }
+  ],
+  "summary": {
+    "total_tasks": 10,
+    "assigned_tasks": 10,
+    "completion_time": 20,
+    "critical_path": ["task_001", "task_002", "task_003", "task_004", "task_005", "task_008", "task_010"],
+    "agent_workload": {
+      "agent_001": {
+        "tasks": ["task_003"],
+        "total_duration": 4,
+        "utilization": "medium"
+      },
+      "agent_002": {
+        "tasks": ["task_001", "task_009"],
+        "total_duration": 7,
+        "utilization": "high"
+      },
+      "agent_003": {
+        "tasks": ["task_002", "task_007", "task_010"],
+        "total_duration": 7,
+        "utilization": "high"
+      },
+      "agent_004": {
+        "tasks": ["task_004", "task_005", "task_008"],
+        "total_duration": 8,
+        "utilization": "high"
+      },
+      "agent_005": {
+        "tasks": ["task_006"],
+        "total_duration": 3,
+        "utilization": "low"
+      }
+    },
+    "resource_utilization": {
+      "peak_cpu": 35,
+      "peak_memory": 45,
+      "peak_bandwidth": 55,
+      "within_limits": true
+    },
+    "optimization_notes": [
+      "Balanced workload across agents considering their capabilities",
+      "Maximized parallelism within dependency constraints",
+      "High priority tasks scheduled early",
+      "Critical path optimized to minimize total completion time",
+      "Resource usage stays well within limits (max 55% bandwidth)",
+      "Completion time 20 meets the time limit constraint"
+    ],
+    "failure_recovery_strategy": {
+      "backup_agents": {
+        "task_001": "Epsilon (network_io) + Alpha (data_processing) collaboration",
+        "task_002": "Alpha",
+        "task_003": "Beta",
+        "task_004": "Beta",
+        "task_005": "Alpha",
+        "task_006": "Gamma",
+        "task_007": "Epsilon",
+        "task_008": "Alpha (compression) + manual archival",
+        "task_009": "Epsilon",
+        "task_010": "Epsilon (analysis) + Alpha (validation) collaboration"
+      },
+      "checkpoints": ["after task_002", "after task_005", "after task_009"],
+      "retry_strategy": "Retry failed task with backup agent, delay dependent tasks by 1 time unit"
+    }
+  }
+}

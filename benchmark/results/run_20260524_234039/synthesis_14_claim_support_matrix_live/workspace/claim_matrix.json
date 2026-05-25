@@ -1,0 +1,15 @@
+{
+  "claim_assessments": [
+    {"claim_id": "C1", "status": "contradicted", "evidence": ["E1"]},
+    {"claim_id": "C2", "status": "contradicted", "evidence": ["E2"]},
+    {"claim_id": "C3", "status": "supported", "evidence": ["E3"]},
+    {"claim_id": "C4", "status": "contradicted", "evidence": ["E4"]},
+    {"claim_id": "C5", "status": "supported", "evidence": ["E1", "E4"]}
+  ],
+  "primary_incident_driver": "deployment_started_at_1000",
+  "recommended_action": "review_deployment_changes_and_enhance_pre_deployment_testing_for_payment_flows",
+  "notes": [
+    "supplier_issue_appeared_after_initial_error_possibly_amplifying_impact",
+    "rollback_was_effective_in_stopping_error_escalation_and_restoring_service"
+  ]
+}

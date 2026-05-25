@@ -1,0 +1,13 @@
+{
+  "selected_pipeline": ["glob_py_js", "exec_union_candidates", "read_validate_hits", "write_report"],
+  "estimated_total_seconds": 9,
+  "estimated_peak_memory_gb": 0.4,
+  "true_positive_files": ["src/api/client.js", "src/auth/session.py", "src/config/local.py", "src/payments/stripe.py"],
+  "false_positive_files": ["src/helpers/request.js", "src/internal/debug.js"],
+  "why_not_alternatives": {
+    "exec_serial_all_files": "Time (36s) is much higher than our pipeline (9s), violates efficiency requirement while providing same recall.",
+    "exec_union_all_files": "Peak memory (0.7GB) is close to limit (0.8GB) but our pipeline uses lower memory (0.4GB) while maintaining recall.",
+    "exec_batched_candidates": "Time (18s) is double our pipeline's time (9s) without memory advantage, less optimal."
+  },
+  "validation_rule": "True positives are hardcoded secrets directly assigned in source code (e.g., HARDCODED_PASSWORD = \"hunter2\") or bearer/token values written into logs. Exclude environment-variable reads, comments, and runtime template strings that interpolate a token instead of hardcoding."
+}

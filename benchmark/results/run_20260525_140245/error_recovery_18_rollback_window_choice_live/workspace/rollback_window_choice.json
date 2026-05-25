@@ -1,0 +1,16 @@
+{
+  "selected_window": "w2",
+  "rejected_windows": [
+    {"window": "w1", "reason": "clean but too old, not the latest clean point before corruption"},
+    {"window": "w3", "reason": "includes corrupted writes, violates integrity rule"},
+    {"window": "w4", "reason": "after faulty change set landed, contains corruption"}
+  ],
+  "verification_set": [
+    "w2 is identified as latest clean point before corruption starts in signal_timeline.md",
+    "Integrity rule requires choosing latest clean window before corruption",
+    "w3 and w4 contain corrupted writes, w1 is clean but too old"
+  ],
+  "rollback_gap_minutes": 0,
+  "governing_rule": "choose_latest_clean_window_before_corruption",
+  "evidence_refs": ["rollback_candidates.json", "signal_timeline.md", "integrity_rules.json", "recovery_target.txt"]
+}

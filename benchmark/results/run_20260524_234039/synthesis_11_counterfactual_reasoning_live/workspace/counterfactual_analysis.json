@@ -1,0 +1,34 @@
+{
+  "individual_rank": [
+    {
+      "decision_id": "stack",
+      "alternative": "monolith_first",
+      "projected_score": 71,
+      "score_improvement": 18
+    },
+    {
+      "decision_id": "testing",
+      "alternative": "tdd",
+      "projected_score": 74,
+      "score_improvement": 15
+    },
+    {
+      "decision_id": "delivery",
+      "alternative": "sequential_integration",
+      "projected_score": 76,
+      "score_improvement": 13
+    }
+  ],
+  "best_three_change_plan": ["delivery", "stack", "testing"],
+  "combined_projection": {
+    "performance_multiplier": 2.4,
+    "budget_overrun_pct": 50,
+    "schedule_delay_months": 1,
+    "risk_points": 3,
+    "score": 43
+  },
+  "recommendations": [
+    "adopt_tdd_before_sequential_integration_rollout",
+    "delay_testing_changes_until_after_release"
+  ]
+}

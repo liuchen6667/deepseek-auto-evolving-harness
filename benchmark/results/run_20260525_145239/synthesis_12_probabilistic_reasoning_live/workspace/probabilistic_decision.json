@@ -1,0 +1,9 @@
+{
+  "success_probability": 0.504,
+  "failure_probability": 0.496,
+  "expected_revenue_delta_pct": 4.96,
+  "worst_case_revenue_delta_pct": -15.0,
+  "decision": "do_not_release",
+  "confidence_observation": "market_research_confidence_below_85_threshold",
+  "key_risks": ["compliance_approval_risk", "market_adoption_risk", "technical_execution_risk"]
+}

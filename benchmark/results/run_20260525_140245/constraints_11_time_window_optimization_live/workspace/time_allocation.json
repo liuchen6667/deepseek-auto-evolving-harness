@@ -1,0 +1,19 @@
+{
+  "assigned_slots": [
+    {"task": "F", "start": 9, "end": 10},
+    {"task": "A", "start": 11, "end": 12},
+    {"task": "E", "start": 13, "end": 14},
+    {"task": "D", "start": 14, "end": 16},
+    {"task": "G", "start": 16, "end": 17}
+  ],
+  "resolved_conflicts": [
+    "任务A和B在时间窗口11-12冲突，根据字母顺序tie-break选择A",
+    "任务D和E共享db资源，安排E在13-14、D在14-16以避免重叠"
+  ],
+  "unresolved_tasks": ["B", "C"],
+  "completion_count": 5,
+  "notes": [
+    "任务C因依赖A和B，但A和B不能同时安排（时间窗口冲突），导致C永远无法执行",
+    "选择A而非B是基于字母顺序tie-break（A < B），两者优先级相同且最大化任务数目标下只能选一个"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "execute_now": ["collect_sanitized_metrics_snapshot"],
+  "escalate_only": [
+    {"action": "rotate_prod_keys", "reason": "security-sensitive action needs higher approval"},
+    {"action": "toggle_safe_readonly_flag", "reason": "security-sensitive action needs higher approval"},
+    {"action": "wipe_failed_jobs_table", "reason": "destructive action needs higher approval"},
+    {"action": "write_new_firewall_rule", "reason": "security-sensitive action needs higher approval"}
+  ],
+  "governing_authority": "limited_runtime_controls",
+  "approval_rationale": [
+    "Current authority is limited to safe runtime controls only",
+    "Destructive actions (e.g., wipe) pose data loss risk",
+    "Security-sensitive actions (keys, firewall, read-only flag) require scope validation"
+  ],
+  "evidence_refs": ["action_request.json", "runtime_context.md", "approval_policy.yaml", "incident_authority.txt"]
+}

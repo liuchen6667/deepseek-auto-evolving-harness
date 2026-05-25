@@ -1,0 +1,47 @@
+{
+  "id": "planning_08_uncertainty_reasoning_live",
+  "score": 0.85,
+  "passed": true,
+  "checkpoints": {
+    "output_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "launch_decision.json exists"
+    },
+    "seeded_inputs_unchanged": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "seeded inputs are present and unchanged"
+    },
+    "recommendation_is_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "recommendation='pilot_launch_q4'"
+    },
+    "blocked_options_are_exact": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "blocked_options=[{'option': 'full_launch_q4', 'reason_codes': ['full_scale_not_ready', 'market_confidence_below_threshold', 'finance_confidence_below_threshold', 'parallel_high_risk_limit_reached']}, {'option': 'defer_to_q1', 'reason_codes': ['violates_q4_release_requirement']}]"
+    },
+    "uncertainty_register_is_exact": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "uncertainty_register=[{'factor': 'market_demand_confidence', 'value': 0.78, 'level': 'medium_uncertainty'}, {'factor': 'engineering_on_time_probability', 'value': 0.72, 'level': 'high_uncertainty'}, {'factor': 'finance_forecast_confidence', 'value': 0.74, 'level': 'high_uncertainty'}, {'factor': 'support_readiness_score', 'value': 0.62, 'level': 'high_uncertainty'}]"
+    },
+    "scenario_estimates_are_exact": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "scenario_estimates={'full_launch_q4': {'best_case_net_usd': 980000, 'base_case_net_usd': 130000, 'worst_case_net_usd': -1170000}, 'pilot_launch_q4': {'best_case_net_usd': 420000, 'base_case_net_usd': 40000, 'worst_case_net_usd': -370000}, 'defer_to_q1': {'best_case_net_usd': 0, 'base_case_net_usd': 0, 'worst_case_net_usd': 0}}"
+    },
+    "next_actions_are_exact": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "next_actions=['run_q4_pilot_with_14_beta_customers', 'finish_support_playbook_before_pilot_enablement', 'reassess_full_launch_after_payments_migration_and_confidence_refresh']"
+    },
+    "evidence_refs_are_complete": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "evidence_refs=['market_research.json', 'engineering_readiness.json', 'finance_bounds.json', 'decision_rules.yaml', 'support_readiness.json']"
+    }
+  }
+}

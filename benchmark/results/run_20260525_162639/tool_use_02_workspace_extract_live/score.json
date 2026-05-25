@@ -1,0 +1,22 @@
+{
+  "id": "tool_use_02_workspace_extract_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "output_exists": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "vip_orders.csv exists"
+    },
+    "csv_content": {
+      "score": 0.5,
+      "max": 0.5,
+      "detail": "rows=[['order_id', 'total'], ['A103', '180'], ['A100', '120']]"
+    },
+    "assistant_reports_rows": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "已创建 vip_orders.csv，筛选了 tier=vip 且 total>=100 的订单，按 total 降序排序。文件包含 2 行数据（不含表头）。"
+    }
+  }
+}

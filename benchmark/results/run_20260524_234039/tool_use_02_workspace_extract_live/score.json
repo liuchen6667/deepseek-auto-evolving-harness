@@ -1,0 +1,22 @@
+{
+  "id": "tool_use_02_workspace_extract_live",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "output_exists": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "vip_orders.csv exists"
+    },
+    "csv_content": {
+      "score": 0.5,
+      "max": 0.5,
+      "detail": "rows=[['order_id', 'total'], ['A103', '180'], ['A100', '120']]"
+    },
+    "assistant_reports_rows": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "我将读取 orders.json 文件，筛选符合条件的订单，然后创建 vip_orders.csv。\n现在我将分析数据，筛选 tier=\"vip\" 且 total >= 100 的订单，然后按 total 降序排序。\n\n根据数据：\n1. a100: tier=\"vip\", total=120 → 符合条件\n2. a101: tier=\"standard\" → 不符合\n3. a102: tier=\"vip\", total=80 → total < 100，不符合\n4. a103: tier=\"vip\", total=180 → 符合条件\n5. a104: tier=\"standard\" → 不符合\n\n符合条件的订单：\n- a103 (total: 180)\n- a100 (total: 120)\n\n按 total 降序排序：\n1. a103, 180\n2. a100, 120\n\n现在创建 csv 文件：\n已创建 vip_orders.csv，文件包含 2 行数据（不含表头）。"
+    }
+  }
+}

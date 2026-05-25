@@ -1,0 +1,16 @@
+{
+  "primary_route": ["file_read", "file_write"],
+  "blocked_routes": [
+    {"route": "bash", "reason": "Workspace-only task, no need to execute shell commands"},
+    {"route": "WebSearch", "reason": "No web access is needed per task request"},
+    {"route": "Grep", "reason": "Exact fields are in structured files; grep is unnecessary"}
+  ],
+  "first_tool": "file_read",
+  "governing_rule": "Use minimal structured workspace tools when local files are sufficient. Avoid shell-first and web routes for closed workspace tasks.",
+  "rationale": [
+    "Capability: The task requires reading exact fields from local workspace files and producing one structured output file. The available tools include Read (file_read) and Write (file_write), which are sufficient.",
+    "Workspace constraint: Workspace-only is true, structured files are present, and all needed inputs are local read-only files. No external access or shell execution is required.",
+    "Safety boundary: The task explicitly prohibits web access and dangerous commands. Using only file_read and file_write avoids any safety risks and adheres to the closed workspace constraint."
+  ],
+  "evidence_refs": ["task_request.md", "tool_catalog.json", "workspace_state.json", "routing_rules.md"]
+}

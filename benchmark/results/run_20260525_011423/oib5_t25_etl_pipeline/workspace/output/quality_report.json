@@ -1,0 +1,17 @@
+{
+  "pipeline_run_timestamp": "2026-05-25T02:00:23.368974",
+  "source_files": {
+    "sales": "raw_sales.csv",
+    "products": "raw_products.csv",
+    "regions": "raw_regions.json"
+  },
+  "output_file": "output/clean_sales.csv",
+  "quality_metrics": {
+    "total_raw_rows": 15,
+    "total_clean_rows": 11,
+    "duplicates_removed": 2,
+    "nulls_removed": 2,
+    "date_format_fixed": 3
+  },
+  "data_quality_score": 73
+}

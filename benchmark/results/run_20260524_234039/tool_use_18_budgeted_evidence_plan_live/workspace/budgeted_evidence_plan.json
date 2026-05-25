@@ -1,0 +1,13 @@
+{
+  "selected_actions": ["read_error_budget", "read_recent_alerts"],
+  "skipped_actions": [
+    {"action": "query_full_audit_archive", "reason": "covers_non_required_signal_only"},
+    {"action": "read_release_note", "reason": "higher_cost_alternative_available"},
+    {"action": "run_expensive_trace_join", "reason": "covers_non_required_signal_only"},
+    {"action": "scan_all_service_logs", "reason": "higher_cost_alternative_available"}
+  ],
+  "expected_signal_coverage": ["budget_breach_risk", "recent_regression_signal"],
+  "budget_used": 5,
+  "governing_tradeoff": "prefer_lower_cost_sufficient_actions",
+  "evidence_refs": ["investigation_goal.md", "action_costs.json", "signal_map.json", "budget_rules.md"]
+}

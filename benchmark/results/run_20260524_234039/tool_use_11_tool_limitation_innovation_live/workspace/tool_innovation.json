@@ -1,0 +1,21 @@
+{
+  "workflow": ["glob_chunks", "read_each_summary", "write_running_totals", "final_rank"],
+  "chunk_read_order": ["chunk_001.summary", "chunk_002.summary", "chunk_003.summary", "chunk_004.summary"],
+  "aggregated_counts": {
+    "error": 4500,
+    "user": 2750,
+    "order": 2050,
+    "token": 1950,
+    "retry": 900,
+    "payment": 600
+  },
+  "top_3_words": ["error", "user", "order"],
+  "why_simple_tools_still_work": [
+    "sequential_reads_without_memory_limit",
+    "manual_accumulation_sufficient_for_small_dataset"
+  ],
+  "invalid_shortcuts_rejected": [
+    "cat_all_chunks_then_sort_violates_single_read_limit",
+    "external_sort_tool_violates_no_external_dependency_rule"
+  ]
+}

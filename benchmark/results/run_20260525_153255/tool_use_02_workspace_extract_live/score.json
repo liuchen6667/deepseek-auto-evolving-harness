@@ -1,0 +1,22 @@
+{
+  "id": "tool_use_02_workspace_extract_live",
+  "score": 0.8,
+  "passed": true,
+  "checkpoints": {
+    "output_exists": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "vip_orders.csv exists"
+    },
+    "csv_content": {
+      "score": 0.5,
+      "max": 0.5,
+      "detail": "rows=[['order_id', 'total'], ['A103', '180'], ['A100', '120']]"
+    },
+    "assistant_reports_rows": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "我将帮你完成这个任务。首先读取 orders.json 文件，然后处理数据并创建 vip_orders.csv。\n现在我需要处理这些数据。根据要求，只保留 tier=vip 且 total >= 100 的订单，然后按 total 降序排序，最后创建 csv 文件。\n\n让我分析一下数据：\n1. a100: tier=vip, total=120 → 符合条件\n2. a101: tier=standard → 不符合\n3. a102: tier=vip, total=80 → total < 100，不符合\n4. a103: tier=vip, total=180 → 符合条件\n5. a104: tier=standard → 不符合\n\n所以符合条件的订单有：a100 (total=120) 和 a103 (total=180)。按 total 降序排序后应该是：a103 (180), a100 (120)。\n\n现在创建 csv 文件：\n任务完成！我写了2行数据（不含表头）。"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "oib5_t12_log_analysis",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "report_exists": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "missing or empty"
+    },
+    "report_grouped": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "skipped"
+    },
+    "total_lines": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "metrics.json missing"
+    },
+    "by_level": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "metrics.json missing"
+    },
+    "error_services": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "metrics.json missing"
+    },
+    "has_warnings": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "metrics.json missing"
+    }
+  }
+}

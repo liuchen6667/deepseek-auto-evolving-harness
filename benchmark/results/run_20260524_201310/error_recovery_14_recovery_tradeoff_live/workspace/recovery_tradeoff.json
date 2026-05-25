@@ -1,0 +1,12 @@
+{
+  "selected_option": "checkpoint_restore_with_verified_replay",
+  "rejected_options": [
+    {"option": "full_restore_from_09_00", "reason": "priority_customer_window_ok is false and data_risk is high, violating business constraints"},
+    {"option": "hot_patch_in_place", "reason": "data_risk is high, violating business constraints"},
+    {"option": "traffic_shift_then_restore", "reason": "priority_customer_window_ok is false and data_risk is medium, violating business constraints"}
+  ],
+  "staged_recovery_sequence": ["stop_new_writes", "restore_checkpoint", "replay_verified_transactions", "resume_traffic"],
+  "verification_focus": ["order_integrity", "priority_customer_checkout_path", "tax_calculation_contract"],
+  "governing_constraint": "Priority customers must recover within the bounded incident window, and data risk must stay low even if a slower option is required.",
+  "evidence_refs": ["incident_state.json", "recovery_options.json", "business_constraints.md", "verification_contract.json"]
+}

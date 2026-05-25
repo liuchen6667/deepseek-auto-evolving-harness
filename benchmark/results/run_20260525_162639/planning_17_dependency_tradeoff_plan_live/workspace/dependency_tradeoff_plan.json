@@ -1,0 +1,16 @@
+{
+  "execute_now": ["schema-prepare", "service-cutover", "smoke-verify"],
+  "defer": [
+    {"task": "analytics-rebuild", "reason": "excluded from current delivery window"},
+    {"task": "cache-warm", "reason": "depends on service-cutover but capacity limited to 3 slots"},
+    {"task": "report-migration", "reason": "depends on schema-prepare but capacity limited to 3 slots"}
+  ],
+  "dependency_order": ["schema-prepare", "service-cutover", "smoke-verify"],
+  "governing_rule": "Prefer the highest-priority dependency-closed chain that fits in the current window.",
+  "justification": [
+    "schema-prepare → service-cutover → smoke-verify forms a complete dependency chain",
+    "Current capacity of 3 slots allows exactly this chain to execute",
+    "analytics-rebuild is excluded from current window, other tasks deferred due to capacity constraints"
+  ],
+  "evidence_refs": ["task_graph.json", "capacity.json", "priority_rules.md", "delivery_window.json"]
+}

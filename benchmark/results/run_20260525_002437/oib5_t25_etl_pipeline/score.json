@@ -1,0 +1,72 @@
+{
+  "id": "oib5_t25_etl_pipeline",
+  "score": 0.0,
+  "passed": false,
+  "checkpoints": {
+    "etl_exists": {
+      "score": 0.0,
+      "max": 0.01,
+      "detail": "missing etl.py"
+    },
+    "rerun_success": {
+      "score": 0.0,
+      "max": 0.02,
+      "detail": "missing etl.py"
+    },
+    "repeatable_with_existing_output": {
+      "score": 0.0,
+      "max": 0.03,
+      "detail": "missing etl.py"
+    },
+    "clean_rows_exact": {
+      "score": 0.0,
+      "max": 0.06,
+      "detail": "0/11 clean rows match expected values"
+    },
+    "joins_and_normalization": {
+      "score": 0.0,
+      "max": 0.06,
+      "detail": "missing joined columns or mixed date formats"
+    },
+    "no_duplicates": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "duplicate or missing sale_ids detected"
+    },
+    "quality_report": {
+      "score": 0.0,
+      "max": 0.05,
+      "detail": "missing output/quality_report.json"
+    },
+    "variant_generalization": {
+      "score": 0.0,
+      "max": 0.12,
+      "detail": "0/5 hidden-variant rows exact (missing etl.py)"
+    },
+    "variant_quality_report": {
+      "score": 0.0,
+      "max": 0.08,
+      "detail": "0/5 hidden-variant quality fields exact"
+    },
+    "edge_variant_generalization": {
+      "score": 0.0,
+      "max": 0.12,
+      "detail": "0/5 hidden edge-variant rows exact (missing etl.py)"
+    },
+    "edge_variant_quality_report": {
+      "score": 0.0,
+      "max": 0.16,
+      "detail": "0/5 hidden edge-variant quality fields exact"
+    },
+    "stress_variant_generalization": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "0/5 hidden stress-variant rows exact (missing etl.py)"
+    },
+    "stress_variant_quality_report": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "0/5 hidden stress-variant quality fields exact"
+    }
+  }
+}

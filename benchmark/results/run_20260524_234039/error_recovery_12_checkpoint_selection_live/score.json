@@ -1,0 +1,42 @@
+{
+  "id": "error_recovery_12_checkpoint_selection_live",
+  "score": 0.7292000000000001,
+  "passed": true,
+  "checkpoints": {
+    "recovery_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "checkpoint_recovery.json exists"
+    },
+    "selected_checkpoint_is_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "selected_checkpoint='C2'"
+    },
+    "total_cost_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "total_recovery_cost=51"
+    },
+    "rejections_are_correct": {
+      "score": 0.0667,
+      "max": 0.2,
+      "detail": "rejection_hits=1/3 rejected_checkpoints=[{'id': 'C1', 'reason': 'higher_total_recovery_cost'}, {'id': 'C3', 'reason': 'higher_total_recovery_cost'}, {'id': 'C4', 'reason': 'invalid_status_prefix'}]"
+    },
+    "recovery_sequence_is_correct": {
+      "score": 0.1125,
+      "max": 0.15,
+      "detail": "sequence_hits=3/4 recovery_sequence=['validate_selected_checkpoint_integrity', 'restore_database_from_checkpoint_c2', 'apply_transaction_logs_from_09:35_to_10:00', 'verify_data_consistency_post_recovery']"
+    },
+    "verification_focus_is_complete": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "verification_focus=['business_transaction_consistency', 'referential_integrity_constraints']"
+    },
+    "notes_are_nontrivial": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "notes_count=2 hits=2"
+    }
+  }
+}

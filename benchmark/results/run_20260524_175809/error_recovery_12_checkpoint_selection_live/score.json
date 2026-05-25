@@ -1,0 +1,42 @@
+{
+  "id": "error_recovery_12_checkpoint_selection_live",
+  "score": 0.7958000000000001,
+  "passed": true,
+  "checkpoints": {
+    "recovery_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "checkpoint_recovery.json exists"
+    },
+    "selected_checkpoint_is_correct": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "selected_checkpoint='C2'"
+    },
+    "total_cost_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "total_recovery_cost=51"
+    },
+    "rejections_are_correct": {
+      "score": 0.1333,
+      "max": 0.2,
+      "detail": "rejection_hits=2/3 rejected_checkpoints=[{'id': 'C1', 'reason': 'total recovery cost 80 is higher than optimal cost 51'}, {'id': 'C3', 'reason': 'status suspect_duplicate_write incurs risk penalty 25, making total cost 60 higher than optimal cost 51'}, {'id': 'C4', 'reason': \"status invalid_missing_index_on_orders starts with 'invalid_', checkpoint cannot be selected\"}]"
+    },
+    "recovery_sequence_is_correct": {
+      "score": 0.1125,
+      "max": 0.15,
+      "detail": "sequence_hits=3/4 recovery_sequence=['Validate C2 checkpoint integrity and consistency', 'Restore database to C2 checkpoint (09:35) - estimated 7 minutes', 'Apply transaction log from 09:35 to 10:00 - estimated 19 minutes catch-up', 'Verify data consistency and business logic after recovery']"
+    },
+    "verification_focus_is_complete": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "verification_focus=['Verify no data corruption from 09:35 to 10:00 period', 'Validate referential integrity and business constraints']"
+    },
+    "notes_are_nontrivial": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "notes_count=2 hits=2"
+    }
+  }
+}

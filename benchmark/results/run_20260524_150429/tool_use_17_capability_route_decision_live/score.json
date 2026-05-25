@@ -1,0 +1,42 @@
+{
+  "id": "tool_use_17_capability_route_decision_live",
+  "score": 0.7000000000000001,
+  "passed": true,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "route": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['file_read', 'file_write']"
+    },
+    "blocked": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "[{'route': 'WebSearch', 'reason': 'task requires no web access, workspace_only true'}, {'route': 'Bash', 'reason': 'shell-first route avoided for closed workspace tasks, local files sufficient'}, {'route': 'Grep', 'reason': 'not needed; exact fields from structured files can be read directly'}]"
+    },
+    "first": {
+      "score": 0.0,
+      "max": 0.1,
+      "detail": "file_read"
+    },
+    "rule": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "Use minimal structured workspace tools when local files are sufficient. Avoid shell-first and web routes for closed workspace tasks."
+    },
+    "rationale": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "['Capability: available tools include Read, Grep, Write, Bash, WebSearch; only Read and Write are needed to collect exact fields from local files and produce one structured output file.', 'Workspace constraint: workspace_only true and structured_files_present true indicate all required data is in local structured files; no external access or shell operations required.', 'Safety boundary: task explicitly prohibits web access; routing rules forbid shell-first and web routes for closed workspace tasks, ensuring compliance with safety and minimal tool use.']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['task_request.md', 'tool_catalog.json', 'workspace_state.json', 'routing_rules.md']"
+    }
+  }
+}

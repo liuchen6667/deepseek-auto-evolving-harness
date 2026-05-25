@@ -1,0 +1,20 @@
+{
+  "slot_plan": [
+    {"hour": 9, "task": "db_reindex", "value_at_execution": 7},
+    {"hour": 10, "task": "api_hotfix", "value_at_execution": 10},
+    {"hour": 11, "task": "cache_rewarm", "value_at_execution": 5},
+    {"hour": 12, "task": "observability_patch", "value_at_execution": 3}
+  ],
+  "deferred_tasks": ["fraud_rule_update", "promo_copy_fix"],
+  "total_value": 25,
+  "triggered_rules": [
+    "api_hotfix_cannot_start_before_security_signoff_is_available",
+    "external_tasks_cannot_start_in_freeze_windows",
+    "cache_rewarm_only_has_value_after_api_hotfix_completes",
+    "db_reindex_must_start_before_11"
+  ],
+  "notes": [
+    "chose db_reindex over fraud_rule_update for slot 9 because higher value (7 vs 6) and both must start before 11",
+    "promo_copy_fix deferred because external tasks cannot use freeze windows 11/12 and slots 9/10 occupied by higher-value tasks"
+  ]
+}

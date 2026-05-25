@@ -1,0 +1,16 @@
+{
+  "services": [
+    {"name": "billing", "version": "v5", "source": "patch_01.md"},
+    {"name": "checkout", "version": "v15", "source": "base_manifest.json + hotfixes.txt"},
+    {"name": "profile", "version": "v8", "source": "base_manifest.json"},
+    {"name": "search", "version": "v3", "source": "base_manifest.json"}
+  ],
+  "changed_services": ["billing", "checkout"],
+  "removed_services": ["notifications"],
+  "evidence": [
+    "base_manifest.json contains checkout(v14), profile(v8), search(v3)",
+    "patch_01.md adds billing(v5) and notifications(v12)",
+    "rollback_notes.md states notifications was reverted before release",
+    "hotfixes.txt updates checkout from v14 to v15"
+  ]
+}

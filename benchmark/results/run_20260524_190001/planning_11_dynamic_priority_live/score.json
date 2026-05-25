@@ -1,0 +1,42 @@
+{
+  "id": "planning_11_dynamic_priority_live",
+  "score": 0.9417,
+  "passed": true,
+  "checkpoints": {
+    "plan_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "priority_plan.json exists"
+    },
+    "slot_timestamps_are_complete": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "slot_starts=[0, 5, 10, 15, 20]"
+    },
+    "task_order_is_optimal": {
+      "score": 0.3,
+      "max": 0.3,
+      "detail": "order=['Z', 'X', 'A', 'B', 'C']"
+    },
+    "values_match_dynamic_state": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "values=[9, 16, 12, 11, 3]"
+    },
+    "total_value_is_correct": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "total_value=51"
+    },
+    "events_are_accounted_for": {
+      "score": 0.0667,
+      "max": 0.1,
+      "detail": "event_hits=2"
+    },
+    "notes_explain_key_tradeoffs": {
+      "score": 0.025,
+      "max": 0.05,
+      "detail": "notes_count=2"
+    }
+  }
+}

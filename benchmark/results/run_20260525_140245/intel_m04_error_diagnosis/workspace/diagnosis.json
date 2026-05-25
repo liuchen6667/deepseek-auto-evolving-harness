@@ -1,0 +1,7 @@
+{
+  "most_failing_service": "auth-service",
+  "most_common_error": "E5001",
+  "cascade_detected": true,
+  "cascade_window": "2026-03-23T10:05",
+  "total_errors": 5
+}

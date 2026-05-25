@@ -1,0 +1,19 @@
+{
+  "selected_plan": ["plan_beta", "plan_gamma", "plan_alpha"],
+  "rejected_plans": [
+    {"plan": "plan_delta", "reason": "Not in planning contract, lower priority for customer commitment"},
+    {"plan": "plan_epsilon", "reason": "Not in planning contract, lower priority for customer commitment"}
+  ],
+  "resource_allocation": [
+    {"window": "w1", "task": "plan_beta"},
+    {"window": "w2", "task": "plan_gamma"},
+    {"window": "w3", "task": "plan_alpha"}
+  ],
+  "governing_objective": "protect customer commitment",
+  "rationale": [
+    "Highest priority objective 'protect customer commitment' dictates adherence to existing planning contract",
+    "Resource allocation matches plan priority: most critical plan_beta gets largest window w1 (4 CPU)",
+    "Tradeoff: Excluding plan_delta and plan_epsilon to focus resources on contracted commitments"
+  ],
+  "evidence_refs": ["work_items.json", "resource_limits.json", "business_objectives.md", "planning_contract.json"]
+}

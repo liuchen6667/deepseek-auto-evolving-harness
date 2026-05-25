@@ -1,0 +1,10 @@
+Cleanup Report
+=================
+
+Deleted files:
+- debug.log
+- error.log
+
+Total files deleted: 2
+
+Note: No .tmp files found in the directory.

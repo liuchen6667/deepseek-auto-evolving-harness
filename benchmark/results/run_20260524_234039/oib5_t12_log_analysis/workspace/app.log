@@ -1,0 +1,15 @@
+2024-05-25 10:15:23 INFO [PaymentService] Transaction processed successfully
+2024-05-25 10:15:45 WARN [UserService] Failed to update user profile cache
+2024-05-25 10:16:12 ERROR [PaymentService] Failed to process payment for order 12345: insufficient funds
+2024-05-25 10:16:34 INFO [OrderService] Order 12345 created
+2024-05-25 10:17:01 ERROR [UserService] Authentication failed for user johndoe: invalid credentials
+2024-05-25 10:17:22 WARN [PaymentService] Payment gateway timeout
+2024-05-25 10:17:45 INFO [InventoryService] Stock updated for product ABC
+2024-05-25 10:18:03 ERROR [OrderService] Failed to ship order 12345: address validation failed
+2024-05-25 10:18:25 ERROR [PaymentService] Database connection lost during transaction
+2024-05-25 10:18:47 WARN [UserService] Multiple failed login attempts detected
+2024-05-25 10:19:05 INFO [NotificationService] Email sent successfully
+2024-05-25 10:19:28 ERROR [PaymentService] Critical: Payment service unavailable
+2024-05-25 10:19:50 ERROR [OrderService] Order processing timeout for order 67890
+2024-05-25 10:20:12 INFO [PaymentService] Service restored
+2024-05-25 10:20:35 WARN [InventoryService] Low stock alert for product XYZ

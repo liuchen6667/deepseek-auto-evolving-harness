@@ -1,0 +1,26 @@
+{
+  "total_lines": 20,
+  "by_level": {
+    "INFO": 6,
+    "WARN": 5,
+    "ERROR": 9
+  },
+  "error_services": {
+    "PaymentService": 3,
+    "UserService": 2,
+    "OrderService": 2,
+    "EmailService": 1,
+    "AuthService": 1
+  },
+  "warnings": [
+    "Slow query detected: SELECT * FROM orders (2.3s)",
+    "Memory usage: 78% (threshold: 80%)",
+    "Rate limit approaching: API key ak_prod_xxx (85/100 rpm)",
+    "Disk usage: /data at 92%",
+    "SSL certificate expires in 7 days (gateway.pay.com)"
+  ],
+  "critical_issues": [
+    "OrderService: Deadlock detected on table 'inventory' - 直接影响核心订单处理功能",
+    "AuthService: Invalid JWT signature for user_id=4521 - 安全认证问题"
+  ]
+}

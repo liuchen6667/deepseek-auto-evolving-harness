@@ -1,0 +1,13 @@
+{
+  "timeline": [
+    {"time": "01:02", "event": "feature_flag checkout_profile_enrichment enabled=true"},
+    {"time": "01:03", "event": "profile-db connections spiked to 99% after flag enable"},
+    {"time": "01:04", "event": "checkout upstream_profile_timeout errors began (count=18)"},
+    {"time": "01:08", "event": "mitigation rollback checkout_profile_enrichment started"},
+    {"time": "01:10", "event": "checkout error_rate back_to_baseline"}
+  ],
+  "root_cause": "N+1 query path triggered by checkout_profile_enrichment feature flag",
+  "ruled_out": ["network anomaly", "payment-gateway vendor issue"],
+  "confidence": "high",
+  "evidence_refs": ["alerts.log lines 1-2", "db_metrics.json profile-db metrics", "chat_notes.md DBA analysis"]
+}

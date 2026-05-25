@@ -1,0 +1,12 @@
+{
+  "claim_assessments": [
+    {"claim_id": "C1", "status": "contradicted", "evidence": ["E1"]},
+    {"claim_id": "C2", "status": "contradicted", "evidence": ["E2"]},
+    {"claim_id": "C3", "status": "supported", "evidence": ["E3"]},
+    {"claim_id": "C4", "status": "contradicted", "evidence": ["E4"]},
+    {"claim_id": "C5", "status": "supported", "evidence": ["E1", "E4"]}
+  ],
+  "primary_incident_driver": "发布变更",
+  "recommended_action": "加强发布后的监控和快速回滚机制，并与供应商建立更早的故障同步机制。",
+  "notes": ["错误首次出现在发布后7分钟，与发布强相关。", "供应商状态页 degraded 时间晚于错误出现时间，且影响范围更广。"]
+}

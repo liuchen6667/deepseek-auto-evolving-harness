@@ -1,0 +1,42 @@
+{
+  "id": "planning_17_dependency_tradeoff_plan_live",
+  "score": 0.8500000000000001,
+  "passed": true,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "now": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "['schema-prepare', 'service-cutover', 'smoke-verify']"
+    },
+    "defer": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "[{'task': 'analytics-rebuild', 'reason': 'excluded from current delivery window'}, {'task': 'cache-warm', 'reason': 'depends on service-cutover which is in execution chain but capacity limited to 3 slots'}, {'task': 'report-migration', 'reason': 'depends on schema-prepare which is in execution chain but capacity limited to 3 slots'}]"
+    },
+    "order": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "['schema-prepare', 'service-cutover', 'smoke-verify']"
+    },
+    "rule": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "Prefer the highest-priority dependency-closed chain that fits in the current window."
+    },
+    "just": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['schema-prepare is foundational and must complete before dependent tasks', 'Only 3 slots available, so only a chain of 3 tasks can be executed now', 'analytics-rebuild is excluded from current window per delivery constraints']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['task_graph.json', 'capacity.json', 'priority_rules.md', 'delivery_window.json']"
+    }
+  }
+}

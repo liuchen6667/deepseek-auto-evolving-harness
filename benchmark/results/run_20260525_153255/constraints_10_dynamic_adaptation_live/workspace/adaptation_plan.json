@@ -1,0 +1,37 @@
+{
+  "slot_decisions": [
+    {
+      "slot_start": 0,
+      "active_workloads": ["billing_sync", "realtime_search"],
+      "throughput_units": 19
+    },
+    {
+      "slot_start": 5,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 10,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 15,
+      "active_workloads": ["realtime_search"],
+      "throughput_units": 12
+    },
+    {
+      "slot_start": 20,
+      "active_workloads": ["fraud_guard"],
+      "throughput_units": 6
+    }
+  ],
+  "final_delayed_workloads": [],
+  "final_canceled_workloads": ["image_backfill", "report_export"],
+  "total_completed_units": 61,
+  "notes": [
+    "在slot 5（内存限制1.0GB）中，billing_sync（内存0.9GB）无法与realtime_search（内存0.7GB）同时运行，因为两者内存总和1.6GB超过限制。选择realtime_search单独运行以最大化吞吐量（12单位 vs billing_sync的7单位）。",
+    "image_backfill由于延迟6.0s超过slot 15和20的延迟限制（3.0s）而无法运行，report_export由于错误率1.5%超过slot 20的错误率限制（0.1%）而无法运行。两者都是cancelable=true，因此被取消。",
+    "fraud_guard是唯一满足slot 20严格错误率限制（0.1%）的工作负载，其错误率0.08%符合要求，因此在最终槽中运行。"
+  ]
+}

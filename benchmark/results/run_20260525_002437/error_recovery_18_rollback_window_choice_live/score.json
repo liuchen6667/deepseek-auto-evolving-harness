@@ -1,0 +1,42 @@
+{
+  "id": "error_recovery_18_rollback_window_choice_live",
+  "score": 0.5,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "selected": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "w2"
+    },
+    "rej": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "[{'window': 'w1', 'reason': 'clean but too old'}, {'window': 'w3', 'reason': 'includes corrupted writes'}, {'window': 'w4', 'reason': 'after faulty change set landed'}]"
+    },
+    "verify": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['w2 is the latest clean point before corruption starts', 'choose_latest_clean_window_before_corruption', 'Restore service while minimizing recovery gap and preserving integrity']"
+    },
+    "gap": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "0"
+    },
+    "rule": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "choose_latest_clean_window_before_corruption"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['rollback_candidates.json', 'signal_timeline.md', 'integrity_rules.json', 'recovery_target.txt']"
+    }
+  }
+}

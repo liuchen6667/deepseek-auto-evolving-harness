@@ -1,0 +1,8 @@
+id,name,category,price,in_stock
+1,Laptop Pro,Electronics,1299.99,yes
+2,Wireless Mouse,Accessories,29.50,yes
+3,USB-C Hub,Accessories,49.99,no
+4,"Monitor 27""",Electronics,399.00,yes
+5,Keyboard,Accessories,79.99,yes
+6,Webcam HD,Electronics,59.99,no
+7,Desk Lamp,Furniture,34.50,yes

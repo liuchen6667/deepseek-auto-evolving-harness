@@ -1,0 +1,42 @@
+{
+  "id": "constraints_16_compound_guardrail_selection_live",
+  "score": 0.6000000000000001,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "allowed": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "['item_a', 'item_c']"
+    },
+    "blocked": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'item': 'item_b', 'reason': 'region-blocked'}, {'item': 'item_d', 'reason': 'budget constraint after selecting higher priority items'}, {'item': 'item_e', 'reason': 'ineligible'}]"
+    },
+    "budget": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "9"
+    },
+    "guard": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "region guardrails and total budget"
+    },
+    "rules": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "['item_e excluded due to ineligibility', 'item_b excluded due to region block', 'item_d excluded due to budget constraint after selecting item_a and item_c']"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['candidate_set.json', 'guardrails.md', 'eligibility_rules.json', 'selection_budget.txt']"
+    }
+  }
+}

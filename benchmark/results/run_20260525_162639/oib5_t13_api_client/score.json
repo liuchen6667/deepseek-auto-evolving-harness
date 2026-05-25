@@ -1,0 +1,42 @@
+{
+  "id": "oib5_t13_api_client",
+  "score": 1.0,
+  "passed": true,
+  "checkpoints": {
+    "client_syntax": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "valid syntax"
+    },
+    "client_surface": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "selected_class=WeatherClient; __init__ args=['self', 'api_key', 'base_url']; get_current args=['self', 'city']; get_forecast args=['self', 'city', 'days']; subscribe_alert args=['self', 'city', 'threshold', 'callback_url']"
+    },
+    "client_module_focus": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "client module is focused on production code only"
+    },
+    "endpoint_contract": {
+      "score": 0.2,
+      "max": 0.2,
+      "detail": "8/8 contract tokens found"
+    },
+    "error_handling": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "6 error-handling markers found"
+    },
+    "tests_exist": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "9 tests (need >= 6)"
+    },
+    "tests_pass": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "9/9 passed"
+    }
+  }
+}

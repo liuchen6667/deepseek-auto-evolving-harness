@@ -1,0 +1,42 @@
+{
+  "id": "error_recovery_15_partial_restore_coordination_live",
+  "score": 0.4736842105263158,
+  "passed": false,
+  "checkpoints": {
+    "file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "exists"
+    },
+    "now": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "['config-service', 'status-api']"
+    },
+    "later": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "[{'service': 'checkout-api', 'reason': 'depends_on_payment-adapter which is blocked'}, {'service': 'payment-adapter', 'reason': 'gateway_state_dirty'}, {'service': 'receipt-worker', 'reason': 'depends_on_checkout-api which is blocked'}]"
+    },
+    "order": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['config-service', 'status-api', 'payment-adapter']"
+    },
+    "checks": {
+      "score": 0.0,
+      "max": 0.15,
+      "detail": "['Verify config-service is healthy and serving configuration', 'Confirm status-api returns correct system status to customers', 'Ensure customer status visibility is fully restored before proceeding to transaction services']"
+    },
+    "priority": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "status_visibility_before_transaction_recovery"
+    },
+    "refs": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "['service_graph.json', 'restore_status.json', 'dependency_rules.md', 'customer_impact.json']"
+    }
+  }
+}

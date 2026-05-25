@@ -1,0 +1,18 @@
+{
+  "chosen_strategy": "strategy_a",
+  "dominated_strategies": [
+    {"strategy": "strategy_b", "reason": "feasible but higher cost without extra coverage, dominated by strategy_a on cost"},
+    {"strategy": "strategy_c", "reason": "infeasible due to requiring a forbidden remote step"}
+  ],
+  "proof_skeleton": [
+    "strategy_a is feasible under local constraints (no forbidden remote steps)",
+    "strategy_a is sufficient to solve the local task",
+    "strategy_a has minimal cost among feasible strategies (strategy_b costs more without extra coverage)"
+  ],
+  "governing_constraint": "minimal_feasible_strategy_under_local_tool_constraints",
+  "required_preconditions": [
+    "strategy_a is feasible and sufficient",
+    "strategy_c requires a forbidden remote step"
+  ],
+  "evidence_refs": ["goal.md", "strategy_candidates.json", "tool_constraints.md", "proof_rules.json"]
+}

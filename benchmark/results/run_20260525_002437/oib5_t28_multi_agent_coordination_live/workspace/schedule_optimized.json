@@ -1,0 +1,171 @@
+{
+  "schedule": [
+    {
+      "task_id": "task_001",
+      "agent_id": "agent_002",
+      "start_time": 0,
+      "end_time": 3.33,
+      "resources": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 30
+      },
+      "notes": "Data Extraction - agent_002执行，效率0.9"
+    },
+    {
+      "task_id": "task_002",
+      "agent_id": "agent_001",
+      "start_time": 3.33,
+      "end_time": 5.33,
+      "resources": {
+        "cpu": 10,
+        "memory": 15,
+        "bandwidth": 5
+      },
+      "notes": "Data Validation - agent_001执行，依赖task_001"
+    },
+    {
+      "task_id": "task_006",
+      "agent_id": "agent_005",
+      "start_time": 5.33,
+      "end_time": 8.33,
+      "resources": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 10
+      },
+      "notes": "Quality Analysis - agent_005有analysis能力，效率1.0，依赖task_002，与task_003并行"
+    },
+    {
+      "task_id": "task_003",
+      "agent_id": "agent_001",
+      "start_time": 5.33,
+      "end_time": 9.33,
+      "resources": {
+        "cpu": 25,
+        "memory": 30,
+        "bandwidth": 10
+      },
+      "notes": "Data Transformation - agent_001执行，依赖task_002"
+    },
+    {
+      "task_id": "task_004",
+      "agent_id": "agent_004",
+      "start_time": 9.33,
+      "end_time": 12.49,
+      "resources": {
+        "cpu": 30,
+        "memory": 20,
+        "bandwidth": 5
+      },
+      "notes": "Encryption - agent_004执行，效率0.95，依赖task_003"
+    },
+    {
+      "task_id": "task_007",
+      "agent_id": "agent_005",
+      "start_time": 8.33,
+      "end_time": 10.33,
+      "resources": {
+        "cpu": 10,
+        "memory": 15,
+        "bandwidth": 5
+      },
+      "notes": "Report Generation - agent_005有reporting能力，依赖task_006"
+    },
+    {
+      "task_id": "task_005",
+      "agent_id": "agent_004",
+      "start_time": 12.49,
+      "end_time": 14.60,
+      "resources": {
+        "cpu": 20,
+        "memory": 25,
+        "bandwidth": 5
+      },
+      "notes": "Compression - agent_004执行，效率0.95，依赖task_004"
+    },
+    {
+      "task_id": "task_009",
+      "agent_id": "agent_002",
+      "start_time": 14.60,
+      "end_time": 18.60,
+      "resources": {
+        "cpu": 10,
+        "memory": 10,
+        "bandwidth": 50
+      },
+      "notes": "Network Transfer - agent_002有network_io能力，依赖task_005"
+    },
+    {
+      "task_id": "task_008",
+      "agent_id": "agent_004",
+      "start_time": 14.60,
+      "end_time": 17.76,
+      "resources": {
+        "cpu": 15,
+        "memory": 20,
+        "bandwidth": 20
+      },
+      "notes": "Archival - agent_004执行，效率0.95，依赖task_005，与task_009并行"
+    },
+    {
+      "task_id": "task_010",
+      "agent_id": "agent_003",
+      "start_time": 18.60,
+      "end_time": 21.33,
+      "resources": {
+        "cpu": 20,
+        "memory": 25,
+        "bandwidth": 10
+      },
+      "notes": "Final Validation - agent_003执行，效率1.1，依赖task_007, task_008, task_009"
+    }
+  ],
+  "summary": {
+    "total_tasks": 10,
+    "total_agents": 5,
+    "estimated_completion_time": 21.33,
+    "time_limit": 20,
+    "within_time_limit": false,
+    "critical_path_time": 21.33,
+    "agent_utilization": {
+      "agent_001": {
+        "tasks_assigned": 2,
+        "total_time": 4.0,
+        "utilization_percentage": 18.8
+      },
+      "agent_002": {
+        "tasks_assigned": 2,
+        "total_time": 7.33,
+        "utilization_percentage": 34.4
+      },
+      "agent_003": {
+        "tasks_assigned": 1,
+        "total_time": 2.73,
+        "utilization_percentage": 12.8
+      },
+      "agent_004": {
+        "tasks_assigned": 3,
+        "total_time": 8.43,
+        "utilization_percentage": 39.5
+      },
+      "agent_005": {
+        "tasks_assigned": 2,
+        "total_time": 5.0,
+        "utilization_percentage": 23.4
+      }
+    },
+    "resource_peak_usage": {
+      "peak_cpu": 65,
+      "peak_memory": 75,
+      "peak_bandwidth": 85,
+      "time_of_peak": "time 0-3.33 (task_001单独执行时)"
+    },
+    "optimization_notes": [
+      "调整了task_006和task_007由agent_005执行，更好地利用agent能力",
+      "agent_002同时执行task_001和task_009，提高利用率",
+      "但关键路径时间仍然是21.33，因为task_010必须等待所有前置任务完成",
+      "要进一步缩短时间，需要减少关键路径上的任务时间"
+    ]
+  }
+}

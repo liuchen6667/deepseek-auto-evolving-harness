@@ -1,0 +1,11 @@
+{
+  "chosen_strategy": "strategy_a",
+  "dominated_strategies": [
+    {"strategy": "strategy_b", "reason": "higher_cost_no_extra_coverage"},
+    {"strategy": "strategy_c", "reason": "requires_forbidden_remote_step"}
+  ],
+  "proof_skeleton": ["strategy_a_satisfies_all_local_constraints", "strategy_b_has_higher_cost_without_benefit", "strategy_a_is_sufficient_for_goal"],
+  "governing_constraint": "minimal_feasible_strategy_under_local_tool_constraints",
+  "required_preconditions": ["strategy_a_is_feasible", "strategy_a_is_sufficient"],
+  "evidence_refs": ["goal.md", "strategy_candidates.json", "tool_constraints.md", "proof_rules.json"]
+}

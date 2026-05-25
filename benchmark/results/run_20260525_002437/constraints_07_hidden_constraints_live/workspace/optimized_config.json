@@ -1,0 +1,48 @@
+{
+  "database": {
+    "pool_size": 10,
+    "max_connections": 10,
+    "connection_timeout": 30,
+    "statement_timeout": 10,
+    "idle_in_transaction_session_timeout": 10000,
+    "pool_pre_ping": true,
+    "pool_recycle": 3600
+  },
+  "cache": {
+    "default_ttl": 60,
+    "hot_data_ttl": 300,
+    "cold_data_ttl": 30,
+    "enable_preheat": true,
+    "preheat_interval": 300,
+    "max_memory_usage": "80%"
+  },
+  "upload": {
+    "max_file_size": 5242880,
+    "chunk_size": 1048576,
+    "enable_resumable": true,
+    "temp_dir_cleanup_interval": 3600,
+    "allowed_extensions": ["jpg", "png", "pdf", "txt"]
+  },
+  "api": {
+    "rate_limit_per_minute": 100,
+    "burst_limit": 20,
+    "user_rate_limit": 10,
+    "ip_rate_limit": 50,
+    "enable_graceful_degradation": true,
+    "timeout": 30
+  },
+  "query": {
+    "max_rows": 1000,
+    "default_page_size": 50,
+    "max_page_size": 200,
+    "enable_cursor_pagination": true,
+    "query_timeout": 5
+  },
+  "performance": {
+    "enable_compression": true,
+    "enable_caching_headers": true,
+    "enable_gzip": true,
+    "enable_brotli": false,
+    "static_file_cache_duration": 86400
+  }
+}

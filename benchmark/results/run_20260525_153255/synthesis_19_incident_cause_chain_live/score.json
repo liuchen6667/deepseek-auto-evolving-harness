@@ -1,0 +1,42 @@
+{
+  "id": "synthesis_19_incident_cause_chain_live",
+  "score": 0.7473684210526315,
+  "passed": true,
+  "checkpoints": {
+    "cause_chain_file_exists": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "incident_cause_chain.json exists"
+    },
+    "timeline_is_exact": {
+      "score": 0.16,
+      "max": 0.2,
+      "detail": "event_hits=4/5 timeline=[{'time': '09:14', 'event': 'checkout service deployed config_v42 with EU tax endpoint mapping change'}, {'time': '09:16', 'event': 'checkout service logs tax service request failed: region mismatch for eu-order'}, {'time': '09:17', 'event': 'checkout service retry failed: tax endpoint us-east cannot serve eu tax quote'}, {'time': '09:19', 'event': 'incident detected: EU checkout requests failing with tax calculation errors'}, {'time': '09:23', 'event': 'rollback started to config_v41'}]"
+    },
+    "root_cause_is_grounded": {
+      "score": 0.0,
+      "max": 0.2,
+      "detail": "root_cause='checkout config change misrouted EU tax requests to incorrect endpoint'"
+    },
+    "causal_chain_is_grounded": {
+      "score": 0.15,
+      "max": 0.15,
+      "detail": "why_it_happened=['checkout service config_v42 deployment switched EU tax endpoint mapping', 'misconfigured endpoint mapping caused EU tax requests to be sent to us-east endpoint', 'us-east tax endpoint cannot serve EU tax quotes, resulting in region mismatch errors']"
+    },
+    "ruled_out_is_grounded": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "ruled_out_hypotheses=['payment gateway outage (would affect both EU and US traffic)', 'database pool exhaustion (presents as timeout saturation, not region mismatch)']"
+    },
+    "mitigation_is_grounded": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "immediate_mitigation='rollback checkout config to last known good version (config_v41)'"
+    },
+    "confidence_and_refs_are_correct": {
+      "score": 0.1,
+      "max": 0.1,
+      "detail": "confidence='high' evidence_refs=['incident_ticket.md', 'service_logs.json', 'deploy_history.json', 'runbook_excerpt.txt']"
+    }
+  }
+}

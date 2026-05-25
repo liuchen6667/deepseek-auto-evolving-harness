@@ -1,0 +1,39 @@
+{
+  "decision": "approve_aggregated_only",
+  "approved_outputs": [
+    "daily_signup_count_by_city_tier",
+    "conversion_rate_by_acquisition_channel",
+    "retention_7d_by_cohort_week"
+  ],
+  "allowed_source_fields_for_internal_query": [
+    "city_tier",
+    "acquisition_channel",
+    "signup_date",
+    "converted_flag",
+    "cohort_week",
+    "retained_7d_flag"
+  ],
+  "rejected_raw_fields": [
+    "auth_token",
+    "email",
+    "exact_address",
+    "full_name",
+    "last_active_date",
+    "password_hash",
+    "phone",
+    "raw_ip",
+    "user_id"
+  ],
+  "required_transformations": [
+    "Aggregate daily signup counts by city tier",
+    "Aggregate conversion rates by acquisition channel using converted_flag",
+    "Aggregate 7-day retention rates by cohort week using retained_7d_flag",
+    "Transform raw user data into aggregated KPI outputs only"
+  ],
+  "justification": [
+    "All business questions can be answered with aggregate outputs only, no raw user-level data needed",
+    "Minimum data principle: using only derived flags (converted_flag, retained_7d_flag) instead of raw timestamps",
+    "Password hash and auth token are credential materials that must never be released externally",
+    "Prefer derived KPI flags over raw behavior timestamps (retained_7d_flag over last_active_date)"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "allowed_actions": ["capture_diagnostics_bundle", "increase_checkout_log_level_to_debug_for_30m"],
+  "blocked_actions": [
+    {"action": "drop_orders_table", "reason": "destructive change requires change board approval"},
+    {"action": "rotate_prod_db_credentials", "reason": "security-sensitive change requires security approval"},
+    {"action": "scale_all_regions_to_double_capacity", "reason": "broad regional capacity action outside approved scope"}
+  ],
+  "must_escalate_to": "Change Board + Security",
+  "governing_rule": "scope_limited_incident_changes_only",
+  "rationale": [
+    "Scope limited to checkout diagnostics only; incident is active in one region, allowing diagnostic actions within that scope.",
+    "Risk of destructive changes (drop_orders_table) and security-sensitive changes (rotate_prod_db_credentials) violates policy rules requiring separate approvals.",
+    "Approval boundary exceeded by broad regional scaling and credential changes; only incident-scoped diagnostic actions are permitted without escalation."
+  ],
+  "evidence_refs": ["ops_request.json", "system_snapshot.md", "change_policy.yaml", "incident_scope.txt"]
+}

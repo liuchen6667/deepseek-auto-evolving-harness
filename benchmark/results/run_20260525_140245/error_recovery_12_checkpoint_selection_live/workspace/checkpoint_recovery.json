@@ -1,0 +1,23 @@
+{
+  "selected_checkpoint": "C2",
+  "total_recovery_cost": 51,
+  "rejected_checkpoints": [
+    {"id": "C1", "reason": "总恢复成本80高于C2的51，不是最优选择"},
+    {"id": "C3", "reason": "总恢复成本60高于C2的51，且status为suspect_duplicate_write需要计入risk_penalty"},
+    {"id": "C4", "reason": "status以invalid_开头（invalid_missing_index_on_orders），根据规则不能被选"}
+  ],
+  "recovery_sequence": [
+    "验证C2检查点完整性",
+    "执行恢复操作（restore）",
+    "追赶数据（catch_up）",
+    "验证业务功能正常"
+  ],
+  "verification_focus": [
+    "检查数据一致性：确保09:35时间点后的事务数据完整",
+    "验证业务逻辑：确认恢复后系统功能正常，无数据丢失影响"
+  ],
+  "notes": [
+    "C2提供最佳成本效益：总成本51分钟，数据损失25分钟（09:35到10:00）",
+    "C4因invalid状态被排除，C3因risk_penalty增加成本，C1成本过高"
+  ]
+}

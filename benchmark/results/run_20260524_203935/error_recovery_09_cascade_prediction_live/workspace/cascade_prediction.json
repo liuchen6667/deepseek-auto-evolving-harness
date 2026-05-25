@@ -1,0 +1,19 @@
+{
+  "direct_impacts": ["B", "C", "F", "G", "H"],
+  "indirect_impacts": ["A"],
+  "risk_levels": {
+    "A": "high",
+    "B": "high",
+    "C": "medium",
+    "F": "high",
+    "G": "medium",
+    "H": "medium"
+  },
+  "recovery_priority": ["E", "D", "B", "C", "F", "G", "H", "A"],
+  "notes": [
+    "关键传播链路1：D停机直接影响B和F，进而通过B影响A（因为A->B），形成A-B-D级联故障链",
+    "关键传播链路2：E降级直接影响C、G、H，进而通过C影响A（因为A->C），形成A-C-E级联影响链",
+    "缓解思路：由于A同时依赖B和C，风险等级为high，建议在维护期间监控A的性能指标，并准备回滚方案",
+    "恢复策略：先恢复E（影响3个服务）再恢复D（影响2个服务），因为E影响范围更大，但D停机影响更严重（完全不可用vs降级）"
+  ]
+}

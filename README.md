@@ -1,4 +1,4 @@
-# DeepSeek Self-Evolving Harness
+# DeepSeek Auto-Evolving Harness
 
 一个简洁优雅的 Python 命令行 Agent，内置基于 Benchmark 的自我进化机制。由 liuchen 制作。
 
@@ -45,7 +45,7 @@
 ## 快速开始
 
 ```bash
-cd deepseek-self-evolving-harness
+cd deepseek-auto-evolving-harness
 pip install -r requirements.txt
 
 # 编辑 config.py 填入你的 API 配置
@@ -98,20 +98,20 @@ benchmark/results/run_20260524_134052/
 
 ## 自我进化
 
-本项目内置了基于 benchmark 的自我进化机制。流程为：
+本项目的自我进化过程由 **Claude Code** 在 `self_evolution.md` 的指导下自动完成。进化流程为：
 
 1. 检查 `benchmark/results/` 中已有的评测结果（按时间戳命名），分析失败任务的问题
 2. 如果没有已有结果，先运行 `python benchmark/run.py` 生成基线
-3. 针对问题对框架进行改造（提示词优化、工具改进、上下文策略等）
+3. Claude Code 根据失败案例和 `self_evolution.md` 中的进化策略，对框架进行改造（提示词优化、工具改进、上下文策略等）
 4. 运行全量评测（约 1 小时）验证分数是否提升
 5. 提升则本轮结束，未提升则总结经验继续改造
 
-详见 [self_evolution.md](self_evolution.md)。
+整个进化过程无需人工干预，Claude Code 自动分析、改造、验证，形成闭环。详见 [self_evolution.md](self_evolution.md)。
 
 ## 项目结构
 
 ```
-deepseek-self-evolving-harness/
+deepseek-auto-evolving-harness/
 ├── main.py              # CLI 入口
 ├── agent.py             # Agent 循环 + 流式过滤 + 上下文压缩 + 格式纠错
 ├── llm.py              # 流式 LLM 客户端 + 指数退避重试

@@ -36,13 +36,11 @@ for label, score, color, style in benchmarks:
     ax.text(6.15, score, f'{label}: {score:.4f}', va='center', ha='left',
             fontsize=10, color=color, fontweight='bold', zorder=4)
 
-# Highlight Gen 6 achievement
-ax.axvline(x=6, color='#27AE60', linestyle='--', linewidth=1.5, alpha=0.6, zorder=2)
-ax.annotate('Gen 6: 0.8024\nSurpasses V4-Flash\n& approaches V4-Pro!',
-            xy=(6, 0.8024), xytext=(4.8, 0.815),
-            fontsize=11, fontweight='bold', color='#27AE60',
-            arrowprops=dict(arrowstyle='->', color='#27AE60', lw=1.5),
-            bbox=dict(boxstyle='round,pad=0.4', facecolor='#E8F8F5', edgecolor='#27AE60'),
+# Highlight Gen 6 achievement with a simple annotation
+ax.annotate('Gen 6: 0.8024',
+            xy=(6, 0.8024), xytext=(5.3, 0.81),
+            fontsize=11, fontweight='bold', color='#2980B9',
+            arrowprops=dict(arrowstyle='->', color='#2980B9', lw=1.5),
             zorder=7)
 
 # Styling

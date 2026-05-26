@@ -12,11 +12,12 @@
 
 ### 关键数据对比
 
-| 配置 | DeepSeek-V3.2 (non-thinking) | DeepSeek-V4-Flash (thinking) | DeepSeek-V4-Pro (thinking) |
-|------|------------------------------|------------------------------|------------------------------|
-| 初始 harness + 通用 tool call | 0.6795 | 0.5599 | 0.6973 |
-| 初始 harness + 官方 tool call | - | 0.6629 | 0.7069 |
-| **自动进化 harness + 自动进化 tool call** | **0.7886** (Gen 5) | - | - |
+| 配置 | DeepSeek-V3.2 (non-thinking) | DeepSeek-V4-Flash (thinking) | DeepSeek-V4-Pro (thinking) | Claude Opus 4.6 (thinking) |
+|------|------------------------------|------------------------------|------------------------------|------------------------------|
+| 初始 harness + 通用 tool call | 0.6795 | 0.5599 | 0.6973 | - |
+| 初始 harness + 官方 tool call | - | 0.6629 | 0.7069 | - |
+| **自动进化 harness + 自动进化 tool call** | **0.8024** (Gen 6) | - | - | - |
+| Claude Code 作为 harness | - | 0.8006 | 0.806 | 0.8184 |
 
 **进化历程** (DeepSeek-V3.2, non-thinking):
 - Initial: 0.6795
@@ -24,9 +25,10 @@
 - Gen 2: 0.7654 (+12.6%)
 - Gen 3: 0.7789 (+14.6%)
 - Gen 4: 0.7722 (小幅回落)
-- **Gen 5: 0.7886 (+16.1%)**
+- Gen 5: 0.7886 (+16.1%)
+- **Gen 6: 0.8024 (+18.1%)**
 
-相比初始 harness，自动进化系统在多轮迭代中实现了 **+16.1%** 的绝对分数提升，超越了官方 tool call 配置的 V4-Pro 表现。
+相比初始 harness，自动进化系统在多轮迭代中实现了 **+18.1%** 的绝对分数提升，超越了官方 tool call 配置的 V4-Pro 表现。
 
 ## 特性
 

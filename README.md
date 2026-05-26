@@ -1,6 +1,6 @@
 # DeepSeek Auto-Evolving Harness
 
-一个简洁优雅的 Python 命令行 Agent，内置基于 Benchmark 的自动进化机制。由 liuchen 制作。
+从零开始创建的 harness，在单数据集上经过 6 轮进化，用上一代非思考模型逼近前沿效果。
 
 通用于任何大语言模型——工具调用通过 prompt 注入实现，不依赖 function calling 协议。
 

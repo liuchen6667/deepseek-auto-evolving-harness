@@ -22,17 +22,12 @@ ax.plot(x, scores, color='#2980B9', linewidth=3, marker='o', markersize=12,
         label='Auto-Evolving Harness + Auto-Evolving Tool Call (DeepSeek-V3.2)',
         zorder=5)
 
-# Annotate each point
+# Annotate each point - all labels consistently above their points
 for i, (xi, yi) in enumerate(zip(x, scores)):
-    if i == 6:  # Gen 6 - label on left to avoid benchmark labels
-        ax.annotate(f'{yi:.4f}', (xi, yi), textcoords="offset points",
-                    xytext=(-35, 5), ha='right', fontsize=12, fontweight='bold',
-                    color='#2980B9', zorder=6)
-    else:
-        offset = 12 if i != 4 else -18  # Gen 4 annotation below to avoid overlap
-        ax.annotate(f'{yi:.4f}', (xi, yi), textcoords="offset points",
-                    xytext=(0, offset), ha='center', fontsize=12, fontweight='bold',
-                    color='#2980B9', zorder=6)
+    offset = 12 if i != 4 else -18  # Gen 4 annotation below to avoid self-overlap
+    ax.annotate(f'{yi:.4f}', (xi, yi), textcoords="offset points",
+                xytext=(0, offset), ha='center', fontsize=12, fontweight='bold',
+                color='#2980B9', zorder=6)
 
 # Plot benchmark lines - labels staggered to avoid overlap
 label_positions = [

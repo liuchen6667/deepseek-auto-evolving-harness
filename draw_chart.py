@@ -24,24 +24,37 @@ ax.plot(x, scores, color='#2980B9', linewidth=3, marker='o', markersize=12,
 
 # Annotate each point
 for i, (xi, yi) in enumerate(zip(x, scores)):
-    offset = 12 if i != 4 else -18  # Gen 4 annotation below to avoid overlap
-    ax.annotate(f'{yi:.4f}', (xi, yi), textcoords="offset points",
-                xytext=(0, offset), ha='center', fontsize=12, fontweight='bold',
-                color='#2980B9', zorder=6)
+    if i == 6:  # Gen 6 - label on left to avoid benchmark labels
+        ax.annotate(f'{yi:.4f}', (xi, yi), textcoords="offset points",
+                    xytext=(-35, 5), ha='right', fontsize=12, fontweight='bold',
+                    color='#2980B9', zorder=6)
+    else:
+        offset = 12 if i != 4 else -18  # Gen 4 annotation below to avoid overlap
+        ax.annotate(f'{yi:.4f}', (xi, yi), textcoords="offset points",
+                    xytext=(0, offset), ha='center', fontsize=12, fontweight='bold',
+                    color='#2980B9', zorder=6)
 
-# Plot benchmark lines
-for label, score, color, style in benchmarks:
+# Plot benchmark lines - labels staggered to avoid overlap
+label_positions = [
+    (6.35, 0.8200, 'Claude Code + Opus 4.6 (thinking): 0.8184'),  # top
+    (6.35, 0.8080, 'Claude Code + V4-Pro (thinking): 0.8060'),
+    (6.35, 0.7960, 'Claude Code + V4-Flash (thinking): 0.8006'),
+    (6.35, 0.7100, 'Initial Harness + Official Tool (V4-Pro): 0.7069'),  # bottom
+]
+
+for i, (label, score, color, style) in enumerate(benchmarks):
     ax.axhline(y=score, color=color, linestyle=style, linewidth=2, alpha=0.8, zorder=3)
-    # Label on the right
-    ax.text(6.15, score, f'{label}: {score:.4f}', va='center', ha='left',
+    lx, ly, ltext = label_positions[i]
+    # Calculate proper vertical alignment
+    va = 'center'
+    if i == 0:  # top label - align bottom to line
+        va = 'top'
+    elif i == 3:  # bottom label
+        va = 'bottom'
+    ax.text(lx, ly, ltext, va=va, ha='left',
             fontsize=10, color=color, fontweight='bold', zorder=4)
 
-# Highlight Gen 6 achievement with a simple annotation
-ax.annotate('Gen 6',
-            xy=(6, 0.8024), xytext=(5.5, 0.815),
-            fontsize=11, fontweight='bold', color='#2980B9',
-            arrowprops=dict(arrowstyle='->', color='#2980B9', lw=1.5),
-            zorder=7)
+ax.set_xlim(-0.3, 7.2)
 
 # Styling
 ax.set_xticks(x)

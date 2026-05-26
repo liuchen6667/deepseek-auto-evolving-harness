@@ -1,6 +1,6 @@
 # DeepSeek Auto-Evolving Harness
 
-从零开始创建的 harness，在单数据集上经过 6 轮进化，用上一代非思考模型逼近前沿效果。
+从零开始创建的 harness，在单数据集上经过 6 轮进化，用DeepSeek-V3.2非思考模型逼近Claude Code + Opus 4.6思考模型。
 
 6轮进化主要方法为：缩短执行路径，修正工具调用兼容错误格式，调整system prompt，调整推理参数，增加执行完毕后的反思过程。
 

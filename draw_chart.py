@@ -37,8 +37,8 @@ for label, score, color, style in benchmarks:
             fontsize=10, color=color, fontweight='bold', zorder=4)
 
 # Highlight Gen 6 achievement with a simple annotation
-ax.annotate('Gen 6: 0.8024',
-            xy=(6, 0.8024), xytext=(5.3, 0.81),
+ax.annotate('Gen 6',
+            xy=(6, 0.8024), xytext=(5.5, 0.815),
             fontsize=11, fontweight='bold', color='#2980B9',
             arrowprops=dict(arrowstyle='->', color='#2980B9', lw=1.5),
             zorder=7)
